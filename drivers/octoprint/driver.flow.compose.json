@@ -1,101 +1,1026 @@
 {
-    "triggers": [
-        {
-            "id": "print_started",
-            "title": {
-                "en": "Print started",
-                "no": "Utskrift startet"
-            },
-            "hint": {
-                "en": "When a print starts",
-                "no": "Når en utskrift starter"
-            },
-            "tokens": [
-                {
-                    "name": "print_started_estimate",
-                    "title": {
-                        "en": "Estimate",
-                        "no": "Estimat"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "print_paused",
-            "title": {
-                "en": "Print paused",
-                "no": "Utskrift pauset"
-            },
-            "hint": {
-                "en": "When a print is paused",
-                "no": "Når en utskrift settes på pause"
-            },
-            "tokens": [
-                {
-                    "name": "print_paused_estimate",
-                    "title": {
-                        "en": "Estimate",
-                        "no": "Estimat"
-                    }
-                },
-                {
-                    "name": "print_paused_time",
-                    "title": {
-                        "en": "Time",
-                        "no": "Tid"
-                    }
-                },
-                {
-                    "name": "print_paused_left",
-                    "title": {
-                        "en": "Left",
-                        "no": "Gjenstående"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "print_finished",
-            "title": {
-                "en": "Print finished",
-                "no": "Print ferdig"
-            },
-            "hint": {
-                "en": "When a print is finished",
-                "no": "Når en utskrift er ferdig"
-            },
-            "tokens": [
-                {
-                    "name": "print_finished_estimate",
-                    "title": {
-                        "en": "Estimate",
-                        "no": "Estimat"
-                    }
-                },
-                {
-                    "name": "print_finished_time",
-                    "title": {
-                        "en": "Time",
-                        "no": "Tid"
-                    }
-                }
-            ]
-        }
-    ],
-    "conditions": [
-        {
-            "id": "is_printing",
-            "title": {
-                "en": "!{{Is|Isn't}} printing"
-            }
-        }
-    ],
-    "actions": [
-        {
-            "id": "cancel_print",
-            "title": {
-                "en": "Cancel current print"
-            }
-        }
-    ]
+	"triggers": [
+		{
+			"id": "print_started",
+			"highlight": true,
+			"title": {
+				"en": "Print started",
+				"no": "Utskrift startet",
+				"nl": "Print gestart"
+			},
+			"hint": {
+				"en": "When a print starts",
+				"no": "Når en utskrift starter",
+				"nl": "Wanneer een print is begonnen"
+			},
+			"tokens": [
+				{
+					"name": "print_started_estimate",
+					"type": "string",
+					"title": {
+						"en": "Estimate",
+						"no": "Estimat",
+						"nl": "Geschat"
+					},
+					"example": {
+						"en": "5h 5m 5s"
+					}
+				},
+				{
+					"name": "print_started_estimate_hms",
+					"type": "string",
+					"title": {
+						"en": "H:M:S",
+						"no": "H:M:S",
+						"nl": "H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "print_started_estimate_seconds",
+					"type": "number",
+					"title": {
+						"en": "Seconds",
+						"nl": "Seconden"
+					},
+					"example": 18305
+				},
+				{
+					"name": "print_started_estimate_end",
+					"type": "string",
+					"title": {
+						"en": "Estimated end",
+						"nl": "Geschat einde"
+					},
+					"example": {
+						"en": "24 Dec 20:00:00"
+					}
+				},
+				{
+					"name": "print_started_estimate_end_short",
+					"type": "string",
+					"title": {
+						"en": "Estimated end short",
+						"nl": "Geschat einde kort"
+					},
+					"example": {
+						"en": "24/12 20:00"
+					}
+				},
+				{
+					"name": "print_started_estimate_end_full",
+					"type": "string",
+					"title": {
+						"en": "Estimated end Full",
+						"nl": "Geschat einde volledig"
+					},
+					"example": {
+						"en": "24 December 20:00:00"
+					}
+				}
+			]
+		},
+		{
+			"id": "print_finished",
+			"highlight": true,
+			"title": {
+				"en": "Print finished",
+				"no": "Print ferdig",
+				"nl": "Print klaar"
+			},
+			"hint": {
+				"en": "When a print is finished",
+				"no": "Når en utskrift er ferdig",
+				"nl": "Wanneer een print klaar is"
+			},
+			"tokens": [
+				{
+					"name": "print_finished_estimate",
+					"type": "string",
+					"title": {
+						"en": "Estimate",
+						"no": "Estimat",
+						"nl": "Geschat"
+					},
+					"example": {
+						"en": "5h 5m 5s"
+					}
+				},
+				{
+					"name": "print_finished_estimate_hms",
+					"type": "string",
+					"title": {
+						"en": "Estimate H:M:S",
+						"no": "Estimat H:M:S",
+						"nl": "Geschat H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "print_finished_estimate_seconds",
+					"type": "number",
+					"title": {
+						"en": "Estimate seconds",
+						"nl": "Geschat seconden"
+					},
+					"example": 18305
+				},
+				{
+					"name": "print_finished_time",
+					"type": "string",
+					"title": {
+						"en": "Print time",
+						"no": "Print tid",
+						"nl": "Print tijd"
+					},
+					"example": {
+						"en": "5h 5m 5s"
+					}
+				},
+				{
+					"name": "print_finished_time_hms",
+					"type": "string",
+					"title": {
+						"en": "Print time H:M:S",
+						"no": "Print tid H:M:S",
+						"nl": "Print tijd H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "print_finished_time_seconds",
+					"type": "number",
+					"title": {
+						"en": "Print time seconds",
+						"nl": "Print time seconden"
+					},
+					"example": 18305
+				}
+			]
+		},
+		{
+			"id": "print_paused",
+			"title": {
+				"en": "Print paused",
+				"no": "Utskrift pauset",
+				"nl": "Print gepauzeerd"
+			},
+			"hint": {
+				"en": "When a print is paused",
+				"no": "Når en utskrift settes på pause",
+				"nl": "Wanneer een print is gepauzeerd"
+			},
+			"tokens": [
+				{
+					"name": "print_paused_estimate",
+					"type": "string",
+					"title": {
+						"en": "Estimated time",
+						"no": "Estimat tid",
+						"nl": "Geschatte tijd"
+					},
+					"example": {
+						"en": "5h 5m 5s"
+					}
+				},
+				{
+					"name": "print_paused_estimate_hms",
+					"type": "string",
+					"title": {
+						"en": "Estimated time H:M:S",
+						"no": "Estimat tid H:M:S",
+						"nl": "Geschatte tijd H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "print_paused_estimate_seconds",
+					"type": "number",
+					"title": {
+						"en": "Estimated time seconds",
+						"nl": "Geschatte tijd seconden"
+					},
+					"example": 18305
+				},
+				{
+					"name": "print_paused_time",
+					"type": "string",
+					"title": {
+						"en": "Print time",
+						"no": "Print tid",
+						"nl": "Print tijd"
+					},
+					"example": {
+						"en": "5h 5m 5s"
+					}
+				},
+				{
+					"name": "print_paused_time_hms",
+					"type": "string",
+					"title": {
+						"en": "Print time H:M:S",
+						"no": "Print tid H:M:S",
+						"nl": "Print tijd H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "print_paused_time_seconds",
+					"type": "number",
+					"title": {
+						"en": "Print time seconds",
+						"nl": "Print tijd seconden"
+					},
+					"example": 18305
+				},
+				{
+					"name": "print_paused_left",
+					"type": "string",
+					"title": {
+						"en": "Time left",
+						"no": "Tid igjen",
+						"nl": "Tijd resterend"
+					},
+					"example": {
+						"en": "5h 5m 5s"
+					}
+				},
+				{
+					"name": "print_paused_left_hms",
+					"type": "string",
+					"title": {
+						"en": "Time left H:M:S",
+						"no": "Tid igjen H:M:S",
+						"nl": "Tijd resterend H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "print_paused_seconds_left",
+					"type": "number",
+					"title": {
+						"en": "Seconds left",
+						"no": "Sekunder igjen",
+						"nl": "Seconden resterend"
+					},
+					"example": 18305
+				}
+			]
+		},
+		{
+			"id": "completion_changed",
+			"highlight": true,
+			"title": {
+				"en": "Completion percentage changed",
+				"nl": "Voltooiing percentage veranderd"
+			},
+			"hint": {
+				"en": "The calculated values are based on the print time with the time left, this can be more accurate.",
+				"nl": "De berekende waardes zijn gebaseerd op de print tijd met de resterende tijd, dit kan accurater zijn."
+			},
+			"tokens": [
+				{
+					"name": "completion",
+					"type": "number",
+					"title": {
+						"en": "Completion #",
+						"nl": "Voltooiing #"
+					},
+					"example": 56.7
+				},
+				{
+					"name": "completion_percent",
+					"type": "number",
+					"title": {
+						"en": "Completion %",
+						"nl": "Voltooiing %"
+					},
+					"example": 0.57
+				}
+			]
+		},
+		{
+			"id": "target_temperature_changed_bed",
+			"title": {
+				"en": "Bed target temperature changed",
+				"nl": "Bed doel temperatuur veranderd"
+			},
+			"$filter": "capabilities=target_temperature.bed",
+			"tokens": [
+				{
+					"name": "temperature",
+					"type": "number",
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"example": 50
+				}
+			]
+		},
+		{
+			"id": "target_temperature_changed_tool",
+			"title": {
+				"en": "Tool target temperature changed",
+				"nl": "Hotend doel temperatuur veranderd"
+			},
+			"tokens": [
+				{
+					"name": "temperature",
+					"type": "number",
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"example": 200
+				}
+			]
+		},
+		{
+			"id": "target_temperature_changed_chamber",
+			"title": {
+				"en": "Chamber target temperature changed",
+				"nl": "Behuizing doel temperatuur veranderd"
+			},
+			"$filter": "capabilities=target_temperature.chamber",
+			"tokens": [
+				{
+					"name": "temperature",
+					"type": "number",
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"example": 50
+				}
+			]
+		},
+		{
+			"id": "measure_temperature_changed_bed",
+			"title": {
+				"en": "Current bed temperature changed",
+				"nl": "Huidige bed temperatuur veranderd"
+			},
+			"$filter": "capabilities=measure_temperature.bed",
+			"tokens": [
+				{
+					"name": "temperature",
+					"type": "number",
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"example": 50
+				}
+			]
+		},
+		{
+			"id": "measure_temperature_changed_tool",
+			"title": {
+				"en": "Current tool temperature changed",
+				"nl": "Huidige hotend temperatuur veranderd"
+			},
+			"tokens": [
+				{
+					"name": "temperature",
+					"type": "number",
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"example": 200
+				}
+			]
+		},
+		{
+			"id": "measure_temperature_changed_chamber",
+			"title": {
+				"en": "Current chamber temperature changed",
+				"nl": "Huidige behuizing temperatuur veranderd"
+			},
+			"$filter": "capabilities=measure_temperature.chamber",
+			"tokens": [
+				{
+					"name": "temperature",
+					"type": "number",
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"example": 200
+				}
+			]
+		},
+		{
+			"id": "bed_cooled_down",
+			"title": {
+				"en": "Bed is cooled down",
+				"nl": "Bed is afgekoeld"
+			},
+			"$filter": "capabilities=measure_temperature.bed"
+		},
+		{
+			"id": "tool_cooled_down",
+			"title": {
+				"en": "Tool is cooled down",
+				"nl": "Hotend is afgekoeld"
+			},
+			"hint": {
+				"en": "This will always trigger when the temperature reaches below the specified threshold, for example also when the printer is waiting for a filament change (filament runout).",
+				"nl": "Dit zal altijd activeren als de temperatuur onder de gespecificeerde drempel komt, bijvoorbeeld ook als de printer wacht op verandering van de filament (filament runout)."
+			}
+		},
+		{
+			"id": "state_changed",
+			"highlight": true,
+			"title": {
+				"en": "Octoprint state changed",
+				"nl": "Status Octoprint veranderd"
+			},
+			"tokens": [
+				{
+					"name": "state",
+					"type": "string",
+					"title": {
+						"en": "State",
+						"nl": "Status"
+					},
+					"example": {
+						"en": "Operational",
+						"nl": "Operationeel"
+					}
+				}
+			]
+		},
+		{
+			"id": "estimated_time_changed",
+			"title": {
+				"en": "Estimated time changed",
+				"nl": "Geschatte tijd veranderd"
+			},
+			"tokens": [
+				{
+					"name": "time",
+					"type": "string",
+					"title": {
+						"en": "Time",
+						"nl": "Tijd"
+					},
+					"example": {
+						"en": "5d 5m 5s"
+					}
+				},
+				{
+					"name": "time_hms",
+					"type": "string",
+					"title": {
+						"en": "H:M:S",
+						"nl": "H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "seconds",
+					"type": "number",
+					"title": {
+						"en": "Seconds",
+						"nl": "Seconden"
+					},
+					"example": 18305
+				}
+			]
+		},
+		{
+			"id": "estimated_end_time_changed",
+			"title": {
+				"en": "Estimated end time changed",
+				"nl": "Verwachte eind tijd veranderd"
+			},
+			"tokens": [
+				{
+					"name": "time",
+					"type": "string",
+					"title": {
+						"en": "Date",
+						"nl": "Datum"
+					},
+					"example": {
+						"en": "24 Dec 20:10:20"
+					}
+				},
+				{
+					"name": "time_short",
+					"type": "string",
+					"title": {
+						"en": "Date short",
+						"nl": "Datum kort"
+					},
+					"example": {
+						"en": "24/12 20:10"
+					}
+				},
+				{
+					"name": "time_full",
+					"type": "string",
+					"title": {
+						"en": "Full date",
+						"nl": "Volledige datum"
+					},
+					"example": {
+						"en": "24 December 20:10:20"
+					}
+				}
+			]
+		},
+		{
+			"id": "time_left_changed",
+			"title": {
+				"en": "Time left changed",
+				"nl": "Resterende tijd veranderd"
+			},
+			"tokens": [
+				{
+					"name": "time",
+					"type": "string",
+					"title": {
+						"en": "Time",
+						"nl": "Tijd"
+					},
+					"example": {
+						"en": "5d 5m 5s"
+					}
+				},
+				{
+					"name": "time_hms",
+					"type": "string",
+					"title": {
+						"en": "H:M:S",
+						"nl": "H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "seconds",
+					"type": "number",
+					"title": {
+						"en": "Seconds",
+						"nl": "Seconden"
+					},
+					"example": 18305
+				}
+			]
+		},
+		{
+			"id": "print_time_changed",
+			"title": {
+				"en": "Print time changed",
+				"nl": "Print tijd veranderd"
+			},
+			"tokens": [
+				{
+					"name": "time",
+					"type": "string",
+					"title": {
+						"en": "Time",
+						"nl": "Tijd"
+					},
+					"example": {
+						"en": "5d 5m 5s"
+					}
+				},
+				{
+					"name": "time_hms",
+					"type": "string",
+					"title": {
+						"en": "H:M:S",
+						"nl": "H:M:S"
+					},
+					"example": {
+						"en": "05:05:05"
+					}
+				},
+				{
+					"name": "seconds",
+					"type": "number",
+					"title": {
+						"en": "Seconds",
+						"nl": "Seconden"
+					},
+					"example": 18305
+				}
+			]
+		},
+		{
+			"id": "file_changed",
+			"title": {
+				"en": "Print file changed",
+				"nl": "Print bestand veranderd"
+			},
+			"tokens": [
+				{
+					"name": "file",
+					"type": "string",
+					"title": {
+						"en": "File",
+						"nl": "Bestand"
+					},
+					"example": {
+						"en": "example.gcode",
+						"nl": "voorbeeld.gcode"
+					}
+				}
+			]
+		},
+		{
+			"id": "error_occurred",
+			"title": {
+				"en": "An error occurred",
+				"nl": "Een fout is opgetreden"
+			},
+			"tokens": [
+				{
+					"name": "error",
+					"type": "string",
+					"title": {
+						"en": "Error",
+						"nl": "Fout"
+					},
+					"example": {
+						"en": "Closing serial port due to emergency stop M112",
+						"nl": "Closing serial port due to emergency stop M112"
+					}
+				}
+			]
+		}
+	],
+	"conditions": [
+		{
+			"id": "is_printing",
+			"title": {
+				"en": "!{{Is|Isn't}} printing",
+				"nl": "Is !{{|niet}} aan het printen"
+			}
+		},
+		{
+			"id": "bed_cooled_down",
+			"title": {
+				"en": "Bed !{{is|isn't}} cooled down",
+				"nl": "Bed is !{{|niet}} afgekoeld"
+			}
+		},
+		{
+			"id": "tool_cooled_down",
+			"title": {
+				"en": "Tool !{{is|isn't}} cooled down",
+				"nl": "Hotend is !{{|niet}} afgekoeld"
+			}
+		},
+		{
+			"id": "octroprint_state",
+			"title": {
+				"en": "Octoprint's state !{{is|isn't}}",
+				"nl": "Status van octoprint is !{{|niet}}"
+			},
+			"titleFormatted": {
+				"en": "State of octoprint !{{is|isn't}} [[state]]",
+				"nl": "Status van octoprint is !{{|niet}} [[state]]"
+			},
+			"args": [
+				{
+					"title": {
+						"en": "State",
+						"nl": "Status"
+					},
+					"name": "state",
+					"type": "dropdown",
+					"value": "Operational",
+					"values": [
+						{
+							"id": "Operational",
+							"label": {
+								"en": "Operational",
+								"nl": "Operationeel"
+							}
+						},
+						{
+							"id": "Closed",
+							"label": {
+								"en": "Offline",
+								"nl": "Offline"
+							}
+						},
+						{
+							"id": "Printing",
+							"label": {
+								"en": "Printing",
+								"nl": "Printen"
+							}
+						},
+						{
+							"id": "Pausing",
+							"label": {
+								"en": "Pausing",
+								"nl": "Pauzeren"
+							}
+						},
+						{
+							"id": "Paused",
+							"label": {
+								"en": "Paused",
+								"nl": "Gepauzeerd"
+							}
+						},
+						{
+							"id": "Connecting",
+							"label": {
+								"en": "Connecting",
+								"nl": "Verbinden"
+							}
+						},
+						{
+							"id": "Detecting serial connection",
+							"label": {
+								"en": "Detecting connection",
+								"nl": "Verbinding detecteren"
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"actions": [
+		{
+			"id": "target_temperature_set_bed",
+			"title": {
+				"en": "Set the bed temperature",
+				"nl": "Stel het bed temperatuur in"
+			},
+			"titleFormatted": {
+				"en": "Set the bed temperature to [[target_temperature]]",
+				"nl": "Stel het bed temperatuur in op  [[target_temperature]]"
+			},
+			"$filter": "capabilities=target_temperature.bed",
+			"args": [
+				{
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"name": "target_temperature",
+					"type": "range",
+					"min": 0,
+					"max": 130,
+					"step": 1,
+					"label": "°C",
+					"labelDecimals": 0
+				}
+			]
+		},
+		{
+			"id": "target_temperature_set_tool",
+			"title": {
+				"en": "Set the tool temperature",
+				"nl": "Stel het hotend temperatuur in"
+			},
+			"titleFormatted": {
+				"en": "Set the tool temperature to [[target_temperature]]",
+				"nl": "Stel het hotend temperatuur in op  [[target_temperature]]"
+			},
+			"args": [
+				{
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"name": "target_temperature",
+					"type": "range",
+					"min": 0,
+					"max": 300,
+					"step": 1,
+					"label": "°C",
+					"labelDecimals": 0
+				}
+			]
+		},
+		{
+			"id": "target_temperature_set_chamber",
+			"title": {
+				"en": "Set the chamber temperature",
+				"nl": "Stel de behuizingstemperatuur in"
+			},
+			"titleFormatted": {
+				"en": "Set the chamber temperature to [[target_temperature]]",
+				"nl": "Stel de behuizingstemperatuur in op  [[target_temperature]]"
+			},
+			"$filter": "capabilities=target_temperature.chamber",
+			"args": [
+				{
+					"title": {
+						"en": "Temperature",
+						"nl": "Temperatuur"
+					},
+					"name": "target_temperature",
+					"type": "range",
+					"min": 0,
+					"max": 75,
+					"step": 1,
+					"label": "°C",
+					"labelDecimals": 0
+				}
+			]
+		},
+		{
+			"id": "cancel_print",
+			"title": {
+				"en": "Cancel current print",
+				"nl": "Annuleer huidige print"
+			}
+		},
+		{
+			"id": "home_printer",
+			"title": {
+				"en": "Home axis (G28)",
+				"nl": "Home assen (G28)"
+			},
+			"titleFormatted": {
+				"en": "Home axis: G28 [[axis]]",
+				"nl": "Home assen: G28 [[axis]]"
+			},
+			"hint": {
+				"en": "Home any or all axis (G28), if you don't fill in a axis it will home all 3 axis",
+				"nl": "Home elke of all assen (G28), als je niks invult zal hij alle 3 assen op thuis zetten"
+			},
+			"args": [
+				{
+					"title": {
+						"en": "Axis/custom",
+						"nl": "Assen/overige"
+					},
+					"name": "axis",
+					"type": "text",
+					"required": false,
+					"placeholder": {
+						"en": "X Y Z"
+					}
+				}
+			]
+		},
+		{
+			"id": "move_axis",
+			"title": {
+				"en": "Move axis (G1)",
+				"nl": "As verplaatsen (G1)"
+			},
+			"titleFormatted": {
+				"en": "Move [[axis]] to [[position]] with a speed of [[speed]]",
+				"nl": "Verplaats [[axis]] naar [[position]] met een snelheid van [[speed]]"
+			},
+			"hint": {
+				"en": "Move axis to a set position (G1), speed is optional (default: 3000)",
+				"nl": "Verplaats as naar een ingestelde positie (G1), snelheid is optioneel (standaard: 3000)"
+			},
+			"args": [
+				{
+					"title": {
+						"en": "Axis",
+						"nl": "As"
+					},
+					"name": "axis",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "X",
+							"label": {
+								"en": "X axis",
+								"nl": "X as"
+							}
+						},
+						{
+							"id": "Y",
+							"label": {
+								"en": "Y axis",
+								"nl": "Y as"
+							}
+						},
+						{
+							"id": "Z",
+							"label": {
+								"en": "Z axis",
+								"nl": "Z as"
+							}
+						},
+						{
+							"id": "E",
+							"label": {
+								"en": "Extruder",
+								"nl": "Extruder"
+							}
+						}
+					]
+				},
+				{
+					"title": {
+						"en": "Position",
+						"nl": "Positie"
+					},
+					"name": "position",
+					"type": "number"
+				},
+				{
+					"title": {
+						"en": "Speed",
+						"nl": "Snelheid"
+					},
+					"name": "speed",
+					"type": "number",
+					"min": 1,
+					"required": false,
+					"placeholder": {
+						"en": "3000"
+					}
+				}
+			]
+		},
+		{
+			"id": "send_g_code",
+			"title": {
+				"en": "Send a G-Code",
+				"nl": "Stuur een G-Code"
+			},
+			"titleFormatted": {
+				"en": "Send G-Code: [[gcode]]",
+				"nl": "Stuur G-Code: [[gcode]]"
+			},
+			"hint": {
+				"en": "Send any G-Code to the printer.\nDo be careful!\n\nYou can send multiple G-Codes by seperating them with a semicolon ( ; ).",
+				"nl": "Stuur elke G-Code naar de printer.\nWees wel voorzichtig!\n\nJe kunt meerdere G-Codes sturen door ze met een puntkomma ( ; ) te scheiden."
+			},
+			"args": [
+				{
+					"title": {
+						"en": "G-Code",
+						"nl": "G-Code"
+					},
+					"name": "gcode",
+					"type": "text",
+					"placeholder": {
+						"en": "G28 Y; G1 Y210"
+					}
+				}
+			]
+		},
+		{
+			"id": "display_message",
+			"title": {
+				"en": "Display a message",
+				"nl": "Bericht weergeven"
+			},
+			"titleFormatted": {
+				"en": "Display a message: [[message]]",
+				"nl": "Een bericht weergeven: [[message]]"
+			},
+			"hint": {
+				"en": "Display a message in the printer's display (M117)",
+				"nl": "Een bericht weergeven op de printer zijn display (M117)"
+			},
+			"args": [
+				{
+					"title": {
+						"en": "Message",
+						"nl": "Bericht"
+					},
+					"name": "message",
+					"type": "text",
+					"placeholder": {
+						"en": "Test",
+						"nl": "Test"
+					}
+				}
+			]
+		},
+		{
+			"id": "emergency_stop_m112",
+			"title": {
+				"en": "Emergency stop (M112)",
+				"nl": "Noodstop (M112)"
+			}
+		}
+	]
 }

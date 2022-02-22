@@ -1,31 +1,126 @@
 {
-    "id": "octoprint",
-    "name": {
-        "en": "Octoprint",
-        "no": "Octoprint"
-    },
-    "class": "other",
-    "capabilities": [
-        "onoff",
-        "printer_state",
-        "printer_temp_tool",
-        "printer_temp_bed",
-        "job_pause",
-        "job_resume",
-        "job_cancel",
-        "job_estimate",
-        "job_completion",
-        "job_time",
-        "job_left"
-    ],
-    "icon": "{{driverAssetsPath}}/icon.svg",
-    "images": {
-        "large": "/drivers/octoprint/assets/images/large.png",
-        "small": "/drivers/octoprint/assets/images/small.png"
-    },
-    "pair": [
-        {
-            "id": "start"
-        }
-    ]
+	"id": "octoprint",
+	"name": {
+		"en": "Octoprint"
+	},
+	"class": "other",
+	"capabilities": [
+		"onoff",
+		"target_temperature.bed",
+		"measure_temperature.bed",
+		"target_temperature.tool",
+		"measure_temperature.tool",
+		"printer_state",
+		"measure_completion",
+		"job_estimate",
+		"job_time",
+		"job_left",
+		"job_file",
+		"job_pause",
+		"job_resume",
+		"job_cancel",
+		"emergency_stop_m112",
+		"button.restart_octoprint",
+		"button.reboot_raspberry",
+		"button.shutdown_raspberry"
+	],
+	"capabilitiesOptions": {
+		"target_temperature.bed": {
+			"title": {
+				"en": "Bed target temperature",
+				"nl": "Bed doel temperatuur"
+			},
+			"min": 0,
+			"max": 130,
+			"step": 1
+		},
+		"target_temperature.tool": {
+			"title": {
+				"en": "Tool target temperature",
+				"nl": "Hotend doel temperatuur"
+			},
+			"min": 0,
+			"max": 300,
+			"step": 1
+		},
+		"target_temperature.chamber": {
+			"title": {
+				"en": "Chamber target temperature",
+				"nl": "Behuizing doel temperatuur"
+			},
+			"min": 0,
+			"max": 75,
+			"step": 1
+		},
+		"measure_temperature.bed": {
+			"title": {
+				"en": "Current bed temperature",
+				"nl": "Huidige bed temperatuur"
+			},
+			"decimals": 1
+		},
+		"measure_temperature.tool": {
+			"title": {
+				"en": "Current tool temperature",
+				"nl": "Huidige hotend temperatuur"
+			},
+			"decimals": 1
+		},
+		"measure_temperature.chamber": {
+			"title": {
+				"en": "Current chamber temperature",
+				"nl": "Huidige behuizingstemperatuur"
+			},
+			"decimals": 0
+		},
+		"measure_completion": {
+			"title": {
+				"en": "Print completion",
+				"nl": "Print voltooiing"
+			}
+		},
+		"button.restart_octoprint": {
+			"maintenanceAction": true,
+			"title": {
+				"en": "Restart octoprint",
+				"nl": "Octoprint opnieuw opstarten"
+			},
+			"desc": {
+				"en": "When the printer isn't printing, then you can restart Octoprint with this button",
+				"nl": "Als de printer niet aan het printen is, kan je met deze knop Octoprint opnieuw laten starten."
+			}
+		},
+		"button.reboot_raspberry": {
+			"maintenanceAction": true,
+			"title": {
+				"en": "Reboot Raspberry Pi",
+				"nl": "Raspberry Pi opnieuw opstarten"
+			},
+			"desc": {
+				"en": "When the printer isn't printing, then you can restart the Raspberry Pi with this button",
+				"nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi opnieuw laten starten."
+			}
+		},
+		"button.shutdown_raspberry": {
+			"maintenanceAction": true,
+			"title": {
+				"en": "Shutdown Raspberry Pi",
+				"nl": "Raspberry Pi afsluiten"
+			},
+			"desc": {
+				"en": "When the printer isn't printing, then you can shutdown the Raspberry Pi with this button",
+				"nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi afsluiten."
+			}
+		}
+	},
+	"icon": "{{driverAssetsPath}}/icon.svg",
+	"images": {
+		"large": "/drivers/octoprint/assets/images/large.png",
+		"small": "/drivers/octoprint/assets/images/small.png"
+	},
+	"pair": [
+		{
+			"id": "start"
+		}
+	]
 }

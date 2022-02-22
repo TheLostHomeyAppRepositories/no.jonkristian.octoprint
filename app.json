@@ -1,30 +1,42 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "no.jonkristian.octoprint",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#12BB00",
   "name": {
-    "en": "Octoprint",
-    "no": "Octoprint"
+    "en": "Octoprint"
   },
   "description": {
     "en": "Control and monitor your 3D printer",
-    "no": "Styr og overvåk din 3D-printer"
+    "no": "Styr og overvåk din 3D-printer",
+    "nl": "Bedien en houd toezicht op je 3D printer"
   },
   "tags": {
     "en": [
-      "printer"
+      "3D printer",
+      "printer",
+      "3D",
+      "octoprint",
+      "octopi"
     ],
     "no": [
-      "printer"
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "nl": [
+      "3D printer",
+      "printer",
+      "3D",
+      "octoprint",
+      "octopi"
     ]
   },
   "category": [
     "tools"
   ],
-  "permissions": [],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
@@ -38,6 +50,10 @@
       {
         "name": "Johnny Dalen",
         "email": "johnny@jumpingmushroom.com"
+      },
+      {
+        "name": "Remco Mengers",
+        "email": "caseda08@hotmail.com"
       }
     ]
   },
@@ -57,21 +73,172 @@
     "triggers": [
       {
         "id": "print_started",
+        "highlight": true,
         "title": {
           "en": "Print started",
-          "no": "Utskrift startet"
+          "no": "Utskrift startet",
+          "nl": "Print gestart"
         },
         "hint": {
           "en": "When a print starts",
-          "no": "Når en utskrift starter"
+          "no": "Når en utskrift starter",
+          "nl": "Wanneer een print is begonnen"
         },
         "tokens": [
           {
             "name": "print_started_estimate",
+            "type": "string",
             "title": {
               "en": "Estimate",
-              "no": "Estimat"
+              "no": "Estimat",
+              "nl": "Geschat"
+            },
+            "example": {
+              "en": "5h 5m 5s"
             }
+          },
+          {
+            "name": "print_started_estimate_hms",
+            "type": "string",
+            "title": {
+              "en": "H:M:S",
+              "no": "H:M:S",
+              "nl": "H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_started_estimate_seconds",
+            "type": "number",
+            "title": {
+              "en": "Seconds",
+              "nl": "Seconden"
+            },
+            "example": 18305
+          },
+          {
+            "name": "print_started_estimate_end",
+            "type": "string",
+            "title": {
+              "en": "Estimated end",
+              "nl": "Geschat einde"
+            },
+            "example": {
+              "en": "24 Dec 20:00:00"
+            }
+          },
+          {
+            "name": "print_started_estimate_end_short",
+            "type": "string",
+            "title": {
+              "en": "Estimated end short",
+              "nl": "Geschat einde kort"
+            },
+            "example": {
+              "en": "24/12 20:00"
+            }
+          },
+          {
+            "name": "print_started_estimate_end_full",
+            "type": "string",
+            "title": {
+              "en": "Estimated end Full",
+              "nl": "Geschat einde volledig"
+            },
+            "example": {
+              "en": "24 December 20:00:00"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "print_finished",
+        "highlight": true,
+        "title": {
+          "en": "Print finished",
+          "no": "Print ferdig",
+          "nl": "Print klaar"
+        },
+        "hint": {
+          "en": "When a print is finished",
+          "no": "Når en utskrift er ferdig",
+          "nl": "Wanneer een print klaar is"
+        },
+        "tokens": [
+          {
+            "name": "print_finished_estimate",
+            "type": "string",
+            "title": {
+              "en": "Estimate",
+              "no": "Estimat",
+              "nl": "Geschat"
+            },
+            "example": {
+              "en": "5h 5m 5s"
+            }
+          },
+          {
+            "name": "print_finished_estimate_hms",
+            "type": "string",
+            "title": {
+              "en": "Estimate H:M:S",
+              "no": "Estimat H:M:S",
+              "nl": "Geschat H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_finished_estimate_seconds",
+            "type": "number",
+            "title": {
+              "en": "Estimate seconds",
+              "nl": "Geschat seconden"
+            },
+            "example": 18305
+          },
+          {
+            "name": "print_finished_time",
+            "type": "string",
+            "title": {
+              "en": "Print time",
+              "no": "Print tid",
+              "nl": "Print tijd"
+            },
+            "example": {
+              "en": "5h 5m 5s"
+            }
+          },
+          {
+            "name": "print_finished_time_hms",
+            "type": "string",
+            "title": {
+              "en": "Print time H:M:S",
+              "no": "Print tid H:M:S",
+              "nl": "Print tijd H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_finished_time_seconds",
+            "type": "number",
+            "title": {
+              "en": "Print time seconds",
+              "nl": "Print time seconden"
+            },
+            "example": 18305
           }
         ],
         "args": [
@@ -86,32 +253,363 @@
         "id": "print_paused",
         "title": {
           "en": "Print paused",
-          "no": "Utskrift pauset"
+          "no": "Utskrift pauset",
+          "nl": "Print gepauzeerd"
         },
         "hint": {
           "en": "When a print is paused",
-          "no": "Når en utskrift settes på pause"
+          "no": "Når en utskrift settes på pause",
+          "nl": "Wanneer een print is gepauzeerd"
         },
         "tokens": [
           {
             "name": "print_paused_estimate",
+            "type": "string",
             "title": {
-              "en": "Estimate",
-              "no": "Estimat"
+              "en": "Estimated time",
+              "no": "Estimat tid",
+              "nl": "Geschatte tijd"
+            },
+            "example": {
+              "en": "5h 5m 5s"
             }
+          },
+          {
+            "name": "print_paused_estimate_hms",
+            "type": "string",
+            "title": {
+              "en": "Estimated time H:M:S",
+              "no": "Estimat tid H:M:S",
+              "nl": "Geschatte tijd H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_paused_estimate_seconds",
+            "type": "number",
+            "title": {
+              "en": "Estimated time seconds",
+              "nl": "Geschatte tijd seconden"
+            },
+            "example": 18305
           },
           {
             "name": "print_paused_time",
+            "type": "string",
             "title": {
-              "en": "Time",
-              "no": "Tid"
+              "en": "Print time",
+              "no": "Print tid",
+              "nl": "Print tijd"
+            },
+            "example": {
+              "en": "5h 5m 5s"
             }
           },
           {
-            "name": "print_paused_left",
+            "name": "print_paused_time_hms",
+            "type": "string",
             "title": {
-              "en": "Left",
-              "no": "Gjenstående"
+              "en": "Print time H:M:S",
+              "no": "Print tid H:M:S",
+              "nl": "Print tijd H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_paused_time_seconds",
+            "type": "number",
+            "title": {
+              "en": "Print time seconds",
+              "nl": "Print tijd seconden"
+            },
+            "example": 18305
+          },
+          {
+            "name": "print_paused_left",
+            "type": "string",
+            "title": {
+              "en": "Time left",
+              "no": "Tid igjen",
+              "nl": "Tijd resterend"
+            },
+            "example": {
+              "en": "5h 5m 5s"
+            }
+          },
+          {
+            "name": "print_paused_left_hms",
+            "type": "string",
+            "title": {
+              "en": "Time left H:M:S",
+              "no": "Tid igjen H:M:S",
+              "nl": "Tijd resterend H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_paused_seconds_left",
+            "type": "number",
+            "title": {
+              "en": "Seconds left",
+              "no": "Sekunder igjen",
+              "nl": "Seconden resterend"
+            },
+            "example": 18305
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "completion_changed",
+        "highlight": true,
+        "title": {
+          "en": "Completion percentage changed",
+          "nl": "Voltooiing percentage veranderd"
+        },
+        "hint": {
+          "en": "The calculated values are based on the print time with the time left, this can be more accurate.",
+          "nl": "De berekende waardes zijn gebaseerd op de print tijd met de resterende tijd, dit kan accurater zijn."
+        },
+        "tokens": [
+          {
+            "name": "completion",
+            "type": "number",
+            "title": {
+              "en": "Completion #",
+              "nl": "Voltooiing #"
+            },
+            "example": 56.7
+          },
+          {
+            "name": "completion_percent",
+            "type": "number",
+            "title": {
+              "en": "Completion %",
+              "nl": "Voltooiing %"
+            },
+            "example": 0.57
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "target_temperature_changed_bed",
+        "title": {
+          "en": "Bed target temperature changed",
+          "nl": "Bed doel temperatuur veranderd"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": 50
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint&capabilities=target_temperature.bed"
+          }
+        ]
+      },
+      {
+        "id": "target_temperature_changed_tool",
+        "title": {
+          "en": "Tool target temperature changed",
+          "nl": "Hotend doel temperatuur veranderd"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": 200
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "target_temperature_changed_chamber",
+        "title": {
+          "en": "Chamber target temperature changed",
+          "nl": "Behuizing doel temperatuur veranderd"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": 50
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint&capabilities=target_temperature.chamber"
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature_changed_bed",
+        "title": {
+          "en": "Current bed temperature changed",
+          "nl": "Huidige bed temperatuur veranderd"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": 50
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint&capabilities=measure_temperature.bed"
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature_changed_tool",
+        "title": {
+          "en": "Current tool temperature changed",
+          "nl": "Huidige hotend temperatuur veranderd"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": 200
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature_changed_chamber",
+        "title": {
+          "en": "Current chamber temperature changed",
+          "nl": "Huidige behuizing temperatuur veranderd"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": 200
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint&capabilities=measure_temperature.chamber"
+          }
+        ]
+      },
+      {
+        "id": "bed_cooled_down",
+        "title": {
+          "en": "Bed is cooled down",
+          "nl": "Bed is afgekoeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint&capabilities=measure_temperature.bed"
+          }
+        ]
+      },
+      {
+        "id": "tool_cooled_down",
+        "title": {
+          "en": "Tool is cooled down",
+          "nl": "Hotend is afgekoeld"
+        },
+        "hint": {
+          "en": "This will always trigger when the temperature reaches below the specified threshold, for example also when the printer is waiting for a filament change (filament runout).",
+          "nl": "Dit zal altijd activeren als de temperatuur onder de gespecificeerde drempel komt, bijvoorbeeld ook als de printer wacht op verandering van de filament (filament runout)."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "state_changed",
+        "highlight": true,
+        "title": {
+          "en": "Octoprint state changed",
+          "nl": "Status Octoprint veranderd"
+        },
+        "tokens": [
+          {
+            "name": "state",
+            "type": "string",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "example": {
+              "en": "Operational",
+              "nl": "Operationeel"
             }
           }
         ],
@@ -124,28 +622,240 @@
         ]
       },
       {
-        "id": "print_finished",
+        "id": "estimated_time_changed",
         "title": {
-          "en": "Print finished",
-          "no": "Print ferdig"
-        },
-        "hint": {
-          "en": "When a print is finished",
-          "no": "Når en utskrift er ferdig"
+          "en": "Estimated time changed",
+          "nl": "Geschatte tijd veranderd"
         },
         "tokens": [
           {
-            "name": "print_finished_estimate",
+            "name": "time",
+            "type": "string",
             "title": {
-              "en": "Estimate",
-              "no": "Estimat"
+              "en": "Time",
+              "nl": "Tijd"
+            },
+            "example": {
+              "en": "5d 5m 5s"
             }
           },
           {
-            "name": "print_finished_time",
+            "name": "time_hms",
+            "type": "string",
+            "title": {
+              "en": "H:M:S",
+              "nl": "H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Seconds",
+              "nl": "Seconden"
+            },
+            "example": 18305
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "estimated_end_time_changed",
+        "title": {
+          "en": "Estimated end time changed",
+          "nl": "Verwachte eind tijd veranderd"
+        },
+        "tokens": [
+          {
+            "name": "time",
+            "type": "string",
+            "title": {
+              "en": "Date",
+              "nl": "Datum"
+            },
+            "example": {
+              "en": "24 Dec 20:10:20"
+            }
+          },
+          {
+            "name": "time_short",
+            "type": "string",
+            "title": {
+              "en": "Date short",
+              "nl": "Datum kort"
+            },
+            "example": {
+              "en": "24/12 20:10"
+            }
+          },
+          {
+            "name": "time_full",
+            "type": "string",
+            "title": {
+              "en": "Full date",
+              "nl": "Volledige datum"
+            },
+            "example": {
+              "en": "24 December 20:10:20"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "time_left_changed",
+        "title": {
+          "en": "Time left changed",
+          "nl": "Resterende tijd veranderd"
+        },
+        "tokens": [
+          {
+            "name": "time",
+            "type": "string",
             "title": {
               "en": "Time",
-              "no": "Tid"
+              "nl": "Tijd"
+            },
+            "example": {
+              "en": "5d 5m 5s"
+            }
+          },
+          {
+            "name": "time_hms",
+            "type": "string",
+            "title": {
+              "en": "H:M:S",
+              "nl": "H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Seconds",
+              "nl": "Seconden"
+            },
+            "example": 18305
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "print_time_changed",
+        "title": {
+          "en": "Print time changed",
+          "nl": "Print tijd veranderd"
+        },
+        "tokens": [
+          {
+            "name": "time",
+            "type": "string",
+            "title": {
+              "en": "Time",
+              "nl": "Tijd"
+            },
+            "example": {
+              "en": "5d 5m 5s"
+            }
+          },
+          {
+            "name": "time_hms",
+            "type": "string",
+            "title": {
+              "en": "H:M:S",
+              "nl": "H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Seconds",
+              "nl": "Seconden"
+            },
+            "example": 18305
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "file_changed",
+        "title": {
+          "en": "Print file changed",
+          "nl": "Print bestand veranderd"
+        },
+        "tokens": [
+          {
+            "name": "file",
+            "type": "string",
+            "title": {
+              "en": "File",
+              "nl": "Bestand"
+            },
+            "example": {
+              "en": "example.gcode",
+              "nl": "voorbeeld.gcode"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "error_occurred",
+        "title": {
+          "en": "An error occurred",
+          "nl": "Een fout is opgetreden"
+        },
+        "tokens": [
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "Error",
+              "nl": "Fout"
+            },
+            "example": {
+              "en": "Closing serial port due to emergency stop M112",
+              "nl": "Closing serial port due to emergency stop M112"
             }
           }
         ],
@@ -162,7 +872,8 @@
       {
         "id": "is_printing",
         "title": {
-          "en": "!{{Is|Isn't}} printing"
+          "en": "!{{Is|Isn't}} printing",
+          "nl": "Is !{{|niet}} aan het printen"
         },
         "args": [
           {
@@ -171,13 +882,409 @@
             "filter": "driver_id=octoprint"
           }
         ]
+      },
+      {
+        "id": "bed_cooled_down",
+        "title": {
+          "en": "Bed !{{is|isn't}} cooled down",
+          "nl": "Bed is !{{|niet}} afgekoeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "tool_cooled_down",
+        "title": {
+          "en": "Tool !{{is|isn't}} cooled down",
+          "nl": "Hotend is !{{|niet}} afgekoeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "octroprint_state",
+        "title": {
+          "en": "Octoprint's state !{{is|isn't}}",
+          "nl": "Status van octoprint is !{{|niet}}"
+        },
+        "titleFormatted": {
+          "en": "State of octoprint !{{is|isn't}} [[state]]",
+          "nl": "Status van octoprint is !{{|niet}} [[state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          },
+          {
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "name": "state",
+            "type": "dropdown",
+            "value": "Operational",
+            "values": [
+              {
+                "id": "Operational",
+                "label": {
+                  "en": "Operational",
+                  "nl": "Operationeel"
+                }
+              },
+              {
+                "id": "Closed",
+                "label": {
+                  "en": "Offline",
+                  "nl": "Offline"
+                }
+              },
+              {
+                "id": "Printing",
+                "label": {
+                  "en": "Printing",
+                  "nl": "Printen"
+                }
+              },
+              {
+                "id": "Pausing",
+                "label": {
+                  "en": "Pausing",
+                  "nl": "Pauzeren"
+                }
+              },
+              {
+                "id": "Paused",
+                "label": {
+                  "en": "Paused",
+                  "nl": "Gepauzeerd"
+                }
+              },
+              {
+                "id": "Connecting",
+                "label": {
+                  "en": "Connecting",
+                  "nl": "Verbinden"
+                }
+              },
+              {
+                "id": "Detecting serial connection",
+                "label": {
+                  "en": "Detecting connection",
+                  "nl": "Verbinding detecteren"
+                }
+              }
+            ]
+          }
+        ]
       }
     ],
     "actions": [
       {
+        "id": "target_temperature_set_bed",
+        "title": {
+          "en": "Set the bed temperature",
+          "nl": "Stel het bed temperatuur in"
+        },
+        "titleFormatted": {
+          "en": "Set the bed temperature to [[target_temperature]]",
+          "nl": "Stel het bed temperatuur in op  [[target_temperature]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint&capabilities=target_temperature.bed"
+          },
+          {
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "name": "target_temperature",
+            "type": "range",
+            "min": 0,
+            "max": 130,
+            "step": 1,
+            "label": "°C",
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
+        "id": "target_temperature_set_tool",
+        "title": {
+          "en": "Set the tool temperature",
+          "nl": "Stel het hotend temperatuur in"
+        },
+        "titleFormatted": {
+          "en": "Set the tool temperature to [[target_temperature]]",
+          "nl": "Stel het hotend temperatuur in op  [[target_temperature]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          },
+          {
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "name": "target_temperature",
+            "type": "range",
+            "min": 0,
+            "max": 300,
+            "step": 1,
+            "label": "°C",
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
+        "id": "target_temperature_set_chamber",
+        "title": {
+          "en": "Set the chamber temperature",
+          "nl": "Stel de behuizingstemperatuur in"
+        },
+        "titleFormatted": {
+          "en": "Set the chamber temperature to [[target_temperature]]",
+          "nl": "Stel de behuizingstemperatuur in op  [[target_temperature]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint&capabilities=target_temperature.chamber"
+          },
+          {
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "name": "target_temperature",
+            "type": "range",
+            "min": 0,
+            "max": 75,
+            "step": 1,
+            "label": "°C",
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
         "id": "cancel_print",
         "title": {
-          "en": "Cancel current print"
+          "en": "Cancel current print",
+          "nl": "Annuleer huidige print"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "home_printer",
+        "title": {
+          "en": "Home axis (G28)",
+          "nl": "Home assen (G28)"
+        },
+        "titleFormatted": {
+          "en": "Home axis: G28 [[axis]]",
+          "nl": "Home assen: G28 [[axis]]"
+        },
+        "hint": {
+          "en": "Home any or all axis (G28), if you don't fill in a axis it will home all 3 axis",
+          "nl": "Home elke of all assen (G28), als je niks invult zal hij alle 3 assen op thuis zetten"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          },
+          {
+            "title": {
+              "en": "Axis/custom",
+              "nl": "Assen/overige"
+            },
+            "name": "axis",
+            "type": "text",
+            "required": false,
+            "placeholder": {
+              "en": "X Y Z"
+            }
+          }
+        ]
+      },
+      {
+        "id": "move_axis",
+        "title": {
+          "en": "Move axis (G1)",
+          "nl": "As verplaatsen (G1)"
+        },
+        "titleFormatted": {
+          "en": "Move [[axis]] to [[position]] with a speed of [[speed]]",
+          "nl": "Verplaats [[axis]] naar [[position]] met een snelheid van [[speed]]"
+        },
+        "hint": {
+          "en": "Move axis to a set position (G1), speed is optional (default: 3000)",
+          "nl": "Verplaats as naar een ingestelde positie (G1), snelheid is optioneel (standaard: 3000)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          },
+          {
+            "title": {
+              "en": "Axis",
+              "nl": "As"
+            },
+            "name": "axis",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "X",
+                "label": {
+                  "en": "X axis",
+                  "nl": "X as"
+                }
+              },
+              {
+                "id": "Y",
+                "label": {
+                  "en": "Y axis",
+                  "nl": "Y as"
+                }
+              },
+              {
+                "id": "Z",
+                "label": {
+                  "en": "Z axis",
+                  "nl": "Z as"
+                }
+              },
+              {
+                "id": "E",
+                "label": {
+                  "en": "Extruder",
+                  "nl": "Extruder"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Position",
+              "nl": "Positie"
+            },
+            "name": "position",
+            "type": "number"
+          },
+          {
+            "title": {
+              "en": "Speed",
+              "nl": "Snelheid"
+            },
+            "name": "speed",
+            "type": "number",
+            "min": 1,
+            "required": false,
+            "placeholder": {
+              "en": "3000"
+            }
+          }
+        ]
+      },
+      {
+        "id": "send_g_code",
+        "title": {
+          "en": "Send a G-Code",
+          "nl": "Stuur een G-Code"
+        },
+        "titleFormatted": {
+          "en": "Send G-Code: [[gcode]]",
+          "nl": "Stuur G-Code: [[gcode]]"
+        },
+        "hint": {
+          "en": "Send any G-Code to the printer.\nDo be careful!\n\nYou can send multiple G-Codes by seperating them with a semicolon ( ; ).",
+          "nl": "Stuur elke G-Code naar de printer.\nWees wel voorzichtig!\n\nJe kunt meerdere G-Codes sturen door ze met een puntkomma ( ; ) te scheiden."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          },
+          {
+            "title": {
+              "en": "G-Code",
+              "nl": "G-Code"
+            },
+            "name": "gcode",
+            "type": "text",
+            "placeholder": {
+              "en": "G28 Y; G1 Y210"
+            }
+          }
+        ]
+      },
+      {
+        "id": "display_message",
+        "title": {
+          "en": "Display a message",
+          "nl": "Bericht weergeven"
+        },
+        "titleFormatted": {
+          "en": "Display a message: [[message]]",
+          "nl": "Een bericht weergeven: [[message]]"
+        },
+        "hint": {
+          "en": "Display a message in the printer's display (M117)",
+          "nl": "Een bericht weergeven op de printer zijn display (M117)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          },
+          {
+            "title": {
+              "en": "Message",
+              "nl": "Bericht"
+            },
+            "name": "message",
+            "type": "text",
+            "placeholder": {
+              "en": "Test",
+              "nl": "Test"
+            }
+          }
+        ]
+      },
+      {
+        "id": "emergency_stop_m112",
+        "title": {
+          "en": "Emergency stop (M112)",
+          "nl": "Noodstop (M112)"
         },
         "args": [
           {
@@ -193,23 +1300,118 @@
     {
       "id": "octoprint",
       "name": {
-        "en": "Octoprint",
-        "no": "Octoprint"
+        "en": "Octoprint"
       },
       "class": "other",
       "capabilities": [
         "onoff",
+        "target_temperature.bed",
+        "measure_temperature.bed",
+        "target_temperature.tool",
+        "measure_temperature.tool",
         "printer_state",
-        "printer_temp_tool",
-        "printer_temp_bed",
+        "measure_completion",
+        "job_estimate",
+        "job_time",
+        "job_left",
+        "job_file",
         "job_pause",
         "job_resume",
         "job_cancel",
-        "job_estimate",
-        "job_completion",
-        "job_time",
-        "job_left"
+        "emergency_stop_m112",
+        "button.restart_octoprint",
+        "button.reboot_raspberry",
+        "button.shutdown_raspberry"
       ],
+      "capabilitiesOptions": {
+        "target_temperature.bed": {
+          "title": {
+            "en": "Bed target temperature",
+            "nl": "Bed doel temperatuur"
+          },
+          "min": 0,
+          "max": 130,
+          "step": 1
+        },
+        "target_temperature.tool": {
+          "title": {
+            "en": "Tool target temperature",
+            "nl": "Hotend doel temperatuur"
+          },
+          "min": 0,
+          "max": 300,
+          "step": 1
+        },
+        "target_temperature.chamber": {
+          "title": {
+            "en": "Chamber target temperature",
+            "nl": "Behuizing doel temperatuur"
+          },
+          "min": 0,
+          "max": 75,
+          "step": 1
+        },
+        "measure_temperature.bed": {
+          "title": {
+            "en": "Current bed temperature",
+            "nl": "Huidige bed temperatuur"
+          },
+          "decimals": 1
+        },
+        "measure_temperature.tool": {
+          "title": {
+            "en": "Current tool temperature",
+            "nl": "Huidige hotend temperatuur"
+          },
+          "decimals": 1
+        },
+        "measure_temperature.chamber": {
+          "title": {
+            "en": "Current chamber temperature",
+            "nl": "Huidige behuizingstemperatuur"
+          },
+          "decimals": 0
+        },
+        "measure_completion": {
+          "title": {
+            "en": "Print completion",
+            "nl": "Print voltooiing"
+          }
+        },
+        "button.restart_octoprint": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Restart octoprint",
+            "nl": "Octoprint opnieuw opstarten"
+          },
+          "desc": {
+            "en": "When the printer isn't printing, then you can restart Octoprint with this button",
+            "nl": "Als de printer niet aan het printen is, kan je met deze knop Octoprint opnieuw laten starten."
+          }
+        },
+        "button.reboot_raspberry": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reboot Raspberry Pi",
+            "nl": "Raspberry Pi opnieuw opstarten"
+          },
+          "desc": {
+            "en": "When the printer isn't printing, then you can restart the Raspberry Pi with this button",
+            "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi opnieuw laten starten."
+          }
+        },
+        "button.shutdown_raspberry": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Shutdown Raspberry Pi",
+            "nl": "Raspberry Pi afsluiten"
+          },
+          "desc": {
+            "en": "When the printer isn't printing, then you can shutdown the Raspberry Pi with this button",
+            "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi afsluiten."
+          }
+        }
+      },
       "icon": "/drivers/octoprint/assets/icon.svg",
       "images": {
         "large": "/drivers/octoprint/assets/images/large.png",
@@ -224,16 +1426,60 @@
         {
           "type": "group",
           "label": {
-            "en": "General settings",
-            "no": "Generelle instillinger"
+            "en": "Octoprint settings",
+            "no": "Octoprint instillinger",
+            "nl": "Octoprint instellingen"
           },
           "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "label": {
+                "en": "IP address",
+                "no": "IP address",
+                "nl": "IP address"
+              },
+              "value": ""
+            },
+            {
+              "id": "apikey",
+              "type": "text",
+              "label": {
+                "en": "API key",
+                "no": "API key",
+                "nl": "API key"
+              },
+              "value": ""
+            },
+            {
+              "id": "pollInterval",
+              "type": "number",
+              "label": {
+                "en": "Polling interval",
+                "no": "Polling interval",
+                "nl": "Polling-interval"
+              },
+              "value": 10,
+              "min": 10,
+              "max": 3600,
+              "units": {
+                "en": "seconds",
+                "no": "seconds",
+                "nl": "seconden"
+              },
+              "hint": {
+                "en": "Determine how often to poll for the changes (default 10 seconds).",
+                "no": "Determine how often to poll for the changes (default 10 seconds).",
+                "nl": "Bepaal hoe vaak er gepeild zal worden naar wijzigingen (standaard 10 seconden)."
+              }
+            },
             {
               "id": "snapshot_active",
               "type": "checkbox",
               "label": {
                 "en": "Use Snapshot",
-                "no": "Bruk øyeblikksbilde"
+                "no": "Bruk øyeblikksbilde",
+                "nl": "Gebruik snapshot"
               },
               "value": false
             },
@@ -242,12 +1488,212 @@
               "type": "text",
               "label": {
                 "en": "Snapshot URL",
-                "no": "Lenke til øyeblikksbilde"
+                "no": "Lenke til øyeblikksbilde",
+                "nl": "Snapshot URL"
               },
               "value": "",
               "hint": {
                 "en": "Provide an URL to a camera still image to be used in flows.",
-                "no": "Legg inn adresse til øyeblikksbilde som igjen kan benyttes i flows."
+                "no": "Legg inn adresse til øyeblikksbilde som igjen kan benyttes i flows.",
+                "nl": "Geef een URL op van de camera die gebruikt word voor foto's in flows."
+              }
+            },
+            {
+              "id": "heated_bed",
+              "type": "checkbox",
+              "label": {
+                "en": "Heated bed",
+                "no": "Oppvarmet seng",
+                "nl": "Verwarmd bed"
+              },
+              "hint": {
+                "en": "Enable if you have an heated bed.",
+                "no": "Aktiver hvis du har en oppvarmet seng.",
+                "nl": "Activeer als je een verwarmd bed hebt."
+              },
+              "value": true
+            },
+            {
+              "id": "heated_chamber",
+              "type": "checkbox",
+              "label": {
+                "en": "Heated chamber",
+                "no": "Måltemperatur for kammeret",
+                "nl": "Verwarmde behuizing"
+              },
+              "hint": {
+                "en": "Enable if you have an heated chamber. Enabled, it will ignore the measured chamber temperature setting.",
+                "no": "Aktiver hvis du har et oppvarmet kammer. Aktivert, vil den ignorere den målte kammertemperatur innstillingen.",
+                "nl": "Activeer als je een verwarmde behuizing hebt. Ingeschakeld, negeert het de instelling van de gemeten behuizingstemperatuur."
+              },
+              "value": false
+            },
+            {
+              "id": "measured_chamber",
+              "type": "checkbox",
+              "label": {
+                "en": "Measured chamber temperature",
+                "no": "Målt kammertemperatur",
+                "nl": "Gemeten behuizingstemperatuur"
+              },
+              "hint": {
+                "en": "Enable if you measure the chamber temperature.",
+                "no": "Aktiver hvis du har et oppvarmet kammer.",
+                "nl": "Activeer als je de behuizingstemperatuur meet."
+              },
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "no": "Generelle instillinger",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "measure_temperature_bed_decimal",
+              "type": "checkbox",
+              "label": {
+                "en": "Accurate bed temperature",
+                "nl": "Nauwkeurige bed temperatuur"
+              },
+              "value": true,
+              "hint": {
+                "en": "Should the bed temperature be more accurate (1 decimal), or only have full numbers.",
+                "nl": "Zal het bed temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
+              }
+            },
+            {
+              "id": "measure_temperature_tool_decimal",
+              "type": "checkbox",
+              "label": {
+                "en": "Accurate tool temperature",
+                "nl": "Nauwkeurige hotend temperatuur"
+              },
+              "value": true,
+              "hint": {
+                "en": "Should the tool temperature be more accurate (1 decimal), or only have full numbers.",
+                "nl": "Zal het hotend temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
+              }
+            },
+            {
+              "id": "bed_cooldown_threshold",
+              "type": "number",
+              "label": {
+                "en": "Bed cooldown threshold",
+                "no": "Bed cooldown threshold",
+                "nl": "Bed afgekoeld drempel"
+              },
+              "value": 30,
+              "min": 0,
+              "max": 130,
+              "units": {
+                "en": "°C"
+              },
+              "hint": {
+                "en": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
+                "no": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
+                "nl": "Onder welke temperatuur zal de flow kaart \"bed is afgekoeld\" worden geactiveerd."
+              }
+            },
+            {
+              "id": "tool_cooldown_threshold",
+              "type": "number",
+              "label": {
+                "en": "Tool cooldown threshold",
+                "no": "Tool cooldown threshold",
+                "nl": "Hotend afgekoeld drempel"
+              },
+              "value": 50,
+              "min": 0,
+              "max": 300,
+              "units": {
+                "en": "°C"
+              },
+              "hint": {
+                "en": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
+                "no": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
+                "nl": "Onder welke temperatuur zal de flow kaart \"hotend is afgekoeld\" worden geactiveerd."
+              }
+            },
+            {
+              "id": "calculated_completion",
+              "type": "dropdown",
+              "label": {
+                "en": "Completion percentage",
+                "nl": "Voltooiing percentage"
+              },
+              "value": "completion",
+              "hint": {
+                "en": "Determine what the completion percentage (calculation) is based on, the standard percentage (in the API) is based on the current file position.",
+                "nl": "Bepaal waar het voltooiings percentage (berekening) is op gebaseerd, de standaard percentage (in de API) is gebaseerd op de huidige bestands positie."
+              },
+              "values": [
+                {
+                  "id": "completion",
+                  "label": {
+                    "en": "File position (default)",
+                    "nl": "Bestandspositie (standaard)"
+                  }
+                },
+                {
+                  "id": "completion_time_calculated",
+                  "label": {
+                    "en": "Print time",
+                    "nl": "Print tijd"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Display settings",
+            "nl": "Weergave instellingen"
+          },
+          "children": [
+            {
+              "id": "estimate_hms",
+              "type": "checkbox",
+              "label": {
+                "en": "H:M:S for estimated time",
+                "nl": "H:M:S voor geschatte tijd"
+              },
+              "value": false,
+              "hint": {
+                "en": "Enable this setting to display the estimated time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+                "nl": "Activeer deze instelling om de geschatte tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+              }
+            },
+            {
+              "id": "time_hms",
+              "type": "checkbox",
+              "label": {
+                "en": "H:M:S for print time",
+                "nl": "H:M:S voor print tijd"
+              },
+              "value": false,
+              "hint": {
+                "en": "Enable this setting to display the print time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+                "nl": "Activeer deze instelling om de print tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+              }
+            },
+            {
+              "id": "left_hms",
+              "type": "checkbox",
+              "label": {
+                "en": "H:M:S for time left",
+                "nl": "H:M:S voor resterende tijd"
+              },
+              "value": false,
+              "hint": {
+                "en": "Enable this setting to display the time left as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s)",
+                "nl": "Activeer deze instelling om de resterende tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
               }
             }
           ]
@@ -256,44 +1702,69 @@
     }
   ],
   "capabilities": {
+    "emergency_stop_m112": {
+      "type": "boolean",
+      "uiComponent": "button",
+      "title": {
+        "en": "Emergency Stop",
+        "nl": "Noodstop"
+      },
+      "getable": true,
+      "setable": true,
+      "preventTag": true,
+      "icon": "/drivers/octoprint/assets/emergency_stop.svg"
+    },
     "job_cancel": {
       "type": "boolean",
       "uiComponent": "button",
       "title": {
         "en": "Cancel",
-        "no": "Avbryt"
+        "no": "Avbryt",
+        "nl": "Annuleren"
       },
       "getable": true,
       "setable": true,
+      "preventTag": true,
       "icon": "/drivers/octoprint/assets/job_cancel.svg"
     },
-    "job_completion": {
-      "type": "number",
+    "job_end_time": {
+      "type": "string",
       "uiComponent": "sensor",
-      "units": "%",
       "title": {
-        "en": "Completion",
-        "no": "Ferdig"
+        "en": "Estimated end time",
+        "nl": "Verwachte eind tijd"
       },
       "getable": true,
-      "icon": "/drivers/octoprint/assets/job_completion.svg"
+      "icon": "/drivers/octoprint/assets/job_end_time.svg"
     },
     "job_estimate": {
       "type": "string",
       "uiComponent": "sensor",
       "title": {
-        "en": "Time Estimate",
-        "no": "Estimert tid"
+        "en": "Time estimate",
+        "no": "Estimert tid",
+        "nl": "Geschatte tijd"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_estimate.svg"
+    },
+    "job_file": {
+      "type": "string",
+      "uiComponent": "sensor",
+      "title": {
+        "en": "Print file",
+        "nl": "Print bestand"
+      },
+      "getable": true,
+      "icon": "/drivers/octoprint/assets/job_file.svg"
     },
     "job_left": {
       "type": "string",
       "uiComponent": "sensor",
       "title": {
-        "en": "Time Left",
-        "no": "Gjenstående"
+        "en": "Time left",
+        "no": "Gjenstående",
+        "nl": "Resterende tijd"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_left.svg"
@@ -303,7 +1774,8 @@
       "uiComponent": "button",
       "title": {
         "en": "Pause",
-        "no": "Pause"
+        "no": "Pause",
+        "nl": "Pauzeren"
       },
       "getable": true,
       "setable": true,
@@ -314,52 +1786,47 @@
       "uiComponent": "button",
       "title": {
         "en": "Resume",
-        "no": "Gjenoppta"
+        "no": "Gjenoppta",
+        "nl": "Hervatten"
       },
       "getable": true,
       "setable": true,
+      "preventTag": true,
       "icon": "/drivers/octoprint/assets/job_resume.svg"
     },
     "job_time": {
       "type": "string",
       "uiComponent": "sensor",
       "title": {
-        "en": "Print Time",
-        "no": "Utskriftstid"
+        "en": "Print time",
+        "no": "Utskriftstid",
+        "nl": "Print tijd"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_time.svg"
+    },
+    "measure_completion": {
+      "type": "number",
+      "uiComponent": "sensor",
+      "units": "%",
+      "title": {
+        "en": "Completion",
+        "no": "Ferdig",
+        "nl": "Voltooiing"
+      },
+      "decimals": 1,
+      "getable": true,
+      "icon": "/drivers/octoprint/assets/job_completion.svg"
     },
     "printer_state": {
       "type": "string",
       "title": {
         "en": "State",
-        "no": "Status"
+        "no": "Status",
+        "nl": "Status"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/printer_state.svg"
-    },
-    "printer_temp_bed": {
-      "type": "number",
-      "uiComponent": "sensor",
-      "units": "°C",
-      "title": {
-        "en": "Bed temp",
-        "no": "Bed temp"
-      },
-      "getable": true,
-      "icon": "/drivers/octoprint/assets/printer_temp_bed.svg"
-    },
-    "printer_temp_tool": {
-      "type": "number",
-      "uiComponent": "sensor",
-      "units": "°C",
-      "title": {
-        "en": "Tool temp",
-        "no": "Tool temp"
-      },
-      "getable": true,
-      "icon": "/drivers/octoprint/assets/printer_temp_tool.svg"
     }
   },
   "discovery": {

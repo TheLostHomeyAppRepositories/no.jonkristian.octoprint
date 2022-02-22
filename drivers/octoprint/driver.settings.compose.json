@@ -1,33 +1,277 @@
 [
-    {
-        "type": "group",
-        "label": {
-            "en": "General settings",
-            "no": "Generelle instillinger"
-        },
-        "children": [
-            {
-                "id": "snapshot_active",
-                "type": "checkbox",
-                "label": {
-                    "en": "Use Snapshot",
-                    "no": "Bruk øyeblikksbilde"
-                },
-                "value": false
-            },
-            {
-                "id": "snapshot_url",
-                "type": "text",
-                "label": {
-                    "en": "Snapshot URL",
-                    "no": "Lenke til øyeblikksbilde"
-                },
-                "value": "",
-                "hint": {
-                    "en": "Provide an URL to a camera still image to be used in flows.",
-                    "no": "Legg inn adresse til øyeblikksbilde som igjen kan benyttes i flows."
-                }
-            }
-        ]
-    }
+	{
+		"type": "group",
+		"label": {
+			"en": "Octoprint settings",
+			"no": "Octoprint instillinger",
+			"nl": "Octoprint instellingen"
+		},
+		"children": [
+			{
+				"id": "address",
+				"type": "text",
+				"label": {
+					"en": "IP address",
+					"no": "IP address",
+					"nl": "IP address"
+				},
+				"value": ""
+			},
+			{
+				"id": "apikey",
+				"type": "text",
+				"label": {
+					"en": "API key",
+					"no": "API key",
+					"nl": "API key"
+				},
+				"value": ""
+			},
+			{
+				"id": "pollInterval",
+				"type": "number",
+				"label": {
+					"en": "Polling interval",
+					"no": "Polling interval",
+					"nl": "Polling-interval"
+				},
+				"value": 10,
+				"min": 10,
+				"max": 3600,
+				"units": {
+					"en": "seconds",
+					"no": "seconds",
+					"nl": "seconden"
+				},
+				"hint": {
+					"en": "Determine how often to poll for the changes (default 10 seconds).",
+					"no": "Determine how often to poll for the changes (default 10 seconds).",
+					"nl": "Bepaal hoe vaak er gepeild zal worden naar wijzigingen (standaard 10 seconden)."
+				}
+			},
+			{
+				"id": "snapshot_active",
+				"type": "checkbox",
+				"label": {
+					"en": "Use Snapshot",
+					"no": "Bruk øyeblikksbilde",
+					"nl": "Gebruik snapshot"
+				},
+				"value": false
+			},
+			{
+				"id": "snapshot_url",
+				"type": "text",
+				"label": {
+					"en": "Snapshot URL",
+					"no": "Lenke til øyeblikksbilde",
+					"nl": "Snapshot URL"
+				},
+				"value": "",
+				"hint": {
+					"en": "Provide an URL to a camera still image to be used in flows.",
+					"no": "Legg inn adresse til øyeblikksbilde som igjen kan benyttes i flows.",
+					"nl": "Geef een URL op van de camera die gebruikt word voor foto's in flows."
+				}
+			},
+			{
+				"id": "heated_bed",
+				"type": "checkbox",
+				"label": {
+					"en": "Heated bed",
+					"no": "Oppvarmet seng",
+					"nl": "Verwarmd bed"
+				},
+				"hint": {
+					"en": "Enable if you have an heated bed.",
+					"no": "Aktiver hvis du har en oppvarmet seng.",
+					"nl": "Activeer als je een verwarmd bed hebt."
+				},
+				"value": true
+			},
+			{
+				"id": "heated_chamber",
+				"type": "checkbox",
+				"label": {
+					"en": "Heated chamber",
+					"no": "Måltemperatur for kammeret",
+					"nl": "Verwarmde behuizing"
+				},
+				"hint": {
+					"en": "Enable if you have an heated chamber. Enabled, it will ignore the measured chamber temperature setting.",
+					"no": "Aktiver hvis du har et oppvarmet kammer. Aktivert, vil den ignorere den målte kammertemperatur innstillingen.",
+					"nl": "Activeer als je een verwarmde behuizing hebt. Ingeschakeld, negeert het de instelling van de gemeten behuizingstemperatuur."
+				},
+				"value": false
+			},
+			{
+				"id": "measured_chamber",
+				"type": "checkbox",
+				"label": {
+					"en": "Measured chamber temperature",
+					"no": "Målt kammertemperatur",
+					"nl": "Gemeten behuizingstemperatuur"
+				},
+				"hint": {
+					"en": "Enable if you measure the chamber temperature.",
+					"no": "Aktiver hvis du har et oppvarmet kammer.",
+					"nl": "Activeer als je de behuizingstemperatuur meet."
+				},
+				"value": false
+			}
+		]
+	},
+	{
+		"type": "group",
+		"label": {
+			"en": "General settings",
+			"no": "Generelle instillinger",
+			"nl": "Algemene instellingen"
+		},
+		"children": [
+			{
+				"id": "measure_temperature_bed_decimal",
+				"type": "checkbox",
+				"label": {
+					"en": "Accurate bed temperature",
+					"nl": "Nauwkeurige bed temperatuur"
+				},
+				"value": true,
+				"hint": {
+					"en": "Should the bed temperature be more accurate (1 decimal), or only have full numbers.",
+					"nl": "Zal het bed temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
+				}
+			},
+			{
+				"id": "measure_temperature_tool_decimal",
+				"type": "checkbox",
+				"label": {
+					"en": "Accurate tool temperature",
+					"nl": "Nauwkeurige hotend temperatuur"
+				},
+				"value": true,
+				"hint": {
+					"en": "Should the tool temperature be more accurate (1 decimal), or only have full numbers.",
+					"nl": "Zal het hotend temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
+				}
+			},
+			{
+				"id": "bed_cooldown_threshold",
+				"type": "number",
+				"label": {
+					"en": "Bed cooldown threshold",
+					"no": "Bed cooldown threshold",
+					"nl": "Bed afgekoeld drempel"
+				},
+				"value": 30,
+				"min": 0,
+				"max": 130,
+				"units": {
+					"en": "°C"
+				},
+				"hint": {
+					"en": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
+					"no": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
+					"nl": "Onder welke temperatuur zal de flow kaart \"bed is afgekoeld\" worden geactiveerd."
+				}
+			},
+			{
+				"id": "tool_cooldown_threshold",
+				"type": "number",
+				"label": {
+					"en": "Tool cooldown threshold",
+					"no": "Tool cooldown threshold",
+					"nl": "Hotend afgekoeld drempel"
+				},
+				"value": 50,
+				"min": 0,
+				"max": 300,
+				"units": {
+					"en": "°C"
+				},
+				"hint": {
+					"en": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
+					"no": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
+					"nl": "Onder welke temperatuur zal de flow kaart \"hotend is afgekoeld\" worden geactiveerd."
+				}
+			},
+			{
+				"id": "calculated_completion",
+				"type": "dropdown",
+				"label": {
+					"en": "Completion percentage",
+					"nl": "Voltooiing percentage"
+				},
+				"value": "completion",
+				"hint": {
+					"en": "Determine what the completion percentage (calculation) is based on, the standard percentage (in the API) is based on the current file position.",
+					"nl": "Bepaal waar het voltooiings percentage (berekening) is op gebaseerd, de standaard percentage (in de API) is gebaseerd op de huidige bestands positie."
+				},
+				"values": [
+					{
+						"id": "completion",
+						"label": {
+							"en": "File position (default)",
+							"nl": "Bestandspositie (standaard)"
+						}
+					},
+					{
+						"id": "completion_time_calculated",
+						"label": {
+							"en": "Print time",
+							"nl": "Print tijd"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"type": "group",
+		"label": {
+			"en": "Display settings",
+			"nl": "Weergave instellingen"
+		},
+		"children": [
+			{
+				"id": "estimate_hms",
+				"type": "checkbox",
+				"label": {
+					"en": "H:M:S for estimated time",
+					"nl": "H:M:S voor geschatte tijd"
+				},
+				"value": false,
+				"hint": {
+					"en": "Enable this setting to display the estimated time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+					"nl": "Activeer deze instelling om de geschatte tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+				}
+			},
+			{
+				"id": "time_hms",
+				"type": "checkbox",
+				"label": {
+					"en": "H:M:S for print time",
+					"nl": "H:M:S voor print tijd"
+				},
+				"value": false,
+				"hint": {
+					"en": "Enable this setting to display the print time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+					"nl": "Activeer deze instelling om de print tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+				}
+			},
+			{
+				"id": "left_hms",
+				"type": "checkbox",
+				"label": {
+					"en": "H:M:S for time left",
+					"nl": "H:M:S voor resterende tijd"
+				},
+				"value": false,
+				"hint": {
+					"en": "Enable this setting to display the time left as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s)",
+					"nl": "Activeer deze instelling om de resterende tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+				}
+			}
+		]
+	}
 ]

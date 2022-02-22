@@ -1,11 +1,13 @@
 {
-    "type": "boolean",
-    "uiComponent": "button",
-    "title": {
-        "en": "Cancel",
-        "no": "Avbryt"
-    },
-    "getable": true,
-    "setable": true,
-    "icon": "/drivers/octoprint/assets/job_cancel.svg"
+	"type": "boolean",
+	"uiComponent": "button",
+	"title": {
+		"en": "Cancel",
+		"no": "Avbryt",
+		"nl": "Annuleren"
+	},
+	"getable": true,
+	"setable": true,
+	"preventTag": true,
+	"icon": "/drivers/octoprint/assets/job_cancel.svg"
 }

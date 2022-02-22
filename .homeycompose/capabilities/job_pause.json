@@ -1,11 +1,12 @@
 {
-    "type": "boolean",
-    "uiComponent": "button",
-    "title": {
-        "en": "Pause",
-        "no": "Pause"
-    },
-    "getable": true,
-    "setable": true,
-    "icon": "/drivers/octoprint/assets/job_pause.svg"
+	"type": "boolean",
+	"uiComponent": "button",
+	"title": {
+		"en": "Pause",
+		"no": "Pause",
+		"nl": "Pauzeren"
+	},
+	"getable": true,
+	"setable": true,
+	"icon": "/drivers/octoprint/assets/job_pause.svg"
 }

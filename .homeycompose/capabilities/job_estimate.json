@@ -1,10 +1,11 @@
 {
-    "type": "string",
-    "uiComponent": "sensor",
-    "title": {
-        "en": "Time Estimate",
-        "no": "Estimert tid"
-    },
-    "getable": true,
-    "icon": "/drivers/octoprint/assets/job_estimate.svg"
+	"type": "string",
+	"uiComponent": "sensor",
+	"title": {
+		"en": "Time estimate",
+		"no": "Estimert tid",
+		"nl": "Geschatte tijd"
+	},
+	"getable": true,
+	"icon": "/drivers/octoprint/assets/job_estimate.svg"
 }

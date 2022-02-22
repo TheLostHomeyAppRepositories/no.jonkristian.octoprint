@@ -2,12 +2,11 @@
 	"type": "boolean",
 	"uiComponent": "button",
 	"title": {
-		"en": "Resume",
-		"no": "Gjenoppta",
-		"nl": "Hervatten"
+		"en": "Emergency Stop",
+		"nl": "Noodstop"
 	},
 	"getable": true,
 	"setable": true,
 	"preventTag": true,
-	"icon": "/drivers/octoprint/assets/job_resume.svg"
+	"icon": "/drivers/octoprint/assets/emergency_stop.svg"
 }

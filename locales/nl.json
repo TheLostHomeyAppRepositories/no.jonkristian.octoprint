@@ -1,0 +1,49 @@
+{
+	"snapshot": {
+		"title": "Snapshot",
+		"reboot": "Snapshot instellingen veranderd, herstart de app!"
+	},
+	"states": {
+		"Closed": "Offline",
+		"Connecting": "Verbinden",
+		"Operational": "Operationeel",
+		"Printing": "Printen",
+		"Pausing": "Pauzeren",
+		"Paused": "Gepauzeerd",
+		"Detecting serial connection": "Verbinding detecteren"
+	},
+	"error": {
+		"server_unreachable": "Octoprint server niet bereikbaar",
+		"invalid_value": "Ongeldige waard gebruikt",
+		"invalid_state": "Huidige printer status laat dit niet toe",
+		"no_print": "Er is geen actieve print bezig",
+		"no_pause": "Er is geen print gepauzeerd",
+		"no_printer": "De printer is niet vebonden of aan",
+		"snapshot_failed": "Geen snapshot op kunnen vragen!",
+		"no_bed_temperature": "Geen bed temperatuur beschikbaar",
+		"no_tool_temperature": "Geen hotend temperatuur beschikbaar"
+	},
+	"pair": {
+		"legend": "OctoPrint inloggegevens",
+		"successful": "OctoPrint apparaat toegevoegd",
+		"unsuccessful": "Kon OctoPrint niet vinden, zijn de inloggegevens wel correct?",
+		"address": {
+			"field": "(IP) Adres",
+			"description": "De OctoPrint server adres."
+		},
+		"apikey": {
+			"field": "API Key",
+			"description": "Gebruik alleen een \"Applicatie API-Key\", deze kan je genereren in de settings van octoprint."
+		},
+		"snapshot": {
+			"url": "Snapshot URL",
+			"description": "Als hij is leeg gelaten, zullen de standaard waardes gebruikt worden.",
+			"activate": "Activeer"
+		},
+		"save": "Opslaan",
+		"error": {
+			"required": "Beide (IP) Adres, en API Key, moeten ingevuld zijn.",
+			"unreachable": "Kon niet verbinden met OctoPrint. Zijn het (IP) Adres en API Key correct?"
+		}
+	}
+}

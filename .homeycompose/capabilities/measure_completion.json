@@ -1,0 +1,13 @@
+{
+	"type": "number",
+	"uiComponent": "sensor",
+	"units": "%",
+	"title": {
+		"en": "Completion",
+		"no": "Ferdig",
+		"nl": "Voltooiing"
+	},
+	"decimals": 1,
+	"getable": true,
+	"icon": "/drivers/octoprint/assets/job_completion.svg"
+}

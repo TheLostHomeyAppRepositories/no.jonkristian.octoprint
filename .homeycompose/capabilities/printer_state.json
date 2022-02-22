@@ -1,9 +1,10 @@
 {
-    "type": "string",
-    "title": {
-        "en": "State",
-        "no": "Status"
-    },
-    "getable": true,
-    "icon": "/drivers/octoprint/assets/printer_state.svg"
+	"type": "string",
+	"title": {
+		"en": "State",
+		"no": "Status",
+		"nl": "Status"
+	},
+	"getable": true,
+	"icon": "/drivers/octoprint/assets/printer_state.svg"
 }

@@ -1,10 +1,11 @@
 {
-    "type": "string",
-    "uiComponent": "sensor",
-    "title": {
-        "en": "Print Time",
-        "no": "Utskriftstid"
-    },
-    "getable": true,
-    "icon": "/drivers/octoprint/assets/job_time.svg"
+	"type": "string",
+	"uiComponent": "sensor",
+	"title": {
+		"en": "Print time",
+		"no": "Utskriftstid",
+		"nl": "Print tijd"
+	},
+	"getable": true,
+	"icon": "/drivers/octoprint/assets/job_time.svg"
 }

@@ -1,29 +1,41 @@
 {
   "id": "no.jonkristian.octoprint",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#12BB00",
   "name": {
-    "en": "Octoprint",
-    "no": "Octoprint"
+    "en": "Octoprint"
   },
   "description": {
     "en": "Control and monitor your 3D printer",
-    "no": "Styr og overvåk din 3D-printer"
+    "no": "Styr og overvåk din 3D-printer",
+    "nl": "Bedien en houd toezicht op je 3D printer"
   },
   "tags": {
     "en": [
-      "printer"
+      "3D printer",
+      "printer",
+      "3D",
+      "octoprint",
+      "octopi"
     ],
     "no": [
-      "printer"
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "nl": [
+      "3D printer",
+      "printer",
+      "3D",
+      "octoprint",
+      "octopi"
     ]
   },
   "category": [
     "tools"
   ],
-  "permissions": [],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
@@ -37,6 +49,10 @@
       {
         "name": "Johnny Dalen",
         "email": "johnny@jumpingmushroom.com"
+      },
+      {
+          "name": "Remco Mengers",
+          "email": "caseda08@hotmail.com"
       }
     ]
   },

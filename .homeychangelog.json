@@ -28,5 +28,9 @@
   },
   "1.0.9": {
     "en": "Fixed run listener init - Adds camera in-app"
+  },
+  "1.1.0": {
+    "en": "Many additions, see the readme.MD on github for the full change-log",
+    "nl": "Veel toevoegingen, zie de readme.MD op github voor alle veranderingen"
   }
 }

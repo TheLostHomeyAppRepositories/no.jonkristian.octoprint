@@ -1,0 +1,10 @@
+{
+	"type": "string",
+	"uiComponent": "sensor",
+	"title": {
+		"en": "Print file",
+		"nl": "Print bestand"
+	},
+	"getable": true,
+	"icon": "/drivers/octoprint/assets/job_file.svg"
+}

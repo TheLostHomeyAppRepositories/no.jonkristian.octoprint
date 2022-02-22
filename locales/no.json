@@ -1,50 +1,49 @@
 {
-    "save": "Lagre endringer",
-    "offline": "utilgjengelig",
-    "snapshot": {
-        "title": "Stillbilde",
-        "reboot": "Instilling for stillbilde ble forandret, vennligst start appen på nytt!"
-    },
-    "settings": {
-        "title": "Octoprint",
-        "pollInterval": "Oppdatering",
-        "pollIntervalDescription": "Hvor ofte skal verdier oppdateres (Standard er 30s).",
-        "save": "Lagre",
-        "success": "Instillingene ble lagret"
-    },
-    "states": {
-        "offline": "Frakoblet",
-        "closed": "Frakoblet",
-        "operational": "Operasjonell",
-        "printing": "Skriver ut",
-        "paused": "Pause",
-        "detecting": "Tester"
-    },
-    "error": {
-        "onoff_state": "Kan ikke slå av når status er (__state__)!",
-        "snapshot_failed": "Kunne ikke hente øyeblikksbilde!"
-    },
-    "pair": {
-        "legend": "Dine OctoPrint opplysninger",
-        "successful": "OctoPrint -enhet lagt til",
-        "unsuccessful": "Kunne inn finne OctoPrint, vennligst sjekk at du har riktige opplysninger.",
-        "address": {
-            "field": "Adresse",
-            "description": "Adressen til din OctoPrint -server."
-        },
-        "apikey": {
-            "field": "API-nøkkel",
-            "description": "Lag en applikasjonsnøkkel i OctoPrint og lim den inn her."
-        },
-        "snapshot": {
-            "url": "Lenke til kamera-stillbilde",
-            "description": "Hvis tom, benyttes standard OctoPrint -oppsett.",
-            "activate": "Aktiver"
-        },
-        "save": "Lagre",
-        "error": {
-            "required": "Adresse og API-nøkkel er påkrevd.",
-            "unreachable": "Kunne ikke kommunisere med OctoPrint. Sjekk at adresse og API-nøkkel er riktig."
-        }
-    }
+	"snapshot": {
+		"title": "Stillbilde",
+		"reboot": "Instilling for stillbilde ble forandret, vennligst start appen på nytt!"
+	},
+	"states": {
+		"Closed": "Frakoblet",
+		"Connecting": "Connecting",
+		"Operational": "Operasjonell",
+		"Printing": "Skriver ut",
+		"Pausing": "Pause",
+		"Paused": "Pause",
+		"Detecting serial connection": "Tester"
+	},
+	"error": {
+		"server_unreachable": "Octoprint-serveren er utilgjengelig",
+		"invalid_value": "Ugyldig verdi er brukt",
+		"invalid_state": "Gjeldende skriverstatus tillater ikke det",
+		"no_print": "Det er ingen aktiv utskriftsjobb",
+		"no_pause": "Ingen utskriftsjobb er satt på pause",
+		"no_printer": "Skriveren er ikke tilkoblet eller kjører",
+		"snapshot_failed": "Kunne ikke hente øyeblikksbilde!",
+		"no_bed_temperature": "Ingen sengetemperatur tilgjengelig",
+		"no_tool_temperature": "Ingen verktøytemperatur tilgjengelig"
+	},
+	"pair": {
+		"legend": "Dine OctoPrint opplysninger",
+		"successful": "OctoPrint -enhet lagt til",
+		"unsuccessful": "Kunne inn finne OctoPrint, vennligst sjekk at du har riktige opplysninger.",
+		"address": {
+			"field": "(IP) Adresse",
+			"description": "Adressen til din OctoPrint -server."
+		},
+		"apikey": {
+			"field": "API-nøkkel",
+			"description": "Bruk kun en \"Application API-Key\", denne kan du generere i innstillingene til octoprint."
+		},
+		"snapshot": {
+			"url": "Lenke til kamera-stillbilde",
+			"description": "Hvis tom, benyttes standard OctoPrint -oppsett.",
+			"activate": "Aktiver"
+		},
+		"save": "Lagre",
+		"error": {
+			"required": "Adresse og API-nøkkel er påkrevd.",
+			"unreachable": "Kunne ikke kommunisere med OctoPrint. Sjekk at adresse og API-nøkkel er riktig."
+		}
+	}
 }

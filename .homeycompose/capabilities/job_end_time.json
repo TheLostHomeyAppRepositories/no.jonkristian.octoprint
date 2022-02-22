@@ -1,0 +1,10 @@
+{
+	"type": "string",
+	"uiComponent": "sensor",
+	"title": {
+		"en": "Estimated end time",
+		"nl": "Verwachte eind tijd"
+	},
+	"getable": true,
+	"icon": "/drivers/octoprint/assets/job_end_time.svg"
+}
