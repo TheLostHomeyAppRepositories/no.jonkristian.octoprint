@@ -20,6 +20,7 @@
 * Resume print (Button)
 * Cancel print (Button, double press!)
 * Emergency stop (Button, double press!)
+* Send any G-Code
 * Snapshot
 
 ## Trigger cards
@@ -162,6 +163,7 @@ The app will stay like it is for now, polling the current state(s), on a adjusta
   - Fixed on/off capabilities' behaviour
   - Changed how the time is displayed in the capability, now with seconds and when necessary day(s)
   - Made the cancel print (GUI) button mandatory to double press it, to prevent accidental presses
+  - Removed the settings page, all information is now found (and changeable) in the device's (advanced) settings
   - Added Dutch translation
   - Many minor changes to the internal behaviour, to make it more reliable
 
