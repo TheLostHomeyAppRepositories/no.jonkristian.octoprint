@@ -1732,8 +1732,8 @@
       "uiComponent": null,
       "units": "%",
       "title": {
-        "en": "Completion (old)",
-        "no": "Ferdig (gammel)"
+        "en": "Completion (deprecated)",
+        "no": "Ferdig (avviklet)"
       },
       "getable": true
     },
@@ -1843,8 +1843,8 @@
       "uiComponent": null,
       "units": "°C",
       "title": {
-        "en": "Bed temp (old)",
-        "no": "Bed temp (gammel)"
+        "en": "Bed temp (deprecated)",
+        "no": "Bed temp (avviklet)"
       },
       "getable": true
     },
@@ -1853,8 +1853,8 @@
       "uiComponent": null,
       "units": "°C",
       "title": {
-        "en": "Tool temp (old)",
-        "no": "Tool temp (gammel)"
+        "en": "Tool temp (deprecated)",
+        "no": "Tool temp (avviklet)"
       },
       "getable": true
     }
