@@ -96,8 +96,8 @@ The app will stay like it is for now, polling the current state(s), on a adjusta
 * The Store icon "3D Printer" is made by [Ahkâm](https://www.freeiconspng.com/img/13046)
 
 ## Release Notes
-#### 1.1.0
-- Changed capabilities (breaking changes if (any) tokens/tags were used of these 3 capabilities in flows):
+#### 1.1.0/1.1.1
+- Changed capabilities ~~(breaking changes if (any) tokens/tags were used of these 3 capabilities in flows)~~:
   - printer_temp_bed => measure_temperature.bed (Current bed temperature) (eligible as device indicator now)
   - printer_temp_tool => measure_temperature.tool (Current tool temperature) (eligible as device indicator now)
   - job_completion => measure_completion (Print completion) (eligible as device indicator now)

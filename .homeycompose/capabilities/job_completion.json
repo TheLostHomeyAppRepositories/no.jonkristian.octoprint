@@ -1,0 +1,11 @@
+{
+    "type": "number",
+    "uiComponent": "sensor",
+    "units": "%",
+    "title": {
+        "en": "Completion (old)",
+        "no": "Ferdig (gammel)"
+    },
+    "getable": true,
+    "uiComponent": null
+}

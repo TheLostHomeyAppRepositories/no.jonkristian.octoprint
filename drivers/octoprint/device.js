@@ -81,17 +81,6 @@ class OctoprintDevice extends Homey.Device {
 			await this.addCapability('button.shutdown_raspberry').catch(this.error);
 		}
 
-		// Remove old capabilities
-		if (this.hasCapability('printer_temp_bed')) {
-			await this.removeCapability('printer_temp_bed').catch(this.error);
-		}
-		if (this.hasCapability('printer_temp_tool')) {
-			await this.removeCapability('printer_temp_tool').catch(this.error);
-		}
-		if (this.hasCapability('job_completion')) {
-			await this.removeCapability('job_completion').catch(this.error);
-		}
-
 		// During boot make sure the cancel and emergency stop capabilities are false
 		await this.setCapabilityValue('job_cancel', false).catch(this.error);
 		await this.setCapabilityValue('emergency_stop_m112', false).catch(this.error);
@@ -431,6 +420,7 @@ class OctoprintDevice extends Homey.Device {
 		this.log('OctoPrint device added');
 	}
 
+	// Device's advanced settings
 	async onSettings({ oldSettings, newSettings, changedKeys }) {
 		if (changedKeys.length > 0) {
 			setTimeout(() => this.setPrinterJobState(), 500);
@@ -675,15 +665,21 @@ class OctoprintDevice extends Homey.Device {
 		this.printer.temp = await this.octoprint.getPrinterTemps();
 
 		if (Object.keys(this.printer.temp).length === 0) {
-			if (this.hasCapability('target_temperature.bed')) await this.setCapabilityValue('target_temperature.bed', null);
-			await this.setCapabilityValue('target_temperature.tool', null);
-			if (this.hasCapability('target_temperature.chamber')) await this.setCapabilityValue('target_temperature.chamber', null);
-			if (this.hasCapability('measure_temperature.bed')) await this.setCapabilityValue('measure_temperature.bed', null);
-			await this.setCapabilityValue('measure_temperature.tool', null);
-			if (this.hasCapability('measure_temperature.chamber')) await this.setCapabilityValue('measure_temperature.chamber', null);
+			if (this.hasCapability('target_temperature.bed')) await this.setCapabilityValue('target_temperature.bed', null).catch(this.error);
+			await this.setCapabilityValue('target_temperature.tool', null).catch(this.error);
+			if (this.hasCapability('target_temperature.chamber')) await this.setCapabilityValue('target_temperature.chamber', null).catch(this.error);
+			if (this.hasCapability('measure_temperature.bed')) await this.setCapabilityValue('measure_temperature.bed', null).catch(this.error);
+			await this.setCapabilityValue('measure_temperature.tool', null).catch(this.error);
+			if (this.hasCapability('measure_temperature.chamber')) await this.setCapabilityValue('measure_temperature.chamber', null).catch(this.error);
+
+			// Backwards compatibility
+			if (this.hasCapability('printer_temp_bed')) await this.setCapabilityValue('printer_temp_bed', null).catch(this.error);
+			if (this.hasCapability('printer_temp_tool')) await this.setCapabilityValue('printer_temp_tool', null).catch(this.error);
+			
 			return false;
 		}
 
+		// Bed target temperature
 		if (
 			this.hasCapability('target_temperature.bed')
 			&& this.printer.temp.bed.target != this.getCapabilityValue('target_temperature.bed')
@@ -697,6 +693,7 @@ class OctoprintDevice extends Homey.Device {
 			if (temperature) await this.driver.triggerBedTarget(this, tokens, null);
 		}
 
+		// Tool target temperature
 		if (this.printer.temp.tool0.target != this.getCapabilityValue('target_temperature.tool')) {
 			const temperature = (typeof this.printer.temp.tool0.target === 'number') ? this.printer.temp.tool0.target : null;
 			const tokens = {
@@ -707,6 +704,7 @@ class OctoprintDevice extends Homey.Device {
 			if (temperature) await this.driver.triggerToolTarget(this, tokens, null);
 		}
 
+		// Chamber target temperature
 		if (
 			this.hasCapability('target_temperature.chamber')
 			&& this.printer.temp.chamber.target != this.getCapabilityValue('target_temperature.chamber')
@@ -720,6 +718,7 @@ class OctoprintDevice extends Homey.Device {
 			if (temperature) await this.driver.triggerChamberTarget(this, tokens, null);
 		}
 
+		// Bed measure temperature
 		if (
 			this.hasCapability('measure_temperature.bed')
 			&& this.printer.temp.bed.actual != this.getCapabilityValue('measure_temperature.bed')
@@ -728,6 +727,9 @@ class OctoprintDevice extends Homey.Device {
 			const tokens = {
 				temperature: temperature
 			}
+
+			// Backwards compatibility
+			if (this.hasCapability('printer_temp_bed')) await this.setCapabilityValue('printer_temp_bed', temperature).catch(this.error);
 
 			await this.setCapabilityValue('measure_temperature.bed', temperature).catch(this.error);
 			if (temperature) await this.driver.triggerBedMeasure(this, tokens, null);
@@ -744,11 +746,15 @@ class OctoprintDevice extends Homey.Device {
 			}
 		}
 
+		// Tool measure temperature
 		if (this.printer.temp.tool0.actual != this.getCapabilityValue('measure_temperature.tool')) {
 			const temperature = (typeof this.printer.temp.tool0.actual !== 'number') ? null : (!this.getSetting('measure_temperature_tool_decimal')) ? Math.round(this.printer.temp.tool0.actual) : this.printer.temp.tool0.actual;
 			const tokens = {
 				temperature: temperature
 			}
+
+			// Backwards compatibility
+			if (this.hasCapability('printer_temp_tool')) await this.setCapabilityValue('printer_temp_tool', temperature).catch(this.error);
 
 			await this.setCapabilityValue('measure_temperature.tool', temperature).catch(this.error);
 			if (temperature) await this.driver.triggerToolMeasure(this, tokens, null);
@@ -765,6 +771,7 @@ class OctoprintDevice extends Homey.Device {
 			}
 		}
 
+		// Chamber measure temperature
 		if (
 			this.hasCapability('measure_temperature.chamber')
 			&& this.printer.temp.chamber.actual != this.getCapabilityValue('measure_temperature.chamber')
@@ -790,6 +797,10 @@ class OctoprintDevice extends Homey.Device {
 			await this.setCapabilityValue('job_time', null).catch(this.error);
 			await this.setCapabilityValue('job_left', null).catch(this.error);
 			await this.setCapabilityValue('job_file', null).catch(this.error);
+
+			// Backwards compatibility
+			if (this.hasCapability('job_completion')) await this.setCapabilityValue('job_completion', 0).catch(this.error);
+
 			return false;
 		}
 
@@ -804,6 +815,9 @@ class OctoprintDevice extends Homey.Device {
 				completion: this.printer.job[completion],
 				completion_percent: Math.round(this.printer.job[completion]) / 100
 			}
+
+			// Backwards compatibility
+			if (this.hasCapability('job_completion')) await this.setCapabilityValue('job_completion', this.printer.job[completion]).catch(this.error);
 
 			await this.setCapabilityValue('measure_completion', this.printer.job[completion]).catch(this.error);
 			await this.driver.triggerCompletion(this, tokens, null);

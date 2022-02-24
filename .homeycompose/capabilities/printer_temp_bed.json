@@ -1,0 +1,11 @@
+{
+    "type": "number",
+    "uiComponent": "sensor",
+    "units": "°C",
+    "title": {
+        "en": "Bed temp (old)",
+        "no": "Bed temp (gammel)"
+    },
+    "getable": true,
+    "uiComponent": null
+}

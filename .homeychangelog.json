@@ -32,5 +32,9 @@
   "1.1.0": {
     "en": "Many additions, see the readme.MD on github for the full change-log",
     "nl": "Veel toevoegingen, zie de readme.MD op github voor alle veranderingen"
+  },
+  "1.1.1": {
+    "en": "Fixed the breaking changes by just hiding the old capabilities, instead of deleting them",
+    "nl": "De brekende wijzigingen verholpen door de oude capabilities te verbergen, in plaats van ze te verwijderen"
   }
 }

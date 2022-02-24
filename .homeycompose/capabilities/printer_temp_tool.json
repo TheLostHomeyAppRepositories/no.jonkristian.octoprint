@@ -1,0 +1,11 @@
+{
+    "type": "number",
+    "uiComponent": "sensor",
+    "units": "°C",
+    "title": {
+        "en": "Tool temp (old)",
+        "no": "Tool temp (gammel)"
+    },
+    "getable": true,
+    "uiComponent": null
+}
