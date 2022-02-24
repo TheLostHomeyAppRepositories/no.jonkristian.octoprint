@@ -3,8 +3,8 @@
     "uiComponent": "sensor",
     "units": "°C",
     "title": {
-        "en": "Bed temp (old)",
-        "no": "Bed temp (gammel)"
+        "en": "Bed temp (deprecated)",
+        "no": "Bed temp (avviklet)"
     },
     "getable": true,
     "uiComponent": null

@@ -3,8 +3,8 @@
     "uiComponent": "sensor",
     "units": "%",
     "title": {
-        "en": "Completion (old)",
-        "no": "Ferdig (gammel)"
+        "en": "Completion (deprecated)",
+        "no": "Ferdig (avviklet)"
     },
     "getable": true,
     "uiComponent": null

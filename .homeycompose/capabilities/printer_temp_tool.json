@@ -3,8 +3,8 @@
     "uiComponent": "sensor",
     "units": "°C",
     "title": {
-        "en": "Tool temp (old)",
-        "no": "Tool temp (gammel)"
+        "en": "Tool temp (deprecated)",
+        "no": "Tool temp (avviklet)"
     },
     "getable": true,
     "uiComponent": null
