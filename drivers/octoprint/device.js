@@ -675,7 +675,7 @@ class OctoprintDevice extends Homey.Device {
 			// Backwards compatibility
 			if (this.hasCapability('printer_temp_bed')) await this.setCapabilityValue('printer_temp_bed', null).catch(this.error);
 			if (this.hasCapability('printer_temp_tool')) await this.setCapabilityValue('printer_temp_tool', null).catch(this.error);
-			
+
 			return false;
 		}
 
