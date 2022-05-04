@@ -128,6 +128,7 @@ class OctoprintDevice extends Homey.Device {
 			},
 			bed_cooled_down: true,
 			tool_cooled_down: true,
+			print_stopped: true,
 			error_old: null
 		}
 
@@ -573,7 +574,8 @@ class OctoprintDevice extends Homey.Device {
 					// Started a print
 					if (
 						this.printer.state === 'Operational'
-						&& currentState === 'Printing'
+						&& (currentState === 'Printing'
+						|| this.printer.state === 'Starting')
 					) {
 						const tokens = {
 							'print_started_estimate': this.printer.job.estimate,
@@ -584,17 +586,15 @@ class OctoprintDevice extends Homey.Device {
 							'print_started_estimate_end_full': this.printer.job.estimate_end_time_full
 						}
 
+						this.printer.print_stopped = false;
 						await this.driver.triggerPrintStarted(this, tokens, null);
 					}
 
 					// Paused a print
 					if (
-						(this.printer.state === 'Printing'
-						&& currentState === 'Pausing')
-						|| (this.printer.state === 'Printing'
-						&& currentState === 'Paused')
-						|| (this.printer.state === 'Pausing'
-						&& currentState === 'Paused')
+						this.printer.state === 'Printing'
+						&& (currentState === 'Pausing'
+						|| currentState === 'Paused')
 					) {
 						const tokens = {
 							'print_paused_estimate': this.printer.job.estimate,
@@ -611,10 +611,32 @@ class OctoprintDevice extends Homey.Device {
 						await this.driver.triggerPrintPaused(this, tokens, null);
 					}
 
-					// Finished (or cancelled) a print
+					// Resumed a print
+					if (
+						(this.printer.state === 'Paused'
+						|| this.printer.state === 'Pausing')
+						&& currentState === 'Printing'
+					) {
+						const tokens = {
+							'print_resumed_estimate': this.printer.job.estimate,
+							'print_resumed_estimate_hms': this.printer.job.estimate_hms,
+							'print_resumed_estimate_seconds': this.printer.job.estimate_seconds,
+							'print_resumed_time': this.printer.job.time,
+							'print_resumed_time_hms': this.printer.job.time_hms,
+							'print_resumed_time_seconds': this.printer.job.time_seconds,
+							'print_resumed_left': this.printer.job.left,
+							'print_resumed_left_hms': this.printer.job.left_hms,
+							'print_resumed_seconds_left': this.printer.job.seconds_left
+						}
+
+						await this.driver.triggerPrintResumed(this, tokens, null);
+					}
+
+					// Finished a print
 					if (
 						this.printer.state === 'Printing'
 						&& currentState === 'Operational'
+						&& this.printer.job.completion === 100
 					) {
 						const tokens = {
 							'print_finished_estimate': this.printer.job.estimate,
@@ -626,6 +648,28 @@ class OctoprintDevice extends Homey.Device {
 						}
 
 						await this.driver.triggerPrintFinished(this, tokens, null);
+					}
+
+					// Stopped a print
+					if (
+						(this.printer.state === 'Printing'
+						|| this.printer.state === 'Paused'
+						|| this.printer.state === 'Pausing')
+						&& (currentState === 'Operational'
+						|| currentState === 'Closed'
+						|| currentState === 'Offline'
+						|| currentState === 'Cancelling')
+						&& this.printer.print_stopped === false
+					) {
+						const completion = this.getSetting('calculated_completion') || 'completion';
+
+						const tokens = {
+							'completion': this.printer.job[completion],
+							'completion_percent': Math.round(this.printer.job[completion]) / 100
+						}
+
+						this.printer.print_stopped = true;
+						await this.driver.triggerPrintStopped(this, tokens, null);
 					}
 
 					// Update the state in memory

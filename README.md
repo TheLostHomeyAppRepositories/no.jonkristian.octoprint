@@ -26,6 +26,7 @@
 ## Trigger cards
 * Print started (tags: estimated print time (normal/H:M:S/seconds), estimated end time (normal/short/full))
 * Print paused (tags: estimated print time (normal/H:M:S/seconds), print time (normal/H:M:S/seconds), estimated time left (normal/H:M:S/seconds))
+* Print resumed (tags: estimated print time (normal/H:M:S/seconds), print time (normal/H:M:S/seconds), estimated time left (normal/H:M:S/seconds))
 * Print finished (tags: estimated print time (normal/H:M:S/seconds), print time (normal/H:M:S/seconds))
 * State changed (tags: state)
 * Bed temperature changed (target and current)
@@ -96,6 +97,15 @@ The app will stay like it is for now, polling the current state(s), on a adjusta
 * The Store icon "3D Printer" is made by [Ahkâm](https://www.freeiconspng.com/img/13046)
 
 ## Release Notes
+#### 1.1.2
+- Added flow cards:
+  - Triggers:
+    - Stopped a print (will always trigger when stopping a print, for example when a print was being cancelled, might have missed a situation, please let me know if that is the case)
+    - Resumed a print (after a pause)
+- Fix missing a starting of the print
+- Fix mis triggering the finishing of a print
+- Fixed a small bug (wrong value being written to a flow trigger's token)
+
 #### 1.1.0/1.1.1
 - Changed capabilities ~~(breaking changes if (any) tokens/tags were used of these 3 capabilities in flows)~~:
   - printer_temp_bed => measure_temperature.bed (Current bed temperature) (eligible as device indicator now)

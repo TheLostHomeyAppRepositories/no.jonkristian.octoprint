@@ -36,5 +36,9 @@
   "1.1.1": {
     "en": "Fixed the breaking changes by just hiding the old capabilities, instead of deleting them",
     "nl": "De brekende wijzigingen verholpen door de oude capabilities te verbergen, in plaats van ze te verwijderen"
+  },
+  "1.1.2": {
+    "en": "Added 2 triggers (print stopped and resumed). Minor bug fixes.",
+    "nl": "2 triggers toegevoegd (print gestopt en hervat). Kleine bug fixes."
   }
 }

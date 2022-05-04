@@ -372,6 +372,168 @@
         ]
       },
       {
+        "id": "print_resumed",
+        "title": {
+          "en": "Print resumed",
+          "no": "Utskrift gjenopptatt",
+          "nl": "Print hervat"
+        },
+        "hint": {
+          "en": "When a print has resumed after being paused",
+          "no": "Når en utskrift har gjenopptatt etter å ha blitt satt på pause",
+          "nl": "Wanneer een print is hervat na een pauze"
+        },
+        "tokens": [
+          {
+            "name": "print_resumed_estimate",
+            "type": "string",
+            "title": {
+              "en": "Estimated time",
+              "no": "Estimat tid",
+              "nl": "Geschatte tijd"
+            },
+            "example": {
+              "en": "5h 5m 5s"
+            }
+          },
+          {
+            "name": "print_resumed_estimate_hms",
+            "type": "string",
+            "title": {
+              "en": "Estimated time H:M:S",
+              "no": "Estimat tid H:M:S",
+              "nl": "Geschatte tijd H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_resumed_estimate_seconds",
+            "type": "number",
+            "title": {
+              "en": "Estimated time seconds",
+              "nl": "Geschatte tijd seconden"
+            },
+            "example": 18305
+          },
+          {
+            "name": "print_resumed_time",
+            "type": "string",
+            "title": {
+              "en": "Print time",
+              "no": "Print tid",
+              "nl": "Print tijd"
+            },
+            "example": {
+              "en": "5h 5m 5s"
+            }
+          },
+          {
+            "name": "print_resumed_time_hms",
+            "type": "string",
+            "title": {
+              "en": "Print time H:M:S",
+              "no": "Print tid H:M:S",
+              "nl": "Print tijd H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_resumed_time_seconds",
+            "type": "number",
+            "title": {
+              "en": "Print time seconds",
+              "nl": "Print tijd seconden"
+            },
+            "example": 18305
+          },
+          {
+            "name": "print_resumed_left",
+            "type": "string",
+            "title": {
+              "en": "Time left",
+              "no": "Tid igjen",
+              "nl": "Tijd resterend"
+            },
+            "example": {
+              "en": "5h 5m 5s"
+            }
+          },
+          {
+            "name": "print_paused_left_hms",
+            "type": "string",
+            "title": {
+              "en": "Time left H:M:S",
+              "no": "Tid igjen H:M:S",
+              "nl": "Tijd resterend H:M:S"
+            },
+            "example": {
+              "en": "05:05:05"
+            }
+          },
+          {
+            "name": "print_paused_seconds_left",
+            "type": "number",
+            "title": {
+              "en": "Seconds left",
+              "no": "Sekunder igjen",
+              "nl": "Seconden resterend"
+            },
+            "example": 18305
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
+        "id": "print_stopped",
+        "title": {
+          "en": "Print stopped",
+          "no": "Utskriften stoppet",
+          "nl": "Print gestopt"
+        },
+        "hint": {
+          "en": "When a print has stopped",
+          "no": "Når en utskrift har stoppet",
+          "nl": "Wanneer een print gestopt is"
+        },
+        "tokens": [
+          {
+            "name": "completion",
+            "type": "number",
+            "title": {
+              "en": "Completion #",
+              "nl": "Voltooiing #"
+            },
+            "example": 56.7
+          },
+          {
+            "name": "completion_percent",
+            "type": "number",
+            "title": {
+              "en": "Completion %",
+              "nl": "Voltooiing %"
+            },
+            "example": 0.57
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
         "id": "completion_changed",
         "highlight": true,
         "title": {
