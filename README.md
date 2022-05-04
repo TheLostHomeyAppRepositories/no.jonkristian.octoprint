@@ -28,6 +28,7 @@
 * Print paused (tags: estimated print time (normal/H:M:S/seconds), print time (normal/H:M:S/seconds), estimated time left (normal/H:M:S/seconds))
 * Print resumed (tags: estimated print time (normal/H:M:S/seconds), print time (normal/H:M:S/seconds), estimated time left (normal/H:M:S/seconds))
 * Print finished (tags: estimated print time (normal/H:M:S/seconds), print time (normal/H:M:S/seconds))
+* Print stopped (tags: from API (normal/percentage) or calculated (normal/percentage))
 * State changed (tags: state)
 * Bed temperature changed (target and current)
 * Tool temperature changed (target and current)
@@ -37,7 +38,7 @@
 * Estimated print time changed (tags: normal/H:M:S/seconds)
 * Estimated end time changed (tags: normal/short/full)
 * Print time changed (tags: normal/H:M:S/seconds)
-* Print percentage completed changed (tags: from API (normal/percentage), calculated (normal/percentage))
+* Print percentage completed changed (tags: from API (normal/percentage) or calculated (normal/percentage))
 * Error occurred (tags: error)
 * File (name) changed (tags: file)
 
