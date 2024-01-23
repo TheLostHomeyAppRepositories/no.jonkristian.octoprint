@@ -1,6 +1,5 @@
 {
     "type": "number",
-    "uiComponent": "sensor",
     "units": "°C",
     "title": {
         "en": "Tool temp (deprecated)",

@@ -1,6 +1,6 @@
 {
   "id": "no.jonkristian.octoprint",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#12BB00",
@@ -41,14 +41,18 @@
     "small": "/assets/images/small.png"
   },
   "author": {
-    "name": "Jon Kristian Nilsen",
-    "email": "hello@jonkristian.no"
+    "name": "Bretislav Kubesa",
+    "website": "https://github.com/shaarkys"
   },
   "contributors": {
     "developers": [
       {
         "name": "Johnny Dalen",
         "email": "johnny@jumpingmushroom.com"
+      },
+      { 
+        "name": "Jon Kristian Nilsen",
+        "email": "hello@jonkristian.no"
       },
       {
           "name": "Remco Mengers",
@@ -59,13 +63,13 @@
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "jonkristian"
+        "username": "bkubesa"
       }
     }
   },
-  "source": "https://github.com/jonkristian/no.jonkristian.octoprint",
+  "source": "https://github.com/shaarkys/no.jonkristian.octoprint",
   "bugs": {
-    "url": "https://github.com/jonkristian/no.jonkristian.octoprint/issues"
+    "url": "https://github.com/shaarkys/no.jonkristian.octoprint/issues"
   },
   "homeyCommunityTopicId": 42836
 }

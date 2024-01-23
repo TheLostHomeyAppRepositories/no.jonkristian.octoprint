@@ -1173,6 +1173,40 @@ class OctoprintDevice extends Homey.Device {
 			return Promise.reject(this.homey.__('error.invalid_value'));
 		}
 	}
+	
+	// Listener for Reboot Raspberry Pi action
+		async rebootRaspberryRunListener(args, state) {
+			// Include 'Connecting' in the condition
+			if (
+				this.printer.state === 'Operational' || 
+				this.printer.state === 'Closed' ||
+				this.printer.state === 'Connecting' ||
+				this.printer.state === 'Offline' 
+			) {
+				return this.octoprint.postData('/api/system/commands/core/reboot', {})
+					.then(() => true)
+					.catch(error => Promise.reject(error));
+			} else {
+				return Promise.reject(new Error(this.homey.__('error.invalid_state')));
+			}
+		}
+	
+	// Listener for Shutdown Raspberry Pi action
+		async shutdownRaspberryRunListener(args, state) {
+			// Include 'Connecting' in the condition
+			if (
+				this.printer.state === 'Operational' || 
+				this.printer.state === 'Closed' ||
+				this.printer.state === 'Connecting' ||
+				this.printer.state === 'Connecting' 
+			) {
+				return this.octoprint.postData('/api/system/commands/core/shutdown', {})
+					.then(() => true)
+					.catch(error => Promise.reject(error));
+			} else {
+				return Promise.reject(new Error(this.homey.__('error.invalid_state')));
+			}
+		}		
 }
 
 module.exports = OctoprintDevice;
