@@ -73,6 +73,18 @@ class OctoprintDriver extends Homey.Driver {
 			.registerRunListener((args, state) => {
 				return args.device.targetTemperatureToolRunListener(args, state);
 			});
+			
+		// Register Reboot Raspberry Pi action card
+		this._actionRebootRaspberry = this.homey.flow.getActionCard('reboot_raspberry')
+		.registerRunListener((args, state) => {
+			return args.device.rebootRaspberryRunListener(args, state);
+		});
+
+		// Register Shutdown Raspberry Pi action card
+		this._actionShutdownRaspberry = this.homey.flow.getActionCard('shutdown_raspberry')
+		.registerRunListener((args, state) => {
+			return args.device.shutdownRaspberryRunListener(args, state);
+		});
 
 		//  ========================================== Flow condition registers ==========================================
 		this._isPrinting = this.homey.flow.getConditionCard('is_printing')

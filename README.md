@@ -58,6 +58,8 @@
 * Set the bed temperature
 * Set the tool temperature
 * Set the chamber temperature
+* Reboot Raspberry Pi (when not printing)
+* Shutdown Raspberry Pi (when not printing)
 
 ## Device settings
 * IP Address
@@ -85,8 +87,6 @@
 ## Feedback
 ⭐️ this repository if you found it useful ❤️
 
-<a href="https://www.buymeacoffee.com/jonkristian" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-
 ## Notes:
 I did look at the push capabilities Octoprint has, but they are still changing this part of the API.
 I wanted to have this app keep working even if they do change the Push API, so I won't be implementing this yet.
@@ -98,6 +98,12 @@ The app will stay like it is for now, polling the current state(s), on a adjusta
 * The Store icon "3D Printer" is made by [Ahkâm](https://www.freeiconspng.com/img/13046)
 
 ## Release Notes
+
+#### 1.1.3
+- new maintainter / update to store
+- NodeJS modules update
+- added flow actions for Raspberry Reboot / Shutdown (state Operational / Offline or Disconnected)
+
 #### 1.1.2
 - Added flow cards:
   - Triggers:

@@ -3,7 +3,7 @@
   "author": "Jon Kristian Nilsen",
   "version": "1.1.2",
   "main": "app.js",
-  "repository": "https://github.com/jonkristian/no.jonkristian.octoprint",
+  "repository": "https://github.com/shaarkys/no.jonkristian.octoprint",
   "license": "ISC",
   "dependencies": {
     "luxon": "^2.2.0",

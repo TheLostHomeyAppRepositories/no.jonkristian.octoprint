@@ -1169,6 +1169,18 @@
 				"en": "Emergency stop (M112)",
 				"nl": "Noodstop (M112)"
 			}
-		}
+		},
+		{
+            "id": "reboot_raspberry",
+            "title": {
+                "en": "Reboot Raspberry Pi"
+            }
+        },
+        {
+            "id": "shutdown_raspberry",
+            "title": {
+                "en": "Shutdown Raspberry Pi"
+            }
+        }
 	]
 }

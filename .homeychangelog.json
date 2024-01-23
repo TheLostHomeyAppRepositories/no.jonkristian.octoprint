@@ -40,5 +40,8 @@
   "1.1.2": {
     "en": "Added 2 triggers (print stopped and resumed). Minor bug fixes.",
     "nl": "2 triggers toegevoegd (print gestopt en hervat). Kleine bug fixes."
+  },
+  "1.1.3": {
+    "en": "new maintainter / update to store, NodeJS modules update, added flow actions for Raspberry Reboot / Shutdown (state Operational / Offline or Disconnected)"
   }
 }

@@ -1,6 +1,5 @@
 {
     "type": "number",
-    "uiComponent": "sensor",
     "units": "%",
     "title": {
         "en": "Completion (deprecated)",
