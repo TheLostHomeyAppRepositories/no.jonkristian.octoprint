@@ -114,6 +114,7 @@ class OctoprintDevice extends Homey.Device {
 				completion: 0,
 				completion_time_calculated: 0,
 				estimate: '-',
+				estimate_hms: '-',
 				estimate_seconds: '-',
 				estimate_end_time: '-',
 				estimate_end_time_short: '-',
@@ -578,12 +579,12 @@ class OctoprintDevice extends Homey.Device {
 						|| this.printer.state === 'Starting')
 					) {
 						const tokens = {
-							'print_started_estimate': this.printer.job.estimate,
-							'print_started_estimate_hms': this.printer.job.estimate_hms,
+							'print_started_estimate': String(this.printer.job.estimate),
+							'print_started_estimate_hms': String(this.printer.job.estimate_hms),
 							'print_started_estimate_seconds': this.printer.job.estimate_seconds,
-							'print_started_estimate_end': this.printer.job.estimate_end_time,
-							'print_started_estimate_end_short': this.printer.job.estimate_end_time_short,
-							'print_started_estimate_end_full': this.printer.job.estimate_end_time_full
+							'print_started_estimate_end': String(this.print_started_estimate_end),
+							'print_started_estimate_end_short': String(this.printer.job.estimate_end_time_short),
+							'print_started_estimate_end_full': String(this.printer.job.estimate_end_time_full)
 						}
 
 						this.printer.print_stopped = false;
@@ -597,14 +598,14 @@ class OctoprintDevice extends Homey.Device {
 						|| currentState === 'Paused')
 					) {
 						const tokens = {
-							'print_paused_estimate': this.printer.job.estimate,
-							'print_paused_estimate_hms': this.printer.job.estimate_hms,
+							'print_paused_estimate': String(this.printer.job.estimate),
+							'print_paused_estimate_hms': String(this.printer.job.estimate_hms),
 							'print_paused_estimate_seconds': this.printer.job.estimate_seconds,
-							'print_paused_time': this.printer.job.time,
-							'print_paused_time_hms': this.printer.job.time_hms,
+							'print_paused_time': String(this.printer.job.time),
+							'print_paused_time_hms': String(this.printer.job.time_hms),
 							'print_paused_time_seconds': this.printer.job.time_seconds,
-							'print_paused_left': this.printer.job.left,
-							'print_paused_left_hms': this.printer.job.left_hms,
+							'print_paused_left': String(this.printer.job.left),
+							'print_paused_left_hms': String(this.printer.job.left_hms),
 							'print_paused_seconds_left': this.printer.job.seconds_left
 						}
 
@@ -618,13 +619,13 @@ class OctoprintDevice extends Homey.Device {
 						&& currentState === 'Printing'
 					) {
 						const tokens = {
-							'print_resumed_estimate': this.printer.job.estimate,
-							'print_resumed_estimate_hms': this.printer.job.estimate_hms,
+							'print_resumed_estimate': String(this.printer.job.estimate),
+							'print_resumed_estimate_hms': String(this.printer.job.estimate_hms),
 							'print_resumed_estimate_seconds': this.printer.job.estimate_seconds,
 							'print_resumed_time': this.printer.job.time,
-							'print_resumed_time_hms': this.printer.job.time_hms,
-							'print_resumed_time_seconds': this.printer.job.time_seconds,
-							'print_resumed_left': this.printer.job.left,
+							'print_resumed_time_hms': String(this.printer.job.time_hms),
+							'print_resumed_time_seconds': String(this.printer.job.time_seconds),
+							'print_resumed_left': String(this.printer.job.left),
 							'print_resumed_left_hms': this.printer.job.left_hms,
 							'print_resumed_seconds_left': this.printer.job.seconds_left
 						}
@@ -639,11 +640,11 @@ class OctoprintDevice extends Homey.Device {
 						&& this.printer.job.completion === 100
 					) {
 						const tokens = {
-							'print_finished_estimate': this.printer.job.estimate,
-							'print_finished_estimate_hms': this.printer.job.estimate_hms,
+							'print_finished_estimate': String(this.printer.job.estimate),
+							'print_finished_estimate_hms': String(this.printer.job.estimate_hms),
 							'print_finished_estimate_seconds': this.printer.job.estimate_seconds,
-							'print_finished_time': this.printer.job.time,
-							'print_finished_time_hms': this.printer.job.time_hms,
+							'print_finished_time': String(this.printer.job.time),
+							'print_finished_time_hms': String(this.printer.job.time_hms),
 							'print_finished_time_seconds': this.printer.job.time_seconds
 						}
 
