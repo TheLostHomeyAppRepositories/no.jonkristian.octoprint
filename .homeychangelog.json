@@ -46,5 +46,8 @@
   },
   "1.1.4": {
     "en": "Attempt to fix Could not trigger Flow card"
+  },
+  "1.1.5": {
+    "en": "Attempt to Fix : Invalid value for token"
   }
 }
