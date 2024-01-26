@@ -581,7 +581,7 @@ class OctoprintDevice extends Homey.Device {
 						const tokens = {
 							'print_started_estimate': String(this.printer.job.estimate),
 							'print_started_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_started_estimate_seconds': this.printer.job.estimate_seconds,
+							'print_started_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
 							'print_started_estimate_end': String(this.print_started_estimate_end),
 							'print_started_estimate_end_short': String(this.printer.job.estimate_end_time_short),
 							'print_started_estimate_end_full': String(this.printer.job.estimate_end_time_full)
@@ -642,7 +642,7 @@ class OctoprintDevice extends Homey.Device {
 						const tokens = {
 							'print_finished_estimate': String(this.printer.job.estimate),
 							'print_finished_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_finished_estimate_seconds': this.printer.job.estimate_seconds,
+							'print_finished_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
 							'print_finished_time': String(this.printer.job.time),
 							'print_finished_time_hms': String(this.printer.job.time_hms),
 							'print_finished_time_seconds': this.printer.job.time_seconds
