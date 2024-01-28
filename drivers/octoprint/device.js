@@ -600,13 +600,13 @@ class OctoprintDevice extends Homey.Device {
 						const tokens = {
 							'print_paused_estimate': String(this.printer.job.estimate),
 							'print_paused_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_paused_estimate_seconds': this.printer.job.estimate_seconds,
+							'print_paused_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
 							'print_paused_time': String(this.printer.job.time),
 							'print_paused_time_hms': String(this.printer.job.time_hms),
-							'print_paused_time_seconds': this.printer.job.time_seconds,
+							'print_paused_time_seconds': parseInt(this.printer.job.time_seconds, 10),
 							'print_paused_left': String(this.printer.job.left),
 							'print_paused_left_hms': String(this.printer.job.left_hms),
-							'print_paused_seconds_left': this.printer.job.seconds_left
+							'print_paused_seconds_left': parseInt(this.printer.job.seconds_left, 10),
 						}
 
 						await this.driver.triggerPrintPaused(this, tokens, null);
@@ -621,13 +621,13 @@ class OctoprintDevice extends Homey.Device {
 						const tokens = {
 							'print_resumed_estimate': String(this.printer.job.estimate),
 							'print_resumed_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_resumed_estimate_seconds': this.printer.job.estimate_seconds,
+							'print_resumed_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
 							'print_resumed_time': this.printer.job.time,
 							'print_resumed_time_hms': String(this.printer.job.time_hms),
-							'print_resumed_time_seconds': String(this.printer.job.time_seconds),
+							'print_resumed_time_seconds': parseInt(this.printer.job.time_seconds, 10),
 							'print_resumed_left': String(this.printer.job.left),
 							'print_resumed_left_hms': this.printer.job.left_hms,
-							'print_resumed_seconds_left': this.printer.job.seconds_left
+							'print_resumed_seconds_left': parseInt(this.printer.job.seconds_left, 10),
 						}
 
 						await this.driver.triggerPrintResumed(this, tokens, null);
@@ -645,7 +645,7 @@ class OctoprintDevice extends Homey.Device {
 							'print_finished_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
 							'print_finished_time': String(this.printer.job.time),
 							'print_finished_time_hms': String(this.printer.job.time_hms),
-							'print_finished_time_seconds': this.printer.job.time_seconds
+							'print_finished_time_seconds': parseInt(this.printer.job.time_seconds, 10),
 						}
 
 						await this.driver.triggerPrintFinished(this, tokens, null);
