@@ -49,5 +49,8 @@
   },
   "1.1.5": {
     "en": "Attempt to Fix : Invalid value for token"
+  },
+  "1.1.6": {
+    "en": "Trigger Flow card with id \"print_resumed\" fix"
   }
 }
