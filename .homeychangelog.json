@@ -52,5 +52,8 @@
   },
   "1.1.6": {
     "en": "Trigger Flow card with id \"print_resumed\" fix"
+  },
+  "1.1.7": {
+    "en": "Shorten file name capability on the device title"
   }
 }
