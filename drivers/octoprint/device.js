@@ -914,12 +914,17 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		if (this.printer.job.file != this.getCapabilityValue('job_file')) {
+			const fullFileName = this.printer.job.file;
+			const shortenedFileName = fullFileName && fullFileName.length > 15 ? fullFileName.substring(0, 15) + "..." : fullFileName;
+	
+			// Set shortened file name as device title
+			await this.setCapabilityValue('job_file', shortenedFileName).catch(this.error);
+	
+			// Use full file name in flows as a tag
 			const tokens = {
-				file: this.printer.job.file
-			}
-
-			await this.setCapabilityValue('job_file', this.printer.job.file).catch(this.error);
-			if (this.printer.job.file) await this.driver.triggerFile(this, tokens, null);
+				file: fullFileName // Here, use the full file name
+			};
+			if (fullFileName) await this.driver.triggerFile(this, tokens, null);
 		}
 	}
 
