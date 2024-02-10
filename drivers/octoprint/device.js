@@ -605,7 +605,7 @@ class OctoprintDevice extends Homey.Device {
 							'print_paused_time_hms': String(this.printer.job.time_hms),
 							'print_paused_time_seconds': parseInt(this.printer.job.time_seconds, 10),
 							'print_paused_left': String(this.printer.job.left),
-							'print_paused_left_hms': String(this.printer.job.left_hms),
+							'print_paused_left_hms': this.printer.job.left_hms ? String(this.printer.job.left_hms) : "N/A",
 							'print_paused_seconds_left': parseInt(this.printer.job.seconds_left, 10),
 						}
 
