@@ -55,5 +55,8 @@
   },
   "1.1.7": {
     "en": "Shorten file name capability on the device title"
+  },
+  "1.1.8": {
+    "en": "Multiple fixes - button resets after execution, CANCEL/M112 were not working, added logging for debugging"
   }
 }
