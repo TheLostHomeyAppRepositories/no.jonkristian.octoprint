@@ -36,6 +36,7 @@ class OctoprintDriver extends Homey.Driver {
 		//  ========================================== Flow action registers ==========================================
 		this._actionCancelPrint = this.homey.flow.getActionCard('cancel_print')
 			.registerRunListener((args, state) => {
+				this.log('Cancel print action triggered');
 				return args.device.cancelPrintRunListener(args, state);
 			});
 
@@ -46,21 +47,25 @@ class OctoprintDriver extends Homey.Driver {
 
 		this._actionHomePrinter = this.homey.flow.getActionCard('home_printer')
 			.registerRunListener((args, state) => {
+				this.log('Home action triggered');
 				return args.device.homePrinterRunListener(args, state);
 			});
 
 		this._actionDisplayMessage = this.homey.flow.getActionCard('display_message')
 			.registerRunListener((args, state) => {
+				this.log('Display message action triggered');
 				return args.device.displayMessageRunListener(args, state);
 			});
 
 		this._actionMoveAxis = this.homey.flow.getActionCard('move_axis')
 			.registerRunListener((args, state) => {
+				this.log('Move axis action triggered');
 				return args.device.moveAxisRunListener(args, state);
 			});
 
 		this._actionEmergencyStop = this.homey.flow.getActionCard('emergency_stop_m112')
 			.registerRunListener((args, state) => {
+				this.log('Emergency stop action triggered');
 				return args.device.emergencyStopRunListener(args, state);
 			});
 
@@ -110,70 +115,89 @@ class OctoprintDriver extends Homey.Driver {
 
 	//  ========================================== Flow triggers ==========================================
 	triggerPrintStarted(device, tokens, state) {
+		this.log('Print START :', tokens);
 		this._printStartedTrigger.trigger(device, tokens, state);
 	};
 
 	triggerPrintPaused(device, tokens, state) {
+		this.log('Print PAUSE :', tokens);
 		this._printPausedTrigger.trigger(device, tokens, state);
 	};
 
 	triggerPrintResumed(device, tokens, state) {
-		this._printResumedTrigger.trigger(device, tokens, state);
+		this.log('Print RESUME :', JSON.stringify(tokens));
+		this._printResumedTrigger.trigger(device, tokens, state).catch(err => {
+			this.log('Error triggering print RESUME:', err);
+		});
 	};
 
 	triggerPrintFinished(device, tokens, state) {
+		this.log('Print FINISHED :', tokens);
 		this._printFinishedTrigger.trigger(device, tokens, state);
 	};
 
 	triggerPrintStopped(device, tokens, state) {
+		this.log('Print STOP :', tokens);
 		this._printStoppedTrigger.trigger(device, tokens, state);
 	};
 
 	triggerBedTarget(device, tokens, state) {
+		this.log('BED TARGET :', tokens);
 		this._targetTemperatureBedTrigger.trigger(device, tokens, state);
 	};
 
 	triggerToolTarget(device, tokens, state) {
+		this.log('TOOL TARGET :', tokens);
 		this._targetTemperatureToolTrigger.trigger(device, tokens, state);
 	};
 
 	triggerChamberTarget(device, tokens, state) {
+		this.log('CHAMBER TARGET :', tokens);
 		this._targetTemperatureChamberTrigger.trigger(device, tokens, state);
 	};
 
 	triggerBedMeasure(device, tokens, state) {
+		this.log('BED :', tokens);
 		this._measureTemperatureBedTrigger.trigger(device, tokens, state);
 	};
 
 	triggerToolMeasure(device, tokens, state) {
+		this.log('TOOL :', tokens);
 		this._measureTemperatureToolTrigger.trigger(device, tokens, state);
 	};
 
 	triggerChamberMeasure(device, tokens, state) {
+		this.log('CHAMBER :', tokens);
 		this._measureTemperatureChamberTrigger.trigger(device, tokens, state);
 	};
 
 	triggerEstimatedTime(device, tokens, state) {
+		this.log('ESTIMATED TIME :', tokens);
 		this._estimatedTimeTrigger.trigger(device, tokens, state);
 	};
 
 	triggerEstimatedEndTime(device, tokens, state) {
+		this.log('ESTIMATED END TIME :', tokens);
 		this._endTimeTrigger.trigger(device, tokens, state);
 	};
 
 	triggerCompletion(device, tokens, state) {
+		this.log('COMPLETITION :', tokens);
 		this._completionTrigger.trigger(device, tokens, state);
 	};
 
 	triggerPrintTime(device, tokens, state) {
+		this.log('PRINT TIME :', tokens);
 		this._printTimeTrigger.trigger(device, tokens, state);
 	};
 
 	triggerTimeLeft(device, tokens, state) {
+		this.log('TIME LEFT :', tokens);
 		this._timeLeftTrigger.trigger(device, tokens, state);
 	};
 
 	triggerState(device, tokens, state) {
+		this.log('DEVICE STATE :', tokens);
 		this._stateTrigger.trigger(device, tokens, state);
 	};
 
@@ -190,11 +214,13 @@ class OctoprintDriver extends Homey.Driver {
 	};
 
 	triggerError(device, tokens, state) {
+		this.log('ERROR STATE :', tokens);
 		this._errorTrigger.trigger(device, tokens, state);
 	};
 
 	async onPair(session) {
 		session.setHandler('showView', async (viewId) => {
+			this.log('Pairing view changed to:', viewId);
 			if ('start' === viewId) {
 				session.setHandler('addOctoprint', async function(connection) {
 					// Test connection, see if we can retrieve octoprint version.

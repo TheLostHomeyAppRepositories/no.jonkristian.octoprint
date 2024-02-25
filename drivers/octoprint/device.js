@@ -10,6 +10,7 @@ class OctoprintDevice extends Homey.Device {
 	 */
 	async onInit() {
 		// Migrate to all new capabilities
+		this.log('OctoprintDriver initialization started');
 		if (this.getSetting('heated_bed') === false) {
 			if (this.hasCapability('target_temperature.bed')) {
 				await this.removeCapability('target_temperature.bed').catch(this.error);
@@ -89,6 +90,31 @@ class OctoprintDevice extends Homey.Device {
 			address: this.getSetting('address'),
 			apikey: this.getSetting('apikey')
 		});
+
+		// Query the current state of the printer
+		try {
+			const currentState = await this.octoprint.getPrinterState();
+
+			// Set capability values based on the current state
+			if (currentState === 'Printing') {
+				await this.setCapabilityValue('job_pause', false);
+				await this.setCapabilityValue('job_resume', false);
+			} else if (currentState === 'Paused') {
+				await this.setCapabilityValue('job_pause', false);
+				await this.setCapabilityValue('job_resume', true);
+			} else if (currentState === 'Operational') {
+				// When printer is Operational, both pause and resume should be false
+				await this.setCapabilityValue('job_pause', false);
+				await this.setCapabilityValue('job_resume', false);
+			} else {
+				// For any other state, also set both to false
+				await this.setCapabilityValue('job_pause', false);
+				await this.setCapabilityValue('job_resume', false);
+			}
+		} catch (error) {
+			this.error('Error fetching printer state:', error);
+			await this.setUnavailable('Unable to fetch printer state');
+		}
 
 		// Prepopulate the printer object
 		this.printer = {
@@ -251,112 +277,132 @@ class OctoprintDevice extends Homey.Device {
 				throw new Error(this.homey.__('error.invalid_value'));
 			}
 		});
-
-		// Button capabilities
+		
 		this.registerCapabilityListener('job_pause', async (value) => {
+			this.log('CapabilityListener for job_pause triggered with value:', value);
+		
 			if (value) {
+				this.log('Attempting to pause the job');
+		
 				if (this.printer.state === 'Printing') {
+					this.log('Printer state is Printing. Sending pause command.');
+		
 					await this.octoprint.postData('/api/job', {
 						'command': 'pause',
 						'action': 'pause'
 					})
 					.catch(err => {
+						this.log('Error occurred while sending pause command:', err);
 						throw new Error(err);
 					})
 					.then(() => {
+						this.log('Pause command sent successfully');
 						return true;
 					});
 				}
 				else {
+					this.log('Cannot pause print. Current printer state:', this.printer.state);
 					throw new Error(this.homey.__('error.no_print'));
 				}
 			}
 		});
-
+		
 		this.registerCapabilityListener('job_resume', async (value) => {
+			this.log('CapabilityListener for job_resume triggered with value:', value);
+		
 			if (value) {
-				if (
-					this.printer.state === 'Pausing'
-					|| this.printer.state === 'Paused'
-				) {
-					this.octoprint.postData('/api/job', {
-						'command': 'pause',
-						'action': 'resume'
-					})
-					.catch(err => {
+				this.log('Attempting to resume the job');
+		
+				if (this.printer.state === 'Pausing' || this.printer.state === 'Paused') {
+					this.log('Printer state is either Pausing or Paused. Sending resume command.');
+					try {
+						await this.octoprint.postData('/api/job', {
+							'command': 'pause',
+							'action': 'resume'
+						});
+						this.log('Resume command sent successfully');
+					} catch (err) {
+						this.log('Error occurred while sending resume command:', err);
 						throw new Error(err);
-					})
-					.then(() => {
-						return true;
-					});
-				}
-				else {
+					} finally {
+						// Reset job_resume to false after sending the command
+						setTimeout(() => {
+							this.setCapabilityValue('job_resume', false);
+							this.setCapabilityValue('job_pause', false);
+							this.log('Resetting job_resume capability to false');
+						}, 1500);
+					}
+				} else {
+					this.log('Cannot resume print. Current printer state:', this.printer.state);
 					throw new Error(this.homey.__('error.no_pause'));
 				}
 			}
 		});
+		
+		
 
 		this.registerCapabilityListener('job_cancel', async (value) => {
+			this.log('CapabilityListener for job_cancel triggered with value:', value);
+		
 			if (value) {
-				 return this.cancelTimeout = setTimeout(() => {
-					this.setCapabilityValue('job_cancel', false);
-				}, 1500);
-			}
-			else {
-				if (this.cancelTimeout) {
-					this.cancelTimeout = clearTimeout(this.cancelTimeout);
-				}
-
 				if (
 					this.printer.state === 'Printing'
 					|| this.printer.state === 'Pausing'
 					|| this.printer.state === 'Paused'
 				) {
-					this.octoprint.postData('/api/job', {
-						command: 'cancel'
-					})
-					.catch(err => {
+					this.log('Printer state is:', this.printer.state, '- sending cancel command');
+					try {
+						await this.octoprint.postData('/api/job', {
+							command: 'cancel'
+						});
+						this.log('Cancel command sent successfully');
+					} catch (err) {
+						this.log('Error occurred while sending cancel command:', err);
 						throw new Error(err);
-					})
-					.then(() => {
-						return true;
-					});
-				}
-				else {
+					} finally {
+						// Reset job_cancel to false after sending the command
+						setTimeout(() => {
+							this.setCapabilityValue('job_cancel', false);
+							this.log('Resetting job_cancel capability to false');
+						}, 1500);
+					}
+				} else {
+					this.log('Cannot cancel print, current printer state:', this.printer.state);
 					throw new Error(this.homey.__('error.no_print'));
 				}
 			}
-		});
+		});	
+		
 
 		this.registerCapabilityListener('emergency_stop_m112', async (value) => {
+			this.log('CapabilityListener for emergency_stop_m112 triggered with value:', value);
+		
 			if (value) {
-				 return this.m112Timeout = setTimeout(() => {
-					this.setCapabilityValue('emergency_stop_m112', false);
-				}, 1500);
-			}
-			else {
-				if (this.m112timeout) {
-					this.m112timeout = clearTimeout(this.m112timeout);
-				}
-
 				if (this.printer.state !== 'Closed') {
-					this.octoprint.postData('/api/printer/command', {
-						command: 'M112'
-					})
-					.catch(err => {
+					this.log('Printer state is:', this.printer.state, '- sending emergency stop command M112');
+					try {
+						await this.octoprint.postData('/api/printer/command', {
+							command: 'M112'
+						});
+						this.log('Emergency stop command sent successfully');
+					} catch (err) {
+						this.log('Error occurred while sending emergency stop command:', err);
 						throw new Error(err);
-					})
-					.then(() => {
-						return true;
-					});
-				}
-				else {
+					} finally {
+						// Reset emergency_stop_m112 to false after sending the command
+						setTimeout(() => {
+							this.setCapabilityValue('emergency_stop_m112', false);
+							this.log('Resetting emergency_stop_m112 capability to false');
+						}, 1500);
+					}
+				} else {
+					this.log('Printer is closed, cannot send emergency stop command');
 					await this.setCapabilityValue('emergency_stop_m112', false).catch(this.error);
-
 					throw new Error(this.homey.__('error.no_printer'));
 				}
 			}
 		});
+		
 
 		// Maintenance actions
 		this.registerCapabilityListener('button.restart_octoprint', async (value) => {
@@ -416,6 +462,8 @@ class OctoprintDevice extends Homey.Device {
 		this.addListener('poll', this.pollDevice);
 		this.polling = true;
 		this.emit('poll');
+
+		this.log('OctoprintDriver initialization completed');
 	}
 
 	async onAdded() {
@@ -594,44 +642,67 @@ class OctoprintDevice extends Homey.Device {
 					// Paused a print
 					if (
 						this.printer.state === 'Printing'
-						&& (currentState === 'Pausing'
-						|| currentState === 'Paused')
+						&& (currentState === 'Pausing' || currentState === 'Paused')
 					) {
-						const tokens = {
-							'print_paused_estimate': String(this.printer.job.estimate),
-							'print_paused_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_paused_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
-							'print_paused_time': String(this.printer.job.time),
-							'print_paused_time_hms': String(this.printer.job.time_hms),
-							'print_paused_time_seconds': parseInt(this.printer.job.time_seconds, 10),
-							'print_paused_left': String(this.printer.job.left),
-							'print_paused_left_hms': this.printer.job.left_hms ? String(this.printer.job.left_hms) : "N/A",
-							'print_paused_seconds_left': parseInt(this.printer.job.seconds_left, 10),
+						// Introduce a delay for one polling cycle
+						const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
+						await delay(pollInterval * 1000);
+					
+						// Recheck the state after the delay
+						const updatedState = await this.octoprint.getPrinterState();
+						if (updatedState === 'Pausing' || updatedState === 'Paused') {
+							// Proceed with triggering the print paused flow
+							const tokens = {
+								'print_paused_estimate': String(this.printer.job.estimate || ''),
+								'print_paused_estimate_hms': String(this.printer.job.estimate_hms || ''),
+								'print_paused_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
+								'print_paused_time': String(this.printer.job.time || ''),
+								'print_paused_time_hms': String(this.printer.job.time_hms || ''),
+								'print_paused_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
+								'print_paused_left': String(this.printer.job.left || ''),
+								'print_paused_left_hms': String(this.printer.job.left_hms || 'N/A'),
+								'print_paused_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
+							};						
+					
+							await this.driver.triggerPrintPaused(this, tokens, null);
+						} else {
+							// Handle the case where the state has changed during the delay
+							this.log('State changed during delay, current state:', updatedState);
 						}
-
-						await this.driver.triggerPrintPaused(this, tokens, null);
 					}
+					
+				// Resumed a print
+				if (
+					(this.printer.state === 'Paused' || this.printer.state === 'Pausing')
+					&& currentState === 'Printing'
+				) {
+					// Introduce a delay for one polling cycle
+					const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
+					await delay(pollInterval * 1000);
 
-					// Resumed a print
-					if (
-						(this.printer.state === 'Paused'
-						|| this.printer.state === 'Pausing')
-						&& currentState === 'Printing'
-					) {
+					// Recheck the state after the delay
+					const updatedState = await this.octoprint.getPrinterState();
+					if (updatedState === 'Printing') {
+						// Proceed with triggering the print resumed flow
 						const tokens = {
-							'print_resumed_estimate': String(this.printer.job.estimate),
-							'print_resumed_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_resumed_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
-							'print_resumed_time': this.printer.job.time,
-							'print_resumed_time_hms': String(this.printer.job.time_hms),
-							'print_resumed_time_seconds': parseInt(this.printer.job.time_seconds, 10),
-							'print_resumed_left': String(this.printer.job.left),
-							'print_resumed_left_hms': this.printer.job.left_hms,
-							'print_resumed_seconds_left': parseInt(this.printer.job.seconds_left, 10),
-						}
+							'print_resumed_estimate': String(this.printer.job.estimate || ''),
+							'print_resumed_estimate_hms': String(this.printer.job.estimate_hms || ''),
+							'print_resumed_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
+							'print_resumed_time': this.printer.job.time || '',
+							'print_resumed_time_hms': String(this.printer.job.time_hms || ''),
+							'print_resumed_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
+							'print_resumed_left': String(this.printer.job.left || ''),
+							'print_resumed_left_hms': String(this.printer.job.left_hms || 'N/A'),
+							'print_resumed_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
+						};
 
 						await this.driver.triggerPrintResumed(this, tokens, null);
+					} else {
+						// Handle the case where the state has changed during the delay
+						this.log('State changed during delay, current state:', updatedState);
 					}
+				}
+
 
 					// Finished a print
 					if (
