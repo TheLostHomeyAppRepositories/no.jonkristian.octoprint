@@ -58,5 +58,8 @@
   },
   "1.1.8": {
     "en": "Multiple fixes - button resets after execution, CANCEL/M112 were not working, added logging for debugging"
+  },
+  "1.1.9": {
+    "en": "Validate \"completion\" token for print_stopped trigger"
   }
 }
