@@ -735,9 +735,17 @@ class OctoprintDevice extends Homey.Device {
 					) {
 						const completion = this.getSetting('calculated_completion') || 'completion';
 
-						const tokens = {
-							'completion': this.printer.job[completion],
-							'completion_percent': Math.round(this.printer.job[completion]) / 100
+						// Validate completion value
+						if (typeof this.printer.job[completion] !== 'number' || isNaN(this.printer.job[completion])) {
+							this.error(`Invalid value for completion: ${this.printer.job[completion]}`);
+						} else {
+							const tokens = {
+								'completion': this.printer.job[completion],
+								'completion_percent': Math.round(this.printer.job[completion]) / 100
+							}
+						
+							this.printer.print_stopped = true;
+							await this.driver.triggerPrintStopped(this, tokens, null);
 						}
 
 						this.printer.print_stopped = true;
