@@ -167,24 +167,24 @@ class OctoprintDevice extends Homey.Device {
 				this.octoprint.postData('/api/connection', {
 					command: 'connect'
 				})
-				.catch(err => {
-					throw new Error(err);
-				})
-				.then(() => {
-					return true;
-				});
-			}
-			else {
-				if (this.printer.state === 'Operational') {
-					this.octoprint.postData('/api/connection', {
-						command: 'disconnect'
-					})
 					.catch(err => {
 						throw new Error(err);
 					})
 					.then(() => {
 						return true;
 					});
+			}
+			else {
+				if (this.printer.state === 'Operational') {
+					this.octoprint.postData('/api/connection', {
+						command: 'disconnect'
+					})
+						.catch(err => {
+							throw new Error(err);
+						})
+						.then(() => {
+							return true;
+						});
 				}
 				else {
 					throw new Error(this.homey.__('error.no_printer'));
@@ -204,12 +204,12 @@ class OctoprintDevice extends Homey.Device {
 						'command': 'target',
 						'target': value
 					})
-					.catch(err => {
-						throw new Error(err);
-					})
-					.then(() => {
-						return true;
-					});
+						.catch(err => {
+							throw new Error(err);
+						})
+						.then(() => {
+							return true;
+						});
 				}
 				else {
 					throw new Error(this.homey.__('error.invalid_state'));
@@ -234,12 +234,12 @@ class OctoprintDevice extends Homey.Device {
 							'tool0': value,
 						}
 					})
-					.catch(err => {
-						throw new Error(err);
-					})
-					.then(() => {
-						return true;
-					});
+						.catch(err => {
+							throw new Error(err);
+						})
+						.then(() => {
+							return true;
+						});
 				}
 				else {
 					throw new Error(this.homey.__('error.invalid_state'));
@@ -262,12 +262,12 @@ class OctoprintDevice extends Homey.Device {
 						'command': 'target',
 						'target': value
 					})
-					.catch(err => {
-						throw new Error(err);
-					})
-					.then(() => {
-						return true;
-					});
+						.catch(err => {
+							throw new Error(err);
+						})
+						.then(() => {
+							return true;
+						});
 				}
 				else {
 					throw new Error(this.homey.__('error.invalid_state'));
@@ -277,28 +277,28 @@ class OctoprintDevice extends Homey.Device {
 				throw new Error(this.homey.__('error.invalid_value'));
 			}
 		});
-		
+
 		this.registerCapabilityListener('job_pause', async (value) => {
 			this.log('CapabilityListener for job_pause triggered with value:', value);
-		
+
 			if (value) {
 				this.log('Attempting to pause the job');
-		
+
 				if (this.printer.state === 'Printing') {
 					this.log('Printer state is Printing. Sending pause command.');
-		
+
 					await this.octoprint.postData('/api/job', {
 						'command': 'pause',
 						'action': 'pause'
 					})
-					.catch(err => {
-						this.log('Error occurred while sending pause command:', err);
-						throw new Error(err);
-					})
-					.then(() => {
-						this.log('Pause command sent successfully');
-						return true;
-					});
+						.catch(err => {
+							this.log('Error occurred while sending pause command:', err);
+							throw new Error(err);
+						})
+						.then(() => {
+							this.log('Pause command sent successfully');
+							return true;
+						});
 				}
 				else {
 					this.log('Cannot pause print. Current printer state:', this.printer.state);
@@ -306,13 +306,13 @@ class OctoprintDevice extends Homey.Device {
 				}
 			}
 		});
-		
+
 		this.registerCapabilityListener('job_resume', async (value) => {
 			this.log('CapabilityListener for job_resume triggered with value:', value);
-		
+
 			if (value) {
 				this.log('Attempting to resume the job');
-		
+
 				if (this.printer.state === 'Pausing' || this.printer.state === 'Paused') {
 					this.log('Printer state is either Pausing or Paused. Sending resume command.');
 					try {
@@ -338,12 +338,12 @@ class OctoprintDevice extends Homey.Device {
 				}
 			}
 		});
-		
-		
+
+
 
 		this.registerCapabilityListener('job_cancel', async (value) => {
 			this.log('CapabilityListener for job_cancel triggered with value:', value);
-		
+
 			if (value) {
 				if (
 					this.printer.state === 'Printing'
@@ -371,12 +371,12 @@ class OctoprintDevice extends Homey.Device {
 					throw new Error(this.homey.__('error.no_print'));
 				}
 			}
-		});	
-		
+		});
+
 
 		this.registerCapabilityListener('emergency_stop_m112', async (value) => {
 			this.log('CapabilityListener for emergency_stop_m112 triggered with value:', value);
-		
+
 			if (value) {
 				if (this.printer.state !== 'Closed') {
 					this.log('Printer state is:', this.printer.state, '- sending emergency stop command M112');
@@ -402,7 +402,7 @@ class OctoprintDevice extends Homey.Device {
 				}
 			}
 		});
-		
+
 
 		// Maintenance actions
 		this.registerCapabilityListener('button.restart_octoprint', async (value) => {
@@ -411,12 +411,12 @@ class OctoprintDevice extends Homey.Device {
 				|| this.printer.state === 'Operational'
 			) {
 				this.octoprint.postData('/api/system/commands/core/restart', {})
-				.catch(err => {
-					throw new Error(err);
-				})
-				.then(() => {
-					return true;
-				});
+					.catch(err => {
+						throw new Error(err);
+					})
+					.then(() => {
+						return true;
+					});
 			}
 			else {
 				throw new Error(this.homey.__('error.invalid_state'));
@@ -429,12 +429,12 @@ class OctoprintDevice extends Homey.Device {
 				|| this.printer.state === 'Operational'
 			) {
 				this.octoprint.postData('/api/system/commands/core/reboot', {})
-				.catch(err => {
-					throw new Error(err);
-				})
-				.then(() => {
-					return true;
-				});
+					.catch(err => {
+						throw new Error(err);
+					})
+					.then(() => {
+						return true;
+					});
 			}
 			else {
 				throw new Error(this.homey.__('error.invalid_state'));
@@ -447,12 +447,12 @@ class OctoprintDevice extends Homey.Device {
 				|| this.printer.state === 'Operational'
 			) {
 				this.octoprint.postData('/api/system/commands/core/shutdown', {})
-				.catch(err => {
-					throw new Error(err);
-				})
-				.then(() => {
-					return true;
-				});
+					.catch(err => {
+						throw new Error(err);
+					})
+					.then(() => {
+						return true;
+					});
 			}
 			else {
 				throw new Error(this.homey.__('error.invalid_state'));
@@ -624,7 +624,7 @@ class OctoprintDevice extends Homey.Device {
 					if (
 						this.printer.state === 'Operational'
 						&& (currentState === 'Printing'
-						|| this.printer.state === 'Starting')
+							|| this.printer.state === 'Starting')
 					) {
 						const tokens = {
 							'print_started_estimate': String(this.printer.job.estimate),
@@ -647,7 +647,7 @@ class OctoprintDevice extends Homey.Device {
 						// Introduce a delay for one polling cycle
 						const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
 						await delay(pollInterval * 1000);
-					
+
 						// Recheck the state after the delay
 						const updatedState = await this.octoprint.getPrinterState();
 						if (updatedState === 'Pausing' || updatedState === 'Paused') {
@@ -662,46 +662,46 @@ class OctoprintDevice extends Homey.Device {
 								'print_paused_left': String(this.printer.job.left || ''),
 								'print_paused_left_hms': String(this.printer.job.left_hms || 'N/A'),
 								'print_paused_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
-							};						
-					
+							};
+
 							await this.driver.triggerPrintPaused(this, tokens, null);
 						} else {
 							// Handle the case where the state has changed during the delay
 							this.log('State changed during delay, current state:', updatedState);
 						}
 					}
-					
-				// Resumed a print
-				if (
-					(this.printer.state === 'Paused' || this.printer.state === 'Pausing')
-					&& currentState === 'Printing'
-				) {
-					// Introduce a delay for one polling cycle
-					const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
-					await delay(pollInterval * 1000);
 
-					// Recheck the state after the delay
-					const updatedState = await this.octoprint.getPrinterState();
-					if (updatedState === 'Printing') {
-						// Proceed with triggering the print resumed flow
-						const tokens = {
-							'print_resumed_estimate': String(this.printer.job.estimate || ''),
-							'print_resumed_estimate_hms': String(this.printer.job.estimate_hms || ''),
-							'print_resumed_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
-							'print_resumed_time': this.printer.job.time || '',
-							'print_resumed_time_hms': String(this.printer.job.time_hms || ''),
-							'print_resumed_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
-							'print_resumed_left': String(this.printer.job.left || ''),
-							'print_resumed_left_hms': String(this.printer.job.left_hms || 'N/A'),
-							'print_resumed_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
-						};
+					// Resumed a print
+					if (
+						(this.printer.state === 'Paused' || this.printer.state === 'Pausing')
+						&& currentState === 'Printing'
+					) {
+						// Introduce a delay for one polling cycle
+						const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
+						await delay(pollInterval * 1000);
 
-						await this.driver.triggerPrintResumed(this, tokens, null);
-					} else {
-						// Handle the case where the state has changed during the delay
-						this.log('State changed during delay, current state:', updatedState);
+						// Recheck the state after the delay
+						const updatedState = await this.octoprint.getPrinterState();
+						if (updatedState === 'Printing') {
+							// Proceed with triggering the print resumed flow
+							const tokens = {
+								'print_resumed_estimate': String(this.printer.job.estimate || ''),
+								'print_resumed_estimate_hms': String(this.printer.job.estimate_hms || ''),
+								'print_resumed_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
+								'print_resumed_time': this.printer.job.time || '',
+								'print_resumed_time_hms': String(this.printer.job.time_hms || ''),
+								'print_resumed_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
+								'print_resumed_left': String(this.printer.job.left || ''),
+								'print_resumed_left_hms': String(this.printer.job.left_hms || 'N/A'),
+								'print_resumed_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
+							};
+
+							await this.driver.triggerPrintResumed(this, tokens, null);
+						} else {
+							// Handle the case where the state has changed during the delay
+							this.log('State changed during delay, current state:', updatedState);
+						}
 					}
-				}
 
 
 					// Finished a print
@@ -725,12 +725,12 @@ class OctoprintDevice extends Homey.Device {
 					// Stopped a print
 					if (
 						(this.printer.state === 'Printing'
-						|| this.printer.state === 'Paused'
-						|| this.printer.state === 'Pausing')
+							|| this.printer.state === 'Paused'
+							|| this.printer.state === 'Pausing')
 						&& (currentState === 'Operational'
-						|| currentState === 'Closed'
-						|| currentState === 'Offline'
-						|| currentState === 'Cancelling')
+							|| currentState === 'Closed'
+							|| currentState === 'Offline'
+							|| currentState === 'Cancelling')
 						&& this.printer.print_stopped === false
 					) {
 						const completion = this.getSetting('calculated_completion') || 'completion';
@@ -738,18 +738,22 @@ class OctoprintDevice extends Homey.Device {
 						// Validate completion value
 						if (typeof this.printer.job[completion] !== 'number' || isNaN(this.printer.job[completion])) {
 							this.error(`Invalid value for completion: ${this.printer.job[completion]}`);
+							const tokens = {
+								'completion': 0,
+								'completion_percent': 0
+							};
+							this.printer.print_stopped = true;
+							await this.driver.triggerPrintStopped(this, tokens, null);
+
 						} else {
 							const tokens = {
 								'completion': this.printer.job[completion],
 								'completion_percent': Math.round(this.printer.job[completion]) / 100
 							}
-						
+
 							this.printer.print_stopped = true;
 							await this.driver.triggerPrintStopped(this, tokens, null);
 						}
-
-						this.printer.print_stopped = true;
-						await this.driver.triggerPrintStopped(this, tokens, null);
 					}
 
 					// Update the state in memory
@@ -995,10 +999,10 @@ class OctoprintDevice extends Homey.Device {
 		if (this.printer.job.file != this.getCapabilityValue('job_file')) {
 			const fullFileName = this.printer.job.file;
 			const shortenedFileName = fullFileName && fullFileName.length > 15 ? fullFileName.substring(0, 15) + "..." : fullFileName;
-	
+
 			// Set shortened file name as device title
 			await this.setCapabilityValue('job_file', shortenedFileName).catch(this.error);
-	
+
 			// Use full file name in flows as a tag
 			const tokens = {
 				file: fullFileName // Here, use the full file name
@@ -1060,12 +1064,12 @@ class OctoprintDevice extends Homey.Device {
 			this.octoprint.postData('/api/job', {
 				command: 'cancel'
 			})
-			.catch(err => {
-				return Promise.reject(err);
-			})
-			.then(async () => {
-				return true;
-			});
+				.catch(err => {
+					return Promise.reject(err);
+				})
+				.then(async () => {
+					return true;
+				});
 		}
 		else {
 			return Promise.reject(this.homey.__('error.no_print'));
@@ -1081,12 +1085,12 @@ class OctoprintDevice extends Homey.Device {
 			this.octoprint.postData('/api/printer/command', {
 				command: 'M117 ' + args.message
 			})
-			.catch(err => {
-				return Promise.reject(err);
-			})
-			.then(() => {
-				return true;
-			});
+				.catch(err => {
+					return Promise.reject(err);
+				})
+				.then(() => {
+					return true;
+				});
 		}
 		else {
 			return Promise.reject(this.homey.__('error.no_printer'));
@@ -1118,12 +1122,12 @@ class OctoprintDevice extends Homey.Device {
 
 		if (this.printer.state !== 'Closed') {
 			this.octoprint.postData('/api/printer/command', command)
-			.catch(err => {
-				return Promise.reject(err);
-			})
-			.then(() => {
-				return true;
-			});
+				.catch(err => {
+					return Promise.reject(err);
+				})
+				.then(() => {
+					return true;
+				});
 		}
 		else {
 			return Promise.reject(this.homey.__('error.invalid_state'));
@@ -1139,12 +1143,12 @@ class OctoprintDevice extends Homey.Device {
 			this.octoprint.postData('/api/printer/command', {
 				command: 'G28 ' + args.axis
 			})
-			.catch(err => {
-				return Promise.reject(err);
-			})
-			.then(() => {
-				return true;
-			});
+				.catch(err => {
+					return Promise.reject(err);
+				})
+				.then(() => {
+					return true;
+				});
 		}
 		else {
 			return Promise.reject(this.homey.__('error.no_printer'));
@@ -1160,12 +1164,12 @@ class OctoprintDevice extends Homey.Device {
 			this.octoprint.postData('/api/printer/command', {
 				command: 'G1 ' + args.axis + Math.round(args.position) + ((typeof args.speed == 'number') ? ' F' + Math.round(args.speed) : '')
 			})
-			.catch(err => {
-				return Promise.reject(err);
-			})
-			.then(() => {
-				return true;
-			});
+				.catch(err => {
+					return Promise.reject(err);
+				})
+				.then(() => {
+					return true;
+				});
 		}
 		else {
 			return Promise.reject(this.homey.__('error.no_printer'));
@@ -1181,12 +1185,12 @@ class OctoprintDevice extends Homey.Device {
 			this.octoprint.postData('/api/printer/command', {
 				command: 'M112'
 			})
-			.catch(err => {
-				return Promise.reject(err);
-			})
-			.then(() => {
-				return true;
-			});
+				.catch(err => {
+					return Promise.reject(err);
+				})
+				.then(() => {
+					return true;
+				});
 		}
 		else {
 			return Promise.reject(this.homey.__('error.no_printer'));
@@ -1209,12 +1213,12 @@ class OctoprintDevice extends Homey.Device {
 					'command': 'target',
 					'target': args.target_temperature
 				})
-				.catch(err => {
-					return Promise.reject(err);
-				})
-				.then(() => {
-					return true;
-				});
+					.catch(err => {
+						return Promise.reject(err);
+					})
+					.then(() => {
+						return true;
+					});
 			}
 			else {
 				return Promise.reject(this.homey.__('error.invalid_state'));
@@ -1243,12 +1247,12 @@ class OctoprintDevice extends Homey.Device {
 						'tool0': args.target_temperature,
 					}
 				})
-				.catch(err => {
-					return Promise.reject(err);
-				})
-				.then(rep => {
-					return true;
-				});
+					.catch(err => {
+						return Promise.reject(err);
+					})
+					.then(rep => {
+						return true;
+					});
 			}
 			else {
 				return Promise.reject(this.homey.__('error.invalid_state'));
@@ -1258,40 +1262,40 @@ class OctoprintDevice extends Homey.Device {
 			return Promise.reject(this.homey.__('error.invalid_value'));
 		}
 	}
-	
+
 	// Listener for Reboot Raspberry Pi action
-		async rebootRaspberryRunListener(args, state) {
-			// Include 'Connecting' in the condition
-			if (
-				this.printer.state === 'Operational' || 
-				this.printer.state === 'Closed' ||
-				this.printer.state === 'Connecting' ||
-				this.printer.state === 'Offline' 
-			) {
-				return this.octoprint.postData('/api/system/commands/core/reboot', {})
-					.then(() => true)
-					.catch(error => Promise.reject(error));
-			} else {
-				return Promise.reject(new Error(this.homey.__('error.invalid_state')));
-			}
+	async rebootRaspberryRunListener(args, state) {
+		// Include 'Connecting' in the condition
+		if (
+			this.printer.state === 'Operational' ||
+			this.printer.state === 'Closed' ||
+			this.printer.state === 'Connecting' ||
+			this.printer.state === 'Offline'
+		) {
+			return this.octoprint.postData('/api/system/commands/core/reboot', {})
+				.then(() => true)
+				.catch(error => Promise.reject(error));
+		} else {
+			return Promise.reject(new Error(this.homey.__('error.invalid_state')));
 		}
-	
+	}
+
 	// Listener for Shutdown Raspberry Pi action
-		async shutdownRaspberryRunListener(args, state) {
-			// Include 'Connecting' in the condition
-			if (
-				this.printer.state === 'Operational' || 
-				this.printer.state === 'Closed' ||
-				this.printer.state === 'Connecting' ||
-				this.printer.state === 'Connecting' 
-			) {
-				return this.octoprint.postData('/api/system/commands/core/shutdown', {})
-					.then(() => true)
-					.catch(error => Promise.reject(error));
-			} else {
-				return Promise.reject(new Error(this.homey.__('error.invalid_state')));
-			}
-		}		
+	async shutdownRaspberryRunListener(args, state) {
+		// Include 'Connecting' in the condition
+		if (
+			this.printer.state === 'Operational' ||
+			this.printer.state === 'Closed' ||
+			this.printer.state === 'Connecting' ||
+			this.printer.state === 'Connecting'
+		) {
+			return this.octoprint.postData('/api/system/commands/core/shutdown', {})
+				.then(() => true)
+				.catch(error => Promise.reject(error));
+		} else {
+			return Promise.reject(new Error(this.homey.__('error.invalid_state')));
+		}
+	}
 }
 
 module.exports = OctoprintDevice;
