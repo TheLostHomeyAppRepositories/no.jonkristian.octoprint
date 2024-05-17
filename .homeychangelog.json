@@ -61,5 +61,8 @@
   },
   "1.1.9": {
     "en": "Validate \"completion\" token for print_stopped trigger"
+  },
+  "1.1.10": {
+    "en": "Validate \"completion\" token for print_stopped trigge"
   }
 }
