@@ -64,5 +64,8 @@
   },
   "1.1.10": {
     "en": "Validate \"completion\" token for print_stopped trigge"
+  },
+  "1.2.0": {
+    "en": "Added a dashboard widget and multi-language translations."
   }
 }
