@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "스냅샷",
+    "reboot": "스냅샷 설정이 변경되었습니다. 앱을 재시작해주세요!"
+  },
+  "states": {
+    "Offline": "오프라인",
+    "Connecting": "연결 중",
+    "Operational": "작동 중",
+    "Printing": "인쇄 중",
+    "Pausing": "일시 중지 중",
+    "Paused": "일시 중지됨",
+    "Detecting Connection": "연결 감지 중"
+  },
+  "error": {
+    "server_unreachable": "OctoPrint 서버에 연결할 수 없습니다",
+    "invalid_value": "잘못된 값이 사용되었습니다",
+    "invalid_state": "현재 프린터 상태에서는 이를 허용하지 않습니다",
+    "no_print": "활성 인쇄 작업이 없습니다",
+    "no_pause": "일시 중지된 인쇄 작업이 없습니다",
+    "no_printer": "프린터가 연결되지 않았거나 실행 중이지 않습니다",
+    "snapshot_failed": "스냅샷을 가져올 수 없습니다!",
+    "no_bed_temperature": "베드 온도를 사용할 수 없습니다",
+    "no_tool_temperature": "툴 온도를 사용할 수 없습니다"
+  },
+  "pair": {
+    "legend": "귀하의 OctoPrint 자격 증명",
+    "successful": "OctoPrint 장치가 추가되었습니다",
+    "unsuccessful": "OctoPrint를 찾을 수 없습니다. 올바른 자격 증명을 가지고 있는지 확인하세요.",
+    "address": {
+      "field": "(IP) 주소",
+      "description": "귀하의 OctoPrint 서버 주소입니다."
+    },
+    "apikey": {
+      "field": "API 키",
+      "description": "\"애플리케이션 API 키\"만 사용하세요. OctoPrint 설정에서 생성할 수 있습니다."
+    },
+    "snapshot": {
+      "url": "스냅샷 URL",
+      "description": "비워 두면 OctoPrint 기본 설정을 사용합니다.",
+      "activate": "활성화"
+    },
+    "save": "저장",
+    "error": {
+      "required": "(IP) 주소와 API 키 모두 설정해야 합니다.",
+      "unreachable": "OctoPrint에 연결할 수 없습니다. (IP) 주소와 API 키가 올바른지 확인하세요."
+    }
+  },
+  "widget": {
+    "operational_state": "작동 상태",
+    "hotend_temperature": "핫엔드 온도",
+    "bed_temperature": "베드 온도",
+    "time_left": "남은 시간",
+    "no_device": "OctoPrint 장치를 찾을 수 없습니다.",
+    "error_loading": "위젯 데이터를 로드하는 중 오류가 발생했습니다."
+  }
+}

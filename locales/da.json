@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "Øjebliksbillede",
+    "reboot": "Indstillinger for øjebliksbillede ændret, genstart venligst appen!"
+  },
+  "states": {
+    "Offline": "Offline",
+    "Connecting": "Forbinder",
+    "Operational": "Operationel",
+    "Printing": "Udskriver",
+    "Pausing": "Pauser",
+    "Paused": "Pauseret",
+    "Detecting Connection": "Registrerer forbindelse"
+  },
+  "error": {
+    "server_unreachable": "OctoPrint-server utilgængelig",
+    "invalid_value": "Ugyldig værdi brugt",
+    "invalid_state": "Printerens nuværende tilstand tillader ikke dette",
+    "no_print": "Der er ingen aktiv udskriftsjob",
+    "no_pause": "Der er ingen pauseret udskriftsjob",
+    "no_printer": "Printeren er ikke tilsluttet eller tændt",
+    "snapshot_failed": "Kunne ikke hente øjebliksbillede!",
+    "no_bed_temperature": "Ingen sengtemperatur tilgængelig",
+    "no_tool_temperature": "Ingen værktøjstemperatur tilgængelig"
+  },
+  "pair": {
+    "legend": "Dine OctoPrint-legitimationsoplysninger",
+    "successful": "OctoPrint-enhed tilføjet",
+    "unsuccessful": "Kunne ikke finde OctoPrint, sørg for at du har de korrekte legitimationsoplysninger.",
+    "address": {
+      "field": "(IP)-adresse",
+      "description": "Adressen til din OctoPrint-server."
+    },
+    "apikey": {
+      "field": "API-nøgle",
+      "description": "Brug kun en \"Application API-Key\", du kan generere denne i OctoPrint-indstillingerne."
+    },
+    "snapshot": {
+      "url": "URL til øjebliksbillede",
+      "description": "Hvis tom, bruger vi standardindstillingerne for OctoPrint.",
+      "activate": "Aktivér"
+    },
+    "save": "Gem",
+    "error": {
+      "required": "Både (IP)-adresse og API-nøgle skal angives.",
+      "unreachable": "Kunne ikke oprette forbindelse til OctoPrint. Sørg for at din (IP)-adresse og API-nøgle er korrekte."
+    }
+  },
+  "widget": {
+    "operational_state": "Operationel tilstand",
+    "hotend_temperature": "Hotend-temperatur",
+    "bed_temperature": "Sengtemperatur",
+    "time_left": "Resterende tid",
+    "no_device": "Ingen OctoPrint-enhed fundet.",
+    "error_loading": "Fejl ved indlæsning af widgetdata."
+  }
+}

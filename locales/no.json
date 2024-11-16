@@ -1,49 +1,58 @@
 {
 	"snapshot": {
-		"title": "Stillbilde",
-		"reboot": "Instilling for stillbilde ble forandret, vennligst start appen på nytt!"
+	  "title": "Øyeblikksbilde",
+	  "reboot": "Innstillinger for øyeblikksbilde endret, vennligst start appen på nytt!"
 	},
 	"states": {
-		"Closed": "Frakoblet",
-		"Connecting": "Connecting",
-		"Operational": "Operasjonell",
-		"Printing": "Skriver ut",
-		"Pausing": "Pause",
-		"Paused": "Pause",
-		"Detecting serial connection": "Tester"
+	  "Offline": "Frakoblet",
+	  "Connecting": "Kobler til",
+	  "Operational": "Operativ",
+	  "Printing": "Skriver ut",
+	  "Pausing": "Pauser",
+	  "Paused": "Pauset",
+	  "Detecting Connection": "Oppdager tilkobling"
 	},
 	"error": {
-		"server_unreachable": "Octoprint-serveren er utilgjengelig",
-		"invalid_value": "Ugyldig verdi er brukt",
-		"invalid_state": "Gjeldende skriverstatus tillater ikke det",
-		"no_print": "Det er ingen aktiv utskriftsjobb",
-		"no_pause": "Ingen utskriftsjobb er satt på pause",
-		"no_printer": "Skriveren er ikke tilkoblet eller kjører",
-		"snapshot_failed": "Kunne ikke hente øyeblikksbilde!",
-		"no_bed_temperature": "Ingen sengetemperatur tilgjengelig",
-		"no_tool_temperature": "Ingen verktøytemperatur tilgjengelig"
+	  "server_unreachable": "OctoPrint-server utilgjengelig",
+	  "invalid_value": "Ugyldig verdi brukt",
+	  "invalid_state": "Skriverens nåværende status tillater ikke dette",
+	  "no_print": "Det er ingen aktiv utskriftsjobb",
+	  "no_pause": "Det er ingen pauset utskriftsjobb",
+	  "no_printer": "Skriveren er ikke tilkoblet eller påslått",
+	  "snapshot_failed": "Kunne ikke hente øyeblikksbilde!",
+	  "no_bed_temperature": "Ingen sengtemperatur tilgjengelig",
+	  "no_tool_temperature": "Ingen verktøytemperatur tilgjengelig"
 	},
 	"pair": {
-		"legend": "Dine OctoPrint opplysninger",
-		"successful": "OctoPrint -enhet lagt til",
-		"unsuccessful": "Kunne inn finne OctoPrint, vennligst sjekk at du har riktige opplysninger.",
-		"address": {
-			"field": "(IP) Adresse",
-			"description": "Adressen til din OctoPrint -server."
-		},
-		"apikey": {
-			"field": "API-nøkkel",
-			"description": "Bruk kun en \"Application API-Key\", denne kan du generere i innstillingene til octoprint."
-		},
-		"snapshot": {
-			"url": "Lenke til kamera-stillbilde",
-			"description": "Hvis tom, benyttes standard OctoPrint -oppsett.",
-			"activate": "Aktiver"
-		},
-		"save": "Lagre",
-		"error": {
-			"required": "Adresse og API-nøkkel er påkrevd.",
-			"unreachable": "Kunne ikke kommunisere med OctoPrint. Sjekk at adresse og API-nøkkel er riktig."
-		}
+	  "legend": "Dine OctoPrint-legitimasjoner",
+	  "successful": "OctoPrint-enhet lagt til",
+	  "unsuccessful": "Kunne ikke finne OctoPrint, sørg for at du har de riktige legitimasjonene.",
+	  "address": {
+		"field": "(IP)-adresse",
+		"description": "Adressen til din OctoPrint-server."
+	  },
+	  "apikey": {
+		"field": "API-nøkkel",
+		"description": "Bruk kun en \"Application API-Key\", du kan generere denne i OctoPrint-innstillingene."
+	  },
+	  "snapshot": {
+		"url": "URL til øyeblikksbilde",
+		"description": "Hvis tom, bruker vi standardinnstillingene til OctoPrint.",
+		"activate": "Aktiver"
+	  },
+	  "save": "Lagre",
+	  "error": {
+		"required": "Både (IP)-adresse og API-nøkkel må angis.",
+		"unreachable": "Kunne ikke koble til OctoPrint. Sørg for at din (IP)-adresse og API-nøkkel er korrekte."
+	  }
+	},
+	"widget": {
+	  "operational_state": "Operativ tilstand",
+	  "hotend_temperature": "Hotend-temperatur",
+	  "bed_temperature": "Sengtemperatur",
+	  "time_left": "Gjenstående tid",
+	  "no_device": "Ingen OctoPrint-enhet funnet.",
+	  "error_loading": "Feil ved lasting av widgetdata."
 	}
-}
+  }
+  

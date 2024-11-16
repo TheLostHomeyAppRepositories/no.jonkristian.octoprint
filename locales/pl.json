@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "Migawka",
+    "reboot": "Zmieniono ustawienia migawki, proszę zrestartować aplikację!"
+  },
+  "states": {
+    "Offline": "Offline",
+    "Connecting": "Łączenie",
+    "Operational": "Operacyjny",
+    "Printing": "Drukowanie",
+    "Pausing": "Pauzowanie",
+    "Paused": "Wstrzymano",
+    "Detecting Connection": "Wykrywanie połączenia"
+  },
+  "error": {
+    "server_unreachable": "Serwer OctoPrint nieosiągalny",
+    "invalid_value": "Użyto nieprawidłowej wartości",
+    "invalid_state": "Obecny stan drukarki na to nie pozwala",
+    "no_print": "Brak aktywnego zadania drukowania",
+    "no_pause": "Brak wstrzymanego zadania drukowania",
+    "no_printer": "Drukarka nie jest podłączona lub włączona",
+    "snapshot_failed": "Nie udało się pobrać migawki!",
+    "no_bed_temperature": "Brak dostępnej temperatury stołu",
+    "no_tool_temperature": "Brak dostępnej temperatury narzędzia"
+  },
+  "pair": {
+    "legend": "Twoje dane logowania do OctoPrint",
+    "successful": "Dodano urządzenie OctoPrint",
+    "unsuccessful": "Nie udało się znaleźć OctoPrint, upewnij się, że masz poprawne dane logowania.",
+    "address": {
+      "field": "Adres (IP)",
+      "description": "Adres twojego serwera OctoPrint."
+    },
+    "apikey": {
+      "field": "Klucz API",
+      "description": "Użyj tylko \"Application API-Key\", możesz go wygenerować w ustawieniach OctoPrint."
+    },
+    "snapshot": {
+      "url": "URL migawki",
+      "description": "Jeśli pozostawisz puste, użyjemy domyślnych ustawień OctoPrint.",
+      "activate": "Aktywuj"
+    },
+    "save": "Zapisz",
+    "error": {
+      "required": "Należy ustawić zarówno adres (IP), jak i klucz API.",
+      "unreachable": "Nie można połączyć się z OctoPrint. Upewnij się, że twój adres (IP) i klucz API są poprawne."
+    }
+  },
+  "widget": {
+    "operational_state": "Stan operacyjny",
+    "hotend_temperature": "Temperatura hotendu",
+    "bed_temperature": "Temperatura stołu",
+    "time_left": "Pozostały czas",
+    "no_device": "Nie znaleziono urządzenia OctoPrint.",
+    "error_loading": "Błąd podczas ładowania danych widżetu."
+  }
+}

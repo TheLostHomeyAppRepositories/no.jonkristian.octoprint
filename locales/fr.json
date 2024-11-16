@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "Instantané",
+    "reboot": "Paramètres de l'instantané modifiés, veuillez redémarrer l'application !"
+  },
+  "states": {
+    "Offline": "Hors ligne",
+    "Connecting": "Connexion en cours",
+    "Operational": "Opérationnel",
+    "Printing": "Impression",
+    "Pausing": "Mise en pause",
+    "Paused": "En pause",
+    "Detecting Connection": "Détection de la connexion"
+  },
+  "error": {
+    "server_unreachable": "Serveur OctoPrint injoignable",
+    "invalid_value": "Valeur invalide utilisée",
+    "invalid_state": "L'état actuel de l'imprimante ne permet pas cela",
+    "no_print": "Aucune tâche d'impression active",
+    "no_pause": "Aucune tâche d'impression en pause",
+    "no_printer": "L'imprimante n'est pas connectée ou allumée",
+    "snapshot_failed": "Impossible de récupérer l'instantané !",
+    "no_bed_temperature": "Aucune température du lit disponible",
+    "no_tool_temperature": "Aucune température de l'outil disponible"
+  },
+  "pair": {
+    "legend": "Vos identifiants OctoPrint",
+    "successful": "Appareil OctoPrint ajouté",
+    "unsuccessful": "Impossible de trouver OctoPrint, assurez-vous d'avoir les bonnes informations d'identification.",
+    "address": {
+      "field": "Adresse (IP)",
+      "description": "L'adresse de votre serveur OctoPrint."
+    },
+    "apikey": {
+      "field": "Clé API",
+      "description": "Utilisez uniquement une \"Clé API d'application\", vous pouvez la générer dans les paramètres d'OctoPrint."
+    },
+    "snapshot": {
+      "url": "URL de l'instantané",
+      "description": "Si laissé vide, nous utilisons les paramètres par défaut d'OctoPrint.",
+      "activate": "Activer"
+    },
+    "save": "Enregistrer",
+    "error": {
+      "required": "L'adresse (IP) et la clé API doivent être définies.",
+      "unreachable": "Impossible de se connecter à OctoPrint. Assurez-vous que votre adresse (IP) et votre clé API sont correctes."
+    }
+  },
+  "widget": {
+    "operational_state": "État opérationnel",
+    "hotend_temperature": "Température de la buse",
+    "bed_temperature": "Température du lit",
+    "time_left": "Temps restant",
+    "no_device": "Aucun appareil OctoPrint trouvé.",
+    "error_loading": "Erreur lors du chargement des données du widget."
+  }
+}

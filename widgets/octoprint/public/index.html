@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OctoPrint</title>
+    <style>
+        /* Use Athom's CSS variables and classes */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: var(--homey-su-4);
+            background-color: var(--homey-background-color);
+            color: var(--homey-text-color);
+        }
+
+        .widget-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--homey-su-4);
+        }
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            background-color: var(--homey-background-color);
+            padding: var(--homey-su-2);
+            border-radius: var(--homey-border-radius-default);
+            border: var(--homey-line);
+        }
+
+        .icon {
+            font-size: var(--homey-font-size-large);
+            margin-right: var(--homey-su-2);
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-text {
+            font-size: var(--homey-font-size-default);
+            line-height: var(--homey-line-height-default);
+            display: flex;
+            align-items: center;
+        }
+
+        .progress-bar-container {
+            background-color: var(--homey-line-color-light);
+            border-radius: var(--homey-border-radius-default);
+            overflow: hidden;
+            height: var(--homey-su-4);
+            margin-top: 0;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--homey-color-blue);
+            width: 0%;
+            transition: width 0.5s;
+        }
+
+        .progress-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: var(--homey-font-size-small);
+            color: var(--homey-text-color-white);
+            font-weight: var(--homey-font-weight-bold);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="homey-widget">
+    <div class="widget-container" id="widget-content">
+        <!-- Content will be injected here -->
+    </div>
+
+    <script type="text/javascript">
+        function onHomeyReady(Homey) {
+            Homey.ready({ height: 240 });
+            renderWidget();
+
+            setInterval(renderWidget, 10000); // Refresh every 10 seconds
+
+            function renderWidget() {
+                Homey.api('GET', '/device-data', {})
+                    .then((device) => {
+                        console.log('Device Data:', device);
+
+                        const container = document.getElementById('widget-content');
+                        container.innerHTML = ''; // Clear previous content
+
+                        if (!device) {
+                            container.innerHTML = `<p>${Homey.__('widget.no_device')}</p>`;
+                            return;
+                        }
+
+                        // Data Points
+                        const dataPoints = [
+                            {
+                                icon: '🖨️', // Operational State Icon
+                                label: Homey.__('widget.operational_state'),
+                                value: Homey.__('states.' + device.state) || device.state
+                            },
+                            {
+                                icon: '🔥', // Hotend Temperature Icon
+                                label: Homey.__('widget.hotend_temperature'),
+                                value: `${device.hotendTemp} °C`
+                            },
+                            {
+                                icon: '🛏️', // Bed Temperature Icon
+                                label: Homey.__('widget.bed_temperature'),
+                                value: `${device.bedTemp} °C`
+                            },
+                            {
+                                icon: '⌛', // Time Left Icon
+                                label: Homey.__('widget.time_left'),
+                                value: `${device.timeLeft}`
+                            }
+                        ];
+
+                        dataPoints.forEach(data => {
+                            const card = document.createElement('div');
+                            card.className = 'info-card';
+
+                            const icon = document.createElement('div');
+                            icon.className = 'icon';
+                            icon.textContent = data.icon;
+
+                            const text = document.createElement('div');
+                            text.className = 'info-text';
+                            text.textContent = `${data.label}: ${data.value}`;
+
+                            card.appendChild(icon);
+                            card.appendChild(text);
+                            container.appendChild(card);
+                        });
+
+                        // Ensure completion is a number
+                        const completionPercentage = isNaN(device.completion) ? 0 : Number(device.completion);
+
+                        // Progress Bar for Print Completion with Percentage
+                        const progressBarContainer = document.createElement('div');
+                        progressBarContainer.className = 'progress-bar-container';
+
+                        const progressBar = document.createElement('div');
+                        progressBar.className = 'progress-bar';
+                        progressBar.style.width = `${completionPercentage}%`;
+
+                        // Create percentage label
+                        const progressPercentageLabel = document.createElement('div');
+                        progressPercentageLabel.className = 'progress-percentage';
+                        progressPercentageLabel.textContent = `${completionPercentage}%`;
+
+                        progressBarContainer.appendChild(progressBar);
+                        progressBarContainer.appendChild(progressPercentageLabel);
+                        container.appendChild(progressBarContainer); // Append progress bar at the bottom
+
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching device data:', error);
+                        document.getElementById('widget-content').innerHTML = `<p>${Homey.__('widget.error_loading')}</p>`;
+                    });
+            }
+        }
+    </script>
+</body>
+</html>

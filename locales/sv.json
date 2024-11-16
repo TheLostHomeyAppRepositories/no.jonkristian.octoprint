@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "Ögonblicksbild",
+    "reboot": "Inställningar för ögonblicksbild ändrade, vänligen starta om appen!"
+  },
+  "states": {
+    "Offline": "Offline",
+    "Connecting": "Ansluter",
+    "Operational": "I drift",
+    "Printing": "Skriver ut",
+    "Pausing": "Pausar",
+    "Paused": "Pausad",
+    "Detecting Connection": "Upptäcker anslutning"
+  },
+  "error": {
+    "server_unreachable": "OctoPrint-servern kan inte nås",
+    "invalid_value": "Ogiltigt värde använt",
+    "invalid_state": "Skrivarens nuvarande status tillåter inte detta",
+    "no_print": "Det finns inget aktivt utskriftsjobb",
+    "no_pause": "Det finns inget pausat utskriftsjobb",
+    "no_printer": "Skrivaren är inte ansluten eller påslagen",
+    "snapshot_failed": "Kunde inte hämta ögonblicksbild!",
+    "no_bed_temperature": "Ingen bäddtemperatur tillgänglig",
+    "no_tool_temperature": "Ingen verktygstemperatur tillgänglig"
+  },
+  "pair": {
+    "legend": "Dina OctoPrint-inloggningsuppgifter",
+    "successful": "OctoPrint-enhet tillagd",
+    "unsuccessful": "Kunde inte hitta OctoPrint, se till att du har rätt inloggningsuppgifter.",
+    "address": {
+      "field": "(IP)-adress",
+      "description": "Adressen till din OctoPrint-server."
+    },
+    "apikey": {
+      "field": "API-nyckel",
+      "description": "Använd endast en \"Applikations-API-nyckel\", du kan generera denna i inställningarna för OctoPrint."
+    },
+    "snapshot": {
+      "url": "URL för ögonblicksbild",
+      "description": "Om tom, använder vi standardinställningarna för OctoPrint.",
+      "activate": "Aktivera"
+    },
+    "save": "Spara",
+    "error": {
+      "required": "Både (IP)-adress och API-nyckel måste anges.",
+      "unreachable": "Kunde inte ansluta till OctoPrint. Se till att din (IP)-adress och API-nyckel är korrekta."
+    }
+  },
+  "widget": {
+    "operational_state": "Operativ status",
+    "hotend_temperature": "Hotend-temperatur",
+    "bed_temperature": "Bäddtemperatur",
+    "time_left": "Återstående tid",
+    "no_device": "Ingen OctoPrint-enhet hittades.",
+    "error_loading": "Fel vid laddning av widgetdata."
+  }
+}

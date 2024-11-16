@@ -1,49 +1,58 @@
 {
 	"snapshot": {
-		"title": "Snapshot",
-		"reboot": "Snapshot instellingen veranderd, herstart de app!"
+	  "title": "Momentopname",
+	  "reboot": "Snapshot-instellingen gewijzigd, herstart de app alstublieft!"
 	},
 	"states": {
-		"Closed": "Offline",
-		"Connecting": "Verbinden",
-		"Operational": "Operationeel",
-		"Printing": "Printen",
-		"Pausing": "Pauzeren",
-		"Paused": "Gepauzeerd",
-		"Detecting serial connection": "Verbinding detecteren"
+	  "Offline": "Offline",
+	  "Connecting": "Verbinden",
+	  "Operational": "Operationeel",
+	  "Printing": "Afdrukken",
+	  "Pausing": "Pauzeren",
+	  "Paused": "Gepauzeerd",
+	  "Detecting Connection": "Verbinding detecteren"
 	},
 	"error": {
-		"server_unreachable": "Octoprint server niet bereikbaar",
-		"invalid_value": "Ongeldige waard gebruikt",
-		"invalid_state": "Huidige printer status laat dit niet toe",
-		"no_print": "Er is geen actieve print bezig",
-		"no_pause": "Er is geen print gepauzeerd",
-		"no_printer": "De printer is niet vebonden of aan",
-		"snapshot_failed": "Geen snapshot op kunnen vragen!",
-		"no_bed_temperature": "Geen bed temperatuur beschikbaar",
-		"no_tool_temperature": "Geen hotend temperatuur beschikbaar"
+	  "server_unreachable": "OctoPrint-server onbereikbaar",
+	  "invalid_value": "Ongeldige waarde gebruikt",
+	  "invalid_state": "Huidige printerstatus staat dit niet toe",
+	  "no_print": "Er is geen actief printtaak",
+	  "no_pause": "Er is geen printtaak gepauzeerd",
+	  "no_printer": "De printer is niet verbonden of ingeschakeld",
+	  "snapshot_failed": "Kon snapshot niet ophalen!",
+	  "no_bed_temperature": "Geen bedtemperatuur beschikbaar",
+	  "no_tool_temperature": "Geen gereedschapstemperatuur beschikbaar"
 	},
 	"pair": {
-		"legend": "OctoPrint inloggegevens",
-		"successful": "OctoPrint apparaat toegevoegd",
-		"unsuccessful": "Kon OctoPrint niet vinden, zijn de inloggegevens wel correct?",
-		"address": {
-			"field": "(IP) Adres",
-			"description": "De OctoPrint server adres."
-		},
-		"apikey": {
-			"field": "API Key",
-			"description": "Gebruik alleen een \"Applicatie API-Key\", deze kan je genereren in de settings van octoprint."
-		},
-		"snapshot": {
-			"url": "Snapshot URL",
-			"description": "Als hij is leeg gelaten, zullen de standaard waardes gebruikt worden.",
-			"activate": "Activeer"
-		},
-		"save": "Opslaan",
-		"error": {
-			"required": "Beide (IP) Adres, en API Key, moeten ingevuld zijn.",
-			"unreachable": "Kon niet verbinden met OctoPrint. Zijn het (IP) Adres en API Key correct?"
-		}
+	  "legend": "Uw OctoPrint-gegevens",
+	  "successful": "OctoPrint-apparaat toegevoegd",
+	  "unsuccessful": "Kon OctoPrint niet vinden, zorg ervoor dat u de juiste inloggegevens heeft.",
+	  "address": {
+		"field": "(IP) Adres",
+		"description": "Het adres van uw OctoPrint-server."
+	  },
+	  "apikey": {
+		"field": "API-sleutel",
+		"description": "Gebruik alleen een \"Application API-Key\", deze kunt u genereren in de instellingen van OctoPrint."
+	  },
+	  "snapshot": {
+		"url": "Snapshot URL",
+		"description": "Als dit leeg is, gebruiken we de standaard OctoPrint-instellingen.",
+		"activate": "Activeren"
+	  },
+	  "save": "Opslaan",
+	  "error": {
+		"required": "Zowel (IP) Adres als API-sleutel moeten worden ingesteld.",
+		"unreachable": "Kon geen verbinding maken met OctoPrint. Zorg ervoor dat uw (IP) Adres en API-sleutel correct zijn."
+	  }
+	},
+	"widget": {
+	  "operational_state": "Operationele status",
+	  "hotend_temperature": "Hotend-temperatuur",
+	  "bed_temperature": "Bedtemperatuur",
+	  "time_left": "Resterende tijd",
+	  "no_device": "Geen OctoPrint-apparaat gevonden.",
+	  "error_loading": "Fout bij het laden van widgetgegevens."
 	}
-}
+  }
+  

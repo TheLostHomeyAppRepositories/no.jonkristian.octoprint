@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "Istanteanea",
+    "reboot": "Impostazioni dell'istantanea modificate, riavvia l'app!"
+  },
+  "states": {
+    "Offline": "Offline",
+    "Connecting": "Connessione in corso",
+    "Operational": "Operativo",
+    "Printing": "Stampa in corso",
+    "Pausing": "In pausa",
+    "Paused": "In pausa",
+    "Detecting Connection": "Rilevamento della connessione"
+  },
+  "error": {
+    "server_unreachable": "Server OctoPrint irraggiungibile",
+    "invalid_value": "Valore non valido utilizzato",
+    "invalid_state": "Lo stato corrente della stampante non lo permette",
+    "no_print": "Non c'è un lavoro di stampa attivo",
+    "no_pause": "Non c'è un lavoro di stampa in pausa",
+    "no_printer": "La stampante non è connessa o accesa",
+    "snapshot_failed": "Impossibile recuperare l'istantanea!",
+    "no_bed_temperature": "Nessuna temperatura del piatto disponibile",
+    "no_tool_temperature": "Nessuna temperatura dell'utensile disponibile"
+  },
+  "pair": {
+    "legend": "Le tue credenziali OctoPrint",
+    "successful": "Dispositivo OctoPrint aggiunto",
+    "unsuccessful": "Impossibile trovare OctoPrint, assicurati di avere le credenziali corrette.",
+    "address": {
+      "field": "Indirizzo (IP)",
+      "description": "L'indirizzo del tuo server OctoPrint."
+    },
+    "apikey": {
+      "field": "Chiave API",
+      "description": "Usa solo una \"Chiave API dell'applicazione\", puoi generarla nelle impostazioni di OctoPrint."
+    },
+    "snapshot": {
+      "url": "URL dell'istantanea",
+      "description": "Se lasciato vuoto, utilizziamo le impostazioni predefinite di OctoPrint.",
+      "activate": "Attiva"
+    },
+    "save": "Salva",
+    "error": {
+      "required": "Sia l'indirizzo (IP) che la chiave API devono essere impostati.",
+      "unreachable": "Impossibile connettersi a OctoPrint. Assicurati che il tuo indirizzo (IP) e la chiave API siano corretti."
+    }
+  },
+  "widget": {
+    "operational_state": "Stato operativo",
+    "hotend_temperature": "Temperatura dell'hotend",
+    "bed_temperature": "Temperatura del piatto",
+    "time_left": "Tempo rimanente",
+    "no_device": "Nessun dispositivo OctoPrint trovato.",
+    "error_loading": "Errore durante il caricamento dei dati del widget."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "Schnappschuss",
+    "reboot": "Snapshot-Einstellungen geändert, bitte starten Sie die App neu!"
+  },
+  "states": {
+    "Offline": "Offline",
+    "Connecting": "Verbinden",
+    "Operational": "Betriebsbereit",
+    "Printing": "Drucken",
+    "Pausing": "Pausieren",
+    "Paused": "Pausiert",
+    "Detecting Connection": "Verbindung wird erkannt"
+  },
+  "error": {
+    "server_unreachable": "OctoPrint-Server nicht erreichbar",
+    "invalid_value": "Ungültiger Wert verwendet",
+    "invalid_state": "Der aktuelle Druckerstatus erlaubt dies nicht",
+    "no_print": "Es gibt keinen aktiven Druckauftrag",
+    "no_pause": "Es gibt keinen pausierten Druckauftrag",
+    "no_printer": "Der Drucker ist nicht verbunden oder eingeschaltet",
+    "snapshot_failed": "Konnte Schnappschuss nicht abrufen!",
+    "no_bed_temperature": "Keine Bett-Temperatur verfügbar",
+    "no_tool_temperature": "Keine Werkzeugtemperatur verfügbar"
+  },
+  "pair": {
+    "legend": "Ihre OctoPrint-Anmeldedaten",
+    "successful": "OctoPrint-Gerät hinzugefügt",
+    "unsuccessful": "Konnte OctoPrint nicht finden, stellen Sie sicher, dass Sie die richtigen Anmeldedaten haben.",
+    "address": {
+      "field": "(IP)-Adresse",
+      "description": "Ihre OctoPrint-Serveradresse."
+    },
+    "apikey": {
+      "field": "API-Schlüssel",
+      "description": "Verwenden Sie nur einen \"Application API-Key\", den Sie in den Einstellungen von OctoPrint generieren können."
+    },
+    "snapshot": {
+      "url": "Schnappschuss-URL",
+      "description": "Wenn leer, verwenden wir die Standard-OctoPrint-Einstellungen.",
+      "activate": "Aktivieren"
+    },
+    "save": "Speichern",
+    "error": {
+      "required": "Sowohl (IP)-Adresse als auch API-Schlüssel müssen festgelegt werden.",
+      "unreachable": "Konnte keine Verbindung zu OctoPrint herstellen. Stellen Sie sicher, dass Ihre (IP)-Adresse und Ihr API-Schlüssel korrekt sind."
+    }
+  },
+  "widget": {
+    "operational_state": "Betriebsstatus",
+    "hotend_temperature": "Hotend-Temperatur",
+    "bed_temperature": "Betttemperatur",
+    "time_left": "Verbleibende Zeit",
+    "no_device": "Kein OctoPrint-Gerät gefunden.",
+    "error_loading": "Fehler beim Laden der Widget-Daten."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": {
+    "en": "OctoPrint Widget"
+  },
+  "height": 240,
+  "api": {
+    "getDeviceData": {
+      "method": "GET",
+      "path": "/device-data"
+    }
+  }
+}

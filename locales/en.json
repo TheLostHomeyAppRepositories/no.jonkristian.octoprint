@@ -1,49 +1,58 @@
 {
 	"snapshot": {
-		"title": "Snapshot",
-		"reboot": "Snapshot settings changed, please restart the app!"
+	  "title": "Snapshot",
+	  "reboot": "Snapshot settings changed, please restart the app!"
 	},
 	"states": {
-		"Closed": "Offline",
-		"Connecting": "Connecting",
-		"Operational": "Operational",
-		"Printing": "Printing",
-		"Pausing": "Pausing",
-		"Paused": "Paused",
-		"Detecting serial connection": "Detecting Connection"
+	  "Offline": "Offline",
+	  "Connecting": "Connecting",
+	  "Operational": "Operational",
+	  "Printing": "Printing",
+	  "Pausing": "Pausing",
+	  "Paused": "Paused",
+	  "Detecting Connection": "Detecting Connection"
 	},
 	"error": {
-		"server_unreachable": "Octoprint server unreachable",
-		"invalid_value": "Invalid value used",
-		"invalid_state": "Current printer state doesn't allow that",
-		"no_print": "There is no active print job",
-		"no_pause": "There is no print job paused",
-		"no_printer": "The printer isn't connected or running",
-		"snapshot_failed": "Could not fetch snapshot!",
-		"no_bed_temperature": "No bed temperature available",
-		"no_tool_temperature": "No tool temperature available"
+	  "server_unreachable": "Octoprint server unreachable",
+	  "invalid_value": "Invalid value used",
+	  "invalid_state": "Current printer state doesn't allow that",
+	  "no_print": "There is no active print job",
+	  "no_pause": "There is no print job paused",
+	  "no_printer": "The printer isn't connected or running",
+	  "snapshot_failed": "Could not fetch snapshot!",
+	  "no_bed_temperature": "No bed temperature available",
+	  "no_tool_temperature": "No tool temperature available"
 	},
 	"pair": {
-		"legend": "Your OctoPrint credentials",
-		"successful": "OctoPrint device added",
-		"unsuccessful": "Could not find OctoPrint, make sure you have the correct credentials.",
-		"address": {
-			"field": "(IP) Address",
-			"description": "Your OctoPrint server address."
-		},
-		"apikey": {
-			"field": "API Key",
-			"description": "Only use an \"Application API-Key\", you can generate this in the settings of octoprint."
-		},
-		"snapshot": {
-			"url": "Snapshot URL",
-			"description": "If left empty, we use default octoprint settings.",
-			"activate": "Activate"
-		},
-		"save": "Save",
-		"error": {
-			"required": "Both (IP) Address, and API Key, needs to be set.",
-			"unreachable": "Could not connect to OctoPrint. Make sure your (IP) Address and API key is correct."
-		}
+	  "legend": "Your OctoPrint credentials",
+	  "successful": "OctoPrint device added",
+	  "unsuccessful": "Could not find OctoPrint, make sure you have the correct credentials.",
+	  "address": {
+		"field": "(IP) Address",
+		"description": "Your OctoPrint server address."
+	  },
+	  "apikey": {
+		"field": "API Key",
+		"description": "Only use an \"Application API-Key\", you can generate this in the settings of OctoPrint."
+	  },
+	  "snapshot": {
+		"url": "Snapshot URL",
+		"description": "If left empty, we use default OctoPrint settings.",
+		"activate": "Activate"
+	  },
+	  "save": "Save",
+	  "error": {
+		"required": "Both (IP) Address and API Key need to be set.",
+		"unreachable": "Could not connect to OctoPrint. Make sure your (IP) Address and API key are correct."
+	  }
+	},
+	"widget": {
+	  "operational_state": "Operational State",
+	  "hotend_temperature": "Hotend Temperature",
+	  "bed_temperature": "Bed Temperature",
+	  "time_left": "Time Left",
+	  "no_device": "No OctoPrint device found.",
+	  "error_loading": "Error loading widget data."
 	}
-}
+  }
+  

@@ -1,0 +1,57 @@
+{
+  "snapshot": {
+    "title": "Снимок",
+    "reboot": "Настройки снимка изменены, пожалуйста, перезапустите приложение!"
+  },
+  "states": {
+    "Offline": "Оффлайн",
+    "Connecting": "Подключение",
+    "Operational": "Работает",
+    "Printing": "Печать",
+    "Pausing": "Приостановка",
+    "Paused": "Приостановлено",
+    "Detecting Connection": "Обнаружение соединения"
+  },
+  "error": {
+    "server_unreachable": "Сервер OctoPrint недоступен",
+    "invalid_value": "Использовано неверное значение",
+    "invalid_state": "Текущее состояние принтера не позволяет это",
+    "no_print": "Нет активного задания печати",
+    "no_pause": "Нет приостановленного задания печати",
+    "no_printer": "Принтер не подключен или не работает",
+    "snapshot_failed": "Не удалось получить снимок!",
+    "no_bed_temperature": "Температура стола недоступна",
+    "no_tool_temperature": "Температура инструмента недоступна"
+  },
+  "pair": {
+    "legend": "Ваши учетные данные OctoPrint",
+    "successful": "Устройство OctoPrint добавлено",
+    "unsuccessful": "Не удалось найти OctoPrint, убедитесь, что у вас правильные учетные данные.",
+    "address": {
+      "field": "Адрес (IP)",
+      "description": "Адрес вашего сервера OctoPrint."
+    },
+    "apikey": {
+      "field": "API-ключ",
+      "description": "Используйте только \"Application API-Key\", вы можете сгенерировать его в настройках OctoPrint."
+    },
+    "snapshot": {
+      "url": "URL снимка",
+      "description": "Если оставить пустым, мы используем настройки OctoPrint по умолчанию.",
+      "activate": "Активировать"
+    },
+    "save": "Сохранить",
+    "error": {
+      "required": "Необходимо указать адрес (IP) и API-ключ.",
+      "unreachable": "Не удалось подключиться к OctoPrint. Убедитесь, что ваш адрес (IP) и API-ключ верны."
+    }
+  },
+  "widget": {
+    "operational_state": "Рабочее состояние",
+    "hotend_temperature": "Температура хотэнда",
+    "bed_temperature": "Температура стола",
+    "time_left": "Оставшееся время",
+    "no_device": "Устройство OctoPrint не найдено.",
+    "error_loading": "Ошибка загрузки данных виджета."
+  }
+}
