@@ -1,11 +1,20 @@
 {
-	"type": "string",
-	"uiComponent": "sensor",
-	"title": {
-		"en": "Time left",
-		"no": "Gjenstående",
-		"nl": "Resterende tijd"
-	},
-	"getable": true,
-	"icon": "/drivers/octoprint/assets/job_left.svg"
+  "type": "string",
+  "uiComponent": "sensor",
+  "title": {
+    "en": "Time left",
+    "no": "Gjenstående",
+    "nl": "Resterende tijd",
+    "da": "Tid tilbage",
+    "de": "Verbleibende Zeit",
+    "es": "Tiempo restante",
+    "fr": "Temps restant",
+    "it": "Tempo rimasto",
+    "sv": "Tid kvar",
+    "pl": "Pozostały czas",
+    "ru": "Оставшееся время",
+    "ko": "남은 시간"
+  },
+  "getable": true,
+  "icon": "/drivers/octoprint/assets/job_left.svg"
 }

@@ -1,277 +1,629 @@
 [
-	{
-		"type": "group",
-		"label": {
-			"en": "Octoprint settings",
-			"no": "Octoprint instillinger",
-			"nl": "Octoprint instellingen"
-		},
-		"children": [
-			{
-				"id": "address",
-				"type": "text",
-				"label": {
-					"en": "IP address",
-					"no": "IP address",
-					"nl": "IP address"
-				},
-				"value": ""
-			},
-			{
-				"id": "apikey",
-				"type": "text",
-				"label": {
-					"en": "API key",
-					"no": "API key",
-					"nl": "API key"
-				},
-				"value": ""
-			},
-			{
-				"id": "pollInterval",
-				"type": "number",
-				"label": {
-					"en": "Polling interval",
-					"no": "Polling interval",
-					"nl": "Polling-interval"
-				},
-				"value": 10,
-				"min": 10,
-				"max": 3600,
-				"units": {
-					"en": "seconds",
-					"no": "seconds",
-					"nl": "seconden"
-				},
-				"hint": {
-					"en": "Determine how often to poll for the changes (default 10 seconds).",
-					"no": "Determine how often to poll for the changes (default 10 seconds).",
-					"nl": "Bepaal hoe vaak er gepeild zal worden naar wijzigingen (standaard 10 seconden)."
-				}
-			},
-			{
-				"id": "snapshot_active",
-				"type": "checkbox",
-				"label": {
-					"en": "Use Snapshot",
-					"no": "Bruk øyeblikksbilde",
-					"nl": "Gebruik snapshot"
-				},
-				"value": false
-			},
-			{
-				"id": "snapshot_url",
-				"type": "text",
-				"label": {
-					"en": "Snapshot URL",
-					"no": "Lenke til øyeblikksbilde",
-					"nl": "Snapshot URL"
-				},
-				"value": "",
-				"hint": {
-					"en": "Provide an URL to a camera still image to be used in flows.",
-					"no": "Legg inn adresse til øyeblikksbilde som igjen kan benyttes i flows.",
-					"nl": "Geef een URL op van de camera die gebruikt word voor foto's in flows."
-				}
-			},
-			{
-				"id": "heated_bed",
-				"type": "checkbox",
-				"label": {
-					"en": "Heated bed",
-					"no": "Oppvarmet seng",
-					"nl": "Verwarmd bed"
-				},
-				"hint": {
-					"en": "Enable if you have an heated bed.",
-					"no": "Aktiver hvis du har en oppvarmet seng.",
-					"nl": "Activeer als je een verwarmd bed hebt."
-				},
-				"value": true
-			},
-			{
-				"id": "heated_chamber",
-				"type": "checkbox",
-				"label": {
-					"en": "Heated chamber",
-					"no": "Måltemperatur for kammeret",
-					"nl": "Verwarmde behuizing"
-				},
-				"hint": {
-					"en": "Enable if you have an heated chamber. Enabled, it will ignore the measured chamber temperature setting.",
-					"no": "Aktiver hvis du har et oppvarmet kammer. Aktivert, vil den ignorere den målte kammertemperatur innstillingen.",
-					"nl": "Activeer als je een verwarmde behuizing hebt. Ingeschakeld, negeert het de instelling van de gemeten behuizingstemperatuur."
-				},
-				"value": false
-			},
-			{
-				"id": "measured_chamber",
-				"type": "checkbox",
-				"label": {
-					"en": "Measured chamber temperature",
-					"no": "Målt kammertemperatur",
-					"nl": "Gemeten behuizingstemperatuur"
-				},
-				"hint": {
-					"en": "Enable if you measure the chamber temperature.",
-					"no": "Aktiver hvis du har et oppvarmet kammer.",
-					"nl": "Activeer als je de behuizingstemperatuur meet."
-				},
-				"value": false
-			}
-		]
-	},
-	{
-		"type": "group",
-		"label": {
-			"en": "General settings",
-			"no": "Generelle instillinger",
-			"nl": "Algemene instellingen"
-		},
-		"children": [
-			{
-				"id": "measure_temperature_bed_decimal",
-				"type": "checkbox",
-				"label": {
-					"en": "Accurate bed temperature",
-					"nl": "Nauwkeurige bed temperatuur"
-				},
-				"value": true,
-				"hint": {
-					"en": "Should the bed temperature be more accurate (1 decimal), or only have full numbers.",
-					"nl": "Zal het bed temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
-				}
-			},
-			{
-				"id": "measure_temperature_tool_decimal",
-				"type": "checkbox",
-				"label": {
-					"en": "Accurate tool temperature",
-					"nl": "Nauwkeurige hotend temperatuur"
-				},
-				"value": true,
-				"hint": {
-					"en": "Should the tool temperature be more accurate (1 decimal), or only have full numbers.",
-					"nl": "Zal het hotend temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
-				}
-			},
-			{
-				"id": "bed_cooldown_threshold",
-				"type": "number",
-				"label": {
-					"en": "Bed cooldown threshold",
-					"no": "Bed cooldown threshold",
-					"nl": "Bed afgekoeld drempel"
-				},
-				"value": 30,
-				"min": 0,
-				"max": 130,
-				"units": {
-					"en": "°C"
-				},
-				"hint": {
-					"en": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
-					"no": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
-					"nl": "Onder welke temperatuur zal de flow kaart \"bed is afgekoeld\" worden geactiveerd."
-				}
-			},
-			{
-				"id": "tool_cooldown_threshold",
-				"type": "number",
-				"label": {
-					"en": "Tool cooldown threshold",
-					"no": "Tool cooldown threshold",
-					"nl": "Hotend afgekoeld drempel"
-				},
-				"value": 50,
-				"min": 0,
-				"max": 300,
-				"units": {
-					"en": "°C"
-				},
-				"hint": {
-					"en": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
-					"no": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
-					"nl": "Onder welke temperatuur zal de flow kaart \"hotend is afgekoeld\" worden geactiveerd."
-				}
-			},
-			{
-				"id": "calculated_completion",
-				"type": "dropdown",
-				"label": {
-					"en": "Completion percentage",
-					"nl": "Voltooiing percentage"
-				},
-				"value": "completion",
-				"hint": {
-					"en": "Determine what the completion percentage (calculation) is based on, the standard percentage (in the API) is based on the current file position.",
-					"nl": "Bepaal waar het voltooiings percentage (berekening) is op gebaseerd, de standaard percentage (in de API) is gebaseerd op de huidige bestands positie."
-				},
-				"values": [
-					{
-						"id": "completion",
-						"label": {
-							"en": "File position (default)",
-							"nl": "Bestandspositie (standaard)"
-						}
-					},
-					{
-						"id": "completion_time_calculated",
-						"label": {
-							"en": "Print time",
-							"nl": "Print tijd"
-						}
-					}
-				]
-			}
-		]
-	},
-	{
-		"type": "group",
-		"label": {
-			"en": "Display settings",
-			"nl": "Weergave instellingen"
-		},
-		"children": [
-			{
-				"id": "estimate_hms",
-				"type": "checkbox",
-				"label": {
-					"en": "H:M:S for estimated time",
-					"nl": "H:M:S voor geschatte tijd"
-				},
-				"value": false,
-				"hint": {
-					"en": "Enable this setting to display the estimated time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
-					"nl": "Activeer deze instelling om de geschatte tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
-				}
-			},
-			{
-				"id": "time_hms",
-				"type": "checkbox",
-				"label": {
-					"en": "H:M:S for print time",
-					"nl": "H:M:S voor print tijd"
-				},
-				"value": false,
-				"hint": {
-					"en": "Enable this setting to display the print time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
-					"nl": "Activeer deze instelling om de print tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
-				}
-			},
-			{
-				"id": "left_hms",
-				"type": "checkbox",
-				"label": {
-					"en": "H:M:S for time left",
-					"nl": "H:M:S voor resterende tijd"
-				},
-				"value": false,
-				"hint": {
-					"en": "Enable this setting to display the time left as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s)",
-					"nl": "Activeer deze instelling om de resterende tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
-				}
-			}
-		]
-	}
+  {
+    "type": "group",
+    "label": {
+      "en": "Octoprint settings",
+      "no": "Octoprint innstillinger",
+      "nl": "Octoprint instellingen",
+      "de": "Octoprint Einstellungen",
+      "fr": "Paramètres Octoprint",
+      "it": "Impostazioni Octoprint",
+      "sv": "Octoprint-inställningar",
+      "es": "Configuración de Octoprint",
+      "da": "Octoprint indstillinger",
+      "ru": "Настройки Octoprint",
+      "pl": "Ustawienia Octoprint",
+      "ko": "Octoprint 설정"
+    },
+    "children": [
+      {
+        "id": "address",
+        "type": "text",
+        "label": {
+          "en": "IP address",
+          "no": "IP adresse",
+          "nl": "IP-adres",
+          "de": "IP-Adresse",
+          "fr": "Adresse IP",
+          "it": "Indirizzo IP",
+          "sv": "IP-adress",
+          "es": "Dirección IP",
+          "da": "IP-adresse",
+          "ru": "IP-адрес",
+          "pl": "Adres IP",
+          "ko": "IP 주소"
+        },
+        "value": ""
+      },
+      {
+        "id": "apikey",
+        "type": "text",
+        "label": {
+          "en": "API key",
+          "no": "API-nøkkel",
+          "nl": "API-sleutel",
+          "de": "API-Schlüssel",
+          "fr": "Clé API",
+          "it": "Chiave API",
+          "sv": "API-nyckel",
+          "es": "Clave API",
+          "da": "API-nøgle",
+          "ru": "API ключ",
+          "pl": "Klucz API",
+          "ko": "API 키"
+        },
+        "value": ""
+      },
+      {
+        "id": "pollInterval",
+        "type": "number",
+        "label": {
+          "en": "Polling interval",
+          "no": "Polling intervall",
+          "nl": "Polling-interval",
+          "de": "Polling-Intervall",
+          "fr": "Intervalle de sondage",
+          "it": "Intervallo di polling",
+          "sv": "Pollingintervall",
+          "es": "Intervalo de sondeo",
+          "da": "Pollinginterval",
+          "ru": "Интервал опроса",
+          "pl": "Interwał sondowania",
+          "ko": "폴링 간격"
+        },
+        "value": 10,
+        "min": 10,
+        "max": 3600,
+        "units": {
+          "en": "seconds",
+          "no": "sekunder",
+          "nl": "seconden",
+          "de": "Sekunden",
+          "fr": "secondes",
+          "it": "secondi",
+          "sv": "sekunder",
+          "es": "segundos",
+          "da": "sekunder",
+          "ru": "секунд",
+          "pl": "sekund",
+          "ko": "초"
+        },
+        "hint": {
+          "en": "Determine how often to poll for the changes (default 10 seconds).",
+          "no": "Bestem hvor ofte du vil poll for endringer (standard 10 sekunder).",
+          "nl": "Bepaal hoe vaak er gepeild zal worden naar wijzigingen (standaard 10 seconden).",
+          "de": "Bestimmen Sie, wie oft nach Änderungen gepollt werden soll (Standard 10 Sekunden).",
+          "fr": "Déterminez la fréquence de sondage des changements (par défaut 10 secondes).",
+          "it": "Determina la frequenza di polling per le modifiche (predefinito 10 secondi).",
+          "sv": "Bestäm hur ofta du vill pollera för ändringar (standard 10 sekunder).",
+          "es": "Determine con qué frecuencia sondear los cambios (predeterminado 10 segundos).",
+          "da": "Bestem hvor ofte du vil poll for ændringer (standard 10 sekunder).",
+          "ru": "Определите, как часто опрашивать изменения (по умолчанию 10 секунд).",
+          "pl": "Określ, jak często sondować zmiany (domyślnie 10 sekund).",
+          "ko": "변경 사항을 폴링할 빈도를 결정합니다(기본값 10초)."
+        }
+      },
+      {
+        "id": "snapshot_active",
+        "type": "checkbox",
+        "label": {
+          "en": "Use Snapshot",
+          "no": "Bruk øyeblikksbilde",
+          "nl": "Gebruik snapshot",
+          "de": "Snapshot verwenden",
+          "fr": "Utiliser un snapshot",
+          "it": "Usa Snapshot",
+          "sv": "Använd Snapshot",
+          "es": "Usar instantánea",
+          "da": "Brug snapshot",
+          "ru": "Использовать снимок",
+          "pl": "Użyj migawki",
+          "ko": "스냅샷 사용"
+        },
+        "value": false
+      },
+      {
+        "id": "snapshot_url",
+        "type": "text",
+        "label": {
+          "en": "Snapshot URL",
+          "no": "Lenke til øyeblikksbilde",
+          "nl": "Snapshot URL",
+          "de": "Snapshot-URL",
+          "fr": "URL du snapshot",
+          "it": "URL Snapshot",
+          "sv": "Snapshot-URL",
+          "es": "URL de instantánea",
+          "da": "Snapshot URL",
+          "ru": "URL снимка",
+          "pl": "URL migawki",
+          "ko": "스냅샷 URL"
+        },
+        "value": "",
+        "hint": {
+          "en": "Provide a URL to a camera still image to be used in flows.",
+          "no": "Gi en URL til et kamera stillbilde som skal brukes i flows.",
+          "nl": "Geef een URL op van de camera die gebruikt wordt voor foto's in flows.",
+          "de": "Geben Sie eine URL zu einem Standbild der Kamera an, das in Flows verwendet werden soll.",
+          "fr": "Fournissez une URL vers une image fixe de la caméra à utiliser dans les flux.",
+          "it": "Fornisci un URL a un'immagine fissa della telecamera da utilizzare nei flussi.",
+          "sv": "Ange en URL till en stillbild från kameran som ska användas i flöden.",
+          "es": "Proporcione una URL a una imagen fija de la cámara para usar en flujos.",
+          "da": "Angiv en URL til et kamera stillbillede, der skal bruges i flows.",
+          "ru": "Предоставьте URL к статичному изображению камеры для использования в потоках.",
+          "pl": "Podaj URL do statycznego obrazu z kamery, który ma być używany w przepływach.",
+          "ko": "흐름에서 사용할 카메라 정지 이미지의 URL을 제공하십시오."
+        }
+      },
+      {
+        "id": "heated_bed",
+        "type": "checkbox",
+        "label": {
+          "en": "Heated bed",
+          "no": "Oppvarmet seng",
+          "nl": "Verwarmd bed",
+          "de": "Beheiztes Bett",
+          "fr": "Plateau chauffant",
+          "it": "Letto riscaldato",
+          "sv": "Uppvärmad säng",
+          "es": "Cama calefactada",
+          "da": "Opvarmet seng",
+          "ru": "Нагреваемая платформа",
+          "pl": "Podgrzewana platforma",
+          "ko": "히트베드"
+        },
+        "hint": {
+          "en": "Enable if you have a heated bed.",
+          "no": "Aktiver hvis du har en oppvarmet seng.",
+          "nl": "Activeer als je een verwarmd bed hebt.",
+          "de": "Aktivieren, wenn Sie ein beheiztes Bett haben.",
+          "fr": "Activez si vous avez un plateau chauffant.",
+          "it": "Abilita se hai un letto riscaldato.",
+          "sv": "Aktivera om du har en uppvärmad säng.",
+          "es": "Habilitar si tienes una cama calefactada.",
+          "da": "Aktiver hvis du har en opvarmet seng.",
+          "ru": "Включите, если у вас есть нагреваемая платформа.",
+          "pl": "Włącz, jeśli masz podgrzewaną platformę.",
+          "ko": "히트베드가 있는 경우 활성화하십시오."
+        },
+        "value": true
+      },
+      {
+        "id": "heated_chamber",
+        "type": "checkbox",
+        "label": {
+          "en": "Heated chamber",
+          "no": "Oppvarmet kammer",
+          "nl": "Verwarmde behuizing",
+          "de": "Beheizte Kammer",
+          "fr": "Chambre chauffante",
+          "it": "Camera riscaldata",
+          "sv": "Uppvärmd kammare",
+          "es": "Cámara calefactada",
+          "da": "Opvarmet kammer",
+          "ru": "Нагреваемая камера",
+          "pl": "Podgrzewana komora",
+          "ko": "히트 챔버"
+        },
+        "hint": {
+          "en": "Enable if you have a heated chamber. If enabled, it will ignore the measured chamber temperature setting.",
+          "no": "Aktiver hvis du har et oppvarmet kammer. Hvis aktivert, vil den ignorere den målte kammertemperaturinnstillingen.",
+          "nl": "Activeer als je een verwarmde behuizing hebt. Ingeschakeld, negeert het de instelling van de gemeten behuizingstemperatuur.",
+          "de": "Aktivieren, wenn Sie eine beheizte Kammer haben. Wenn aktiviert, wird die gemessene Kammertemperatur-Einstellung ignoriert.",
+          "fr": "Activez si vous avez une chambre chauffante. Si activé, il ignorera le réglage de la température de la chambre mesurée.",
+          "it": "Abilita se hai una camera riscaldata. Se abilitato, ignorerà l'impostazione della temperatura misurata della camera.",
+          "sv": "Aktivera om du har en uppvärmd kammare. Om aktiverad ignoreras inställningen för uppmätt kammertemperatur.",
+          "es": "Habilitar si tienes una cámara calefactada. Si está habilitado, ignorará la configuración de temperatura de la cámara medida.",
+          "da": "Aktiver hvis du har et opvarmet kammer. Hvis aktiveret, ignoreres den målte kammertemperaturindstilling.",
+          "ru": "Включите, если у вас есть нагреваемая камера. Если включено, будет игнорироваться настройка измеренной температуры камеры.",
+          "pl": "Włącz, jeśli masz podgrzewaną komorę. Jeśli włączone, będzie ignorować ustawienie mierzonej temperatury komory.",
+          "ko": "히트 챔버가 있는 경우 활성화하십시오. 활성화되면 측정된 챔버 온도 설정을 무시합니다."
+        },
+        "value": false
+      },
+      {
+        "id": "measured_chamber",
+        "type": "checkbox",
+        "label": {
+          "en": "Measured chamber temperature",
+          "no": "Målt kammertemperatur",
+          "nl": "Gemeten behuizingstemperatuur",
+          "de": "Gemessene Kammertemperatur",
+          "fr": "Température de la chambre mesurée",
+          "it": "Temperatura della camera misurata",
+          "sv": "Uppmätt kammertemperatur",
+          "es": "Temperatura de la cámara medida",
+          "da": "Målt kammertemperatur",
+          "ru": "Измеренная температура камеры",
+          "pl": "Mierzona temperatura komory",
+          "ko": "측정된 챔버 온도"
+        },
+        "hint": {
+          "en": "Enable if you measure the chamber temperature.",
+          "no": "Aktiver hvis du måler kammertemperaturen.",
+          "nl": "Activeer als je de behuizingstemperatuur meet.",
+          "de": "Aktivieren, wenn Sie die Kammertemperatur messen.",
+          "fr": "Activez si vous mesurez la température de la chambre.",
+          "it": "Abilita se misuri la temperatura della camera.",
+          "sv": "Aktivera om du mäter kammertemperaturen.",
+          "es": "Habilitar si mides la temperatura de la cámara.",
+          "da": "Aktiver hvis du måler kammertemperaturen.",
+          "ru": "Включите, если вы измеряете температуру камеры.",
+          "pl": "Włącz, jeśli mierzysz temperaturę komory.",
+          "ko": "챔버 온도를 측정하는 경우 활성화하십시오."
+        },
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "General settings",
+      "no": "Generelle innstillinger",
+      "nl": "Algemene instellingen",
+      "de": "Allgemeine Einstellungen",
+      "fr": "Paramètres généraux",
+      "it": "Impostazioni generali",
+      "sv": "Allmänna inställningar",
+      "es": "Configuración general",
+      "da": "Generelle indstillinger",
+      "ru": "Общие настройки",
+      "pl": "Ustawienia ogólne",
+      "ko": "일반 설정"
+    },
+    "children": [
+      {
+        "id": "measure_temperature_bed_decimal",
+        "type": "checkbox",
+        "label": {
+          "en": "Accurate bed temperature",
+          "no": "Nøyaktig sengetemperatur",
+          "nl": "Nauwkeurige bed temperatuur",
+          "de": "Genauere Bett-Temperatur",
+          "fr": "Température du lit précise",
+          "it": "Temperatura del letto accurata",
+          "sv": "Exakt bäddtemperatur",
+          "es": "Temperatura de la cama precisa",
+          "da": "Nøjagtig sengetemperatur",
+          "ru": "Точная температура платформы",
+          "pl": "Dokładna temperatura platformy",
+          "ko": "정확한 베드 온도"
+        },
+        "value": true,
+        "hint": {
+          "en": "Should the bed temperature be more accurate (1 decimal), or only have full numbers.",
+          "no": "Skal sengetemperaturen være mer nøyaktig (1 desimal), eller bare hele tall.",
+          "nl": "Zal het bed temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen.",
+          "de": "Soll die Bett-Temperatur genauer sein (1 Dezimalstelle) oder nur ganze Zahlen haben.",
+          "fr": "La température du lit doit-elle être plus précise (1 décimale) ou uniquement des nombres entiers.",
+          "it": "La temperatura del letto deve essere più accurata (1 decimale) o avere solo numeri interi.",
+          "sv": "Ska bäddtemperaturen vara mer exakt (1 decimal) eller bara ha hela siffror.",
+          "es": "¿Debe la temperatura de la cama ser más precisa (1 decimal) o solo tener números enteros?",
+          "da": "Skal sengetemperaturen være mere nøjagtig (1 decimal), eller kun have hele tal.",
+          "ru": "Должна ли температура платформы быть более точной (1 десятичная) или только целыми числами.",
+          "pl": "Czy temperatura platformy powinna być dokładniejsza (1 miejsce dziesiętne) czy tylko pełne liczby.",
+          "ko": "베드 온도가 더 정확해야 합니까(소수점 1자리) 아니면 정수만 있어야 합니까?"
+        }
+      },
+      {
+        "id": "measure_temperature_tool_decimal",
+        "type": "checkbox",
+        "label": {
+          "en": "Accurate tool temperature",
+          "no": "Nøyaktig verktøytemperatur",
+          "nl": "Nauwkeurige hotend temperatuur",
+          "de": "Genauere Werkzeug-Temperatur",
+          "fr": "Température de l'outil précise",
+          "it": "Temperatura dello strumento accurata",
+          "sv": "Exakt verktygstemperatur",
+          "es": "Temperatura de la herramienta precisa",
+          "da": "Nøjagtig værktøjtemperatur",
+          "ru": "Точная температура инструмента",
+          "pl": "Dokładna temperatura narzędzia",
+          "ko": "정확한 도구 온도"
+        },
+        "value": true,
+        "hint": {
+          "en": "Should the tool temperature be more accurate (1 decimal), or only have full numbers.",
+          "no": "Skal verktøytemperaturen være mer nøyaktig (1 desimal), eller bare hele tall.",
+          "nl": "Zal het hotend temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen.",
+          "de": "Soll die Werkzeug-Temperatur genauer sein (1 Dezimalstelle) oder nur ganze Zahlen haben.",
+          "fr": "La température de l'outil doit-elle être plus précise (1 décimale) ou uniquement des nombres entiers.",
+          "it": "La temperatura dello strumento deve essere più accurata (1 decimale) o avere solo numeri interi.",
+          "sv": "Ska verktygstemperaturen vara mer exakt (1 decimal) eller bara ha hela siffror.",
+          "es": "¿Debe la temperatura de la herramienta ser más precisa (1 decimal) o solo tener números enteros?",
+          "da": "Skal værktøjtemperaturen være mere nøjagtig (1 decimal), eller kun have hele tal.",
+          "ru": "Должна ли температура инструмента быть более точной (1 десятичная) или только целыми числами.",
+          "pl": "Czy temperatura narzędzia powinna być dokładniejsza (1 miejsce dziesiętne) czy tylko pełne liczby.",
+          "ko": "도구 온도가 더 정확해야 합니까(소수점 1자리) 아니면 정수만 있어야 합니까?"
+        }
+      },
+      {
+        "id": "bed_cooldown_threshold",
+        "type": "number",
+        "label": {
+          "en": "Bed cooldown threshold",
+          "no": "Bed avkjølingsterskel",
+          "nl": "Bed afgekoeld drempel",
+          "de": "Bett-Abkühlungsschwelle",
+          "fr": "Seuil de refroidissement du lit",
+          "it": "Soglia di raffreddamento del letto",
+          "sv": "Bäddkylningströskel",
+          "es": "Umbral de enfriamiento de la cama",
+          "da": "Bed afkøling tærskel",
+          "ru": "Порог охлаждения платформы",
+          "pl": "Próg chłodzenia platformy",
+          "ko": "베드 냉각 임계값"
+        },
+        "value": 30,
+        "min": 0,
+        "max": 130,
+        "units": {
+          "en": "°C",
+          "no": "°C",
+          "nl": "°C",
+          "de": "°C",
+          "fr": "°C",
+          "it": "°C",
+          "sv": "°C",
+          "es": "°C",
+          "da": "°C",
+          "ru": "°C",
+          "pl": "°C",
+          "ko": "°C"
+        },
+        "hint": {
+          "en": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
+          "no": "Under hvilken temperatur skal flowkortet \"sengen har kjølt ned\" utløses.",
+          "nl": "Onder welke temperatuur zal de flow kaart \"bed is afgekoeld\" worden geactiveerd.",
+          "de": "Unter welcher Temperatur sollte die Flow-Karte \"Bett hat abgekühlt\" ausgelöst werden.",
+          "fr": "En dessous de quelle température la carte de flux \"le lit a refroidi\" doit-elle se déclencher.",
+          "it": "Sotto quale temperatura la scheda di flusso \"il letto si è raffreddato\" deve essere attivata.",
+          "sv": "Under vilken temperatur ska flödeskortet \"bädden har svalnat\" triggas.",
+          "es": "Por debajo de qué temperatura debe activarse la tarjeta de flujo \"la cama se ha enfriado\".",
+          "da": "Under hvilken temperatur skal flowkortet \"sengen er afkølet\" udløses.",
+          "ru": "При какой температуре должна срабатывать карточка потока \"платформа остыла\".",
+          "pl": "Poniżej jakiej temperatury ma się uruchomić karta przepływu \"platforma się schłodziła\".",
+          "ko": "흐름 카드 \"베드가 냉각됨\"을 트리거할 온도는 얼마입니까?"
+        }
+      },
+      {
+        "id": "tool_cooldown_threshold",
+        "type": "number",
+        "label": {
+          "en": "Tool cooldown threshold",
+          "no": "Verktøy avkjølingsterskel",
+          "nl": "Hotend afgekoeld drempel",
+          "de": "Werkzeug-Abkühlungsschwelle",
+          "fr": "Seuil de refroidissement de l'outil",
+          "it": "Soglia di raffreddamento dello strumento",
+          "sv": "Verktygskylningströskel",
+          "es": "Umbral de enfriamiento de la herramienta",
+          "da": "Værktøj afkøling tærskel",
+          "ru": "Порог охлаждения инструмента",
+          "pl": "Próg chłodzenia narzędzia",
+          "ko": "도구 냉각 임계값"
+        },
+        "value": 50,
+        "min": 0,
+        "max": 300,
+        "units": {
+          "en": "°C",
+          "no": "°C",
+          "nl": "°C",
+          "de": "°C",
+          "fr": "°C",
+          "it": "°C",
+          "sv": "°C",
+          "es": "°C",
+          "da": "°C",
+          "ru": "°C",
+          "pl": "°C",
+          "ko": "°C"
+        },
+        "hint": {
+          "en": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
+          "no": "Under hvilken temperatur skal flowkortet \"verktøyet har kjølt ned\" utløses.",
+          "nl": "Onder welke temperatuur zal de flow kaart \"hotend is afgekoeld\" worden geactiveerd.",
+          "de": "Unter welcher Temperatur sollte die Flow-Karte \"Werkzeug hat abgekühlt\" ausgelöst werden.",
+          "fr": "En dessous de quelle température la carte de flux \"l'outil a refroidi\" doit-elle se déclencher.",
+          "it": "Sotto quale temperatura la scheda di flusso \"lo strumento si è raffreddato\" deve essere attivata.",
+          "sv": "Under vilken temperatur ska flödeskortet \"verktyget har svalnat\" triggas.",
+          "es": "Por debajo de qué temperatura debe activarse la tarjeta de flujo \"la herramienta se ha enfriado\".",
+          "da": "Under hvilken temperatur bør flowkortet \"værktøjet er afkølet\" udløses.",
+          "ru": "При какой температуре должна срабатывать карточка потока \"инструмент остыл\".",
+          "pl": "Poniżej jakiej temperatury ma się uruchomić karta przepływu \"narzędzie się schłodziło\".",
+          "ko": "흐름 카드 \"도구가 냉각됨\"을 트리거할 온도는 얼마입니까?"
+        }
+      },
+      {
+        "id": "calculated_completion",
+        "type": "dropdown",
+        "label": {
+          "en": "Completion percentage",
+          "no": "Fullføringsprosent",
+          "nl": "Voltooiing percentage",
+          "de": "Abschlussprozentsatz",
+          "fr": "Pourcentage d'achèvement",
+          "it": "Percentuale di completamento",
+          "sv": "Slutförandeprocent",
+          "es": "Porcentaje de finalización",
+          "da": "Færdiggørelsesprocent",
+          "ru": "Процент завершения",
+          "pl": "Procent ukończenia",
+          "ko": "완료 비율"
+        },
+        "value": "completion",
+        "hint": {
+          "en": "Determine what the completion percentage (calculation) is based on. The standard percentage (in the API) is based on the current file position.",
+          "no": "Bestem hva fullføringsprosenten (beregningen) er basert på. Standardprosenten (i API-en) er basert på den nåværende filposisjonen.",
+          "nl": "Bepaal waar het voltooiingspercentage (berekening) op is gebaseerd. Het standaardpercentage (in de API) is gebaseerd op de huidige bestandspositie.",
+          "de": "Bestimmen Sie, worauf der Abschlussprozentsatz (Berechnung) basiert. Der Standardprozentsatz (in der API) basiert auf der aktuellen Dateiposition.",
+          "fr": "Déterminez sur quoi se base le pourcentage d'achèvement (calcul). Le pourcentage standard (dans l'API) est basé sur la position actuelle du fichier.",
+          "it": "Determina su cosa si basa la percentuale di completamento (calcolo). La percentuale standard (nell'API) si basa sulla posizione corrente del file.",
+          "sv": "Bestäm vad slutförandeprocenten (beräkningen) baseras på. Standardprocenten (i API:et) baseras på den aktuella filpositionen.",
+          "es": "Determine en qué se basa el porcentaje de finalización (cálculo). El porcentaje estándar (en la API) se basa en la posición actual del archivo.",
+          "da": "Bestem hvad færdiggørelsesprocenten (beregningen) er baseret på. Standardprocenten (i API'en) er baseret på den aktuelle filposition.",
+          "ru": "Определите, на чем основан процент завершения (расчет). Стандартный процент (в API) основан на текущем положении файла.",
+          "pl": "Określ, na czym opiera się procent ukończenia (obliczenie). Standardowy procent (w API) opiera się na bieżącej pozycji pliku.",
+          "ko": "완료 비율(계산)이 무엇을 기준으로 하는지 결정하십시오. 표준 비율(API 내)은 현재 파일 위치를 기준으로 합니다."
+        },
+        "values": [
+          {
+            "id": "completion",
+            "label": {
+              "en": "File position (default)",
+              "no": "Filposisjon (standard)",
+              "nl": "Bestandspositie (standaard)",
+              "de": "Dateiposition (Standard)",
+              "fr": "Position du fichier (par défaut)",
+              "it": "Posizione del file (predefinita)",
+              "sv": "Filposition (standard)",
+              "es": "Posición del archivo (predeterminado)",
+              "da": "Filposition (standard)",
+              "ru": "Позиция файла (по умолчанию)",
+              "pl": "Pozycja pliku (domyślna)",
+              "ko": "파일 위치 (기본값)"
+            }
+          },
+          {
+            "id": "completion_time_calculated",
+            "label": {
+              "en": "Print time",
+              "no": "Skrivetid",
+              "nl": "Print tijd",
+              "de": "Druckzeit",
+              "fr": "Temps d'impression",
+              "it": "Tempo di stampa",
+              "sv": "Skrivtid",
+              "es": "Tiempo de impresión",
+              "da": "Print tid",
+              "ru": "Время печати",
+              "pl": "Czas druku",
+              "ko": "인쇄 시간"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Display settings",
+      "no": "Visningsinnstillinger",
+      "nl": "Weergave instellingen",
+      "de": "Anzeigeeinstellungen",
+      "fr": "Paramètres d'affichage",
+      "it": "Impostazioni di visualizzazione",
+      "sv": "Visningsinställningar",
+      "es": "Configuración de visualización",
+      "da": "Visningsindstillinger",
+      "ru": "Настройки отображения",
+      "pl": "Ustawienia wyświetlania",
+      "ko": "디스플레이 설정"
+    },
+    "children": [
+      {
+        "id": "estimate_hms",
+        "type": "checkbox",
+        "label": {
+          "en": "H:M:S for estimated time",
+          "no": "T:M:S for estimert tid",
+          "nl": "H:M:S voor geschatte tijd",
+          "de": "H:M:S für geschätzte Zeit",
+          "fr": "H:M:S pour le temps estimé",
+          "it": "H:M:S per il tempo stimato",
+          "sv": "H:M:S för uppskattad tid",
+          "es": "H:M:S para tiempo estimado",
+          "da": "H:M:S for estimeret tid",
+          "ru": "Ч:M:S для оценочного времени",
+          "pl": "H:M:S dla szacowanego czasu",
+          "ko": "예상 시간에 대한 H:M:S"
+        },
+        "value": false,
+        "hint": {
+          "en": "Enable this setting to display the estimated time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+          "no": "Aktiver denne innstillingen for å vise estimert tid som \"H:M:S\" (f.eks: 05:05:05), som standard er det \"H M S\" (f.eks: 5h 5m 5s).",
+          "nl": "Activeer deze instelling om de geschatte tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s).",
+          "de": "Aktivieren Sie diese Einstellung, um die geschätzte Zeit als \"H:M:S\" (z.B. 05:05:05) anzuzeigen. Standardmäßig ist es \"H M S\" (z.B. 5h 5m 5s).",
+          "fr": "Activez ce paramètre pour afficher le temps estimé sous la forme \"H:M:S\" (Ex : 05:05:05), par défaut c'est \"H M S\" (Ex : 5h 5m 5s).",
+          "it": "Abilita questa impostazione per visualizzare il tempo stimato come \"H:M:S\" (Es: 05:05:05), per impostazione predefinita è \"H M S\" (Es: 5h 5m 5s).",
+          "sv": "Aktivera denna inställning för att visa uppskattad tid som \"H:M:S\" (t.ex. 05:05:05), som standard är det \"H M S\" (t.ex. 5h 5m 5s).",
+          "es": "Active esta configuración para mostrar el tiempo estimado como \"H:M:S\" (Ej: 05:05:05), por defecto es \"H M S\" (Ej: 5h 5m 5s).",
+          "da": "Aktiver denne indstilling for at vise den estimerede tid som \"H:M:S\" (f.eks. 05:05:05), som standard er det \"H M S\" (f.eks. 5h 5m 5s).",
+          "ru": "Включите этот параметр, чтобы отображать оценочное время как \"Ч:M:S\" (например, 05:05:05), по умолчанию это \"Ч M S\" (например, 5ч 5м 5с).",
+          "pl": "Włącz to ustawienie, aby wyświetlać szacowany czas jako \"H:M:S\" (np. 05:05:05). Domyślnie jest to \"H M S\" (np. 5h 5m 5s).",
+          "ko": "\"H:M:S\"(예: 05:05:05) 형식으로 예상 시간을 표시하려면 이 설정을 활성화하십시오. 기본적으로 \"H M S\"(예: 5h 5m 5s)입니다."
+        }
+      },
+      {
+        "id": "time_hms",
+        "type": "checkbox",
+        "label": {
+          "en": "H:M:S for print time",
+          "no": "T:M:S for skrivetid",
+          "nl": "H:M:S voor print tijd",
+          "de": "H:M:S für Druckzeit",
+          "fr": "H:M:S pour le temps d'impression",
+          "it": "H:M:S per il tempo di stampa",
+          "sv": "H:M:S för skrivtid",
+          "es": "H:M:S para tiempo de impresión",
+          "da": "H:M:S for print tid",
+          "ru": "Ч:M:S для времени печати",
+          "pl": "H:M:S dla czasu druku",
+          "ko": "인쇄 시간에 대한 H:M:S"
+        },
+        "value": false,
+        "hint": {
+          "en": "Enable this setting to display the print time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+          "no": "Aktiver denne innstillingen for å vise skrivetid som \"H:M:S\" (f.eks: 05:05:05), som standard er det \"H M S\" (f.eks: 5h 5m 5s).",
+          "nl": "Activeer deze instelling om de print tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s).",
+          "de": "Aktivieren Sie diese Einstellung, um die Druckzeit als \"H:M:S\" (z.B. 05:05:05) anzuzeigen. Standardmäßig ist es \"H M S\" (z.B. 5h 5m 5s).",
+          "fr": "Activez ce paramètre pour afficher le temps d'impression sous la forme \"H:M:S\" (Ex : 05:05:05), par défaut c'est \"H M S\" (Ex : 5h 5m 5s).",
+          "it": "Abilita questa impostazione per visualizzare il tempo di stampa come \"H:M:S\" (Es: 05:05:05), per impostazione predefinita è \"H M S\" (Es: 5h 5m 5s).",
+          "sv": "Aktivera denna inställning för att visa skrivtid som \"H:M:S\" (t.ex. 05:05:05), som standard är det \"H M S\" (t.ex. 5h 5m 5s).",
+          "es": "Active esta configuración para mostrar el tiempo de impresión como \"H:M:S\" (Ej: 05:05:05), por defecto es \"H M S\" (Ej: 5h 5m 5s).",
+          "da": "Aktivér denne indstilling for at vise print tid som \"H:M:S\" (f.eks. 05:05:05), som standard er det \"H M S\" (f.eks. 5h 5m 5s).",
+          "ru": "Включите этот параметр, чтобы отображать время печати как \"Ч:M:S\" (например, 05:05:05). По умолчанию используется \"Ч M S\" (например, 5ч 5м 5с).",
+          "pl": "Włącz to ustawienie, aby wyświetlać czas druku jako \"H:M:S\" (np. 05:05:05). Domyślnie jest to \"H M S\" (np. 5h 5m 5s).",
+          "ko": "\"H:M:S\"(예: 05:05:05) 형식으로 인쇄 시간을 표시하려면 이 설정을 활성화하십시오. 기본적으로 \"H M S\"(예: 5h 5m 5s)입니다."
+        }
+      },
+      {
+        "id": "left_hms",
+        "type": "checkbox",
+        "label": {
+          "en": "H:M:S for time left",
+          "no": "T:M:S for gjenværende tid",
+          "nl": "H:M:S voor resterende tijd",
+          "de": "H:M:S für verbleibende Zeit",
+          "fr": "H:M:S pour le temps restant",
+          "it": "H:M:S per il tempo rimanente",
+          "sv": "H:M:S för återstående tid",
+          "es": "H:M:S para tiempo restante",
+          "da": "H:M:S for resterende tid",
+          "ru": "Ч:M:S для оставшегося времени",
+          "pl": "H:M:S dla pozostałego czasu",
+          "ko": "남은 시간에 대한 H:M:S"
+        },
+        "value": false,
+        "hint": {
+          "en": "Enable this setting to display the time left as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+          "no": "Aktiver denne innstillingen for å vise gjenværende tid som \"H:M:S\" (f.eks: 05:05:05), som standard er det \"H M S\" (f.eks: 5h 5m 5s).",
+          "nl": "Activeer deze instelling om de resterende tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s).",
+          "de": "Aktivieren Sie diese Einstellung, um die verbleibende Zeit als \"H:M:S\" (z.B. 05:05:05) anzuzeigen. Standardmäßig ist es \"H M S\" (z.B. 5h 5m 5s).",
+          "fr": "Activez ce paramètre pour afficher le temps restant sous la forme \"H:M:S\" (Ex : 05:05:05), par défaut c'est \"H M S\" (Ex : 5h 5m 5s).",
+          "it": "Abilita questa impostazione per visualizzare il tempo rimanente comme \"H:M:S\" (Es: 05:05:05), per impostazione predefinita è \"H M S\" (Es: 5h 5m 5s).",
+          "sv": "Aktivera denna inställning för att visa återstående tid som \"H:M:S\" (t.ex. 05:05:05), som standard är det \"H M S\" (t.ex. 5h 5m 5s).",
+          "es": "Active esta configuración para mostrar el tiempo restante como \"H:M:S\" (Ej: 05:05:05), por defecto es \"H M S\" (Ej: 5h 5m 5s).",
+          "da": "Aktivér denne indstilling for at vise den resterende tid som \"H:M:S\" (f.eks. 05:05:05), som standard er det \"H M S\" (f.eks. 5h 5m 5s).",
+          "ru": "Включите этот параметр, чтобы отображать оставшееся время как \"Ч:M:S\" (например, 05:05:05). По умолчанию используется \"Ч M S\" (например, 5ч 5м 5с).",
+          "pl": "Włącz to ustawienie, aby wyświetlać pozostały czas jako \"H:M:S\" (np. 05:05:05). Domyślnie jest to \"H M S\" (np. 5h 5m 5s).",
+          "ko": "\"H:M:S\"(예: 05:05:05) 형식으로 남은 시간을 표시하려면 이 설정을 활성화하십시오. 기본적으로 \"H M S\"(예: 5h 5m 5s)입니다."
+        }
+      }
+    ]
+  }
 ]

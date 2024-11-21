@@ -1,126 +1,267 @@
 {
-	"id": "octoprint",
-	"name": {
-		"en": "Octoprint"
-	},
-	"class": "other",
-	"capabilities": [
-		"onoff",
-		"target_temperature.bed",
-		"measure_temperature.bed",
-		"target_temperature.tool",
-		"measure_temperature.tool",
-		"printer_state",
-		"measure_completion",
-		"job_estimate",
-		"job_time",
-		"job_left",
-		"job_file",
-		"job_pause",
-		"job_resume",
-		"job_cancel",
-		"emergency_stop_m112",
-		"button.restart_octoprint",
-		"button.reboot_raspberry",
-		"button.shutdown_raspberry"
-	],
-	"capabilitiesOptions": {
-		"target_temperature.bed": {
-			"title": {
-				"en": "Bed target temperature",
-				"nl": "Bed doel temperatuur"
-			},
-			"min": 0,
-			"max": 130,
-			"step": 1
-		},
-		"target_temperature.tool": {
-			"title": {
-				"en": "Tool target temperature",
-				"nl": "Hotend doel temperatuur"
-			},
-			"min": 0,
-			"max": 300,
-			"step": 1
-		},
-		"target_temperature.chamber": {
-			"title": {
-				"en": "Chamber target temperature",
-				"nl": "Behuizing doel temperatuur"
-			},
-			"min": 0,
-			"max": 75,
-			"step": 1
-		},
-		"measure_temperature.bed": {
-			"title": {
-				"en": "Current bed temperature",
-				"nl": "Huidige bed temperatuur"
-			},
-			"decimals": 1
-		},
-		"measure_temperature.tool": {
-			"title": {
-				"en": "Current tool temperature",
-				"nl": "Huidige hotend temperatuur"
-			},
-			"decimals": 1
-		},
-		"measure_temperature.chamber": {
-			"title": {
-				"en": "Current chamber temperature",
-				"nl": "Huidige behuizingstemperatuur"
-			},
-			"decimals": 0
-		},
-		"measure_completion": {
-			"title": {
-				"en": "Print completion",
-				"nl": "Print voltooiing"
-			}
-		},
-		"button.restart_octoprint": {
-			"maintenanceAction": true,
-			"title": {
-				"en": "Restart octoprint",
-				"nl": "Octoprint opnieuw opstarten"
-			},
-			"desc": {
-				"en": "When the printer isn't printing, then you can restart Octoprint with this button",
-				"nl": "Als de printer niet aan het printen is, kan je met deze knop Octoprint opnieuw laten starten."
-			}
-		},
-		"button.reboot_raspberry": {
-			"maintenanceAction": true,
-			"title": {
-				"en": "Reboot Raspberry Pi",
-				"nl": "Raspberry Pi opnieuw opstarten"
-			},
-			"desc": {
-				"en": "When the printer isn't printing, then you can restart the Raspberry Pi with this button",
-				"nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi opnieuw laten starten."
-			}
-		},
-		"button.shutdown_raspberry": {
-			"maintenanceAction": true,
-			"title": {
-				"en": "Shutdown Raspberry Pi",
-				"nl": "Raspberry Pi afsluiten"
-			},
-			"desc": {
-				"en": "When the printer isn't printing, then you can shutdown the Raspberry Pi with this button",
-				"nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi afsluiten."
-			}
-		}
-	},
-	"icon": "{{driverAssetsPath}}/icon.svg",
-	"images": {
-		"large": "/drivers/octoprint/assets/images/large.png",
-		"small": "/drivers/octoprint/assets/images/small.png"
-	},
-	"pair": [
-		{
-			"id": "start"
-		}
-	]
+  "id": "octoprint",
+  "name": {
+    "en": "Octoprint",
+    "nl": "Octoprint",
+    "de": "Octoprint",
+    "fr": "Octoprint",
+    "it": "Octoprint",
+    "sv": "Octoprint",
+    "no": "Octoprint",
+    "es": "Octoprint",
+    "da": "Octoprint",
+    "ru": "Octoprint",
+    "pl": "Octoprint",
+    "ko": "Octoprint"
+  },
+  "class": "other",
+  "capabilities": [
+    "onoff",
+    "target_temperature.bed",
+    "measure_temperature.bed",
+    "target_temperature.tool",
+    "measure_temperature.tool",
+    "printer_state",
+    "measure_completion",
+    "job_estimate",
+    "job_time",
+    "job_left",
+    "job_file",
+    "job_pause",
+    "job_resume",
+    "job_cancel",
+    "emergency_stop_m112",
+    "button.restart_octoprint",
+    "button.reboot_raspberry",
+    "button.shutdown_raspberry"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature.bed": {
+      "title": {
+        "en": "Bed target temperature",
+        "nl": "Bed doel temperatuur",
+        "de": "Betttemperatur Ziel",
+        "fr": "Température cible du lit",
+        "it": "Temperatura target del letto",
+        "sv": "Sängens måltemperatur",
+        "no": "Sengens måltemperatur",
+        "es": "Temperatura objetivo de la cama",
+        "da": "Sengens måltemperatur",
+        "ru": "Целевая температура стола",
+        "pl": "Docelowa temperatura stołu",
+        "ko": "베드 목표 온도"
+      },
+      "min": 0,
+      "max": 130,
+      "step": 1
+    },
+    "target_temperature.tool": {
+      "title": {
+        "en": "Tool target temperature",
+        "nl": "Hotend doel temperatuur",
+        "de": "Werkzeug-Zieltemperatur",
+        "fr": "Température cible de l'outil",
+        "it": "Temperatura target dello strumento",
+        "sv": "Verktygets måltemperatur",
+        "no": "Verktøyets måltemperatur",
+        "es": "Temperatura objetivo de la herramienta",
+        "da": "Værktøjets måltemperatur",
+        "ru": "Целевая температура инструмента",
+        "pl": "Docelowa temperatura narzędzia",
+        "ko": "툴 목표 온도"
+      },
+      "min": 0,
+      "max": 300,
+      "step": 1
+    },
+    "target_temperature.chamber": {
+      "title": {
+        "en": "Chamber target temperature",
+        "nl": "Behuizing doel temperatuur",
+        "de": "Chamber Zieltemperatur",
+        "fr": "Température cible de la chambre",
+        "it": "Temperatura target della camera",
+        "sv": "Kammarets måltemperatur",
+        "no": "Kammerens måltemperatur",
+        "es": "Temperatura objetivo de la cámara",
+        "da": "Kammerens måltemperatur",
+        "ru": "Целевая температура камеры",
+        "pl": "Docelowa temperatura komory",
+        "ko": "챔버 목표 온도"
+      },
+      "min": 0,
+      "max": 75,
+      "step": 1
+    },
+    "measure_temperature.bed": {
+      "title": {
+        "en": "Current bed temperature",
+        "nl": "Huidige bed temperatuur",
+        "de": "Aktuelle Betttemperatur",
+        "fr": "Température actuelle du lit",
+        "it": "Temperatura attuale del letto",
+        "sv": "Aktuell sängtemperatur",
+        "no": "Nåværende sengtemperatur",
+        "es": "Temperatura actual de la cama",
+        "da": "Nuværende sengtemperatur",
+        "ru": "Текущая температура стола",
+        "pl": "Aktualna temperatura stołu",
+        "ko": "현재 베드 온도"
+      },
+      "decimals": 1
+    },
+    "measure_temperature.tool": {
+      "title": {
+        "en": "Current tool temperature",
+        "nl": "Huidige hotend temperatuur",
+        "de": "Aktuelle Werkzeugtemperatur",
+        "fr": "Température actuelle de l'outil",
+        "it": "Temperatura attuale dello strumento",
+        "sv": "Aktuell verktygs temperatur",
+        "no": "Nåværende verktøy temperatur",
+        "es": "Temperatura actual de la herramienta",
+        "da": "Nuværende værktøjtemperatur",
+        "ru": "Текущая температура инструмента",
+        "pl": "Aktualna temperatura narzędzia",
+        "ko": "현재 툴 온도"
+      },
+      "decimals": 1
+    },
+    "measure_temperature.chamber": {
+      "title": {
+        "en": "Current chamber temperature",
+        "nl": "Huidige behuizingstemperatuur",
+        "de": "Aktuelle Kammertemperatur",
+        "fr": "Température actuelle de la chambre",
+        "it": "Temperatura attuale della camera",
+        "sv": "Aktuell kammer temperatur",
+        "no": "Nåværende kammer temperatur",
+        "es": "Temperatura actual de la cámara",
+        "da": "Nuværende kammer temperatur",
+        "ru": "Текущая температура камеры",
+        "pl": "Aktualna temperatura komory",
+        "ko": "현재 챔버 온도"
+      },
+      "decimals": 0
+    },
+    "measure_completion": {
+      "title": {
+        "en": "Print completion",
+        "nl": "Print voltooiing",
+        "de": "Druckabschluss",
+        "fr": "Achèvement de l'impression",
+        "it": "Completamento stampa",
+        "sv": "Skrivningsslutförande",
+        "no": "Skrivefullføring",
+        "es": "Finalización de la impresión",
+        "da": "Udsprintning færdiggørelse",
+        "ru": "Завершение печати",
+        "pl": "Zakończenie druku",
+        "ko": "인쇄 완료"
+      }
+    },
+    "button.restart_octoprint": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Restart octoprint",
+        "nl": "Octoprint opnieuw opstarten",
+        "de": "Octoprint neu starten",
+        "fr": "Redémarrer Octoprint",
+        "it": "Riavvia Octoprint",
+        "sv": "Starta om Octoprint",
+        "no": "Start Octoprint på nytt",
+        "es": "Reiniciar Octoprint",
+        "da": "Genstart Octoprint",
+        "ru": "Перезапустить Octoprint",
+        "pl": "Restart Octoprint",
+        "ko": "Octoprint 재시작"
+      },
+      "desc": {
+        "en": "When the printer isn't printing, then you can restart Octoprint with this button",
+        "nl": "Als de printer niet aan het printen is, kan je met deze knop Octoprint opnieuw laten starten.",
+        "de": "Wenn der Drucker nicht druckt, können Sie Octoprint mit dieser Taste neu starten.",
+        "fr": "Lorsque l'imprimante n'imprime pas, vous pouvez redémarrer Octoprint avec ce bouton",
+        "it": "Quando la stampante non sta stampando, puoi riavviare Octoprint con questo pulsante",
+        "sv": "När skrivaren inte skriver ut kan du starta om Octoprint med denna knapp",
+        "no": "Når skriveren ikke skriver ut, kan du starte Octoprint på nytt med denne knappen",
+        "es": "Cuando la impresora no está imprimiendo, puedes reiniciar Octoprint con este botón",
+        "da": "Når printeren ikke printer, kan du genstarte Octoprint med denne knap",
+        "ru": "Когда принтер не печатает, вы можете перезапустить Octoprint этой кнопкой",
+        "pl": "Gdy drukarka nie drukuje, możesz zrestartować Octoprint za pomocą tego przycisku",
+        "ko": "프린터가 인쇄하지 않을 때 이 버튼으로 Octoprint를 재시작할 수 있습니다."
+      }
+    },
+    "button.reboot_raspberry": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reboot Raspberry Pi",
+        "nl": "Raspberry Pi opnieuw opstarten",
+        "de": "Raspberry Pi neu starten",
+        "fr": "Redémarrer le Raspberry Pi",
+        "it": "Riavvia Raspberry Pi",
+        "sv": "Starta om Raspberry Pi",
+        "no": "Start Raspberry Pi på nytt",
+        "es": "Reiniciar Raspberry Pi",
+        "da": "Genstart Raspberry Pi",
+        "ru": "Перезагрузить Raspberry Pi",
+        "pl": "Restart Raspberry Pi",
+        "ko": "Raspberry Pi 재부팅"
+      },
+      "desc": {
+        "en": "When the printer isn't printing, then you can restart the Raspberry Pi with this button",
+        "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi opnieuw laten starten.",
+        "de": "Wenn der Drucker nicht druckt, können Sie den Raspberry Pi mit dieser Taste neu starten.",
+        "fr": "Lorsque l'imprimante n'imprime pas, vous pouvez redémarrer le Raspberry Pi avec ce bouton",
+        "it": "Quando la stampante non sta stampando, puoi riavviare il Raspberry Pi con questo pulsante",
+        "sv": "När skrivaren inte skriver ut kan du starta om Raspberry Pi med denna knapp",
+        "no": "Når skriveren ikke skriver ut, kan du starte Raspberry Pi på nytt med denne knappen",
+        "es": "Cuando la impresora no está imprimiendo, puedes reiniciar el Raspberry Pi con este botón",
+        "da": "Når printeren ikke printer, kan du genstarte Raspberry Pi med denne knap",
+        "ru": "Когда принтер не печатает, вы можете перезапустить Raspberry Pi этой кнопкой",
+        "pl": "Gdy drukarka nie drukuje, możesz zrestartować Raspberry Pi za pomocą tego przycisku",
+        "ko": "프린터가 인쇄하지 않을 때 이 버튼으로 Raspberry Pi를 재시작할 수 있습니다."
+      }
+    },
+    "button.shutdown_raspberry": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Shutdown Raspberry Pi",
+        "nl": "Raspberry Pi afsluiten",
+        "de": "Raspberry Pi herunterfahren",
+        "fr": "Éteindre le Raspberry Pi",
+        "it": "Spegni Raspberry Pi",
+        "sv": "Stäng av Raspberry Pi",
+        "no": "Slå av Raspberry Pi",
+        "es": "Apagar Raspberry Pi",
+        "da": "Luk Raspberry Pi",
+        "ru": "Выключить Raspberry Pi",
+        "pl": "Wyłącz Raspberry Pi",
+        "ko": "Raspberry Pi 종료"
+      },
+      "desc": {
+        "en": "When the printer isn't printing, then you can shutdown the Raspberry Pi with this button",
+        "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi afsluiten.",
+        "de": "Wenn der Drucker nicht druckt, können Sie den Raspberry Pi mit dieser Taste herunterfahren.",
+        "fr": "Lorsque l'imprimante n'imprime pas, vous pouvez éteindre le Raspberry Pi avec ce bouton",
+        "it": "Quando la stampante non sta stampando, puoi spegnere il Raspberry Pi con questo pulsante",
+        "sv": "När skrivaren inte skriver ut kan du stänga av Raspberry Pi med denna knapp",
+        "no": "Når skriveren ikke skriver ut, kan du slå av Raspberry Pi med denne knappen",
+        "es": "Cuando la impresora no está imprimiendo, puedes apagar el Raspberry Pi con este botón",
+        "da": "Når printeren ikke printer, kan du lukke Raspberry Pi med denne knap",
+        "ru": "Когда принтер не печатает, вы можете выключить Raspberry Pi этой кнопкой",
+        "pl": "Gdy drukarka nie drukuje, możesz wyłączyć Raspberry Pi za pomocą tego przycisku",
+        "ko": "프린터가 인쇄하지 않을 때 이 버튼으로 Raspberry Pi를 종료할 수 있습니다."
+      }
+    }
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "images": {
+    "large": "/drivers/octoprint/assets/images/large.png",
+    "small": "/drivers/octoprint/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "start"
+    }
+  ]
 }

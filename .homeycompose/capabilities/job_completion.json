@@ -1,10 +1,20 @@
 {
-    "type": "number",
-    "units": "%",
-    "title": {
-        "en": "Completion (deprecated)",
-        "no": "Ferdig (avviklet)"
-    },
-    "getable": true,
-    "uiComponent": null
+  "type": "number",
+  "units": "%",
+  "title": {
+    "en": "Completion (deprecated)",
+    "no": "Ferdig (avviklet)",
+    "nl": "Voltooiing (verouderd)",
+    "da": "Afslutning (forældet)",
+    "de": "Abschluss (veraltet)",
+    "es": "Finalización (obsoleta)",
+    "fr": "Achèvement (obsolète)",
+    "it": "Completamento (obsoleto)",
+    "sv": "Slutförande (föråldrad)",
+    "pl": "Zakończenie (przestarzałe)",
+    "ru": "Завершение (устарело)",
+    "ko": "완료 (더 이상 사용되지 않음)"
+  },
+  "getable": true,
+  "uiComponent": null
 }

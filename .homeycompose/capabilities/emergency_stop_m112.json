@@ -1,12 +1,22 @@
 {
-	"type": "boolean",
-	"uiComponent": "button",
-	"title": {
-		"en": "Emergency Stop",
-		"nl": "Noodstop"
-	},
-	"getable": true,
-	"setable": true,
-	"preventTag": true,
-	"icon": "/drivers/octoprint/assets/emergency_stop.svg"
+  "type": "boolean",
+  "uiComponent": "button",
+  "title": {
+    "en": "Emergency Stop",
+    "nl": "Noodstop",
+    "da": "Nødstop",
+    "de": "Notaus",
+    "es": "Parada de emergencia",
+    "fr": "Arrêt d'urgence",
+    "it": "Arresto d'emergenza",
+    "no": "Nødstopp",
+    "sv": "Nödstopp",
+    "pl": "Zatrzymanie awaryjne",
+    "ru": "Аварийная остановка",
+    "ko": "비상 정지"
+  },
+  "getable": true,
+  "setable": true,
+  "preventTag": true,
+  "icon": "/drivers/octoprint/assets/emergency_stop.svg"
 }

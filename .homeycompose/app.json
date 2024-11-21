@@ -5,12 +5,32 @@
   "sdk": 3,
   "brandColor": "#12BB00",
   "name": {
-    "en": "Octoprint"
+    "en": "Octoprint",
+    "nl": "Octoprint",
+    "da": "Octoprint",
+    "de": "Octoprint",
+    "es": "Octoprint",
+    "fr": "Octoprint",
+    "it": "Octoprint",
+    "no": "Octoprint",
+    "sv": "Octoprint",
+    "pl": "Octoprint",
+    "ru": "Octoprint",
+    "ko": "옥토프린트"
   },
   "description": {
     "en": "Control and monitor your 3D printer",
     "no": "Styr og overvåk din 3D-printer",
-    "nl": "Bedien en houd toezicht op je 3D printer"
+    "nl": "Bedien en houd toezicht op je 3D printer",
+    "da": "Styr og overvåg din 3D-printer",
+    "de": "Steuern und überwachen Sie Ihren 3D-Drucker",
+    "es": "Controla y monitorea tu impresora 3D",
+    "fr": "Contrôlez et surveillez votre imprimante 3D",
+    "it": "Controlla e monitora la tua stampante 3D",
+    "sv": "Kontrollera och övervaka din 3D-skrivare",
+    "pl": "Kontroluj i monitoruj swoją drukarkę 3D",
+    "ru": "Управляйте и контролируйте ваш 3D-принтер",
+    "ko": "3D 프린터를 제어하고 모니터링하세요"
   },
   "tags": {
     "en": [
@@ -31,6 +51,69 @@
       "3D",
       "octoprint",
       "octopi"
+    ],
+    "da": [
+      "3D printer",
+      "printer",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "de": [
+      "3D-Drucker",
+      "Drucker",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "es": [
+      "impresora 3D",
+      "impresora",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "fr": [
+      "imprimante 3D",
+      "imprimante",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "it": [
+      "stampante 3D",
+      "stampante",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "sv": [
+      "3D-skrivare",
+      "skrivare",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "pl": [
+      "drukarka 3D",
+      "drukarka",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "ru": [
+      "3D-принтер",
+      "принтер",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "ko": [
+      "3D 프린터",
+      "프린터",
+      "3D",
+      "옥토프린트",
+      "옥토파이"
     ]
   },
   "category": [

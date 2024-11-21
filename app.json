@@ -6,12 +6,32 @@
   "sdk": 3,
   "brandColor": "#12BB00",
   "name": {
-    "en": "Octoprint"
+    "en": "Octoprint",
+    "nl": "Octoprint",
+    "da": "Octoprint",
+    "de": "Octoprint",
+    "es": "Octoprint",
+    "fr": "Octoprint",
+    "it": "Octoprint",
+    "no": "Octoprint",
+    "sv": "Octoprint",
+    "pl": "Octoprint",
+    "ru": "Octoprint",
+    "ko": "옥토프린트"
   },
   "description": {
     "en": "Control and monitor your 3D printer",
     "no": "Styr og overvåk din 3D-printer",
-    "nl": "Bedien en houd toezicht op je 3D printer"
+    "nl": "Bedien en houd toezicht op je 3D printer",
+    "da": "Styr og overvåg din 3D-printer",
+    "de": "Steuern und überwachen Sie Ihren 3D-Drucker",
+    "es": "Controla y monitorea tu impresora 3D",
+    "fr": "Contrôlez et surveillez votre imprimante 3D",
+    "it": "Controlla e monitora la tua stampante 3D",
+    "sv": "Kontrollera och övervaka din 3D-skrivare",
+    "pl": "Kontroluj i monitoruj swoją drukarkę 3D",
+    "ru": "Управляйте и контролируйте ваш 3D-принтер",
+    "ko": "3D 프린터를 제어하고 모니터링하세요"
   },
   "tags": {
     "en": [
@@ -32,6 +52,69 @@
       "3D",
       "octoprint",
       "octopi"
+    ],
+    "da": [
+      "3D printer",
+      "printer",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "de": [
+      "3D-Drucker",
+      "Drucker",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "es": [
+      "impresora 3D",
+      "impresora",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "fr": [
+      "imprimante 3D",
+      "imprimante",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "it": [
+      "stampante 3D",
+      "stampante",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "sv": [
+      "3D-skrivare",
+      "skrivare",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "pl": [
+      "drukarka 3D",
+      "drukarka",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "ru": [
+      "3D-принтер",
+      "принтер",
+      "3D",
+      "octoprint",
+      "octopi"
+    ],
+    "ko": [
+      "3D 프린터",
+      "프린터",
+      "3D",
+      "옥토프린트",
+      "옥토파이"
     ]
   },
   "category": [
@@ -81,12 +164,30 @@
         "title": {
           "en": "Print started",
           "no": "Utskrift startet",
-          "nl": "Print gestart"
+          "nl": "Print gestart",
+          "de": "Druck gestartet",
+          "fr": "Impression commencée",
+          "it": "Stampa avviata",
+          "sv": "Utskrift startad",
+          "es": "Impresión iniciada",
+          "da": "Udskrivning startet",
+          "ru": "Печать начата",
+          "pl": "Rozpoczęto drukowanie",
+          "ko": "프린트 시작됨"
         },
         "hint": {
           "en": "When a print starts",
           "no": "Når en utskrift starter",
-          "nl": "Wanneer een print is begonnen"
+          "nl": "Wanneer een print is begonnen",
+          "de": "Wenn ein Druck startet",
+          "fr": "Quand une impression commence",
+          "it": "Quando una stampa inizia",
+          "sv": "När en utskrift startar",
+          "es": "Cuando comienza una impresión",
+          "da": "Når en udskrivning starter",
+          "ru": "Когда начинается печать",
+          "pl": "Gdy rozpoczyna się drukowanie",
+          "ko": "프린트가 시작될 때"
         },
         "tokens": [
           {
@@ -95,7 +196,16 @@
             "title": {
               "en": "Estimate",
               "no": "Estimat",
-              "nl": "Geschat"
+              "nl": "Geschat",
+              "de": "Geschätzt",
+              "fr": "Estimation",
+              "it": "Stima",
+              "sv": "Uppskattning",
+              "es": "Estimación",
+              "da": "Estimat",
+              "ru": "Оценка",
+              "pl": "Szacowany",
+              "ko": "예상치"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -107,7 +217,16 @@
             "title": {
               "en": "H:M:S",
               "no": "H:M:S",
-              "nl": "H:M:S"
+              "nl": "H:M:S",
+              "de": "S:M:S",
+              "fr": "H:M:S",
+              "it": "O:M:S",
+              "sv": "T:M:S",
+              "es": "H:M:S",
+              "da": "T:M:S",
+              "ru": "Ч:М:С",
+              "pl": "G:M:S",
+              "ko": "시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -118,7 +237,16 @@
             "type": "number",
             "title": {
               "en": "Seconds",
-              "nl": "Seconden"
+              "nl": "Seconden",
+              "de": "Sekunden",
+              "fr": "Secondes",
+              "it": "Secondi",
+              "sv": "Sekunder",
+              "es": "Segundos",
+              "da": "Sekunder",
+              "ru": "Секунды",
+              "pl": "Sekundy",
+              "ko": "초"
             },
             "example": 18305
           },
@@ -127,7 +255,16 @@
             "type": "string",
             "title": {
               "en": "Estimated end",
-              "nl": "Geschat einde"
+              "nl": "Geschat einde",
+              "de": "Geschätztes Ende",
+              "fr": "Fin estimée",
+              "it": "Fine stimata",
+              "sv": "Beräknat slut",
+              "es": "Fin estimado",
+              "da": "Anslået slut",
+              "ru": "Предполагаемый конец",
+              "pl": "Szacowany koniec",
+              "ko": "예상 종료"
             },
             "example": {
               "en": "24 Dec 20:00:00"
@@ -138,7 +275,16 @@
             "type": "string",
             "title": {
               "en": "Estimated end short",
-              "nl": "Geschat einde kort"
+              "nl": "Geschat einde kort",
+              "de": "Geschätztes Ende kurz",
+              "fr": "Fin estimée courte",
+              "it": "Fine stimata breve",
+              "sv": "Beräknat slut kort",
+              "es": "Fin estimado corto",
+              "da": "Anslået slut kort",
+              "ru": "Предполагаемый конец кратко",
+              "pl": "Szacowany koniec krótki",
+              "ko": "예상 종료 (짧게)"
             },
             "example": {
               "en": "24/12 20:00"
@@ -149,7 +295,16 @@
             "type": "string",
             "title": {
               "en": "Estimated end Full",
-              "nl": "Geschat einde volledig"
+              "nl": "Geschat einde volledig",
+              "de": "Geschätztes Ende vollständig",
+              "fr": "Fin estimée complète",
+              "it": "Fine stimata completa",
+              "sv": "Beräknat fullständigt slut",
+              "es": "Fin estimado completo",
+              "da": "Anslået fuldt slut",
+              "ru": "Предполагаемый полный конец",
+              "pl": "Szacowany pełny koniec",
+              "ko": "예상 종료 (전체)"
             },
             "example": {
               "en": "24 December 20:00:00"
@@ -170,12 +325,30 @@
         "title": {
           "en": "Print finished",
           "no": "Print ferdig",
-          "nl": "Print klaar"
+          "nl": "Print klaar",
+          "de": "Druck beendet",
+          "fr": "Impression terminée",
+          "it": "Stampa terminata",
+          "sv": "Utskrift klar",
+          "es": "Impresión finalizada",
+          "da": "Udskrivning færdig",
+          "ru": "Печать завершена",
+          "pl": "Drukowanie zakończone",
+          "ko": "프린트 완료"
         },
         "hint": {
           "en": "When a print is finished",
           "no": "Når en utskrift er ferdig",
-          "nl": "Wanneer een print klaar is"
+          "nl": "Wanneer een print klaar is",
+          "de": "Wenn ein Druck beendet ist",
+          "fr": "Quand une impression est terminée",
+          "it": "Quando una stampa è terminata",
+          "sv": "När en utskrift är klar",
+          "es": "Cuando una impresión ha finalizado",
+          "da": "Når en udskrivning er færdig",
+          "ru": "Когда печать завершена",
+          "pl": "Gdy drukowanie się zakończy",
+          "ko": "프린트가 완료되었을 때"
         },
         "tokens": [
           {
@@ -184,7 +357,16 @@
             "title": {
               "en": "Estimate",
               "no": "Estimat",
-              "nl": "Geschat"
+              "nl": "Geschat",
+              "de": "Geschätzt",
+              "fr": "Estimation",
+              "it": "Stima",
+              "sv": "Uppskattning",
+              "es": "Estimación",
+              "da": "Estimat",
+              "ru": "Оценка",
+              "pl": "Szacowany",
+              "ko": "예상치"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -196,7 +378,16 @@
             "title": {
               "en": "Estimate H:M:S",
               "no": "Estimat H:M:S",
-              "nl": "Geschat H:M:S"
+              "nl": "Geschat H:M:S",
+              "de": "Geschätzt S:M:S",
+              "fr": "Estimation H:M:S",
+              "it": "Stima O:M:S",
+              "sv": "Uppskattad T:M:S",
+              "es": "Estimado H:M:S",
+              "da": "Estimat T:M:S",
+              "ru": "Оценка Ч:М:С",
+              "pl": "Szacowany G:M:S",
+              "ko": "예상 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -207,7 +398,16 @@
             "type": "number",
             "title": {
               "en": "Estimate seconds",
-              "nl": "Geschat seconden"
+              "nl": "Geschat seconden",
+              "de": "Geschätzte Sekunden",
+              "fr": "Secondes estimées",
+              "it": "Secondi stimati",
+              "sv": "Uppskattade sekunder",
+              "es": "Segundos estimados",
+              "da": "Anslåede sekunder",
+              "ru": "Предполагаемые секунды",
+              "pl": "Szacowane sekundy",
+              "ko": "예상 초"
             },
             "example": 18305
           },
@@ -217,7 +417,16 @@
             "title": {
               "en": "Print time",
               "no": "Print tid",
-              "nl": "Print tijd"
+              "nl": "Print tijd",
+              "de": "Druckzeit",
+              "fr": "Temps d'impression",
+              "it": "Tempo di stampa",
+              "sv": "Utskriftstid",
+              "es": "Tiempo de impresión",
+              "da": "Udskrivningstid",
+              "ru": "Время печати",
+              "pl": "Czas druku",
+              "ko": "프린트 시간"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -229,7 +438,16 @@
             "title": {
               "en": "Print time H:M:S",
               "no": "Print tid H:M:S",
-              "nl": "Print tijd H:M:S"
+              "nl": "Print tijd H:M:S",
+              "de": "Druckzeit S:M:S",
+              "fr": "Temps d'impression H:M:S",
+              "it": "Tempo di stampa O:M:S",
+              "sv": "Utskriftstid T:M:S",
+              "es": "Tiempo de impresión H:M:S",
+              "da": "Udskrivningstid T:M:S",
+              "ru": "Время печати Ч:М:С",
+              "pl": "Czas druku G:M:S",
+              "ko": "프린트 시간 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -240,7 +458,16 @@
             "type": "number",
             "title": {
               "en": "Print time seconds",
-              "nl": "Print time seconden"
+              "nl": "Print time seconden",
+              "de": "Druckzeit Sekunden",
+              "fr": "Secondes de temps d'impression",
+              "it": "Secondi di stampa",
+              "sv": "Utskriftstid sekunder",
+              "es": "Segundos de tiempo de impresión",
+              "da": "Udskrivningstid sekunder",
+              "ru": "Время печати в секундах",
+              "pl": "Czas druku w sekundach",
+              "ko": "프린트 시간 (초)"
             },
             "example": 18305
           }
@@ -258,12 +485,30 @@
         "title": {
           "en": "Print paused",
           "no": "Utskrift pauset",
-          "nl": "Print gepauzeerd"
+          "nl": "Print gepauzeerd",
+          "de": "Druck pausiert",
+          "fr": "Impression en pause",
+          "it": "Stampa in pausa",
+          "sv": "Utskrift pausad",
+          "es": "Impresión en pausa",
+          "da": "Udskrivning sat på pause",
+          "ru": "Печать приостановлена",
+          "pl": "Drukowanie wstrzymane",
+          "ko": "프린트 일시 중지됨"
         },
         "hint": {
           "en": "When a print is paused",
           "no": "Når en utskrift settes på pause",
-          "nl": "Wanneer een print is gepauzeerd"
+          "nl": "Wanneer een print is gepauzeerd",
+          "de": "Wenn ein Druck pausiert wird",
+          "fr": "Quand une impression est mise en pause",
+          "it": "Quando una stampa è in pausa",
+          "sv": "När en utskrift pausas",
+          "es": "Cuando se pausa una impresión",
+          "da": "Når en udskrivning er sat på pause",
+          "ru": "Когда печать приостановлена",
+          "pl": "Gdy drukowanie zostaje wstrzymane",
+          "ko": "프린트가 일시 중지될 때"
         },
         "tokens": [
           {
@@ -272,7 +517,16 @@
             "title": {
               "en": "Estimated time",
               "no": "Estimat tid",
-              "nl": "Geschatte tijd"
+              "nl": "Geschatte tijd",
+              "de": "Geschätzte Zeit",
+              "fr": "Temps estimé",
+              "it": "Tempo stimato",
+              "sv": "Uppskattad tid",
+              "es": "Tiempo estimado",
+              "da": "Anslået tid",
+              "ru": "Предполагаемое время",
+              "pl": "Szacowany czas",
+              "ko": "예상 시간"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -284,7 +538,16 @@
             "title": {
               "en": "Estimated time H:M:S",
               "no": "Estimat tid H:M:S",
-              "nl": "Geschatte tijd H:M:S"
+              "nl": "Geschatte tijd H:M:S",
+              "de": "Geschätzte Zeit S:M:S",
+              "fr": "Temps estimé H:M:S",
+              "it": "Tempo stimato O:M:S",
+              "sv": "Uppskattad tid T:M:S",
+              "es": "Tiempo estimado H:M:S",
+              "da": "Anslået tid T:M:S",
+              "ru": "Предполагаемое время Ч:М:С",
+              "pl": "Szacowany czas G:M:S",
+              "ko": "예상 시간 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -295,7 +558,16 @@
             "type": "number",
             "title": {
               "en": "Estimated time seconds",
-              "nl": "Geschatte tijd seconden"
+              "nl": "Geschatte tijd seconden",
+              "de": "Geschätzte Zeit Sekunden",
+              "fr": "Secondes de temps estimé",
+              "it": "Secondi stimati",
+              "sv": "Uppskattade sekunder",
+              "es": "Segundos estimados",
+              "da": "Anslåede sekunder",
+              "ru": "Предполагаемые секунды",
+              "pl": "Szacowane sekundy",
+              "ko": "예상 초"
             },
             "example": 18305
           },
@@ -305,7 +577,16 @@
             "title": {
               "en": "Print time",
               "no": "Print tid",
-              "nl": "Print tijd"
+              "nl": "Print tijd",
+              "de": "Druckzeit",
+              "fr": "Temps d'impression",
+              "it": "Tempo di stampa",
+              "sv": "Utskriftstid",
+              "es": "Tiempo de impresión",
+              "da": "Udskrivningstid",
+              "ru": "Время печати",
+              "pl": "Czas druku",
+              "ko": "프린트 시간"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -317,7 +598,16 @@
             "title": {
               "en": "Print time H:M:S",
               "no": "Print tid H:M:S",
-              "nl": "Print tijd H:M:S"
+              "nl": "Print tijd H:M:S",
+              "de": "Druckzeit S:M:S",
+              "fr": "Temps d'impression H:M:S",
+              "it": "Tempo di stampa O:M:S",
+              "sv": "Utskriftstid T:M:S",
+              "es": "Tiempo de impresión H:M:S",
+              "da": "Udskrivningstid T:M:S",
+              "ru": "Время печати Ч:М:С",
+              "pl": "Czas druku G:M:S",
+              "ko": "프린트 시간 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -328,7 +618,16 @@
             "type": "number",
             "title": {
               "en": "Print time seconds",
-              "nl": "Print tijd seconden"
+              "nl": "Print tijd seconden",
+              "de": "Druckzeit Sekunden",
+              "fr": "Secondes de temps d'impression",
+              "it": "Secondi di stampa",
+              "sv": "Utskriftstid sekunder",
+              "es": "Segundos de tiempo de impresión",
+              "da": "Udskrivningstid sekunder",
+              "ru": "Время печати в секундах",
+              "pl": "Czas druku w sekundach",
+              "ko": "프린트 시간 (초)"
             },
             "example": 18305
           },
@@ -338,7 +637,16 @@
             "title": {
               "en": "Time left",
               "no": "Tid igjen",
-              "nl": "Tijd resterend"
+              "nl": "Tijd resterend",
+              "de": "Verbleibende Zeit",
+              "fr": "Temps restant",
+              "it": "Tempo rimanente",
+              "sv": "Tid kvar",
+              "es": "Tiempo restante",
+              "da": "Tid tilbage",
+              "ru": "Оставшееся время",
+              "pl": "Pozostały czas",
+              "ko": "남은 시간"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -350,7 +658,16 @@
             "title": {
               "en": "Time left H:M:S",
               "no": "Tid igjen H:M:S",
-              "nl": "Tijd resterend H:M:S"
+              "nl": "Tijd resterend H:M:S",
+              "de": "Verbleibende Zeit S:M:S",
+              "fr": "Temps restant H:M:S",
+              "it": "Tempo rimanente O:M:S",
+              "sv": "Tid kvar T:M:S",
+              "es": "Tiempo restante H:M:S",
+              "da": "Tid tilbage T:M:S",
+              "ru": "Оставшееся время Ч:М:С",
+              "pl": "Pozostały czas G:M:S",
+              "ko": "남은 시간 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -362,7 +679,16 @@
             "title": {
               "en": "Seconds left",
               "no": "Sekunder igjen",
-              "nl": "Seconden resterend"
+              "nl": "Seconden resterend",
+              "de": "Verbleibende Sekunden",
+              "fr": "Secondes restantes",
+              "it": "Secondi rimanenti",
+              "sv": "Sekunder kvar",
+              "es": "Segundos restantes",
+              "da": "Sekunder tilbage",
+              "ru": "Оставшиеся секунды",
+              "pl": "Pozostałe sekundy",
+              "ko": "남은 초"
             },
             "example": 18305
           }
@@ -380,12 +706,30 @@
         "title": {
           "en": "Print resumed",
           "no": "Utskrift gjenopptatt",
-          "nl": "Print hervat"
+          "nl": "Print hervat",
+          "de": "Druck fortgesetzt",
+          "fr": "Impression reprise",
+          "it": "Stampa ripresa",
+          "sv": "Utskrift återupptagen",
+          "es": "Impresión reanudada",
+          "da": "Udskrivning genoptaget",
+          "ru": "Печать возобновлена",
+          "pl": "Drukowanie wznowione",
+          "ko": "프린트 재개됨"
         },
         "hint": {
           "en": "When a print has resumed after being paused",
           "no": "Når en utskrift har gjenopptatt etter å ha blitt satt på pause",
-          "nl": "Wanneer een print is hervat na een pauze"
+          "nl": "Wanneer een print is hervat na een pauze",
+          "de": "Wenn ein Druck nach einer Pause fortgesetzt wurde",
+          "fr": "Quand une impression a repris après une pause",
+          "it": "Quando una stampa è ripresa dopo essere stata messa in pausa",
+          "sv": "När en utskrift har återupptagits efter paus",
+          "es": "Cuando una impresión se ha reanudado después de una pausa",
+          "da": "Når en udskrivning er blevet genoptaget efter at være blevet sat på pause",
+          "ru": "Когда печать возобновлена после паузы",
+          "pl": "Gdy drukowanie zostało wznowione po pauzie",
+          "ko": "프린트가 일시 중지 후 재개되었을 때"
         },
         "tokens": [
           {
@@ -394,7 +738,16 @@
             "title": {
               "en": "Estimated time",
               "no": "Estimat tid",
-              "nl": "Geschatte tijd"
+              "nl": "Geschatte tijd",
+              "de": "Geschätzte Zeit",
+              "fr": "Temps estimé",
+              "it": "Tempo stimato",
+              "sv": "Uppskattad tid",
+              "es": "Tiempo estimado",
+              "da": "Anslået tid",
+              "ru": "Предполагаемое время",
+              "pl": "Szacowany czas",
+              "ko": "예상 시간"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -406,7 +759,16 @@
             "title": {
               "en": "Estimated time H:M:S",
               "no": "Estimat tid H:M:S",
-              "nl": "Geschatte tijd H:M:S"
+              "nl": "Geschatte tijd H:M:S",
+              "de": "Geschätzte Zeit S:M:S",
+              "fr": "Temps estimé H:M:S",
+              "it": "Tempo stimato O:M:S",
+              "sv": "Uppskattad tid T:M:S",
+              "es": "Tiempo estimado H:M:S",
+              "da": "Anslået tid T:M:S",
+              "ru": "Предполагаемое время Ч:М:С",
+              "pl": "Szacowany czas G:M:S",
+              "ko": "예상 시간 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -417,7 +779,16 @@
             "type": "number",
             "title": {
               "en": "Estimated time seconds",
-              "nl": "Geschatte tijd seconden"
+              "nl": "Geschatte tijd seconden",
+              "de": "Geschätzte Zeit Sekunden",
+              "fr": "Secondes de temps estimé",
+              "it": "Secondi stimati",
+              "sv": "Uppskattade sekunder",
+              "es": "Segundos estimados",
+              "da": "Anslåede sekunder",
+              "ru": "Предполагаемые секунды",
+              "pl": "Szacowane sekundy",
+              "ko": "예상 초"
             },
             "example": 18305
           },
@@ -427,7 +798,16 @@
             "title": {
               "en": "Print time",
               "no": "Print tid",
-              "nl": "Print tijd"
+              "nl": "Print tijd",
+              "de": "Druckzeit",
+              "fr": "Temps d'impression",
+              "it": "Tempo di stampa",
+              "sv": "Utskriftstid",
+              "es": "Tiempo de impresión",
+              "da": "Udskrivningstid",
+              "ru": "Время печати",
+              "pl": "Czas druku",
+              "ko": "프린트 시간"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -439,7 +819,16 @@
             "title": {
               "en": "Print time H:M:S",
               "no": "Print tid H:M:S",
-              "nl": "Print tijd H:M:S"
+              "nl": "Print tijd H:M:S",
+              "de": "Druckzeit S:M:S",
+              "fr": "Temps d'impression H:M:S",
+              "it": "Tempo di stampa O:M:S",
+              "sv": "Utskriftstid T:M:S",
+              "es": "Tiempo de impresión H:M:S",
+              "da": "Udskrivningstid T:M:S",
+              "ru": "Время печати Ч:М:С",
+              "pl": "Czas druku G:M:S",
+              "ko": "프린트 시간 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -450,7 +839,16 @@
             "type": "number",
             "title": {
               "en": "Print time seconds",
-              "nl": "Print tijd seconden"
+              "nl": "Print tijd seconden",
+              "de": "Druckzeit Sekunden",
+              "fr": "Secondes de temps d'impression",
+              "it": "Secondi di stampa",
+              "sv": "Utskriftstid sekunder",
+              "es": "Segundos de tiempo de impresión",
+              "da": "Udskrivningstid sekunder",
+              "ru": "Время печати в секундах",
+              "pl": "Czas druku w sekundach",
+              "ko": "프린트 시간 (초)"
             },
             "example": 18305
           },
@@ -460,7 +858,16 @@
             "title": {
               "en": "Time left",
               "no": "Tid igjen",
-              "nl": "Tijd resterend"
+              "nl": "Tijd resterend",
+              "de": "Verbleibende Zeit",
+              "fr": "Temps restant",
+              "it": "Tempo rimanente",
+              "sv": "Tid kvar",
+              "es": "Tiempo restante",
+              "da": "Tid tilbage",
+              "ru": "Оставшееся время",
+              "pl": "Pozostały czas",
+              "ko": "남은 시간"
             },
             "example": {
               "en": "5h 5m 5s"
@@ -472,7 +879,16 @@
             "title": {
               "en": "Time left H:M:S",
               "no": "Tid igjen H:M:S",
-              "nl": "Tijd resterend H:M:S"
+              "nl": "Tijd resterend H:M:S",
+              "de": "Verbleibende Zeit S:M:S",
+              "fr": "Temps restant H:M:S",
+              "it": "Tempo rimanente O:M:S",
+              "sv": "Tid kvar T:M:S",
+              "es": "Tiempo restante H:M:S",
+              "da": "Tid tilbage T:M:S",
+              "ru": "Оставшееся время Ч:М:С",
+              "pl": "Pozostały czas G:M:S",
+              "ko": "남은 시간 시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -484,7 +900,16 @@
             "title": {
               "en": "Seconds left",
               "no": "Sekunder igjen",
-              "nl": "Seconden resterend"
+              "nl": "Seconden resterend",
+              "de": "Verbleibende Sekunden",
+              "fr": "Secondes restantes",
+              "it": "Secondi rimanenti",
+              "sv": "Sekunder kvar",
+              "es": "Segundos restantes",
+              "da": "Sekunder tilbage",
+              "ru": "Оставшиеся секунды",
+              "pl": "Pozostałe sekundy",
+              "ko": "남은 초"
             },
             "example": 18305
           }
@@ -502,12 +927,30 @@
         "title": {
           "en": "Print stopped",
           "no": "Utskriften stoppet",
-          "nl": "Print gestopt"
+          "nl": "Print gestopt",
+          "de": "Druck gestoppt",
+          "fr": "Impression arrêtée",
+          "it": "Stampa interrotta",
+          "sv": "Utskrift stoppad",
+          "es": "Impresión detenida",
+          "da": "Udskrivning stoppet",
+          "ru": "Печать остановлена",
+          "pl": "Drukowanie zatrzymane",
+          "ko": "프린트 중지됨"
         },
         "hint": {
           "en": "When a print has stopped",
           "no": "Når en utskrift har stoppet",
-          "nl": "Wanneer een print gestopt is"
+          "nl": "Wanneer een print gestopt is",
+          "de": "Wenn ein Druck gestoppt wurde",
+          "fr": "Quand une impression a été arrêtée",
+          "it": "Quando una stampa è stata interrotta",
+          "sv": "När en utskrift har stoppats",
+          "es": "Cuando se ha detenido una impresión",
+          "da": "Når en udskrivning er stoppet",
+          "ru": "Когда печать остановлена",
+          "pl": "Gdy drukowanie zostało zatrzymane",
+          "ko": "프린트가 중지되었을 때"
         },
         "tokens": [
           {
@@ -515,7 +958,16 @@
             "type": "number",
             "title": {
               "en": "Completion #",
-              "nl": "Voltooiing #"
+              "nl": "Voltooiing #",
+              "de": "Fertigstellung #",
+              "fr": "Achèvement #",
+              "it": "Completamento #",
+              "sv": "Slutförande #",
+              "es": "Completado #",
+              "da": "Fuldførelse #",
+              "ru": "Завершение #",
+              "pl": "Ukończenie #",
+              "ko": "완료 #"
             },
             "example": 56.7
           },
@@ -524,7 +976,16 @@
             "type": "number",
             "title": {
               "en": "Completion %",
-              "nl": "Voltooiing %"
+              "nl": "Voltooiing %",
+              "de": "Fertigstellung %",
+              "fr": "Achèvement %",
+              "it": "Completamento %",
+              "sv": "Slutförande %",
+              "es": "Completado %",
+              "da": "Fuldførelse %",
+              "ru": "Завершение %",
+              "pl": "Ukończenie %",
+              "ko": "완료 %"
             },
             "example": 0.57
           }
@@ -542,11 +1003,29 @@
         "highlight": true,
         "title": {
           "en": "Completion percentage changed",
-          "nl": "Voltooiing percentage veranderd"
+          "nl": "Voltooiing percentage veranderd",
+          "de": "Fertigstellungsprozentsatz geändert",
+          "fr": "Pourcentage de réalisation modifié",
+          "it": "Percentuale di completamento cambiata",
+          "sv": "Slutförandeprocent ändrad",
+          "es": "Porcentaje de completado cambiado",
+          "da": "Fuldførelsesprocent ændret",
+          "ru": "Изменен процент завершения",
+          "pl": "Procent ukończenia zmieniony",
+          "ko": "완료 퍼센트 변경됨"
         },
         "hint": {
           "en": "The calculated values are based on the print time with the time left, this can be more accurate.",
-          "nl": "De berekende waardes zijn gebaseerd op de print tijd met de resterende tijd, dit kan accurater zijn."
+          "nl": "De berekende waardes zijn gebaseerd op de print tijd met de resterende tijd, dit kan accurater zijn.",
+          "de": "Die berechneten Werte basieren auf der Druckzeit mit der verbleibenden Zeit, dies kann genauer sein.",
+          "fr": "Les valeurs calculées sont basées sur le temps d'impression avec le temps restant, cela peut être plus précis.",
+          "it": "I valori calcolati si basano sul tempo di stampa con il tempo rimanente, questo può essere più accurato.",
+          "sv": "De beräknade värdena baseras på utskriftstiden med återstående tid, detta kan vara mer exakt.",
+          "es": "Los valores calculados se basan en el tiempo de impresión con el tiempo restante, esto puede ser más preciso.",
+          "da": "De beregnede værdier er baseret på udskrivningstiden med den resterende tid, dette kan være mere præcist.",
+          "ru": "Расчетные значения основаны на времени печати с учетом оставшегося времени, это может быть более точно.",
+          "pl": "Obliczone wartości są oparte na czasie druku z pozostałym czasem, może to być dokładniejsze.",
+          "ko": "계산된 값은 남은 시간과 프린트 시간을 기반으로 하며, 이는 더 정확할 수 있습니다."
         },
         "tokens": [
           {
@@ -554,7 +1033,16 @@
             "type": "number",
             "title": {
               "en": "Completion #",
-              "nl": "Voltooiing #"
+              "nl": "Voltooiing #",
+              "de": "Fertigstellung #",
+              "fr": "Achèvement #",
+              "it": "Completamento #",
+              "sv": "Slutförande #",
+              "es": "Completado #",
+              "da": "Fuldførelse #",
+              "ru": "Завершение #",
+              "pl": "Ukończenie #",
+              "ko": "완료 #"
             },
             "example": 56.7
           },
@@ -563,7 +1051,16 @@
             "type": "number",
             "title": {
               "en": "Completion %",
-              "nl": "Voltooiing %"
+              "nl": "Voltooiing %",
+              "de": "Fertigstellung %",
+              "fr": "Achèvement %",
+              "it": "Completamento %",
+              "sv": "Slutförande %",
+              "es": "Completado %",
+              "da": "Fuldførelse %",
+              "ru": "Завершение %",
+              "pl": "Ukończenie %",
+              "ko": "완료 %"
             },
             "example": 0.57
           }
@@ -580,7 +1077,16 @@
         "id": "target_temperature_changed_bed",
         "title": {
           "en": "Bed target temperature changed",
-          "nl": "Bed doel temperatuur veranderd"
+          "nl": "Bed doel temperatuur veranderd",
+          "de": "Bettzieltemperatur geändert",
+          "fr": "Température cible du lit modifiée",
+          "it": "Temperatura target del piano cambiata",
+          "sv": "Sängens måltemperatur ändrad",
+          "es": "Temperatura objetivo de la cama cambiada",
+          "da": "Sengens måtemperatur ændret",
+          "ru": "Целевая температура стола изменена",
+          "pl": "Zmieniono docelową temperaturę stołu",
+          "ko": "베드 목표 온도 변경됨"
         },
         "tokens": [
           {
@@ -588,7 +1094,16 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "example": 50
           }
@@ -605,7 +1120,16 @@
         "id": "target_temperature_changed_tool",
         "title": {
           "en": "Tool target temperature changed",
-          "nl": "Hotend doel temperatuur veranderd"
+          "nl": "Hotend doel temperatuur veranderd",
+          "de": "Werkzeugzieltemperatur geändert",
+          "fr": "Température cible de l'outil modifiée",
+          "it": "Temperatura target dell'utensile cambiata",
+          "sv": "Verktygets måltemperatur ändrad",
+          "es": "Temperatura objetivo de la herramienta cambiada",
+          "da": "Værktøjets måtemperatur ændret",
+          "ru": "Целевая температура инструмента изменена",
+          "pl": "Zmieniono docelową temperaturę narzędzia",
+          "ko": "툴 목표 온도 변경됨"
         },
         "tokens": [
           {
@@ -613,7 +1137,16 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "example": 200
           }
@@ -630,7 +1163,16 @@
         "id": "target_temperature_changed_chamber",
         "title": {
           "en": "Chamber target temperature changed",
-          "nl": "Behuizing doel temperatuur veranderd"
+          "nl": "Behuizing doel temperatuur veranderd",
+          "de": "Kammerzieltemperatur geändert",
+          "fr": "Température cible de la chambre modifiée",
+          "it": "Temperatura target della camera cambiata",
+          "sv": "Kammarens måltemperatur ändrad",
+          "es": "Temperatura objetivo de la cámara cambiada",
+          "da": "Kammerets måtemperatur ændret",
+          "ru": "Целевая температура камеры изменена",
+          "pl": "Zmieniono docelową temperaturę komory",
+          "ko": "챔버 목표 온도 변경됨"
         },
         "tokens": [
           {
@@ -638,7 +1180,16 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "example": 50
           }
@@ -655,7 +1206,16 @@
         "id": "measure_temperature_changed_bed",
         "title": {
           "en": "Current bed temperature changed",
-          "nl": "Huidige bed temperatuur veranderd"
+          "nl": "Huidige bed temperatuur veranderd",
+          "de": "Aktuelle Betttemperatur geändert",
+          "fr": "Température actuelle du lit modifiée",
+          "it": "Temperatura attuale del piano cambiata",
+          "sv": "Aktuell sängtemperatur ändrad",
+          "es": "Temperatura actual de la cama cambiada",
+          "da": "Aktuel sengtemperatur ændret",
+          "ru": "Текущая температура стола изменена",
+          "pl": "Zmieniono aktualną temperaturę stołu",
+          "ko": "현재 베드 온도 변경됨"
         },
         "tokens": [
           {
@@ -663,7 +1223,16 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "example": 50
           }
@@ -680,7 +1249,16 @@
         "id": "measure_temperature_changed_tool",
         "title": {
           "en": "Current tool temperature changed",
-          "nl": "Huidige hotend temperatuur veranderd"
+          "nl": "Huidige hotend temperatuur veranderd",
+          "de": "Aktuelle Werkzeugtemperatur geändert",
+          "fr": "Température actuelle de l'outil modifiée",
+          "it": "Temperatura attuale dell'utensile cambiata",
+          "sv": "Aktuell verktygstemperatur ändrad",
+          "es": "Temperatura actual de la herramienta cambiada",
+          "da": "Aktuel værktøjstemperatur ændret",
+          "ru": "Текущая температура инструмента изменена",
+          "pl": "Zmieniono aktualną temperaturę narzędzia",
+          "ko": "현재 툴 온도 변경됨"
         },
         "tokens": [
           {
@@ -688,7 +1266,16 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "example": 200
           }
@@ -705,7 +1292,16 @@
         "id": "measure_temperature_changed_chamber",
         "title": {
           "en": "Current chamber temperature changed",
-          "nl": "Huidige behuizing temperatuur veranderd"
+          "nl": "Huidige behuizing temperatuur veranderd",
+          "de": "Aktuelle Kammertemperatur geändert",
+          "fr": "Température actuelle de la chambre modifiée",
+          "it": "Temperatura attuale della camera cambiata",
+          "sv": "Aktuell kammartemperatur ändrad",
+          "es": "Temperatura actual de la cámara cambiada",
+          "da": "Aktuel kammertemperatur ændret",
+          "ru": "Текущая температура камеры изменена",
+          "pl": "Zmieniono aktualną temperaturę komory",
+          "ko": "현재 챔버 온도 변경됨"
         },
         "tokens": [
           {
@@ -713,7 +1309,16 @@
             "type": "number",
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "example": 200
           }
@@ -730,7 +1335,16 @@
         "id": "bed_cooled_down",
         "title": {
           "en": "Bed is cooled down",
-          "nl": "Bed is afgekoeld"
+          "nl": "Bed is afgekoeld",
+          "de": "Bett ist abgekühlt",
+          "fr": "Le lit est refroidi",
+          "it": "Il piano si è raffreddato",
+          "sv": "Sängen har svalnat",
+          "es": "La cama se ha enfriado",
+          "da": "Sengen er afkølet",
+          "ru": "Стол остыл",
+          "pl": "Stół ostygł",
+          "ko": "베드가 식었습니다"
         },
         "args": [
           {
@@ -744,11 +1358,29 @@
         "id": "tool_cooled_down",
         "title": {
           "en": "Tool is cooled down",
-          "nl": "Hotend is afgekoeld"
+          "nl": "Hotend is afgekoeld",
+          "de": "Werkzeug ist abgekühlt",
+          "fr": "L'outil est refroidi",
+          "it": "L'utensile si è raffreddato",
+          "sv": "Verktyget har svalnat",
+          "es": "La herramienta se ha enfriado",
+          "da": "Værktøjet er afkølet",
+          "ru": "Инструмент остыл",
+          "pl": "Narzędzie ostygło",
+          "ko": "툴이 식었습니다"
         },
         "hint": {
           "en": "This will always trigger when the temperature reaches below the specified threshold, for example also when the printer is waiting for a filament change (filament runout).",
-          "nl": "Dit zal altijd activeren als de temperatuur onder de gespecificeerde drempel komt, bijvoorbeeld ook als de printer wacht op verandering van de filament (filament runout)."
+          "nl": "Dit zal altijd activeren als de temperatuur onder de gespecificeerde drempel komt, bijvoorbeeld ook als de printer wacht op verandering van de filament (filament runout).",
+          "de": "Dies wird immer ausgelöst, wenn die Temperatur unter den angegebenen Schwellenwert fällt, zum Beispiel auch wenn der Drucker auf einen Filamentwechsel wartet (Filamentende).",
+          "fr": "Ceci se déclenchera toujours lorsque la température atteint en dessous du seuil spécifié, par exemple aussi lorsque l'imprimante attend un changement de filament (fin de filament).",
+          "it": "Questo si attiverà sempre quando la temperatura scende sotto la soglia specificata, ad esempio anche quando la stampante è in attesa di un cambio di filamento (esaurimento del filamento).",
+          "sv": "Detta kommer alltid att utlösas när temperaturen når under den angivna tröskeln, till exempel också när skrivaren väntar på ett filamentbyte (filament slut).",
+          "es": "Esto siempre se activará cuando la temperatura alcance por debajo del umbral especificado, por ejemplo también cuando la impresora está esperando un cambio de filamento (agotamiento de filamento).",
+          "da": "Dette vil altid udløses, når temperaturen falder under den specificerede tærskel, for eksempel også når printeren venter på en filamentændring (filament opbrugt).",
+          "ru": "Это всегда срабатывает, когда температура опускается ниже указанного порога, например, когда принтер ждет замены филамента (закончился филамент).",
+          "pl": "To zawsze zostanie uruchomione, gdy temperatura spadnie poniżej określonego progu, na przykład również gdy drukarka czeka na zmianę filamentu (wyczerpanie filamentu).",
+          "ko": "이는 온도가 지정된 임계값 아래로 떨어질 때마다 항상 트리거되며, 예를 들어 프린터가 필라멘트 교체(필라멘트 소진)를 기다릴 때도 마찬가지입니다."
         },
         "args": [
           {
@@ -763,7 +1395,16 @@
         "highlight": true,
         "title": {
           "en": "Octoprint state changed",
-          "nl": "Status Octoprint veranderd"
+          "nl": "Status Octoprint veranderd",
+          "de": "Octoprint-Status geändert",
+          "fr": "État d'Octoprint modifié",
+          "it": "Stato di Octoprint cambiato",
+          "sv": "Octoprint-status ändrad",
+          "es": "Estado de Octoprint cambiado",
+          "da": "Octoprint-status ændret",
+          "ru": "Состояние Octoprint изменилось",
+          "pl": "Zmieniono stan Octoprint",
+          "ko": "Octoprint 상태 변경됨"
         },
         "tokens": [
           {
@@ -771,7 +1412,16 @@
             "type": "string",
             "title": {
               "en": "State",
-              "nl": "Status"
+              "nl": "Status",
+              "de": "Status",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Status",
+              "es": "Estado",
+              "da": "Status",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태"
             },
             "example": {
               "en": "Operational",
@@ -791,7 +1441,16 @@
         "id": "estimated_time_changed",
         "title": {
           "en": "Estimated time changed",
-          "nl": "Geschatte tijd veranderd"
+          "nl": "Geschatte tijd veranderd",
+          "de": "Geschätzte Zeit geändert",
+          "fr": "Temps estimé modifié",
+          "it": "Tempo stimato cambiato",
+          "sv": "Uppskattad tid ändrad",
+          "es": "Tiempo estimado cambiado",
+          "da": "Anslået tid ændret",
+          "ru": "Изменено предполагаемое время",
+          "pl": "Zmieniono szacowany czas",
+          "ko": "예상 시간 변경됨"
         },
         "tokens": [
           {
@@ -799,7 +1458,16 @@
             "type": "string",
             "title": {
               "en": "Time",
-              "nl": "Tijd"
+              "nl": "Tijd",
+              "de": "Zeit",
+              "fr": "Temps",
+              "it": "Tempo",
+              "sv": "Tid",
+              "es": "Tiempo",
+              "da": "Tid",
+              "ru": "Время",
+              "pl": "Czas",
+              "ko": "시간"
             },
             "example": {
               "en": "5d 5m 5s"
@@ -810,7 +1478,16 @@
             "type": "string",
             "title": {
               "en": "H:M:S",
-              "nl": "H:M:S"
+              "nl": "H:M:S",
+              "de": "S:M:S",
+              "fr": "H:M:S",
+              "it": "O:M:S",
+              "sv": "T:M:S",
+              "es": "H:M:S",
+              "da": "T:M:S",
+              "ru": "Ч:М:С",
+              "pl": "G:M:S",
+              "ko": "시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -821,7 +1498,16 @@
             "type": "number",
             "title": {
               "en": "Seconds",
-              "nl": "Seconden"
+              "nl": "Seconden",
+              "de": "Sekunden",
+              "fr": "Secondes",
+              "it": "Secondi",
+              "sv": "Sekunder",
+              "es": "Segundos",
+              "da": "Sekunder",
+              "ru": "Секунды",
+              "pl": "Sekundy",
+              "ko": "초"
             },
             "example": 18305
           }
@@ -838,7 +1524,16 @@
         "id": "estimated_end_time_changed",
         "title": {
           "en": "Estimated end time changed",
-          "nl": "Verwachte eind tijd veranderd"
+          "nl": "Verwachte eind tijd veranderd",
+          "de": "Geschätzte Endzeit geändert",
+          "fr": "Heure de fin estimée modifiée",
+          "it": "Tempo di fine stimato cambiato",
+          "sv": "Uppskattad sluttid ändrad",
+          "es": "Hora de fin estimada cambiada",
+          "da": "Anslået sluttid ændret",
+          "ru": "Изменено предполагаемое время окончания",
+          "pl": "Zmieniono szacowany czas zakończenia",
+          "ko": "예상 종료 시간 변경됨"
         },
         "tokens": [
           {
@@ -846,7 +1541,16 @@
             "type": "string",
             "title": {
               "en": "Date",
-              "nl": "Datum"
+              "nl": "Datum",
+              "de": "Datum",
+              "fr": "Date",
+              "it": "Data",
+              "sv": "Datum",
+              "es": "Fecha",
+              "da": "Dato",
+              "ru": "Дата",
+              "pl": "Data",
+              "ko": "날짜"
             },
             "example": {
               "en": "24 Dec 20:10:20"
@@ -857,7 +1561,16 @@
             "type": "string",
             "title": {
               "en": "Date short",
-              "nl": "Datum kort"
+              "nl": "Datum kort",
+              "de": "Datum kurz",
+              "fr": "Date courte",
+              "it": "Data breve",
+              "sv": "Datum kort",
+              "es": "Fecha corta",
+              "da": "Dato kort",
+              "ru": "Краткая дата",
+              "pl": "Data krótka",
+              "ko": "간략한 날짜"
             },
             "example": {
               "en": "24/12 20:10"
@@ -868,7 +1581,16 @@
             "type": "string",
             "title": {
               "en": "Full date",
-              "nl": "Volledige datum"
+              "nl": "Volledige datum",
+              "de": "Volles Datum",
+              "fr": "Date complète",
+              "it": "Data completa",
+              "sv": "Fullständigt datum",
+              "es": "Fecha completa",
+              "da": "Fuldt dato",
+              "ru": "Полная дата",
+              "pl": "Pełna data",
+              "ko": "전체 날짜"
             },
             "example": {
               "en": "24 December 20:10:20"
@@ -887,7 +1609,16 @@
         "id": "time_left_changed",
         "title": {
           "en": "Time left changed",
-          "nl": "Resterende tijd veranderd"
+          "nl": "Resterende tijd veranderd",
+          "de": "Verbleibende Zeit geändert",
+          "fr": "Temps restant modifié",
+          "it": "Tempo rimanente cambiato",
+          "sv": "Återstående tid ändrad",
+          "es": "Tiempo restante cambiado",
+          "da": "Resterende tid ændret",
+          "ru": "Оставшееся время изменено",
+          "pl": "Zmieniono pozostały czas",
+          "ko": "남은 시간 변경됨"
         },
         "tokens": [
           {
@@ -895,7 +1626,16 @@
             "type": "string",
             "title": {
               "en": "Time",
-              "nl": "Tijd"
+              "nl": "Tijd",
+              "de": "Zeit",
+              "fr": "Temps",
+              "it": "Tempo",
+              "sv": "Tid",
+              "es": "Tiempo",
+              "da": "Tid",
+              "ru": "Время",
+              "pl": "Czas",
+              "ko": "시간"
             },
             "example": {
               "en": "5d 5m 5s"
@@ -906,7 +1646,16 @@
             "type": "string",
             "title": {
               "en": "H:M:S",
-              "nl": "H:M:S"
+              "nl": "H:M:S",
+              "de": "S:M:S",
+              "fr": "H:M:S",
+              "it": "O:M:S",
+              "sv": "T:M:S",
+              "es": "H:M:S",
+              "da": "T:M:S",
+              "ru": "Ч:М:С",
+              "pl": "G:M:S",
+              "ko": "시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -917,7 +1666,16 @@
             "type": "number",
             "title": {
               "en": "Seconds",
-              "nl": "Seconden"
+              "nl": "Seconden",
+              "de": "Sekunden",
+              "fr": "Secondes",
+              "it": "Secondi",
+              "sv": "Sekunder",
+              "es": "Segundos",
+              "da": "Sekunder",
+              "ru": "Секунды",
+              "pl": "Sekundy",
+              "ko": "초"
             },
             "example": 18305
           }
@@ -934,7 +1692,16 @@
         "id": "print_time_changed",
         "title": {
           "en": "Print time changed",
-          "nl": "Print tijd veranderd"
+          "nl": "Print tijd veranderd",
+          "de": "Druckzeit geändert",
+          "fr": "Temps d'impression modifié",
+          "it": "Tempo di stampa cambiato",
+          "sv": "Utskriftstid ändrad",
+          "es": "Tiempo de impresión cambiado",
+          "da": "Udskrivningstid ændret",
+          "ru": "Время печати изменено",
+          "pl": "Zmieniono czas druku",
+          "ko": "프린트 시간 변경됨"
         },
         "tokens": [
           {
@@ -942,7 +1709,16 @@
             "type": "string",
             "title": {
               "en": "Time",
-              "nl": "Tijd"
+              "nl": "Tijd",
+              "de": "Zeit",
+              "fr": "Temps",
+              "it": "Tempo",
+              "sv": "Tid",
+              "es": "Tiempo",
+              "da": "Tid",
+              "ru": "Время",
+              "pl": "Czas",
+              "ko": "시간"
             },
             "example": {
               "en": "5d 5m 5s"
@@ -953,7 +1729,16 @@
             "type": "string",
             "title": {
               "en": "H:M:S",
-              "nl": "H:M:S"
+              "nl": "H:M:S",
+              "de": "S:M:S",
+              "fr": "H:M:S",
+              "it": "O:M:S",
+              "sv": "T:M:S",
+              "es": "H:M:S",
+              "da": "T:M:S",
+              "ru": "Ч:М:С",
+              "pl": "G:M:S",
+              "ko": "시:분:초"
             },
             "example": {
               "en": "05:05:05"
@@ -964,7 +1749,16 @@
             "type": "number",
             "title": {
               "en": "Seconds",
-              "nl": "Seconden"
+              "nl": "Seconden",
+              "de": "Sekunden",
+              "fr": "Secondes",
+              "it": "Secondi",
+              "sv": "Sekunder",
+              "es": "Segundos",
+              "da": "Sekunder",
+              "ru": "Секунды",
+              "pl": "Sekundy",
+              "ko": "초"
             },
             "example": 18305
           }
@@ -981,7 +1775,16 @@
         "id": "file_changed",
         "title": {
           "en": "Print file changed",
-          "nl": "Print bestand veranderd"
+          "nl": "Print bestand veranderd",
+          "de": "Druckdatei geändert",
+          "fr": "Fichier d'impression modifié",
+          "it": "File di stampa cambiato",
+          "sv": "Utskriftsfil ändrad",
+          "es": "Archivo de impresión cambiado",
+          "da": "Udskrivningsfil ændret",
+          "ru": "Файл печати изменен",
+          "pl": "Zmieniono plik druku",
+          "ko": "프린트 파일 변경됨"
         },
         "tokens": [
           {
@@ -989,7 +1792,16 @@
             "type": "string",
             "title": {
               "en": "File",
-              "nl": "Bestand"
+              "nl": "Bestand",
+              "de": "Datei",
+              "fr": "Fichier",
+              "it": "File",
+              "sv": "Fil",
+              "es": "Archivo",
+              "da": "Fil",
+              "ru": "Файл",
+              "pl": "Plik",
+              "ko": "파일"
             },
             "example": {
               "en": "example.gcode",
@@ -1009,7 +1821,16 @@
         "id": "error_occurred",
         "title": {
           "en": "An error occurred",
-          "nl": "Een fout is opgetreden"
+          "nl": "Een fout is opgetreden",
+          "de": "Ein Fehler ist aufgetreten",
+          "fr": "Une erreur est survenue",
+          "it": "Si è verificato un errore",
+          "sv": "Ett fel har inträffat",
+          "es": "Ocurrió un error",
+          "da": "Der opstod en fejl",
+          "ru": "Произошла ошибка",
+          "pl": "Wystąpił błąd",
+          "ko": "오류가 발생했습니다"
         },
         "tokens": [
           {
@@ -1017,7 +1838,16 @@
             "type": "string",
             "title": {
               "en": "Error",
-              "nl": "Fout"
+              "nl": "Fout",
+              "de": "Fehler",
+              "fr": "Erreur",
+              "it": "Errore",
+              "sv": "Fel",
+              "es": "Error",
+              "da": "Fejl",
+              "ru": "Ошибка",
+              "pl": "Błąd",
+              "ko": "오류"
             },
             "example": {
               "en": "Closing serial port due to emergency stop M112",
@@ -1039,7 +1869,17 @@
         "id": "is_printing",
         "title": {
           "en": "!{{Is|Isn't}} printing",
-          "nl": "Is !{{|niet}} aan het printen"
+          "nl": "Is !{{|niet}} aan het printen",
+          "de": "!{{Druckt|Druckt nicht}}",
+          "fr": "!{{Imprime|N'imprime pas}}",
+          "it": "!{{Sta stampando|Non sta stampando}}",
+          "sv": "!{{Skriver ut|Skriver inte ut}}",
+          "no": "!{{Skriver ut|Skriver ikke ut}}",
+          "es": "!{{Está imprimiendo|No está imprimiendo}}",
+          "da": "!{{Er|Er ikke}} ved at udskrive",
+          "ru": "!{{Печатает|Не печатает}}",
+          "pl": "!{{Drukuje|Nie drukuje}}",
+          "ko": "!{{프린트 중|프린트 중 아님}}"
         },
         "args": [
           {
@@ -1053,7 +1893,17 @@
         "id": "bed_cooled_down",
         "title": {
           "en": "Bed !{{is|isn't}} cooled down",
-          "nl": "Bed is !{{|niet}} afgekoeld"
+          "nl": "Bed is !{{|niet}} afgekoeld",
+          "de": "Bett !{{ist|ist nicht}} abgekühlt",
+          "fr": "Lit !{{est|n'est pas}} refroidi",
+          "it": "Letto !{{è|non è}} raffreddato",
+          "sv": "Säng !{{är|är inte}} nedkyld",
+          "no": "Sengen !{{er|er ikke}} avkjølt",
+          "es": "Cama !{{está|no está}} enfriada",
+          "da": "Seng !{{er|er ikke}} afkølet",
+          "ru": "Стол !{{остыл|не остыл}}",
+          "pl": "Stół !{{jest|nie jest}} schłodzony",
+          "ko": "베드가 !{{식었습니다|식지 않았습니다}}"
         },
         "args": [
           {
@@ -1067,7 +1917,17 @@
         "id": "tool_cooled_down",
         "title": {
           "en": "Tool !{{is|isn't}} cooled down",
-          "nl": "Hotend is !{{|niet}} afgekoeld"
+          "nl": "Hotend is !{{|niet}} afgekoeld",
+          "de": "Werkzeug !{{ist|ist nicht}} abgekühlt",
+          "fr": "Outil !{{est|n'est pas}} refroidi",
+          "it": "Strumento !{{è|non è}} raffreddato",
+          "sv": "Verktyg !{{är|är inte}} nedkyld",
+          "no": "Verktøy !{{er|er ikke}} avkjølt",
+          "es": "Herramienta !{{está|no está}} enfriada",
+          "da": "Værktøj !{{er|er ikke}} afkølet",
+          "ru": "Инструмент !{{остыл|не остыл}}",
+          "pl": "Narzędzie !{{jest|nie jest}} schłodzone",
+          "ko": "도구가 !{{식었습니다|식지 않았습니다}}"
         },
         "args": [
           {
@@ -1081,11 +1941,31 @@
         "id": "octroprint_state",
         "title": {
           "en": "Octoprint's state !{{is|isn't}}",
-          "nl": "Status van octoprint is !{{|niet}}"
+          "nl": "Status van octoprint is !{{|niet}}",
+          "de": "Octoprints Status !{{ist|ist nicht}}",
+          "fr": "État d'Octoprint !{{est|n'est pas}}",
+          "it": "Stato di Octoprint !{{è|non è}}",
+          "sv": "Octoprints status !{{är|är inte}}",
+          "no": "Octoprints tilstand !{{er|er ikke}}",
+          "es": "Estado de Octoprint !{{está|no está}}",
+          "da": "Octoprints tilstand !{{er|er ikke}}",
+          "ru": "Состояние Octoprint !{{есть|нет}}",
+          "pl": "Stan Octoprint !{{jest|nie jest}}",
+          "ko": "Octoprint의 상태가 !{{입니다|아닙니다}}"
         },
         "titleFormatted": {
           "en": "State of octoprint !{{is|isn't}} [[state]]",
-          "nl": "Status van octoprint is !{{|niet}} [[state]]"
+          "nl": "Status van octoprint is !{{|niet}} [[state]]",
+          "de": "Octoprints Status !{{ist|ist nicht}} [[state]]",
+          "fr": "État d'Octoprint !{{est|n'est pas}} [[state]]",
+          "it": "Stato di Octoprint !{{è|non è}} [[state]]",
+          "sv": "Octoprints status !{{är|är inte}} [[state]]",
+          "no": "Octoprints tilstand !{{er|er ikke}} [[state]]",
+          "es": "Estado de Octoprint !{{está|no está}} [[state]]",
+          "da": "Octoprints tilstand !{{er|er ikke}} [[state]]",
+          "ru": "Состояние Octoprint !{{есть|нет}} [[state]]",
+          "pl": "Stan Octoprint !{{jest|nie jest}} [[state]]",
+          "ko": "Octoprint의 상태가 !{{입니다|아닙니다}} [[state]]"
         },
         "args": [
           {
@@ -1096,7 +1976,17 @@
           {
             "title": {
               "en": "State",
-              "nl": "Status"
+              "nl": "Status",
+              "de": "Status",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Status",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태"
             },
             "name": "state",
             "type": "dropdown",
@@ -1106,49 +1996,119 @@
                 "id": "Operational",
                 "label": {
                   "en": "Operational",
-                  "nl": "Operationeel"
+                  "nl": "Operationeel",
+                  "de": "Betriebsbereit",
+                  "fr": "Opérationnel",
+                  "it": "Operativo",
+                  "sv": "I drift",
+                  "no": "Operativ",
+                  "es": "Operativo",
+                  "da": "Operationel",
+                  "ru": "Рабочий",
+                  "pl": "Operacyjny",
+                  "ko": "작동 중"
                 }
               },
               {
                 "id": "Closed",
                 "label": {
                   "en": "Offline",
-                  "nl": "Offline"
+                  "nl": "Offline",
+                  "de": "Offline",
+                  "fr": "Hors ligne",
+                  "it": "Offline",
+                  "sv": "Offline",
+                  "no": "Frakoblet",
+                  "es": "Desconectado",
+                  "da": "Offline",
+                  "ru": "Не в сети",
+                  "pl": "Offline",
+                  "ko": "오프라인"
                 }
               },
               {
                 "id": "Printing",
                 "label": {
                   "en": "Printing",
-                  "nl": "Printen"
+                  "nl": "Printen",
+                  "de": "Drucken",
+                  "fr": "Impression",
+                  "it": "Stampa in corso",
+                  "sv": "Skriver ut",
+                  "no": "Skriver ut",
+                  "es": "Imprimiendo",
+                  "da": "Udskriver",
+                  "ru": "Печать",
+                  "pl": "Drukowanie",
+                  "ko": "인쇄 중"
                 }
               },
               {
                 "id": "Pausing",
                 "label": {
                   "en": "Pausing",
-                  "nl": "Pauzeren"
+                  "nl": "Pauzeren",
+                  "de": "Pausieren",
+                  "fr": "En pause",
+                  "it": "In pausa",
+                  "sv": "Pausar",
+                  "no": "Setter på pause",
+                  "es": "Pausando",
+                  "da": "Sætter på pause",
+                  "ru": "Приостановка",
+                  "pl": "Pauzowanie",
+                  "ko": "일시 중지 중"
                 }
               },
               {
                 "id": "Paused",
                 "label": {
                   "en": "Paused",
-                  "nl": "Gepauzeerd"
+                  "nl": "Gepauzeerd",
+                  "de": "Pausiert",
+                  "fr": "En pause",
+                  "it": "In pausa",
+                  "sv": "Pausad",
+                  "no": "Pauset",
+                  "es": "En pausa",
+                  "da": "Sat på pause",
+                  "ru": "Приостановлен",
+                  "pl": "Wstrzymany",
+                  "ko": "일시 중지됨"
                 }
               },
               {
                 "id": "Connecting",
                 "label": {
                   "en": "Connecting",
-                  "nl": "Verbinden"
+                  "nl": "Verbinden",
+                  "de": "Verbinden",
+                  "fr": "Connexion",
+                  "it": "Connessione in corso",
+                  "sv": "Ansluter",
+                  "no": "Kobler til",
+                  "es": "Conectando",
+                  "da": "Forbinder",
+                  "ru": "Подключение",
+                  "pl": "Łączenie",
+                  "ko": "연결 중"
                 }
               },
               {
                 "id": "Detecting serial connection",
                 "label": {
                   "en": "Detecting connection",
-                  "nl": "Verbinding detecteren"
+                  "nl": "Verbinding detecteren",
+                  "de": "Verbindung erkennen",
+                  "fr": "Détection de connexion",
+                  "it": "Rilevamento connessione",
+                  "sv": "Upptäcker anslutning",
+                  "no": "Oppdager tilkobling",
+                  "es": "Detectando conexión",
+                  "da": "Registrerer forbindelse",
+                  "ru": "Обнаружение соединения",
+                  "pl": "Wykrywanie połączenia",
+                  "ko": "연결 감지 중"
                 }
               }
             ]
@@ -1161,11 +2121,31 @@
         "id": "target_temperature_set_bed",
         "title": {
           "en": "Set the bed temperature",
-          "nl": "Stel het bed temperatuur in"
+          "nl": "Stel het bed temperatuur in",
+          "de": "Stelle die Betttemperatur ein",
+          "fr": "Définir la température du lit",
+          "it": "Imposta la temperatura del letto",
+          "sv": "Ställ in sängens temperatur",
+          "no": "Sett sengens temperatur",
+          "es": "Establecer la temperatura de la cama",
+          "da": "Indstil sengens temperatur",
+          "ru": "Установить температуру стола",
+          "pl": "Ustaw temperaturę stołu",
+          "ko": "베드 온도 설정"
         },
         "titleFormatted": {
           "en": "Set the bed temperature to [[target_temperature]]",
-          "nl": "Stel het bed temperatuur in op  [[target_temperature]]"
+          "nl": "Stel het bed temperatuur in op [[target_temperature]]",
+          "de": "Stelle die Betttemperatur auf [[target_temperature]] ein",
+          "fr": "Définir la température du lit à [[target_temperature]]",
+          "it": "Imposta la temperatura del letto a [[target_temperature]]",
+          "sv": "Ställ in sängens temperatur till [[target_temperature]]",
+          "no": "Sett sengens temperatur til [[target_temperature]]",
+          "es": "Establecer la temperatura de la cama a [[target_temperature]]",
+          "da": "Indstil sengens temperatur til [[target_temperature]]",
+          "ru": "Установить температуру стола на [[target_temperature]]",
+          "pl": "Ustaw temperaturę stołu na [[target_temperature]]",
+          "ko": "베드 온도를 [[target_temperature]]로 설정"
         },
         "args": [
           {
@@ -1176,7 +2156,17 @@
           {
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "name": "target_temperature",
             "type": "range",
@@ -1192,11 +2182,31 @@
         "id": "target_temperature_set_tool",
         "title": {
           "en": "Set the tool temperature",
-          "nl": "Stel het hotend temperatuur in"
+          "nl": "Stel het hotend temperatuur in",
+          "de": "Stelle die Werkzeugtemperatur ein",
+          "fr": "Définir la température de l'outil",
+          "it": "Imposta la temperatura dell'utensile",
+          "sv": "Ställ in verktygets temperatur",
+          "no": "Sett verktøyets temperatur",
+          "es": "Establecer la temperatura de la herramienta",
+          "da": "Indstil værktøjets temperatur",
+          "ru": "Установить температуру инструмента",
+          "pl": "Ustaw temperaturę narzędzia",
+          "ko": "툴 온도 설정"
         },
         "titleFormatted": {
           "en": "Set the tool temperature to [[target_temperature]]",
-          "nl": "Stel het hotend temperatuur in op  [[target_temperature]]"
+          "nl": "Stel het hotend temperatuur in op [[target_temperature]]",
+          "de": "Stelle die Werkzeugtemperatur auf [[target_temperature]] ein",
+          "fr": "Définir la température de l'outil à [[target_temperature]]",
+          "it": "Imposta la temperatura dell'utensile a [[target_temperature]]",
+          "sv": "Ställ in verktygets temperatur till [[target_temperature]]",
+          "no": "Sett verktøyets temperatur til [[target_temperature]]",
+          "es": "Establecer la temperatura de la herramienta a [[target_temperature]]",
+          "da": "Indstil værktøjets temperatur til [[target_temperature]]",
+          "ru": "Установить температуру инструмента на [[target_temperature]]",
+          "pl": "Ustaw temperaturę narzędzia na [[target_temperature]]",
+          "ko": "툴 온도를 [[target_temperature]]로 설정"
         },
         "args": [
           {
@@ -1207,7 +2217,17 @@
           {
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "name": "target_temperature",
             "type": "range",
@@ -1223,11 +2243,31 @@
         "id": "target_temperature_set_chamber",
         "title": {
           "en": "Set the chamber temperature",
-          "nl": "Stel de behuizingstemperatuur in"
+          "nl": "Stel de behuizingstemperatuur in",
+          "de": "Stelle die Kammertemperatur ein",
+          "fr": "Définir la température de la chambre",
+          "it": "Imposta la temperatura della camera",
+          "sv": "Ställ in kammartemperaturen",
+          "no": "Sett kammerets temperatur",
+          "es": "Establecer la temperatura de la cámara",
+          "da": "Indstil kammerets temperatur",
+          "ru": "Установить температуру камеры",
+          "pl": "Ustaw temperaturę komory",
+          "ko": "챔버 온도 설정"
         },
         "titleFormatted": {
           "en": "Set the chamber temperature to [[target_temperature]]",
-          "nl": "Stel de behuizingstemperatuur in op  [[target_temperature]]"
+          "nl": "Stel de behuizingstemperatuur in op [[target_temperature]]",
+          "de": "Stelle die Kammertemperatur auf [[target_temperature]] ein",
+          "fr": "Définir la température de la chambre à [[target_temperature]]",
+          "it": "Imposta la temperatura della camera a [[target_temperature]]",
+          "sv": "Ställ in kammartemperaturen till [[target_temperature]]",
+          "no": "Sett kammerets temperatur til [[target_temperature]]",
+          "es": "Establecer la temperatura de la cámara a [[target_temperature]]",
+          "da": "Indstil kammerets temperatur til [[target_temperature]]",
+          "ru": "Установить температуру камеры на [[target_temperature]]",
+          "pl": "Ustaw temperaturę komory na [[target_temperature]]",
+          "ko": "챔버 온도를 [[target_temperature]]로 설정"
         },
         "args": [
           {
@@ -1238,7 +2278,17 @@
           {
             "title": {
               "en": "Temperature",
-              "nl": "Temperatuur"
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température",
+              "it": "Temperatura",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "es": "Temperatura",
+              "da": "Temperatur",
+              "ru": "Температура",
+              "pl": "Temperatura",
+              "ko": "온도"
             },
             "name": "target_temperature",
             "type": "range",
@@ -1254,7 +2304,17 @@
         "id": "cancel_print",
         "title": {
           "en": "Cancel current print",
-          "nl": "Annuleer huidige print"
+          "nl": "Annuleer huidige print",
+          "de": "Aktuellen Druck abbrechen",
+          "fr": "Annuler l'impression en cours",
+          "it": "Annulla la stampa corrente",
+          "sv": "Avbryt aktuell utskrift",
+          "no": "Avbryt gjeldende utskrift",
+          "es": "Cancelar impresión actual",
+          "da": "Annuller nuværende udskrift",
+          "ru": "Отменить текущую печать",
+          "pl": "Anuluj bieżący wydruk",
+          "ko": "현재 프린트 취소"
         },
         "args": [
           {
@@ -1268,15 +2328,45 @@
         "id": "home_printer",
         "title": {
           "en": "Home axis (G28)",
-          "nl": "Home assen (G28)"
+          "nl": "Home assen (G28)",
+          "de": "Achse referenzieren (G28)",
+          "fr": "Axe d'origine (G28)",
+          "it": "Asse di origine (G28)",
+          "sv": "Hemaxel (G28)",
+          "no": "Hjemmeakse (G28)",
+          "es": "Eje de origen (G28)",
+          "da": "Hjem akse (G28)",
+          "ru": "Калибровка осей (G28)",
+          "pl": "Oś domowa (G28)",
+          "ko": "홈 축 (G28)"
         },
         "titleFormatted": {
           "en": "Home axis: G28 [[axis]]",
-          "nl": "Home assen: G28 [[axis]]"
+          "nl": "Home assen: G28 [[axis]]",
+          "de": "Achse referenzieren: G28 [[axis]]",
+          "fr": "Axe d'origine : G28 [[axis]]",
+          "it": "Asse di origine: G28 [[axis]]",
+          "sv": "Hemaxel: G28 [[axis]]",
+          "no": "Hjemmeakse: G28 [[axis]]",
+          "es": "Eje de origen: G28 [[axis]]",
+          "da": "Hjem akse: G28 [[axis]]",
+          "ru": "Калибровка осей: G28 [[axis]]",
+          "pl": "Oś domowa: G28 [[axis]]",
+          "ko": "홈 축: G28 [[axis]]"
         },
         "hint": {
           "en": "Home any or all axis (G28), if you don't fill in a axis it will home all 3 axis",
-          "nl": "Home elke of all assen (G28), als je niks invult zal hij alle 3 assen op thuis zetten"
+          "nl": "Home elke of alle assen (G28), als je niks invult zal hij alle 3 assen op thuis zetten",
+          "de": "Referenziere eine oder alle Achsen (G28), wenn du keine Achse angibst, werden alle 3 Achsen referenziert",
+          "fr": "Rentrer un ou tous les axes (G28), si vous ne remplissez pas un axe, il rentrera les 3 axes",
+          "it": "Home di uno o tutti gli assi (G28), se non inserisci un asse farà l'home di tutti e 3 gli assi",
+          "sv": "Hem någon eller alla axlar (G28), om du inte fyller i en axel kommer den hem alla 3 axlar",
+          "no": "Hjem en eller alle akser (G28), hvis du ikke fyller inn en akse vil den hjem alle 3 akser",
+          "es": "Home de cualquier eje o todos los ejes (G28), si no rellenas un eje, hará home de los 3 ejes",
+          "da": "Hjem en eller alle akser (G28), hvis du ikke udfylder en akse, vil den hjem alle 3 akser",
+          "ru": "Калибровка любой или всех осей (G28), если вы не укажете ось, будет откалибровано все 3 оси",
+          "pl": "Home dowolnej lub wszystkich osi (G28), jeśli nie wypełnisz osi, będzie home wszystkich 3 osi",
+          "ko": "하나 또는 모든 축을 홈 위치로 이동합니다 (G28), 축을 입력하지 않으면 모든 3개의 축을 홈 위치로 이동합니다"
         },
         "args": [
           {
@@ -1287,7 +2377,17 @@
           {
             "title": {
               "en": "Axis/custom",
-              "nl": "Assen/overige"
+              "nl": "Assen/overige",
+              "de": "Achse/Benutzerdefiniert",
+              "fr": "Axe/personnalisé",
+              "it": "Asse/personalizzato",
+              "sv": "Axel/anpassad",
+              "no": "Akse/tilpasset",
+              "es": "Eje/personalizado",
+              "da": "Akse/tilpasset",
+              "ru": "Ось/настройка",
+              "pl": "Oś/niestandardowa",
+              "ko": "축/사용자 정의"
             },
             "name": "axis",
             "type": "text",
@@ -1302,15 +2402,45 @@
         "id": "move_axis",
         "title": {
           "en": "Move axis (G1)",
-          "nl": "As verplaatsen (G1)"
+          "nl": "As verplaatsen (G1)",
+          "de": "Achse bewegen (G1)",
+          "fr": "Déplacer l'axe (G1)",
+          "it": "Muovi asse (G1)",
+          "sv": "Flytta axel (G1)",
+          "no": "Flytt akse (G1)",
+          "es": "Mover eje (G1)",
+          "da": "Flyt akse (G1)",
+          "ru": "Переместить ось (G1)",
+          "pl": "Przesuń oś (G1)",
+          "ko": "축 이동 (G1)"
         },
         "titleFormatted": {
           "en": "Move [[axis]] to [[position]] with a speed of [[speed]]",
-          "nl": "Verplaats [[axis]] naar [[position]] met een snelheid van [[speed]]"
+          "nl": "Verplaats [[axis]] naar [[position]] met een snelheid van [[speed]]",
+          "de": "Bewege [[axis]] zu [[position]] mit einer Geschwindigkeit von [[speed]]",
+          "fr": "Déplacer [[axis]] à [[position]] avec une vitesse de [[speed]]",
+          "it": "Muovi [[axis]] a [[position]] con una velocità di [[speed]]",
+          "sv": "Flytta [[axis]] till [[position]] med en hastighet av [[speed]]",
+          "no": "Flytt [[axis]] til [[position]] med en hastighet på [[speed]]",
+          "es": "Mover [[axis]] a [[position]] con una velocidad de [[speed]]",
+          "da": "Flyt [[axis]] til [[position]] med en hastighed på [[speed]]",
+          "ru": "Переместить [[axis]] к [[position]] со скоростью [[speed]]",
+          "pl": "Przesuń [[axis]] do [[position]] z prędkością [[speed]]",
+          "ko": "[[axis]]를 [[position]]으로 [[speed]] 속도로 이동"
         },
         "hint": {
           "en": "Move axis to a set position (G1), speed is optional (default: 3000)",
-          "nl": "Verplaats as naar een ingestelde positie (G1), snelheid is optioneel (standaard: 3000)"
+          "nl": "Verplaats as naar een ingestelde positie (G1), snelheid is optioneel (standaard: 3000)",
+          "de": "Bewege Achse zu einer festgelegten Position (G1), Geschwindigkeit ist optional (Standard: 3000)",
+          "fr": "Déplacer l'axe à une position définie (G1), la vitesse est optionnelle (par défaut : 3000)",
+          "it": "Muovi asse a una posizione impostata (G1), la velocità è opzionale (default: 3000)",
+          "sv": "Flytta axel till en inställd position (G1), hastighet är valfritt (standard: 3000)",
+          "no": "Flytt akse til en satt posisjon (G1), hastighet er valgfritt (standard: 3000)",
+          "es": "Mover eje a una posición establecida (G1), la velocidad es opcional (por defecto: 3000)",
+          "da": "Flyt akse til en indstillet position (G1), hastighed er valgfrit (standard: 3000)",
+          "ru": "Переместить ось в заданное положение (G1), скорость необязательна (по умолчанию: 3000)",
+          "pl": "Przesuń oś do ustawionej pozycji (G1), prędkość jest opcjonalna (domyślnie: 3000)",
+          "ko": "축을 설정된 위치로 이동합니다 (G1), 속도는 선택 사항입니다 (기본값: 3000)"
         },
         "args": [
           {
@@ -1321,7 +2451,17 @@
           {
             "title": {
               "en": "Axis",
-              "nl": "As"
+              "nl": "As",
+              "de": "Achse",
+              "fr": "Axe",
+              "it": "Asse",
+              "sv": "Axel",
+              "no": "Akse",
+              "es": "Eje",
+              "da": "Akse",
+              "ru": "Ось",
+              "pl": "Oś",
+              "ko": "축"
             },
             "name": "axis",
             "type": "dropdown",
@@ -1330,28 +2470,68 @@
                 "id": "X",
                 "label": {
                   "en": "X axis",
-                  "nl": "X as"
+                  "nl": "X as",
+                  "de": "X Achse",
+                  "fr": "Axe X",
+                  "it": "Asse X",
+                  "sv": "X-axel",
+                  "no": "X-akse",
+                  "es": "Eje X",
+                  "da": "X-akse",
+                  "ru": "Ось X",
+                  "pl": "Oś X",
+                  "ko": "X 축"
                 }
               },
               {
                 "id": "Y",
                 "label": {
                   "en": "Y axis",
-                  "nl": "Y as"
+                  "nl": "Y as",
+                  "de": "Y Achse",
+                  "fr": "Axe Y",
+                  "it": "Asse Y",
+                  "sv": "Y-axel",
+                  "no": "Y-akse",
+                  "es": "Eje Y",
+                  "da": "Y-akse",
+                  "ru": "Ось Y",
+                  "pl": "Oś Y",
+                  "ko": "Y 축"
                 }
               },
               {
                 "id": "Z",
                 "label": {
                   "en": "Z axis",
-                  "nl": "Z as"
+                  "nl": "Z as",
+                  "de": "Z Achse",
+                  "fr": "Axe Z",
+                  "it": "Asse Z",
+                  "sv": "Z-axel",
+                  "no": "Z-akse",
+                  "es": "Eje Z",
+                  "da": "Z-akse",
+                  "ru": "Ось Z",
+                  "pl": "Oś Z",
+                  "ko": "Z 축"
                 }
               },
               {
                 "id": "E",
                 "label": {
                   "en": "Extruder",
-                  "nl": "Extruder"
+                  "nl": "Extruder",
+                  "de": "Extruder",
+                  "fr": "Extrudeuse",
+                  "it": "Estrusore",
+                  "sv": "Extruder",
+                  "no": "Ekstruder",
+                  "es": "Extrusora",
+                  "da": "Ekstruder",
+                  "ru": "Экструдер",
+                  "pl": "Ekstruder",
+                  "ko": "익스트루더"
                 }
               }
             ]
@@ -1359,7 +2539,17 @@
           {
             "title": {
               "en": "Position",
-              "nl": "Positie"
+              "nl": "Positie",
+              "de": "Position",
+              "fr": "Position",
+              "it": "Posizione",
+              "sv": "Position",
+              "no": "Posisjon",
+              "es": "Posición",
+              "da": "Position",
+              "ru": "Позиция",
+              "pl": "Pozycja",
+              "ko": "위치"
             },
             "name": "position",
             "type": "number"
@@ -1367,7 +2557,17 @@
           {
             "title": {
               "en": "Speed",
-              "nl": "Snelheid"
+              "nl": "Snelheid",
+              "de": "Geschwindigkeit",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "sv": "Hastighet",
+              "no": "Hastighet",
+              "es": "Velocidad",
+              "da": "Hastighed",
+              "ru": "Скорость",
+              "pl": "Prędkość",
+              "ko": "속도"
             },
             "name": "speed",
             "type": "number",
@@ -1383,15 +2583,45 @@
         "id": "send_g_code",
         "title": {
           "en": "Send a G-Code",
-          "nl": "Stuur een G-Code"
+          "nl": "Stuur een G-Code",
+          "de": "Sende einen G-Code",
+          "fr": "Envoyer un G-Code",
+          "it": "Invia un G-Code",
+          "sv": "Skicka en G-kod",
+          "no": "Send en G-kode",
+          "es": "Enviar un G-Code",
+          "da": "Send en G-kode",
+          "ru": "Отправить G-код",
+          "pl": "Wyślij kod G",
+          "ko": "G-Code 전송"
         },
         "titleFormatted": {
           "en": "Send G-Code: [[gcode]]",
-          "nl": "Stuur G-Code: [[gcode]]"
+          "nl": "Stuur G-Code: [[gcode]]",
+          "de": "Sende G-Code: [[gcode]]",
+          "fr": "Envoyer G-Code : [[gcode]]",
+          "it": "Invia G-Code: [[gcode]]",
+          "sv": "Skicka G-kod: [[gcode]]",
+          "no": "Send G-kode: [[gcode]]",
+          "es": "Enviar G-Code: [[gcode]]",
+          "da": "Send G-kode: [[gcode]]",
+          "ru": "Отправить G-код: [[gcode]]",
+          "pl": "Wyślij G-kod: [[gcode]]",
+          "ko": "G-Code 전송: [[gcode]]"
         },
         "hint": {
-          "en": "Send any G-Code to the printer.\nDo be careful!\n\nYou can send multiple G-Codes by seperating them with a semicolon ( ; ).",
-          "nl": "Stuur elke G-Code naar de printer.\nWees wel voorzichtig!\n\nJe kunt meerdere G-Codes sturen door ze met een puntkomma ( ; ) te scheiden."
+          "en": "Send any G-Code to the printer.\nDo be careful!\n\nYou can send multiple G-Codes by separating them with a semicolon ( ; ).",
+          "nl": "Stuur elke G-Code naar de printer.\nWees wel voorzichtig!\n\nJe kunt meerdere G-Codes sturen door ze met een puntkomma ( ; ) te scheiden.",
+          "de": "Sende beliebigen G-Code an den Drucker.\nSei vorsichtig!\n\nDu kannst mehrere G-Codes senden, indem du sie mit einem Semikolon ( ; ) trennst.",
+          "fr": "Envoyez n'importe quel G-Code à l'imprimante.\nSoyez prudent !\n\nVous pouvez envoyer plusieurs G-Codes en les séparant par un point-virgule ( ; ).",
+          "it": "Invia qualsiasi G-Code alla stampante.\nFai attenzione!\n\nPuoi inviare più G-Code separandoli con un punto e virgola ( ; ).",
+          "sv": "Skicka valfri G-kod till skrivaren.\nVar försiktig!\n\nDu kan skicka flera G-koder genom att separera dem med ett semikolon ( ; ).",
+          "no": "Send hvilken som helst G-kode til skriveren.\nVær forsiktig!\n\nDu kan sende flere G-koder ved å skille dem med et semikolon ( ; ).",
+          "es": "Envía cualquier G-Code a la impresora.\n¡Ten cuidado!\n\nPuedes enviar múltiples G-Codes separándolos con un punto y coma ( ; ).",
+          "da": "Send enhver G-kode til printeren.\nVær forsigtig!\n\nDu kan sende flere G-koder ved at adskille dem med et semikolon ( ; ).",
+          "ru": "Отправьте любой G-код на принтер.\nБудьте осторожны!\n\nВы можете отправить несколько G-кодов, разделив их точкой с запятой ( ; ).",
+          "pl": "Wyślij dowolny kod G do drukarki.\nBądź ostrożny!\n\nMożesz wysłać wiele kodów G, oddzielając je średnikiem ( ; ).",
+          "ko": "프린터에 임의의 G-Code를 보냅니다.\n주의하세요!\n\n세미콜론( ; )으로 구분하여 여러 G-Code를 보낼 수 있습니다."
         },
         "args": [
           {
@@ -1402,7 +2632,17 @@
           {
             "title": {
               "en": "G-Code",
-              "nl": "G-Code"
+              "nl": "G-Code",
+              "de": "G-Code",
+              "fr": "G-Code",
+              "it": "G-Code",
+              "sv": "G-kod",
+              "no": "G-kode",
+              "es": "G-Code",
+              "da": "G-kode",
+              "ru": "G-код",
+              "pl": "G-kod",
+              "ko": "G-Code"
             },
             "name": "gcode",
             "type": "text",
@@ -1416,15 +2656,45 @@
         "id": "display_message",
         "title": {
           "en": "Display a message",
-          "nl": "Bericht weergeven"
+          "nl": "Bericht weergeven",
+          "de": "Nachricht anzeigen",
+          "fr": "Afficher un message",
+          "it": "Visualizza un messaggio",
+          "sv": "Visa ett meddelande",
+          "no": "Vis en melding",
+          "es": "Mostrar un mensaje",
+          "da": "Vis en besked",
+          "ru": "Отобразить сообщение",
+          "pl": "Wyświetl wiadomość",
+          "ko": "메시지 표시"
         },
         "titleFormatted": {
           "en": "Display a message: [[message]]",
-          "nl": "Een bericht weergeven: [[message]]"
+          "nl": "Een bericht weergeven: [[message]]",
+          "de": "Nachricht anzeigen: [[message]]",
+          "fr": "Afficher un message : [[message]]",
+          "it": "Visualizza un messaggio: [[message]]",
+          "sv": "Visa ett meddelande: [[message]]",
+          "no": "Vis en melding: [[message]]",
+          "es": "Mostrar un mensaje: [[message]]",
+          "da": "Vis en besked: [[message]]",
+          "ru": "Отобразить сообщение: [[message]]",
+          "pl": "Wyświetl wiadomość: [[message]]",
+          "ko": "메시지 표시: [[message]]"
         },
         "hint": {
           "en": "Display a message in the printer's display (M117)",
-          "nl": "Een bericht weergeven op de printer zijn display (M117)"
+          "nl": "Een bericht weergeven op de printer zijn display (M117)",
+          "de": "Zeige eine Nachricht im Display des Druckers an (M117)",
+          "fr": "Afficher un message sur l'écran de l'imprimante (M117)",
+          "it": "Visualizza un messaggio sul display della stampante (M117)",
+          "sv": "Visa ett meddelande på skrivardisplayen (M117)",
+          "no": "Vis en melding på skriverens display (M117)",
+          "es": "Mostrar un mensaje en la pantalla de la impresora (M117)",
+          "da": "Vis en besked på printerens display (M117)",
+          "ru": "Отобразить сообщение на дисплее принтера (M117)",
+          "pl": "Wyświetl wiadomość na wyświetlaczu drukarki (M117)",
+          "ko": "프린터 디스플레이에 메시지 표시 (M117)"
         },
         "args": [
           {
@@ -1435,7 +2705,17 @@
           {
             "title": {
               "en": "Message",
-              "nl": "Bericht"
+              "nl": "Bericht",
+              "de": "Nachricht",
+              "fr": "Message",
+              "it": "Messaggio",
+              "sv": "Meddelande",
+              "no": "Melding",
+              "es": "Mensaje",
+              "da": "Besked",
+              "ru": "Сообщение",
+              "pl": "Wiadomość",
+              "ko": "메시지"
             },
             "name": "message",
             "type": "text",
@@ -1450,7 +2730,17 @@
         "id": "emergency_stop_m112",
         "title": {
           "en": "Emergency stop (M112)",
-          "nl": "Noodstop (M112)"
+          "nl": "Noodstop (M112)",
+          "de": "Notaus (M112)",
+          "fr": "Arrêt d'urgence (M112)",
+          "it": "Arresto di emergenza (M112)",
+          "sv": "Nödstopp (M112)",
+          "no": "Nødstopp (M112)",
+          "es": "Parada de emergencia (M112)",
+          "da": "Nødstop (M112)",
+          "ru": "Аварийная остановка (M112)",
+          "pl": "Awaryjne zatrzymanie (M112)",
+          "ko": "비상 정지 (M112)"
         },
         "args": [
           {
@@ -1463,7 +2753,18 @@
       {
         "id": "reboot_raspberry",
         "title": {
-          "en": "Reboot Raspberry Pi"
+          "en": "Reboot Raspberry Pi",
+          "nl": "Herstart Raspberry Pi",
+          "de": "Raspberry Pi neu starten",
+          "fr": "Redémarrer le Raspberry Pi",
+          "it": "Riavvia Raspberry Pi",
+          "sv": "Starta om Raspberry Pi",
+          "no": "Omstart Raspberry Pi",
+          "es": "Reiniciar Raspberry Pi",
+          "da": "Genstart Raspberry Pi",
+          "ru": "Перезагрузить Raspberry Pi",
+          "pl": "Zrestartuj Raspberry Pi",
+          "ko": "라즈베리 파이 재부팅"
         },
         "args": [
           {
@@ -1476,7 +2777,18 @@
       {
         "id": "shutdown_raspberry",
         "title": {
-          "en": "Shutdown Raspberry Pi"
+          "en": "Shutdown Raspberry Pi",
+          "nl": "Afsluiten Raspberry Pi",
+          "de": "Raspberry Pi herunterfahren",
+          "fr": "Éteindre le Raspberry Pi",
+          "it": "Spegnere Raspberry Pi",
+          "sv": "Stäng av Raspberry Pi",
+          "no": "Slå av Raspberry Pi",
+          "es": "Apagar Raspberry Pi",
+          "da": "Luk ned Raspberry Pi",
+          "ru": "Выключить Raspberry Pi",
+          "pl": "Wyłącz Raspberry Pi",
+          "ko": "라즈베리 파이 종료"
         },
         "args": [
           {
@@ -1492,7 +2804,18 @@
     {
       "id": "octoprint",
       "name": {
-        "en": "Octoprint"
+        "en": "Octoprint",
+        "nl": "Octoprint",
+        "de": "Octoprint",
+        "fr": "Octoprint",
+        "it": "Octoprint",
+        "sv": "Octoprint",
+        "no": "Octoprint",
+        "es": "Octoprint",
+        "da": "Octoprint",
+        "ru": "Octoprint",
+        "pl": "Octoprint",
+        "ko": "Octoprint"
       },
       "class": "other",
       "capabilities": [
@@ -1519,7 +2842,17 @@
         "target_temperature.bed": {
           "title": {
             "en": "Bed target temperature",
-            "nl": "Bed doel temperatuur"
+            "nl": "Bed doel temperatuur",
+            "de": "Betttemperatur Ziel",
+            "fr": "Température cible du lit",
+            "it": "Temperatura target del letto",
+            "sv": "Sängens måltemperatur",
+            "no": "Sengens måltemperatur",
+            "es": "Temperatura objetivo de la cama",
+            "da": "Sengens måltemperatur",
+            "ru": "Целевая температура стола",
+            "pl": "Docelowa temperatura stołu",
+            "ko": "베드 목표 온도"
           },
           "min": 0,
           "max": 130,
@@ -1528,7 +2861,17 @@
         "target_temperature.tool": {
           "title": {
             "en": "Tool target temperature",
-            "nl": "Hotend doel temperatuur"
+            "nl": "Hotend doel temperatuur",
+            "de": "Werkzeug-Zieltemperatur",
+            "fr": "Température cible de l'outil",
+            "it": "Temperatura target dello strumento",
+            "sv": "Verktygets måltemperatur",
+            "no": "Verktøyets måltemperatur",
+            "es": "Temperatura objetivo de la herramienta",
+            "da": "Værktøjets måltemperatur",
+            "ru": "Целевая температура инструмента",
+            "pl": "Docelowa temperatura narzędzia",
+            "ko": "툴 목표 온도"
           },
           "min": 0,
           "max": 300,
@@ -1537,7 +2880,17 @@
         "target_temperature.chamber": {
           "title": {
             "en": "Chamber target temperature",
-            "nl": "Behuizing doel temperatuur"
+            "nl": "Behuizing doel temperatuur",
+            "de": "Chamber Zieltemperatur",
+            "fr": "Température cible de la chambre",
+            "it": "Temperatura target della camera",
+            "sv": "Kammarets måltemperatur",
+            "no": "Kammerens måltemperatur",
+            "es": "Temperatura objetivo de la cámara",
+            "da": "Kammerens måltemperatur",
+            "ru": "Целевая температура камеры",
+            "pl": "Docelowa temperatura komory",
+            "ko": "챔버 목표 온도"
           },
           "min": 0,
           "max": 75,
@@ -1546,61 +2899,161 @@
         "measure_temperature.bed": {
           "title": {
             "en": "Current bed temperature",
-            "nl": "Huidige bed temperatuur"
+            "nl": "Huidige bed temperatuur",
+            "de": "Aktuelle Betttemperatur",
+            "fr": "Température actuelle du lit",
+            "it": "Temperatura attuale del letto",
+            "sv": "Aktuell sängtemperatur",
+            "no": "Nåværende sengtemperatur",
+            "es": "Temperatura actual de la cama",
+            "da": "Nuværende sengtemperatur",
+            "ru": "Текущая температура стола",
+            "pl": "Aktualna temperatura stołu",
+            "ko": "현재 베드 온도"
           },
           "decimals": 1
         },
         "measure_temperature.tool": {
           "title": {
             "en": "Current tool temperature",
-            "nl": "Huidige hotend temperatuur"
+            "nl": "Huidige hotend temperatuur",
+            "de": "Aktuelle Werkzeugtemperatur",
+            "fr": "Température actuelle de l'outil",
+            "it": "Temperatura attuale dello strumento",
+            "sv": "Aktuell verktygs temperatur",
+            "no": "Nåværende verktøy temperatur",
+            "es": "Temperatura actual de la herramienta",
+            "da": "Nuværende værktøjtemperatur",
+            "ru": "Текущая температура инструмента",
+            "pl": "Aktualna temperatura narzędzia",
+            "ko": "현재 툴 온도"
           },
           "decimals": 1
         },
         "measure_temperature.chamber": {
           "title": {
             "en": "Current chamber temperature",
-            "nl": "Huidige behuizingstemperatuur"
+            "nl": "Huidige behuizingstemperatuur",
+            "de": "Aktuelle Kammertemperatur",
+            "fr": "Température actuelle de la chambre",
+            "it": "Temperatura attuale della camera",
+            "sv": "Aktuell kammer temperatur",
+            "no": "Nåværende kammer temperatur",
+            "es": "Temperatura actual de la cámara",
+            "da": "Nuværende kammer temperatur",
+            "ru": "Текущая температура камеры",
+            "pl": "Aktualna temperatura komory",
+            "ko": "현재 챔버 온도"
           },
           "decimals": 0
         },
         "measure_completion": {
           "title": {
             "en": "Print completion",
-            "nl": "Print voltooiing"
+            "nl": "Print voltooiing",
+            "de": "Druckabschluss",
+            "fr": "Achèvement de l'impression",
+            "it": "Completamento stampa",
+            "sv": "Skrivningsslutförande",
+            "no": "Skrivefullføring",
+            "es": "Finalización de la impresión",
+            "da": "Udsprintning færdiggørelse",
+            "ru": "Завершение печати",
+            "pl": "Zakończenie druku",
+            "ko": "인쇄 완료"
           }
         },
         "button.restart_octoprint": {
           "maintenanceAction": true,
           "title": {
             "en": "Restart octoprint",
-            "nl": "Octoprint opnieuw opstarten"
+            "nl": "Octoprint opnieuw opstarten",
+            "de": "Octoprint neu starten",
+            "fr": "Redémarrer Octoprint",
+            "it": "Riavvia Octoprint",
+            "sv": "Starta om Octoprint",
+            "no": "Start Octoprint på nytt",
+            "es": "Reiniciar Octoprint",
+            "da": "Genstart Octoprint",
+            "ru": "Перезапустить Octoprint",
+            "pl": "Restart Octoprint",
+            "ko": "Octoprint 재시작"
           },
           "desc": {
             "en": "When the printer isn't printing, then you can restart Octoprint with this button",
-            "nl": "Als de printer niet aan het printen is, kan je met deze knop Octoprint opnieuw laten starten."
+            "nl": "Als de printer niet aan het printen is, kan je met deze knop Octoprint opnieuw laten starten.",
+            "de": "Wenn der Drucker nicht druckt, können Sie Octoprint mit dieser Taste neu starten.",
+            "fr": "Lorsque l'imprimante n'imprime pas, vous pouvez redémarrer Octoprint avec ce bouton",
+            "it": "Quando la stampante non sta stampando, puoi riavviare Octoprint con questo pulsante",
+            "sv": "När skrivaren inte skriver ut kan du starta om Octoprint med denna knapp",
+            "no": "Når skriveren ikke skriver ut, kan du starte Octoprint på nytt med denne knappen",
+            "es": "Cuando la impresora no está imprimiendo, puedes reiniciar Octoprint con este botón",
+            "da": "Når printeren ikke printer, kan du genstarte Octoprint med denne knap",
+            "ru": "Когда принтер не печатает, вы можете перезапустить Octoprint этой кнопкой",
+            "pl": "Gdy drukarka nie drukuje, możesz zrestartować Octoprint za pomocą tego przycisku",
+            "ko": "프린터가 인쇄하지 않을 때 이 버튼으로 Octoprint를 재시작할 수 있습니다."
           }
         },
         "button.reboot_raspberry": {
           "maintenanceAction": true,
           "title": {
             "en": "Reboot Raspberry Pi",
-            "nl": "Raspberry Pi opnieuw opstarten"
+            "nl": "Raspberry Pi opnieuw opstarten",
+            "de": "Raspberry Pi neu starten",
+            "fr": "Redémarrer le Raspberry Pi",
+            "it": "Riavvia Raspberry Pi",
+            "sv": "Starta om Raspberry Pi",
+            "no": "Start Raspberry Pi på nytt",
+            "es": "Reiniciar Raspberry Pi",
+            "da": "Genstart Raspberry Pi",
+            "ru": "Перезагрузить Raspberry Pi",
+            "pl": "Restart Raspberry Pi",
+            "ko": "Raspberry Pi 재부팅"
           },
           "desc": {
             "en": "When the printer isn't printing, then you can restart the Raspberry Pi with this button",
-            "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi opnieuw laten starten."
+            "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi opnieuw laten starten.",
+            "de": "Wenn der Drucker nicht druckt, können Sie den Raspberry Pi mit dieser Taste neu starten.",
+            "fr": "Lorsque l'imprimante n'imprime pas, vous pouvez redémarrer le Raspberry Pi avec ce bouton",
+            "it": "Quando la stampante non sta stampando, puoi riavviare il Raspberry Pi con questo pulsante",
+            "sv": "När skrivaren inte skriver ut kan du starta om Raspberry Pi med denna knapp",
+            "no": "Når skriveren ikke skriver ut, kan du starte Raspberry Pi på nytt med denne knappen",
+            "es": "Cuando la impresora no está imprimiendo, puedes reiniciar el Raspberry Pi con este botón",
+            "da": "Når printeren ikke printer, kan du genstarte Raspberry Pi med denne knap",
+            "ru": "Когда принтер не печатает, вы можете перезапустить Raspberry Pi этой кнопкой",
+            "pl": "Gdy drukarka nie drukuje, możesz zrestartować Raspberry Pi za pomocą tego przycisku",
+            "ko": "프린터가 인쇄하지 않을 때 이 버튼으로 Raspberry Pi를 재시작할 수 있습니다."
           }
         },
         "button.shutdown_raspberry": {
           "maintenanceAction": true,
           "title": {
             "en": "Shutdown Raspberry Pi",
-            "nl": "Raspberry Pi afsluiten"
+            "nl": "Raspberry Pi afsluiten",
+            "de": "Raspberry Pi herunterfahren",
+            "fr": "Éteindre le Raspberry Pi",
+            "it": "Spegni Raspberry Pi",
+            "sv": "Stäng av Raspberry Pi",
+            "no": "Slå av Raspberry Pi",
+            "es": "Apagar Raspberry Pi",
+            "da": "Luk Raspberry Pi",
+            "ru": "Выключить Raspberry Pi",
+            "pl": "Wyłącz Raspberry Pi",
+            "ko": "Raspberry Pi 종료"
           },
           "desc": {
             "en": "When the printer isn't printing, then you can shutdown the Raspberry Pi with this button",
-            "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi afsluiten."
+            "nl": "Als de printer niet aan het printen is, kan je met deze knop de Raspberry Pi afsluiten.",
+            "de": "Wenn der Drucker nicht druckt, können Sie den Raspberry Pi mit dieser Taste herunterfahren.",
+            "fr": "Lorsque l'imprimante n'imprime pas, vous pouvez éteindre le Raspberry Pi avec ce bouton",
+            "it": "Quando la stampante non sta stampando, puoi spegnere il Raspberry Pi con questo pulsante",
+            "sv": "När skrivaren inte skriver ut kan du stänga av Raspberry Pi med denna knapp",
+            "no": "Når skriveren ikke skriver ut, kan du slå av Raspberry Pi med denne knappen",
+            "es": "Cuando la impresora no está imprimiendo, puedes apagar el Raspberry Pi con este botón",
+            "da": "Når printeren ikke printer, kan du lukke Raspberry Pi med denne knap",
+            "ru": "Когда принтер не печатает, вы можете выключить Raspberry Pi этой кнопкой",
+            "pl": "Gdy drukarka nie drukuje, możesz wyłączyć Raspberry Pi za pomocą tego przycisku",
+            "ko": "프린터가 인쇄하지 않을 때 이 버튼으로 Raspberry Pi를 종료할 수 있습니다."
           }
         }
       },
@@ -1619,8 +3072,17 @@
           "type": "group",
           "label": {
             "en": "Octoprint settings",
-            "no": "Octoprint instillinger",
-            "nl": "Octoprint instellingen"
+            "no": "Octoprint innstillinger",
+            "nl": "Octoprint instellingen",
+            "de": "Octoprint Einstellungen",
+            "fr": "Paramètres Octoprint",
+            "it": "Impostazioni Octoprint",
+            "sv": "Octoprint-inställningar",
+            "es": "Configuración de Octoprint",
+            "da": "Octoprint indstillinger",
+            "ru": "Настройки Octoprint",
+            "pl": "Ustawienia Octoprint",
+            "ko": "Octoprint 설정"
           },
           "children": [
             {
@@ -1628,8 +3090,17 @@
               "type": "text",
               "label": {
                 "en": "IP address",
-                "no": "IP address",
-                "nl": "IP address"
+                "no": "IP adresse",
+                "nl": "IP-adres",
+                "de": "IP-Adresse",
+                "fr": "Adresse IP",
+                "it": "Indirizzo IP",
+                "sv": "IP-adress",
+                "es": "Dirección IP",
+                "da": "IP-adresse",
+                "ru": "IP-адрес",
+                "pl": "Adres IP",
+                "ko": "IP 주소"
               },
               "value": ""
             },
@@ -1638,8 +3109,17 @@
               "type": "text",
               "label": {
                 "en": "API key",
-                "no": "API key",
-                "nl": "API key"
+                "no": "API-nøkkel",
+                "nl": "API-sleutel",
+                "de": "API-Schlüssel",
+                "fr": "Clé API",
+                "it": "Chiave API",
+                "sv": "API-nyckel",
+                "es": "Clave API",
+                "da": "API-nøgle",
+                "ru": "API ключ",
+                "pl": "Klucz API",
+                "ko": "API 키"
               },
               "value": ""
             },
@@ -1648,21 +3128,48 @@
               "type": "number",
               "label": {
                 "en": "Polling interval",
-                "no": "Polling interval",
-                "nl": "Polling-interval"
+                "no": "Polling intervall",
+                "nl": "Polling-interval",
+                "de": "Polling-Intervall",
+                "fr": "Intervalle de sondage",
+                "it": "Intervallo di polling",
+                "sv": "Pollingintervall",
+                "es": "Intervalo de sondeo",
+                "da": "Pollinginterval",
+                "ru": "Интервал опроса",
+                "pl": "Interwał sondowania",
+                "ko": "폴링 간격"
               },
               "value": 10,
               "min": 10,
               "max": 3600,
               "units": {
                 "en": "seconds",
-                "no": "seconds",
-                "nl": "seconden"
+                "no": "sekunder",
+                "nl": "seconden",
+                "de": "Sekunden",
+                "fr": "secondes",
+                "it": "secondi",
+                "sv": "sekunder",
+                "es": "segundos",
+                "da": "sekunder",
+                "ru": "секунд",
+                "pl": "sekund",
+                "ko": "초"
               },
               "hint": {
                 "en": "Determine how often to poll for the changes (default 10 seconds).",
-                "no": "Determine how often to poll for the changes (default 10 seconds).",
-                "nl": "Bepaal hoe vaak er gepeild zal worden naar wijzigingen (standaard 10 seconden)."
+                "no": "Bestem hvor ofte du vil poll for endringer (standard 10 sekunder).",
+                "nl": "Bepaal hoe vaak er gepeild zal worden naar wijzigingen (standaard 10 seconden).",
+                "de": "Bestimmen Sie, wie oft nach Änderungen gepollt werden soll (Standard 10 Sekunden).",
+                "fr": "Déterminez la fréquence de sondage des changements (par défaut 10 secondes).",
+                "it": "Determina la frequenza di polling per le modifiche (predefinito 10 secondi).",
+                "sv": "Bestäm hur ofta du vill pollera för ändringar (standard 10 sekunder).",
+                "es": "Determine con qué frecuencia sondear los cambios (predeterminado 10 segundos).",
+                "da": "Bestem hvor ofte du vil poll for ændringer (standard 10 sekunder).",
+                "ru": "Определите, как часто опрашивать изменения (по умолчанию 10 секунд).",
+                "pl": "Określ, jak często sondować zmiany (domyślnie 10 sekund).",
+                "ko": "변경 사항을 폴링할 빈도를 결정합니다(기본값 10초)."
               }
             },
             {
@@ -1671,7 +3178,16 @@
               "label": {
                 "en": "Use Snapshot",
                 "no": "Bruk øyeblikksbilde",
-                "nl": "Gebruik snapshot"
+                "nl": "Gebruik snapshot",
+                "de": "Snapshot verwenden",
+                "fr": "Utiliser un snapshot",
+                "it": "Usa Snapshot",
+                "sv": "Använd Snapshot",
+                "es": "Usar instantánea",
+                "da": "Brug snapshot",
+                "ru": "Использовать снимок",
+                "pl": "Użyj migawki",
+                "ko": "스냅샷 사용"
               },
               "value": false
             },
@@ -1681,13 +3197,31 @@
               "label": {
                 "en": "Snapshot URL",
                 "no": "Lenke til øyeblikksbilde",
-                "nl": "Snapshot URL"
+                "nl": "Snapshot URL",
+                "de": "Snapshot-URL",
+                "fr": "URL du snapshot",
+                "it": "URL Snapshot",
+                "sv": "Snapshot-URL",
+                "es": "URL de instantánea",
+                "da": "Snapshot URL",
+                "ru": "URL снимка",
+                "pl": "URL migawki",
+                "ko": "스냅샷 URL"
               },
               "value": "",
               "hint": {
-                "en": "Provide an URL to a camera still image to be used in flows.",
-                "no": "Legg inn adresse til øyeblikksbilde som igjen kan benyttes i flows.",
-                "nl": "Geef een URL op van de camera die gebruikt word voor foto's in flows."
+                "en": "Provide a URL to a camera still image to be used in flows.",
+                "no": "Gi en URL til et kamera stillbilde som skal brukes i flows.",
+                "nl": "Geef een URL op van de camera die gebruikt wordt voor foto's in flows.",
+                "de": "Geben Sie eine URL zu einem Standbild der Kamera an, das in Flows verwendet werden soll.",
+                "fr": "Fournissez une URL vers une image fixe de la caméra à utiliser dans les flux.",
+                "it": "Fornisci un URL a un'immagine fissa della telecamera da utilizzare nei flussi.",
+                "sv": "Ange en URL till en stillbild från kameran som ska användas i flöden.",
+                "es": "Proporcione una URL a una imagen fija de la cámara para usar en flujos.",
+                "da": "Angiv en URL til et kamera stillbillede, der skal bruges i flows.",
+                "ru": "Предоставьте URL к статичному изображению камеры для использования в потоках.",
+                "pl": "Podaj URL do statycznego obrazu z kamery, który ma być używany w przepływach.",
+                "ko": "흐름에서 사용할 카메라 정지 이미지의 URL을 제공하십시오."
               }
             },
             {
@@ -1696,12 +3230,30 @@
               "label": {
                 "en": "Heated bed",
                 "no": "Oppvarmet seng",
-                "nl": "Verwarmd bed"
+                "nl": "Verwarmd bed",
+                "de": "Beheiztes Bett",
+                "fr": "Plateau chauffant",
+                "it": "Letto riscaldato",
+                "sv": "Uppvärmad säng",
+                "es": "Cama calefactada",
+                "da": "Opvarmet seng",
+                "ru": "Нагреваемая платформа",
+                "pl": "Podgrzewana platforma",
+                "ko": "히트베드"
               },
               "hint": {
-                "en": "Enable if you have an heated bed.",
+                "en": "Enable if you have a heated bed.",
                 "no": "Aktiver hvis du har en oppvarmet seng.",
-                "nl": "Activeer als je een verwarmd bed hebt."
+                "nl": "Activeer als je een verwarmd bed hebt.",
+                "de": "Aktivieren, wenn Sie ein beheiztes Bett haben.",
+                "fr": "Activez si vous avez un plateau chauffant.",
+                "it": "Abilita se hai un letto riscaldato.",
+                "sv": "Aktivera om du har en uppvärmad säng.",
+                "es": "Habilitar si tienes una cama calefactada.",
+                "da": "Aktiver hvis du har en opvarmet seng.",
+                "ru": "Включите, если у вас есть нагреваемая платформа.",
+                "pl": "Włącz, jeśli masz podgrzewaną platformę.",
+                "ko": "히트베드가 있는 경우 활성화하십시오."
               },
               "value": true
             },
@@ -1710,13 +3262,31 @@
               "type": "checkbox",
               "label": {
                 "en": "Heated chamber",
-                "no": "Måltemperatur for kammeret",
-                "nl": "Verwarmde behuizing"
+                "no": "Oppvarmet kammer",
+                "nl": "Verwarmde behuizing",
+                "de": "Beheizte Kammer",
+                "fr": "Chambre chauffante",
+                "it": "Camera riscaldata",
+                "sv": "Uppvärmd kammare",
+                "es": "Cámara calefactada",
+                "da": "Opvarmet kammer",
+                "ru": "Нагреваемая камера",
+                "pl": "Podgrzewana komora",
+                "ko": "히트 챔버"
               },
               "hint": {
-                "en": "Enable if you have an heated chamber. Enabled, it will ignore the measured chamber temperature setting.",
-                "no": "Aktiver hvis du har et oppvarmet kammer. Aktivert, vil den ignorere den målte kammertemperatur innstillingen.",
-                "nl": "Activeer als je een verwarmde behuizing hebt. Ingeschakeld, negeert het de instelling van de gemeten behuizingstemperatuur."
+                "en": "Enable if you have a heated chamber. If enabled, it will ignore the measured chamber temperature setting.",
+                "no": "Aktiver hvis du har et oppvarmet kammer. Hvis aktivert, vil den ignorere den målte kammertemperaturinnstillingen.",
+                "nl": "Activeer als je een verwarmde behuizing hebt. Ingeschakeld, negeert het de instelling van de gemeten behuizingstemperatuur.",
+                "de": "Aktivieren, wenn Sie eine beheizte Kammer haben. Wenn aktiviert, wird die gemessene Kammertemperatur-Einstellung ignoriert.",
+                "fr": "Activez si vous avez une chambre chauffante. Si activé, il ignorera le réglage de la température de la chambre mesurée.",
+                "it": "Abilita se hai una camera riscaldata. Se abilitato, ignorerà l'impostazione della temperatura misurata della camera.",
+                "sv": "Aktivera om du har en uppvärmd kammare. Om aktiverad ignoreras inställningen för uppmätt kammertemperatur.",
+                "es": "Habilitar si tienes una cámara calefactada. Si está habilitado, ignorará la configuración de temperatura de la cámara medida.",
+                "da": "Aktiver hvis du har et opvarmet kammer. Hvis aktiveret, ignoreres den målte kammertemperaturindstilling.",
+                "ru": "Включите, если у вас есть нагреваемая камера. Если включено, будет игнорироваться настройка измеренной температуры камеры.",
+                "pl": "Włącz, jeśli masz podgrzewaną komorę. Jeśli włączone, będzie ignorować ustawienie mierzonej temperatury komory.",
+                "ko": "히트 챔버가 있는 경우 활성화하십시오. 활성화되면 측정된 챔버 온도 설정을 무시합니다."
               },
               "value": false
             },
@@ -1726,12 +3296,30 @@
               "label": {
                 "en": "Measured chamber temperature",
                 "no": "Målt kammertemperatur",
-                "nl": "Gemeten behuizingstemperatuur"
+                "nl": "Gemeten behuizingstemperatuur",
+                "de": "Gemessene Kammertemperatur",
+                "fr": "Température de la chambre mesurée",
+                "it": "Temperatura della camera misurata",
+                "sv": "Uppmätt kammertemperatur",
+                "es": "Temperatura de la cámara medida",
+                "da": "Målt kammertemperatur",
+                "ru": "Измеренная температура камеры",
+                "pl": "Mierzona temperatura komory",
+                "ko": "측정된 챔버 온도"
               },
               "hint": {
                 "en": "Enable if you measure the chamber temperature.",
-                "no": "Aktiver hvis du har et oppvarmet kammer.",
-                "nl": "Activeer als je de behuizingstemperatuur meet."
+                "no": "Aktiver hvis du måler kammertemperaturen.",
+                "nl": "Activeer als je de behuizingstemperatuur meet.",
+                "de": "Aktivieren, wenn Sie die Kammertemperatur messen.",
+                "fr": "Activez si vous mesurez la température de la chambre.",
+                "it": "Abilita se misuri la temperatura della camera.",
+                "sv": "Aktivera om du mäter kammertemperaturen.",
+                "es": "Habilitar si mides la temperatura de la cámara.",
+                "da": "Aktiver hvis du måler kammertemperaturen.",
+                "ru": "Включите, если вы измеряете температуру камеры.",
+                "pl": "Włącz, jeśli mierzysz temperaturę komory.",
+                "ko": "챔버 온도를 측정하는 경우 활성화하십시오."
               },
               "value": false
             }
@@ -1741,8 +3329,17 @@
           "type": "group",
           "label": {
             "en": "General settings",
-            "no": "Generelle instillinger",
-            "nl": "Algemene instellingen"
+            "no": "Generelle innstillinger",
+            "nl": "Algemene instellingen",
+            "de": "Allgemeine Einstellungen",
+            "fr": "Paramètres généraux",
+            "it": "Impostazioni generali",
+            "sv": "Allmänna inställningar",
+            "es": "Configuración general",
+            "da": "Generelle indstillinger",
+            "ru": "Общие настройки",
+            "pl": "Ustawienia ogólne",
+            "ko": "일반 설정"
           },
           "children": [
             {
@@ -1750,12 +3347,32 @@
               "type": "checkbox",
               "label": {
                 "en": "Accurate bed temperature",
-                "nl": "Nauwkeurige bed temperatuur"
+                "no": "Nøyaktig sengetemperatur",
+                "nl": "Nauwkeurige bed temperatuur",
+                "de": "Genauere Bett-Temperatur",
+                "fr": "Température du lit précise",
+                "it": "Temperatura del letto accurata",
+                "sv": "Exakt bäddtemperatur",
+                "es": "Temperatura de la cama precisa",
+                "da": "Nøjagtig sengetemperatur",
+                "ru": "Точная температура платформы",
+                "pl": "Dokładna temperatura platformy",
+                "ko": "정확한 베드 온도"
               },
               "value": true,
               "hint": {
                 "en": "Should the bed temperature be more accurate (1 decimal), or only have full numbers.",
-                "nl": "Zal het bed temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
+                "no": "Skal sengetemperaturen være mer nøyaktig (1 desimal), eller bare hele tall.",
+                "nl": "Zal het bed temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen.",
+                "de": "Soll die Bett-Temperatur genauer sein (1 Dezimalstelle) oder nur ganze Zahlen haben.",
+                "fr": "La température du lit doit-elle être plus précise (1 décimale) ou uniquement des nombres entiers.",
+                "it": "La temperatura del letto deve essere più accurata (1 decimale) o avere solo numeri interi.",
+                "sv": "Ska bäddtemperaturen vara mer exakt (1 decimal) eller bara ha hela siffror.",
+                "es": "¿Debe la temperatura de la cama ser más precisa (1 decimal) o solo tener números enteros?",
+                "da": "Skal sengetemperaturen være mere nøjagtig (1 decimal), eller kun have hele tal.",
+                "ru": "Должна ли температура платформы быть более точной (1 десятичная) или только целыми числами.",
+                "pl": "Czy temperatura platformy powinna być dokładniejsza (1 miejsce dziesiętne) czy tylko pełne liczby.",
+                "ko": "베드 온도가 더 정확해야 합니까(소수점 1자리) 아니면 정수만 있어야 합니까?"
               }
             },
             {
@@ -1763,12 +3380,32 @@
               "type": "checkbox",
               "label": {
                 "en": "Accurate tool temperature",
-                "nl": "Nauwkeurige hotend temperatuur"
+                "no": "Nøyaktig verktøytemperatur",
+                "nl": "Nauwkeurige hotend temperatuur",
+                "de": "Genauere Werkzeug-Temperatur",
+                "fr": "Température de l'outil précise",
+                "it": "Temperatura dello strumento accurata",
+                "sv": "Exakt verktygstemperatur",
+                "es": "Temperatura de la herramienta precisa",
+                "da": "Nøjagtig værktøjtemperatur",
+                "ru": "Точная температура инструмента",
+                "pl": "Dokładna temperatura narzędzia",
+                "ko": "정확한 도구 온도"
               },
               "value": true,
               "hint": {
                 "en": "Should the tool temperature be more accurate (1 decimal), or only have full numbers.",
-                "nl": "Zal het hotend temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen."
+                "no": "Skal verktøytemperaturen være mer nøyaktig (1 desimal), eller bare hele tall.",
+                "nl": "Zal het hotend temperatuur meer nauwkeurig zijn? (1 decimaal), of alleen volle getallen.",
+                "de": "Soll die Werkzeug-Temperatur genauer sein (1 Dezimalstelle) oder nur ganze Zahlen haben.",
+                "fr": "La température de l'outil doit-elle être plus précise (1 décimale) ou uniquement des nombres entiers.",
+                "it": "La temperatura dello strumento deve essere più accurata (1 decimale) o avere solo numeri interi.",
+                "sv": "Ska verktygstemperaturen vara mer exakt (1 decimal) eller bara ha hela siffror.",
+                "es": "¿Debe la temperatura de la herramienta ser más precisa (1 decimal) o solo tener números enteros?",
+                "da": "Skal værktøjtemperaturen være mere nøjagtig (1 decimal), eller kun have hele tal.",
+                "ru": "Должна ли температура инструмента быть более точной (1 десятичная) или только целыми числами.",
+                "pl": "Czy temperatura narzędzia powinna być dokładniejsza (1 miejsce dziesiętne) czy tylko pełne liczby.",
+                "ko": "도구 온도가 더 정확해야 합니까(소수점 1자리) 아니면 정수만 있어야 합니까?"
               }
             },
             {
@@ -1776,19 +3413,48 @@
               "type": "number",
               "label": {
                 "en": "Bed cooldown threshold",
-                "no": "Bed cooldown threshold",
-                "nl": "Bed afgekoeld drempel"
+                "no": "Bed avkjølingsterskel",
+                "nl": "Bed afgekoeld drempel",
+                "de": "Bett-Abkühlungsschwelle",
+                "fr": "Seuil de refroidissement du lit",
+                "it": "Soglia di raffreddamento del letto",
+                "sv": "Bäddkylningströskel",
+                "es": "Umbral de enfriamiento de la cama",
+                "da": "Bed afkøling tærskel",
+                "ru": "Порог охлаждения платформы",
+                "pl": "Próg chłodzenia platformy",
+                "ko": "베드 냉각 임계값"
               },
               "value": 30,
               "min": 0,
               "max": 130,
               "units": {
-                "en": "°C"
+                "en": "°C",
+                "no": "°C",
+                "nl": "°C",
+                "de": "°C",
+                "fr": "°C",
+                "it": "°C",
+                "sv": "°C",
+                "es": "°C",
+                "da": "°C",
+                "ru": "°C",
+                "pl": "°C",
+                "ko": "°C"
               },
               "hint": {
                 "en": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
-                "no": "Below what temperature should the flow card \"bed has cooled down\" trigger.",
-                "nl": "Onder welke temperatuur zal de flow kaart \"bed is afgekoeld\" worden geactiveerd."
+                "no": "Under hvilken temperatur skal flowkortet \"sengen har kjølt ned\" utløses.",
+                "nl": "Onder welke temperatuur zal de flow kaart \"bed is afgekoeld\" worden geactiveerd.",
+                "de": "Unter welcher Temperatur sollte die Flow-Karte \"Bett hat abgekühlt\" ausgelöst werden.",
+                "fr": "En dessous de quelle température la carte de flux \"le lit a refroidi\" doit-elle se déclencher.",
+                "it": "Sotto quale temperatura la scheda di flusso \"il letto si è raffreddato\" deve essere attivata.",
+                "sv": "Under vilken temperatur ska flödeskortet \"bädden har svalnat\" triggas.",
+                "es": "Por debajo de qué temperatura debe activarse la tarjeta de flujo \"la cama se ha enfriado\".",
+                "da": "Under hvilken temperatur skal flowkortet \"sengen er afkølet\" udløses.",
+                "ru": "При какой температуре должна срабатывать карточка потока \"платформа остыла\".",
+                "pl": "Poniżej jakiej temperatury ma się uruchomić karta przepływu \"platforma się schłodziła\".",
+                "ko": "흐름 카드 \"베드가 냉각됨\"을 트리거할 온도는 얼마입니까?"
               }
             },
             {
@@ -1796,19 +3462,48 @@
               "type": "number",
               "label": {
                 "en": "Tool cooldown threshold",
-                "no": "Tool cooldown threshold",
-                "nl": "Hotend afgekoeld drempel"
+                "no": "Verktøy avkjølingsterskel",
+                "nl": "Hotend afgekoeld drempel",
+                "de": "Werkzeug-Abkühlungsschwelle",
+                "fr": "Seuil de refroidissement de l'outil",
+                "it": "Soglia di raffreddamento dello strumento",
+                "sv": "Verktygskylningströskel",
+                "es": "Umbral de enfriamiento de la herramienta",
+                "da": "Værktøj afkøling tærskel",
+                "ru": "Порог охлаждения инструмента",
+                "pl": "Próg chłodzenia narzędzia",
+                "ko": "도구 냉각 임계값"
               },
               "value": 50,
               "min": 0,
               "max": 300,
               "units": {
-                "en": "°C"
+                "en": "°C",
+                "no": "°C",
+                "nl": "°C",
+                "de": "°C",
+                "fr": "°C",
+                "it": "°C",
+                "sv": "°C",
+                "es": "°C",
+                "da": "°C",
+                "ru": "°C",
+                "pl": "°C",
+                "ko": "°C"
               },
               "hint": {
                 "en": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
-                "no": "Below what temperature should the flow card \"tool has cooled down\" trigger.",
-                "nl": "Onder welke temperatuur zal de flow kaart \"hotend is afgekoeld\" worden geactiveerd."
+                "no": "Under hvilken temperatur skal flowkortet \"verktøyet har kjølt ned\" utløses.",
+                "nl": "Onder welke temperatuur zal de flow kaart \"hotend is afgekoeld\" worden geactiveerd.",
+                "de": "Unter welcher Temperatur sollte die Flow-Karte \"Werkzeug hat abgekühlt\" ausgelöst werden.",
+                "fr": "En dessous de quelle température la carte de flux \"l'outil a refroidi\" doit-elle se déclencher.",
+                "it": "Sotto quale temperatura la scheda di flusso \"lo strumento si è raffreddato\" deve essere attivata.",
+                "sv": "Under vilken temperatur ska flödeskortet \"verktyget har svalnat\" triggas.",
+                "es": "Por debajo de qué temperatura debe activarse la tarjeta de flujo \"la herramienta se ha enfriado\".",
+                "da": "Under hvilken temperatur bør flowkortet \"værktøjet er afkølet\" udløses.",
+                "ru": "При какой температуре должна срабатывать карточка потока \"инструмент остыл\".",
+                "pl": "Poniżej jakiej temperatury ma się uruchomić karta przepływu \"narzędzie się schłodziło\".",
+                "ko": "흐름 카드 \"도구가 냉각됨\"을 트리거할 온도는 얼마입니까?"
               }
             },
             {
@@ -1816,26 +3511,66 @@
               "type": "dropdown",
               "label": {
                 "en": "Completion percentage",
-                "nl": "Voltooiing percentage"
+                "no": "Fullføringsprosent",
+                "nl": "Voltooiing percentage",
+                "de": "Abschlussprozentsatz",
+                "fr": "Pourcentage d'achèvement",
+                "it": "Percentuale di completamento",
+                "sv": "Slutförandeprocent",
+                "es": "Porcentaje de finalización",
+                "da": "Færdiggørelsesprocent",
+                "ru": "Процент завершения",
+                "pl": "Procent ukończenia",
+                "ko": "완료 비율"
               },
               "value": "completion",
               "hint": {
-                "en": "Determine what the completion percentage (calculation) is based on, the standard percentage (in the API) is based on the current file position.",
-                "nl": "Bepaal waar het voltooiings percentage (berekening) is op gebaseerd, de standaard percentage (in de API) is gebaseerd op de huidige bestands positie."
+                "en": "Determine what the completion percentage (calculation) is based on. The standard percentage (in the API) is based on the current file position.",
+                "no": "Bestem hva fullføringsprosenten (beregningen) er basert på. Standardprosenten (i API-en) er basert på den nåværende filposisjonen.",
+                "nl": "Bepaal waar het voltooiingspercentage (berekening) op is gebaseerd. Het standaardpercentage (in de API) is gebaseerd op de huidige bestandspositie.",
+                "de": "Bestimmen Sie, worauf der Abschlussprozentsatz (Berechnung) basiert. Der Standardprozentsatz (in der API) basiert auf der aktuellen Dateiposition.",
+                "fr": "Déterminez sur quoi se base le pourcentage d'achèvement (calcul). Le pourcentage standard (dans l'API) est basé sur la position actuelle du fichier.",
+                "it": "Determina su cosa si basa la percentuale di completamento (calcolo). La percentuale standard (nell'API) si basa sulla posizione corrente del file.",
+                "sv": "Bestäm vad slutförandeprocenten (beräkningen) baseras på. Standardprocenten (i API:et) baseras på den aktuella filpositionen.",
+                "es": "Determine en qué se basa el porcentaje de finalización (cálculo). El porcentaje estándar (en la API) se basa en la posición actual del archivo.",
+                "da": "Bestem hvad færdiggørelsesprocenten (beregningen) er baseret på. Standardprocenten (i API'en) er baseret på den aktuelle filposition.",
+                "ru": "Определите, на чем основан процент завершения (расчет). Стандартный процент (в API) основан на текущем положении файла.",
+                "pl": "Określ, na czym opiera się procent ukończenia (obliczenie). Standardowy procent (w API) opiera się na bieżącej pozycji pliku.",
+                "ko": "완료 비율(계산)이 무엇을 기준으로 하는지 결정하십시오. 표준 비율(API 내)은 현재 파일 위치를 기준으로 합니다."
               },
               "values": [
                 {
                   "id": "completion",
                   "label": {
                     "en": "File position (default)",
-                    "nl": "Bestandspositie (standaard)"
+                    "no": "Filposisjon (standard)",
+                    "nl": "Bestandspositie (standaard)",
+                    "de": "Dateiposition (Standard)",
+                    "fr": "Position du fichier (par défaut)",
+                    "it": "Posizione del file (predefinita)",
+                    "sv": "Filposition (standard)",
+                    "es": "Posición del archivo (predeterminado)",
+                    "da": "Filposition (standard)",
+                    "ru": "Позиция файла (по умолчанию)",
+                    "pl": "Pozycja pliku (domyślna)",
+                    "ko": "파일 위치 (기본값)"
                   }
                 },
                 {
                   "id": "completion_time_calculated",
                   "label": {
                     "en": "Print time",
-                    "nl": "Print tijd"
+                    "no": "Skrivetid",
+                    "nl": "Print tijd",
+                    "de": "Druckzeit",
+                    "fr": "Temps d'impression",
+                    "it": "Tempo di stampa",
+                    "sv": "Skrivtid",
+                    "es": "Tiempo de impresión",
+                    "da": "Print tid",
+                    "ru": "Время печати",
+                    "pl": "Czas druku",
+                    "ko": "인쇄 시간"
                   }
                 }
               ]
@@ -1846,7 +3581,17 @@
           "type": "group",
           "label": {
             "en": "Display settings",
-            "nl": "Weergave instellingen"
+            "no": "Visningsinnstillinger",
+            "nl": "Weergave instellingen",
+            "de": "Anzeigeeinstellungen",
+            "fr": "Paramètres d'affichage",
+            "it": "Impostazioni di visualizzazione",
+            "sv": "Visningsinställningar",
+            "es": "Configuración de visualización",
+            "da": "Visningsindstillinger",
+            "ru": "Настройки отображения",
+            "pl": "Ustawienia wyświetlania",
+            "ko": "디스플레이 설정"
           },
           "children": [
             {
@@ -1854,12 +3599,32 @@
               "type": "checkbox",
               "label": {
                 "en": "H:M:S for estimated time",
-                "nl": "H:M:S voor geschatte tijd"
+                "no": "T:M:S for estimert tid",
+                "nl": "H:M:S voor geschatte tijd",
+                "de": "H:M:S für geschätzte Zeit",
+                "fr": "H:M:S pour le temps estimé",
+                "it": "H:M:S per il tempo stimato",
+                "sv": "H:M:S för uppskattad tid",
+                "es": "H:M:S para tiempo estimado",
+                "da": "H:M:S for estimeret tid",
+                "ru": "Ч:M:S для оценочного времени",
+                "pl": "H:M:S dla szacowanego czasu",
+                "ko": "예상 시간에 대한 H:M:S"
               },
               "value": false,
               "hint": {
                 "en": "Enable this setting to display the estimated time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
-                "nl": "Activeer deze instelling om de geschatte tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+                "no": "Aktiver denne innstillingen for å vise estimert tid som \"H:M:S\" (f.eks: 05:05:05), som standard er det \"H M S\" (f.eks: 5h 5m 5s).",
+                "nl": "Activeer deze instelling om de geschatte tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s).",
+                "de": "Aktivieren Sie diese Einstellung, um die geschätzte Zeit als \"H:M:S\" (z.B. 05:05:05) anzuzeigen. Standardmäßig ist es \"H M S\" (z.B. 5h 5m 5s).",
+                "fr": "Activez ce paramètre pour afficher le temps estimé sous la forme \"H:M:S\" (Ex : 05:05:05), par défaut c'est \"H M S\" (Ex : 5h 5m 5s).",
+                "it": "Abilita questa impostazione per visualizzare il tempo stimato come \"H:M:S\" (Es: 05:05:05), per impostazione predefinita è \"H M S\" (Es: 5h 5m 5s).",
+                "sv": "Aktivera denna inställning för att visa uppskattad tid som \"H:M:S\" (t.ex. 05:05:05), som standard är det \"H M S\" (t.ex. 5h 5m 5s).",
+                "es": "Active esta configuración para mostrar el tiempo estimado como \"H:M:S\" (Ej: 05:05:05), por defecto es \"H M S\" (Ej: 5h 5m 5s).",
+                "da": "Aktiver denne indstilling for at vise den estimerede tid som \"H:M:S\" (f.eks. 05:05:05), som standard er det \"H M S\" (f.eks. 5h 5m 5s).",
+                "ru": "Включите этот параметр, чтобы отображать оценочное время как \"Ч:M:S\" (например, 05:05:05), по умолчанию это \"Ч M S\" (например, 5ч 5м 5с).",
+                "pl": "Włącz to ustawienie, aby wyświetlać szacowany czas jako \"H:M:S\" (np. 05:05:05). Domyślnie jest to \"H M S\" (np. 5h 5m 5s).",
+                "ko": "\"H:M:S\"(예: 05:05:05) 형식으로 예상 시간을 표시하려면 이 설정을 활성화하십시오. 기본적으로 \"H M S\"(예: 5h 5m 5s)입니다."
               }
             },
             {
@@ -1867,12 +3632,32 @@
               "type": "checkbox",
               "label": {
                 "en": "H:M:S for print time",
-                "nl": "H:M:S voor print tijd"
+                "no": "T:M:S for skrivetid",
+                "nl": "H:M:S voor print tijd",
+                "de": "H:M:S für Druckzeit",
+                "fr": "H:M:S pour le temps d'impression",
+                "it": "H:M:S per il tempo di stampa",
+                "sv": "H:M:S för skrivtid",
+                "es": "H:M:S para tiempo de impresión",
+                "da": "H:M:S for print tid",
+                "ru": "Ч:M:S для времени печати",
+                "pl": "H:M:S dla czasu druku",
+                "ko": "인쇄 시간에 대한 H:M:S"
               },
               "value": false,
               "hint": {
                 "en": "Enable this setting to display the print time as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
-                "nl": "Activeer deze instelling om de print tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+                "no": "Aktiver denne innstillingen for å vise skrivetid som \"H:M:S\" (f.eks: 05:05:05), som standard er det \"H M S\" (f.eks: 5h 5m 5s).",
+                "nl": "Activeer deze instelling om de print tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s).",
+                "de": "Aktivieren Sie diese Einstellung, um die Druckzeit als \"H:M:S\" (z.B. 05:05:05) anzuzeigen. Standardmäßig ist es \"H M S\" (z.B. 5h 5m 5s).",
+                "fr": "Activez ce paramètre pour afficher le temps d'impression sous la forme \"H:M:S\" (Ex : 05:05:05), par défaut c'est \"H M S\" (Ex : 5h 5m 5s).",
+                "it": "Abilita questa impostazione per visualizzare il tempo di stampa come \"H:M:S\" (Es: 05:05:05), per impostazione predefinita è \"H M S\" (Es: 5h 5m 5s).",
+                "sv": "Aktivera denna inställning för att visa skrivtid som \"H:M:S\" (t.ex. 05:05:05), som standard är det \"H M S\" (t.ex. 5h 5m 5s).",
+                "es": "Active esta configuración para mostrar el tiempo de impresión como \"H:M:S\" (Ej: 05:05:05), por defecto es \"H M S\" (Ej: 5h 5m 5s).",
+                "da": "Aktivér denne indstilling for at vise print tid som \"H:M:S\" (f.eks. 05:05:05), som standard er det \"H M S\" (f.eks. 5h 5m 5s).",
+                "ru": "Включите этот параметр, чтобы отображать время печати как \"Ч:M:S\" (например, 05:05:05). По умолчанию используется \"Ч M S\" (например, 5ч 5м 5с).",
+                "pl": "Włącz to ustawienie, aby wyświetlać czas druku jako \"H:M:S\" (np. 05:05:05). Domyślnie jest to \"H M S\" (np. 5h 5m 5s).",
+                "ko": "\"H:M:S\"(예: 05:05:05) 형식으로 인쇄 시간을 표시하려면 이 설정을 활성화하십시오. 기본적으로 \"H M S\"(예: 5h 5m 5s)입니다."
               }
             },
             {
@@ -1880,12 +3665,32 @@
               "type": "checkbox",
               "label": {
                 "en": "H:M:S for time left",
-                "nl": "H:M:S voor resterende tijd"
+                "no": "T:M:S for gjenværende tid",
+                "nl": "H:M:S voor resterende tijd",
+                "de": "H:M:S für verbleibende Zeit",
+                "fr": "H:M:S pour le temps restant",
+                "it": "H:M:S per il tempo rimanente",
+                "sv": "H:M:S för återstående tid",
+                "es": "H:M:S para tiempo restante",
+                "da": "H:M:S for resterende tid",
+                "ru": "Ч:M:S для оставшегося времени",
+                "pl": "H:M:S dla pozostałego czasu",
+                "ko": "남은 시간에 대한 H:M:S"
               },
               "value": false,
               "hint": {
-                "en": "Enable this setting to display the time left as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s)",
-                "nl": "Activeer deze instelling om de resterende tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s)."
+                "en": "Enable this setting to display the time left as \"H:M:S\" (Ex: 05:05:05), by default it is \"H M S\" (Ex: 5h 5m 5s).",
+                "no": "Aktiver denne innstillingen for å vise gjenværende tid som \"H:M:S\" (f.eks: 05:05:05), som standard er det \"H M S\" (f.eks: 5h 5m 5s).",
+                "nl": "Activeer deze instelling om de resterende tijd weer te geven als \"H:M:S\" (Ex: 05:05:05), standaard is het \"H M S\" (Ex: 5h 5m 5s).",
+                "de": "Aktivieren Sie diese Einstellung, um die verbleibende Zeit als \"H:M:S\" (z.B. 05:05:05) anzuzeigen. Standardmäßig ist es \"H M S\" (z.B. 5h 5m 5s).",
+                "fr": "Activez ce paramètre pour afficher le temps restant sous la forme \"H:M:S\" (Ex : 05:05:05), par défaut c'est \"H M S\" (Ex : 5h 5m 5s).",
+                "it": "Abilita questa impostazione per visualizzare il tempo rimanente comme \"H:M:S\" (Es: 05:05:05), per impostazione predefinita è \"H M S\" (Es: 5h 5m 5s).",
+                "sv": "Aktivera denna inställning för att visa återstående tid som \"H:M:S\" (t.ex. 05:05:05), som standard är det \"H M S\" (t.ex. 5h 5m 5s).",
+                "es": "Active esta configuración para mostrar el tiempo restante como \"H:M:S\" (Ej: 05:05:05), por defecto es \"H M S\" (Ej: 5h 5m 5s).",
+                "da": "Aktivér denne indstilling for at vise den resterende tid som \"H:M:S\" (f.eks. 05:05:05), som standard er det \"H M S\" (f.eks. 5h 5m 5s).",
+                "ru": "Включите этот параметр, чтобы отображать оставшееся время как \"Ч:M:S\" (например, 05:05:05). По умолчанию используется \"Ч M S\" (например, 5ч 5м 5с).",
+                "pl": "Włącz to ustawienie, aby wyświetlać pozostały czas jako \"H:M:S\" (np. 05:05:05). Domyślnie jest to \"H M S\" (np. 5h 5m 5s).",
+                "ko": "\"H:M:S\"(예: 05:05:05) 형식으로 남은 시간을 표시하려면 이 설정을 활성화하십시오. 기본적으로 \"H M S\"(예: 5h 5m 5s)입니다."
               }
             }
           ]
@@ -1896,7 +3701,18 @@
   "widgets": {
     "octoprint": {
       "name": {
-        "en": "OctoPrint Widget"
+        "en": "OctoPrint Widget",
+        "nl": "OctoPrint Widget",
+        "da": "OctoPrint Widget",
+        "de": "OctoPrint Widget",
+        "es": "OctoPrint Widget",
+        "fr": "OctoPrint Widget",
+        "it": "OctoPrint Widget",
+        "no": "OctoPrint Widget",
+        "sv": "OctoPrint Widget",
+        "pl": "OctoPrint Widget",
+        "ru": "OctoPrint Widget",
+        "ko": "OctoPrint Widget"
       },
       "height": 240,
       "api": {
@@ -1915,7 +3731,17 @@
       "uiComponent": "button",
       "title": {
         "en": "Emergency Stop",
-        "nl": "Noodstop"
+        "nl": "Noodstop",
+        "da": "Nødstop",
+        "de": "Notaus",
+        "es": "Parada de emergencia",
+        "fr": "Arrêt d'urgence",
+        "it": "Arresto d'emergenza",
+        "no": "Nødstopp",
+        "sv": "Nödstopp",
+        "pl": "Zatrzymanie awaryjne",
+        "ru": "Аварийная остановка",
+        "ko": "비상 정지"
       },
       "getable": true,
       "setable": true,
@@ -1928,7 +3754,16 @@
       "title": {
         "en": "Cancel",
         "no": "Avbryt",
-        "nl": "Annuleren"
+        "nl": "Annuleren",
+        "da": "Annuller",
+        "de": "Abbrechen",
+        "es": "Cancelar",
+        "fr": "Annuler",
+        "it": "Annulla",
+        "sv": "Avbryt",
+        "pl": "Anuluj",
+        "ru": "Отмена",
+        "ko": "취소"
       },
       "getable": true,
       "setable": true,
@@ -1940,7 +3775,17 @@
       "units": "%",
       "title": {
         "en": "Completion (deprecated)",
-        "no": "Ferdig (avviklet)"
+        "no": "Ferdig (avviklet)",
+        "nl": "Voltooiing (verouderd)",
+        "da": "Afslutning (forældet)",
+        "de": "Abschluss (veraltet)",
+        "es": "Finalización (obsoleta)",
+        "fr": "Achèvement (obsolète)",
+        "it": "Completamento (obsoleto)",
+        "sv": "Slutförande (föråldrad)",
+        "pl": "Zakończenie (przestarzałe)",
+        "ru": "Завершение (устарело)",
+        "ko": "완료 (더 이상 사용되지 않음)"
       },
       "getable": true,
       "uiComponent": null
@@ -1950,7 +3795,17 @@
       "uiComponent": "sensor",
       "title": {
         "en": "Estimated end time",
-        "nl": "Verwachte eind tijd"
+        "nl": "Verwachte eind tijd",
+        "da": "Anslået sluttid",
+        "de": "Geschätzte Endzeit",
+        "es": "Tiempo estimado de finalización",
+        "fr": "Heure de fin estimée",
+        "it": "Orario di fine stimato",
+        "no": "Anslått sluttid",
+        "sv": "Uppskattad sluttid",
+        "pl": "Szacowany czas zakończenia",
+        "ru": "Предполагаемое время окончания",
+        "ko": "예상 종료 시간"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_end_time.svg"
@@ -1961,7 +3816,16 @@
       "title": {
         "en": "Time estimate",
         "no": "Estimert tid",
-        "nl": "Geschatte tijd"
+        "nl": "Geschatte tijd",
+        "da": "Tidsestimat",
+        "de": "Zeitschätzung",
+        "es": "Estimación de tiempo",
+        "fr": "Estimation du temps",
+        "it": "Stima del tempo",
+        "sv": "Tidsuppskattning",
+        "pl": "Szacowany czas",
+        "ru": "Оценка времени",
+        "ko": "시간 예상"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_estimate.svg"
@@ -1971,7 +3835,17 @@
       "uiComponent": "sensor",
       "title": {
         "en": "Print file",
-        "nl": "Print bestand"
+        "nl": "Print bestand",
+        "da": "Udskriv fil",
+        "de": "Datei drucken",
+        "es": "Imprimir archivo",
+        "fr": "Imprimer le fichier",
+        "it": "Stampa file",
+        "no": "Skriv ut fil",
+        "sv": "Skriv ut fil",
+        "pl": "Drukuj plik",
+        "ru": "Печать файла",
+        "ko": "파일 인쇄"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_file.svg"
@@ -1982,7 +3856,16 @@
       "title": {
         "en": "Time left",
         "no": "Gjenstående",
-        "nl": "Resterende tijd"
+        "nl": "Resterende tijd",
+        "da": "Tid tilbage",
+        "de": "Verbleibende Zeit",
+        "es": "Tiempo restante",
+        "fr": "Temps restant",
+        "it": "Tempo rimasto",
+        "sv": "Tid kvar",
+        "pl": "Pozostały czas",
+        "ru": "Оставшееся время",
+        "ko": "남은 시간"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_left.svg"
@@ -1993,7 +3876,16 @@
       "title": {
         "en": "Pause",
         "no": "Pause",
-        "nl": "Pauzeren"
+        "nl": "Pauzeren",
+        "da": "Pause",
+        "de": "Pause",
+        "es": "Pausa",
+        "fr": "Pause",
+        "it": "Pausa",
+        "sv": "Paus",
+        "pl": "Pauza",
+        "ru": "Пауза",
+        "ko": "일시중지"
       },
       "getable": true,
       "setable": true,
@@ -2005,7 +3897,16 @@
       "title": {
         "en": "Resume",
         "no": "Gjenoppta",
-        "nl": "Hervatten"
+        "nl": "Hervatten",
+        "da": "Genoptag",
+        "de": "Fortsetzen",
+        "es": "Reanudar",
+        "fr": "Reprendre",
+        "it": "Riprendi",
+        "sv": "Återuppta",
+        "pl": "Wznów",
+        "ru": "Возобновить",
+        "ko": "다시 시작"
       },
       "getable": true,
       "setable": true,
@@ -2018,7 +3919,16 @@
       "title": {
         "en": "Print time",
         "no": "Utskriftstid",
-        "nl": "Print tijd"
+        "nl": "Print tijd",
+        "da": "Printtid",
+        "de": "Druckzeit",
+        "es": "Tiempo de impresión",
+        "fr": "Temps d'impression",
+        "it": "Tempo di stampa",
+        "sv": "Utskriftstid",
+        "pl": "Czas druku",
+        "ru": "Время печати",
+        "ko": "인쇄 시간"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/job_time.svg"
@@ -2030,7 +3940,16 @@
       "title": {
         "en": "Completion",
         "no": "Ferdig",
-        "nl": "Voltooiing"
+        "nl": "Voltooiing",
+        "da": "Færdiggørelse",
+        "de": "Fertigstellung",
+        "es": "Finalización",
+        "fr": "Achèvement",
+        "it": "Completamento",
+        "sv": "Slutförande",
+        "pl": "Ukończenie",
+        "ru": "Завершение",
+        "ko": "완료"
       },
       "decimals": 1,
       "getable": true,
@@ -2041,7 +3960,16 @@
       "title": {
         "en": "State",
         "no": "Status",
-        "nl": "Status"
+        "nl": "Status",
+        "da": "Tilstand",
+        "de": "Status",
+        "es": "Estado",
+        "fr": "État",
+        "it": "Stato",
+        "sv": "Status",
+        "pl": "Stan",
+        "ru": "Состояние",
+        "ko": "상태"
       },
       "getable": true,
       "icon": "/drivers/octoprint/assets/printer_state.svg"
@@ -2051,7 +3979,17 @@
       "units": "°C",
       "title": {
         "en": "Bed temp (deprecated)",
-        "no": "Bed temp (avviklet)"
+        "no": "Bed temp (avviklet)",
+        "nl": "Bed temperatuur (verouderd)",
+        "da": "Sengtemp (udgået)",
+        "de": "Betttemperatur (veraltet)",
+        "es": "Temp de cama (obsoleta)",
+        "fr": "Température du lit (obsolète)",
+        "it": "Temperatura del letto (deprecato)",
+        "sv": "Bäddtemp (utgått)",
+        "pl": "Temperatura łóżka (przestarzała)",
+        "ru": "Темп кровати (устаревшее)",
+        "ko": "침대 온도 (사용되지 않음)"
       },
       "getable": true,
       "uiComponent": null
@@ -2061,7 +3999,17 @@
       "units": "°C",
       "title": {
         "en": "Tool temp (deprecated)",
-        "no": "Tool temp (avviklet)"
+        "no": "Tool temp (avviklet)",
+        "nl": "Gereedschapstemp (verouderd)",
+        "da": "Værktøj temp (forældet)",
+        "de": "Werkzeugtemp (veraltet)",
+        "es": "Temp de herramienta (obsoleto)",
+        "fr": "Temp outil (obsolète)",
+        "it": "Temp strumento (deprecato)",
+        "sv": "Verktygstemperatur (föråldrad)",
+        "pl": "Temp narzędzia (przestarzałe)",
+        "ru": "Темп инструмента (устаревшее)",
+        "ko": "도구 온도(사용되지 않음)"
       },
       "getable": true,
       "uiComponent": null

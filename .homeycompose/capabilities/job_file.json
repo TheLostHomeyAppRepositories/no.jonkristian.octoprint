@@ -1,10 +1,20 @@
 {
-	"type": "string",
-	"uiComponent": "sensor",
-	"title": {
-		"en": "Print file",
-		"nl": "Print bestand"
-	},
-	"getable": true,
-	"icon": "/drivers/octoprint/assets/job_file.svg"
+  "type": "string",
+  "uiComponent": "sensor",
+  "title": {
+    "en": "Print file",
+    "nl": "Print bestand",
+    "da": "Udskriv fil",
+    "de": "Datei drucken",
+    "es": "Imprimir archivo",
+    "fr": "Imprimer le fichier",
+    "it": "Stampa file",
+    "no": "Skriv ut fil",
+    "sv": "Skriv ut fil",
+    "pl": "Drukuj plik",
+    "ru": "Печать файла",
+    "ko": "파일 인쇄"
+  },
+  "getable": true,
+  "icon": "/drivers/octoprint/assets/job_file.svg"
 }

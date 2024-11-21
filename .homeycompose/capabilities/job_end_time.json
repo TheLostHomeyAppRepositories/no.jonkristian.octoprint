@@ -1,10 +1,20 @@
 {
-	"type": "string",
-	"uiComponent": "sensor",
-	"title": {
-		"en": "Estimated end time",
-		"nl": "Verwachte eind tijd"
-	},
-	"getable": true,
-	"icon": "/drivers/octoprint/assets/job_end_time.svg"
+  "type": "string",
+  "uiComponent": "sensor",
+  "title": {
+    "en": "Estimated end time",
+    "nl": "Verwachte eind tijd",
+    "da": "Anslået sluttid",
+    "de": "Geschätzte Endzeit",
+    "es": "Tiempo estimado de finalización",
+    "fr": "Heure de fin estimée",
+    "it": "Orario di fine stimato",
+    "no": "Anslått sluttid",
+    "sv": "Uppskattad sluttid",
+    "pl": "Szacowany czas zakończenia",
+    "ru": "Предполагаемое время окончания",
+    "ko": "예상 종료 시간"
+  },
+  "getable": true,
+  "icon": "/drivers/octoprint/assets/job_end_time.svg"
 }

@@ -1,11 +1,20 @@
 {
-	"type": "string",
-	"uiComponent": "sensor",
-	"title": {
-		"en": "Time estimate",
-		"no": "Estimert tid",
-		"nl": "Geschatte tijd"
-	},
-	"getable": true,
-	"icon": "/drivers/octoprint/assets/job_estimate.svg"
+  "type": "string",
+  "uiComponent": "sensor",
+  "title": {
+    "en": "Time estimate",
+    "no": "Estimert tid",
+    "nl": "Geschatte tijd",
+    "da": "Tidsestimat",
+    "de": "Zeitschätzung",
+    "es": "Estimación de tiempo",
+    "fr": "Estimation du temps",
+    "it": "Stima del tempo",
+    "sv": "Tidsuppskattning",
+    "pl": "Szacowany czas",
+    "ru": "Оценка времени",
+    "ko": "시간 예상"
+  },
+  "getable": true,
+  "icon": "/drivers/octoprint/assets/job_estimate.svg"
 }

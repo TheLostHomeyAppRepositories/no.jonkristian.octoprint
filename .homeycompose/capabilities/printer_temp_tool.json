@@ -1,10 +1,20 @@
 {
-    "type": "number",
-    "units": "°C",
-    "title": {
-        "en": "Tool temp (deprecated)",
-        "no": "Tool temp (avviklet)"
-    },
-    "getable": true,
-    "uiComponent": null
+  "type": "number",
+  "units": "°C",
+  "title": {
+    "en": "Tool temp (deprecated)",
+    "no": "Tool temp (avviklet)",
+    "nl": "Gereedschapstemp (verouderd)",
+    "da": "Værktøj temp (forældet)",
+    "de": "Werkzeugtemp (veraltet)",
+    "es": "Temp de herramienta (obsoleto)",
+    "fr": "Temp outil (obsolète)",
+    "it": "Temp strumento (deprecato)",
+    "sv": "Verktygstemperatur (föråldrad)",
+    "pl": "Temp narzędzia (przestarzałe)",
+    "ru": "Темп инструмента (устаревшее)",
+    "ko": "도구 온도(사용되지 않음)"
+  },
+  "getable": true,
+  "uiComponent": null
 }

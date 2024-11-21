@@ -1,10 +1,20 @@
 {
-    "type": "number",
-    "units": "°C",
-    "title": {
-        "en": "Bed temp (deprecated)",
-        "no": "Bed temp (avviklet)"
-    },
-    "getable": true,
-    "uiComponent": null
+  "type": "number",
+  "units": "°C",
+  "title": {
+    "en": "Bed temp (deprecated)",
+    "no": "Bed temp (avviklet)",
+    "nl": "Bed temperatuur (verouderd)",
+    "da": "Sengtemp (udgået)",
+    "de": "Betttemperatur (veraltet)",
+    "es": "Temp de cama (obsoleta)",
+    "fr": "Température du lit (obsolète)",
+    "it": "Temperatura del letto (deprecato)",
+    "sv": "Bäddtemp (utgått)",
+    "pl": "Temperatura łóżka (przestarzała)",
+    "ru": "Темп кровати (устаревшее)",
+    "ko": "침대 온도 (사용되지 않음)"
+  },
+  "getable": true,
+  "uiComponent": null
 }

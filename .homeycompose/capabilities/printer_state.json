@@ -1,10 +1,19 @@
 {
-	"type": "string",
-	"title": {
-		"en": "State",
-		"no": "Status",
-		"nl": "Status"
-	},
-	"getable": true,
-	"icon": "/drivers/octoprint/assets/printer_state.svg"
+  "type": "string",
+  "title": {
+    "en": "State",
+    "no": "Status",
+    "nl": "Status",
+    "da": "Tilstand",
+    "de": "Status",
+    "es": "Estado",
+    "fr": "État",
+    "it": "Stato",
+    "sv": "Status",
+    "pl": "Stan",
+    "ru": "Состояние",
+    "ko": "상태"
+  },
+  "getable": true,
+  "icon": "/drivers/octoprint/assets/printer_state.svg"
 }

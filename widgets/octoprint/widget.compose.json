@@ -1,6 +1,17 @@
 {
   "name": {
-    "en": "OctoPrint Widget"
+    "en": "OctoPrint Widget",
+    "nl": "OctoPrint Widget",
+    "da": "OctoPrint Widget",
+    "de": "OctoPrint Widget",
+    "es": "OctoPrint Widget",
+    "fr": "OctoPrint Widget",
+    "it": "OctoPrint Widget",
+    "no": "OctoPrint Widget",
+    "sv": "OctoPrint Widget",
+    "pl": "OctoPrint Widget",
+    "ru": "OctoPrint Widget",
+    "ko": "OctoPrint Widget"
   },
   "height": 240,
   "api": {

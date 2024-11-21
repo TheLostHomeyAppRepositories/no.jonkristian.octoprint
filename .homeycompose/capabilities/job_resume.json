@@ -1,13 +1,22 @@
 {
-	"type": "boolean",
-	"uiComponent": "button",
-	"title": {
-		"en": "Resume",
-		"no": "Gjenoppta",
-		"nl": "Hervatten"
-	},
-	"getable": true,
-	"setable": true,
-	"preventTag": true,
-	"icon": "/drivers/octoprint/assets/job_resume.svg"
+  "type": "boolean",
+  "uiComponent": "button",
+  "title": {
+    "en": "Resume",
+    "no": "Gjenoppta",
+    "nl": "Hervatten",
+    "da": "Genoptag",
+    "de": "Fortsetzen",
+    "es": "Reanudar",
+    "fr": "Reprendre",
+    "it": "Riprendi",
+    "sv": "Återuppta",
+    "pl": "Wznów",
+    "ru": "Возобновить",
+    "ko": "다시 시작"
+  },
+  "getable": true,
+  "setable": true,
+  "preventTag": true,
+  "icon": "/drivers/octoprint/assets/job_resume.svg"
 }

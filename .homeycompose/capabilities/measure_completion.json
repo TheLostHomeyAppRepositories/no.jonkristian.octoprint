@@ -1,13 +1,22 @@
 {
-	"type": "number",
-	"uiComponent": "sensor",
-	"units": "%",
-	"title": {
-		"en": "Completion",
-		"no": "Ferdig",
-		"nl": "Voltooiing"
-	},
-	"decimals": 1,
-	"getable": true,
-	"icon": "/drivers/octoprint/assets/job_completion.svg"
+  "type": "number",
+  "uiComponent": "sensor",
+  "units": "%",
+  "title": {
+    "en": "Completion",
+    "no": "Ferdig",
+    "nl": "Voltooiing",
+    "da": "Færdiggørelse",
+    "de": "Fertigstellung",
+    "es": "Finalización",
+    "fr": "Achèvement",
+    "it": "Completamento",
+    "sv": "Slutförande",
+    "pl": "Ukończenie",
+    "ru": "Завершение",
+    "ko": "완료"
+  },
+  "decimals": 1,
+  "getable": true,
+  "icon": "/drivers/octoprint/assets/job_completion.svg"
 }

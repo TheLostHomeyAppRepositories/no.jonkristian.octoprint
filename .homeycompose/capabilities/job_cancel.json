@@ -1,13 +1,22 @@
 {
-	"type": "boolean",
-	"uiComponent": "button",
-	"title": {
-		"en": "Cancel",
-		"no": "Avbryt",
-		"nl": "Annuleren"
-	},
-	"getable": true,
-	"setable": true,
-	"preventTag": true,
-	"icon": "/drivers/octoprint/assets/job_cancel.svg"
+  "type": "boolean",
+  "uiComponent": "button",
+  "title": {
+    "en": "Cancel",
+    "no": "Avbryt",
+    "nl": "Annuleren",
+    "da": "Annuller",
+    "de": "Abbrechen",
+    "es": "Cancelar",
+    "fr": "Annuler",
+    "it": "Annulla",
+    "sv": "Avbryt",
+    "pl": "Anuluj",
+    "ru": "Отмена",
+    "ko": "취소"
+  },
+  "getable": true,
+  "setable": true,
+  "preventTag": true,
+  "icon": "/drivers/octoprint/assets/job_cancel.svg"
 }

@@ -1,11 +1,20 @@
 {
-	"type": "string",
-	"uiComponent": "sensor",
-	"title": {
-		"en": "Print time",
-		"no": "Utskriftstid",
-		"nl": "Print tijd"
-	},
-	"getable": true,
-	"icon": "/drivers/octoprint/assets/job_time.svg"
+  "type": "string",
+  "uiComponent": "sensor",
+  "title": {
+    "en": "Print time",
+    "no": "Utskriftstid",
+    "nl": "Print tijd",
+    "da": "Printtid",
+    "de": "Druckzeit",
+    "es": "Tiempo de impresión",
+    "fr": "Temps d'impression",
+    "it": "Tempo di stampa",
+    "sv": "Utskriftstid",
+    "pl": "Czas druku",
+    "ru": "Время печати",
+    "ko": "인쇄 시간"
+  },
+  "getable": true,
+  "icon": "/drivers/octoprint/assets/job_time.svg"
 }
