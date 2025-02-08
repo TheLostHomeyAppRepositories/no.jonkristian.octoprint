@@ -70,5 +70,8 @@
   },
   "1.2.1": {
     "en": "Dashboard widget preview fix and multi-language translations."
+  },
+  "1.2.2": {
+    "en": "Support of multiple Octoprint instances in the widget"
   }
 }
