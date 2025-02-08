@@ -11,6 +11,7 @@ class OctoprintDevice extends Homey.Device {
 	async onInit() {
 		// Migrate to all new capabilities
 		this.log('OctoprintDriver initialization started');
+		
 		if (this.getSetting('heated_bed') === false) {
 			if (this.hasCapability('target_temperature.bed')) {
 				await this.removeCapability('target_temperature.bed').catch(this.error);

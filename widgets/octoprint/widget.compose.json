@@ -14,10 +14,38 @@
     "ko": "OctoPrint Widget"
   },
   "height": 240,
+
   "api": {
     "getDeviceData": {
       "method": "GET",
       "path": "/device-data"
+    },
+    "listDevices": {
+      "method": "GET",
+      "path": "/list-devices"
+    }
+  },
+
+  "settings": [
+    {
+      "type": "autocomplete",
+      "id": "selectedDeviceId",
+      "title": {
+        "en": "Select your OctoPrint device"
+      },
+      "placeholder": {
+        "en": "Start typing your device name..."
+      }
+    }
+  ],
+  "options": {
+    "devices": {
+      "source": "api",
+      "endpoint": "listDevices",
+      "map": {
+        "value": "id",
+        "label": "name"
+      }
     }
   }
 }

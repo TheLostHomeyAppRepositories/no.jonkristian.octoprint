@@ -3719,10 +3719,35 @@
         "getDeviceData": {
           "method": "GET",
           "path": "/device-data"
+        },
+        "listDevices": {
+          "method": "GET",
+          "path": "/list-devices"
         }
       },
-      "id": "octoprint",
-      "settings": []
+      "settings": [
+        {
+          "type": "autocomplete",
+          "id": "selectedDeviceId",
+          "title": {
+            "en": "Select your OctoPrint device"
+          },
+          "placeholder": {
+            "en": "Start typing your device name..."
+          }
+        }
+      ],
+      "options": {
+        "devices": {
+          "source": "api",
+          "endpoint": "listDevices",
+          "map": {
+            "value": "id",
+            "label": "name"
+          }
+        }
+      },
+      "id": "octoprint"
     }
   },
   "capabilities": {
