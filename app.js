@@ -11,6 +11,10 @@ class OctoPrint extends Homey.App {
     // AUTOCOMPLETE SETUP FOR WIDGET SETTING
     // =========================================
     // Register the widget's autocomplete listener on "selectedDeviceId"
+    if (!this.homey.dashboards) {
+      this.log('Dashboard widgets are not supported on this Homey version.');
+      return;
+    }
     const widget = this.homey.dashboards.getWidget('octoprint');
     widget.registerSettingAutocompleteListener('selectedDeviceId', async (query, settings) => {
       // this.log('🔎 Autocomplete called with query:', query);
@@ -85,8 +89,8 @@ class OctoPrint extends Homey.App {
     const state = device.getCapabilityValue('printer_state') || 'Unknown';
     const completion = device.getCapabilityValue('measure_completion') || 0;
     const timeLeft = device.getCapabilityValue('job_left') || 'N/A';
-    const bedTemp = device.getCapabilityValue('measure_temperature.bed') || 'N/A';
-    const hotendTemp = device.getCapabilityValue('measure_temperature.tool') || 'N/A';
+    const bedTemp = device.getCapabilityValue('measure_temperature.bed') ?? 'N/A';
+    const hotendTemp = device.getCapabilityValue('measure_temperature.tool') ?? 'N/A';
 
     return {
       name: device.getName(),

@@ -15,7 +15,7 @@ $(function () {
 			Homey.emit('addOctoprint', connection)
 			.then(function (version) {
 
-				if (version === false) {
+				if (typeof version !== 'string' || !version.trim()) {
 					Homey.hideLoadingOverlay();
 					Homey.alert(__('pair.error.unreachable'), 'error');
 				}

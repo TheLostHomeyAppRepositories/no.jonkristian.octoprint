@@ -10,8 +10,6 @@ class OctoprintDriver extends Homey.Driver {
     async onInit() {
         this.log('Printer has been initialized');
 
-        this.previousStates = {};
-
         //  ========================================== Flow trigger registers ==========================================
         this._printStartedTrigger = this.homey.flow.getDeviceTriggerCard('print_started');
         this._printPausedTrigger = this.homey.flow.getDeviceTriggerCard('print_paused');
@@ -26,7 +24,7 @@ class OctoprintDriver extends Homey.Driver {
         this._measureTemperatureChamberTrigger = this.homey.flow.getDeviceTriggerCard('measure_temperature_changed_chamber');
         this._estimatedTimeTrigger = this.homey.flow.getDeviceTriggerCard('estimated_time_changed');
         this._completionTrigger = this.homey.flow.getDeviceTriggerCard('completion_changed');
-        this._endTimeTrigger = this.homey.flow.getDeviceTriggerCard('estimated_end_time_changed');
+        this._estimatedEndTimeTrigger = this.homey.flow.getDeviceTriggerCard('estimated_end_time_changed');
         this._printTimeTrigger = this.homey.flow.getDeviceTriggerCard('print_time_changed');
         this._timeLeftTrigger = this.homey.flow.getDeviceTriggerCard('time_left_changed');
         this._stateTrigger = this.homey.flow.getDeviceTriggerCard('state_changed');
@@ -80,6 +78,9 @@ class OctoprintDriver extends Homey.Driver {
             .registerRunListener((args, state) => {
                 return args.device.targetTemperatureToolRunListener(args, state);
             });
+
+        this._targetTemperatureChamber = this.homey.flow.getActionCard('target_temperature_set_chamber')
+            .registerRunListener(args => args.device.targetTemperatureChamberRunListener(args));
             
         // Register Reboot Raspberry Pi action card
         this._actionRebootRaspberry = this.homey.flow.getActionCard('reboot_raspberry')
@@ -116,107 +117,99 @@ class OctoprintDriver extends Homey.Driver {
     }
 
     /**
-     * Generic trigger method with change detection
+     * Devices detect transitions; every event reaching the driver must be delivered.
      */
     triggerEvent(eventName, device, tokens, state) {
-        const prev = this.previousStates[eventName];
-        const current = tokens;
-        const isChanged = JSON.stringify(prev) !== JSON.stringify(current);
-        if (isChanged) {
-            this.log(`${eventName.toUpperCase()} :`, tokens);
-            const trigger = this[`_${eventName}Trigger`];
-            if (trigger) {
-                trigger.trigger(device, tokens, state).catch(err => {
-                    this.log(`Error triggering ${eventName.toUpperCase()}:`, err);
-                });
-            }
-            this.previousStates[eventName] = JSON.parse(JSON.stringify(current));
-        }
+        this.log(`${eventName.toUpperCase()} :`, tokens);
+        const trigger = this[`_${eventName}Trigger`];
+        return trigger.trigger(device, tokens || {}, state).catch(err => {
+            this.error(`Error triggering ${eventName.toUpperCase()}:`, err);
+        });
     }
 
     //  ========================================== Flow triggers ==========================================
     triggerPrintStarted(device, tokens, state) {
-        this.triggerEvent('printStarted', device, tokens, state);
+        return this.triggerEvent('printStarted', device, tokens, state);
     }
 
     triggerPrintPaused(device, tokens, state) {
-        this.triggerEvent('printPaused', device, tokens, state);
+        return this.triggerEvent('printPaused', device, tokens, state);
     }
 
     triggerPrintResumed(device, tokens, state) {
-        this.triggerEvent('printResumed', device, tokens, state);
+        return this.triggerEvent('printResumed', device, tokens, state);
     }
 
     triggerPrintFinished(device, tokens, state) {
-        this.triggerEvent('printFinished', device, tokens, state);
+        return this.triggerEvent('printFinished', device, tokens, state);
     }
 
     triggerPrintStopped(device, tokens, state) {
-        this.triggerEvent('printStopped', device, tokens, state);
+        return this.triggerEvent('printStopped', device, tokens, state);
     }
 
     triggerBedTarget(device, tokens, state) {
-        this.triggerEvent('targetTemperatureBed', device, tokens, state);
+        return this.triggerEvent('targetTemperatureBed', device, tokens, state);
     }
 
     triggerToolTarget(device, tokens, state) {
-        this.triggerEvent('targetTemperatureTool', device, tokens, state);
+        return this.triggerEvent('targetTemperatureTool', device, tokens, state);
     }
 
     triggerChamberTarget(device, tokens, state) {
-        this.triggerEvent('targetTemperatureChamber', device, tokens, state);
+        return this.triggerEvent('targetTemperatureChamber', device, tokens, state);
     }
 
     triggerBedMeasure(device, tokens, state) {
-        this.triggerEvent('measureTemperatureBed', device, tokens, state);
+        return this.triggerEvent('measureTemperatureBed', device, tokens, state);
     }
 
     triggerToolMeasure(device, tokens, state) {
-        this.triggerEvent('measureTemperatureTool', device, tokens, state);
+        return this.triggerEvent('measureTemperatureTool', device, tokens, state);
     }
 
     triggerChamberMeasure(device, tokens, state) {
-        this.triggerEvent('measureTemperatureChamber', device, tokens, state);
+        return this.triggerEvent('measureTemperatureChamber', device, tokens, state);
     }
 
     triggerEstimatedTime(device, tokens, state) {
-        this.triggerEvent('estimatedTime', device, tokens, state);
+        return this.triggerEvent('estimatedTime', device, tokens, state);
     }
 
     triggerEstimatedEndTime(device, tokens, state) {
-        this.triggerEvent('estimatedEndTime', device, tokens, state);
+        return this.triggerEvent('estimatedEndTime', device, tokens, state);
     }
 
     triggerCompletion(device, tokens, state) {
-        this.triggerEvent('completion', device, tokens, state);
+        return this.triggerEvent('completion', device, tokens, state);
     }
 
     triggerPrintTime(device, tokens, state) {
-        this.triggerEvent('printTime', device, tokens, state);
+        return this.triggerEvent('printTime', device, tokens, state);
     }
 
     triggerTimeLeft(device, tokens, state) {
-        this.triggerEvent('timeLeft', device, tokens, state);
+        return this.triggerEvent('timeLeft', device, tokens, state);
     }
 
     triggerState(device, tokens, state) {
-        this.triggerEvent('state', device, tokens, state);
+        return this.triggerEvent('state', device, tokens, state);
     }
 
     triggerFile(device, tokens, state) {
-        this.triggerEvent('file', device, tokens, state);
+        return this.triggerEvent('file', device, tokens, state);
     }
 
     triggerBedCooledDown(device, tokens, state) {
-        this.triggerEvent('bedCooledDown', device, tokens, state);
+        return this.triggerEvent('bedCooledDown', device, tokens, state);
     }
 
     triggerToolCooledDown(device, tokens, state) {
-        this.triggerEvent('toolCooledDown', device, tokens, state);
+        return this.triggerEvent('toolCooledDown', device, tokens, state);
     }
 
     triggerError(device, tokens, state) {
-        this.triggerEvent('error', device, tokens, state);
+        return this.triggerEvent('error', device, tokens, state);
     }
 
     async onPair(session) {
@@ -226,7 +219,13 @@ class OctoprintDriver extends Homey.Driver {
                 session.setHandler('addOctoprint', async function(connection) {
                     // Test connection, see if we can retrieve octoprint version.
                     const octoprint = new OctoprintAPI(connection);
-                    return await octoprint.getServerState().catch(error => console.log(error));
+                    try {
+                        const version = await octoprint.getServerState();
+                        await octoprint.getPrinterState();
+                        return version;
+                    } finally {
+                        octoprint.dispose();
+                    }
                 });
             }
         });

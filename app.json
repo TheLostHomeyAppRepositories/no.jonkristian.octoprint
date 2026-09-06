@@ -3262,18 +3262,18 @@
               },
               "value": "video_auto",
               "hint": {
-                "en": "Choose the stream endpoint. For OctoPrint camera-streamer use WebRTC preset. MJPEG usually works on mobile only. Use Custom URL for a manual endpoint.",
-                "no": "Velg strømens endepunkt. For camera-streamer bruk WebRTC-forvalg. MJPEG fungerer vanligvis bare på mobil. Bruk tilpasset URL for manuelt endepunkt.",
-                "nl": "Kies het stream-eindpunt. Gebruik voor camera-streamer WebRTC-voorinstelling. MJPEG werkt meestal alleen op mobiel. Gebruik Aangepaste URL voor een handmatig eindpunt.",
-                "de": "Wählen Sie den Stream-Endpunkt. Für camera-streamer verwenden Sie die WebRTC-Voreinstellung. MJPEG funktioniert meist nur mobil. Verwenden Sie Benutzerdefinierte URL für einen manuellen Endpunkt.",
-                "fr": "Choisissez le point de terminaison du flux. Pour camera-streamer utilisez le préréglage WebRTC. MJPEG fonctionne généralement uniquement sur mobile. Utilisez URL personnalisée pour un point de terminaison manuel.",
-                "it": "Scegli l'endpoint del flusso. Per camera-streamer usa il preset WebRTC. MJPEG di solito funziona solo su mobile. Usa URL personalizzato per un endpoint manuale.",
-                "sv": "Välj stream-endpoint. För camera-streamer använd WebRTC-förval. MJPEG fungerar vanligtvis bara på mobil. Använd anpassad URL för manuellt endpoint.",
-                "es": "Elija el endpoint de transmisión. Para camera-streamer use el preajuste WebRTC. MJPEG suele funcionar solo en móvil. Use URL personalizada para un endpoint manual.",
-                "da": "Vælg stream-endpoint. For camera-streamer brug WebRTC-forvalg. MJPEG virker normalt kun på mobil. Brug Tilpasset URL til manuelt endpoint.",
-                "ru": "Выберите конечную точку потока. Для camera-streamer используйте предустановку WebRTC. MJPEG обычно работает только на мобильном. Используйте Пользовательский URL для ручной настройки.",
-                "pl": "Wybierz punkt końcowy strumienia. Dla camera-streamer użyj presetu WebRTC. MJPEG zwykle działa tylko na mobile. Użyj niestandardowego URL dla ręcznego endpointu.",
-                "ko": "스트림 엔드포인트를 선택하세요. camera-streamer에는 WebRTC 프리셋을 사용하세요. MJPEG는 일반적으로 모바일에서만 작동합니다. 수동 엔드포인트는 사용자 지정 URL을 사용하세요."
+                "en": "Auto sends H.264 from camera-streamer through Homey for web and mobile playback; with Disable WebRTC proxy enabled it uses direct video. Use WebRTC for native signaling or Custom URL for another endpoint.",
+                "no": "Auto sender H.264 fra camera-streamer via Homey for nett- og mobilavspilling; med Deaktiver WebRTC-proxy aktivert brukes direkte video. Bruk WebRTC for direkte signalering eller tilpasset URL for et annet endepunkt.",
+                "nl": "Auto stuurt H.264 van camera-streamer via Homey voor web en mobiel; met WebRTC-proxy uitschakelen ingeschakeld wordt directe video gebruikt. Gebruik WebRTC voor native signalering of Aangepaste URL voor een ander eindpunt.",
+                "de": "Auto sendet H.264 von camera-streamer über Homey für Web und Mobilgeräte; bei deaktiviertem WebRTC-Proxy wird direktes Video verwendet. Verwenden Sie WebRTC für native Signalisierung oder eine benutzerdefinierte URL für einen anderen Endpunkt.",
+                "fr": "Auto transmet le H.264 de camera-streamer via Homey pour le web et le mobile ; si le proxy WebRTC est désactivé, la vidéo directe est utilisée. Utilisez WebRTC pour la signalisation native ou une URL personnalisée pour un autre point de terminaison.",
+                "it": "Auto invia H.264 da camera-streamer tramite Homey per web e mobile; disattivando il proxy WebRTC usa il video diretto. Usa WebRTC per la segnalazione nativa o un URL personalizzato per un altro endpoint.",
+                "sv": "Auto skickar H.264 från camera-streamer via Homey för webb och mobil; när WebRTC-proxyn är avstängd används direkt video. Använd WebRTC för inbyggd signalering eller en anpassad URL för en annan endpoint.",
+                "es": "Auto envía H.264 de camera-streamer a través de Homey para web y móvil; al desactivar el proxy WebRTC usa vídeo directo. Use WebRTC para señalización nativa o una URL personalizada para otro endpoint.",
+                "da": "Auto sender H.264 fra camera-streamer via Homey til web og mobil; når WebRTC-proxyen er deaktiveret, bruges direkte video. Brug WebRTC til direkte signalering eller en tilpasset URL til et andet endpoint.",
+                "ru": "Auto передаёт H.264 от camera-streamer через Homey для веба и мобильного приложения; при отключённом прокси WebRTC используется прямое видео. Используйте WebRTC для прямого обмена SDP или собственный URL для другой конечной точки.",
+                "pl": "Auto przesyła H.264 z camera-streamer przez Homey do przeglądarki i aplikacji mobilnej; po wyłączeniu proxy WebRTC używa bezpośredniego wideo. Użyj WebRTC do natywnej sygnalizacji lub własnego URL dla innego punktu końcowego.",
+                "ko": "Auto는 웹 및 모바일 재생을 위해 camera-streamer의 H.264를 Homey를 통해 전송합니다. WebRTC 프록시를 비활성화하면 직접 비디오를 사용합니다. 기본 신호 교환에는 WebRTC를, 다른 엔드포인트에는 사용자 지정 URL을 사용하세요."
               },
               "values": [
                 {
@@ -3296,18 +3296,18 @@
                 {
                   "id": "video_auto",
                   "label": {
-                    "en": "Video Auto (/webcam/video)",
-                    "no": "Video Auto (/webcam/video)",
-                    "nl": "Video Auto (/webcam/video)",
-                    "de": "Video Auto (/webcam/video)",
-                    "fr": "Video Auto (/webcam/video)",
-                    "it": "Video Auto (/webcam/video)",
-                    "sv": "Video Auto (/webcam/video)",
-                    "es": "Video Auto (/webcam/video)",
-                    "da": "Video Auto (/webcam/video)",
-                    "ru": "Video Auto (/webcam/video)",
-                    "pl": "Video Auto (/webcam/video)",
-                    "ko": "Video Auto (/webcam/video)"
+                    "en": "Auto (H.264 / video)",
+                    "no": "Auto (H.264 / video)",
+                    "nl": "Auto (H.264 / video)",
+                    "de": "Auto (H.264 / video)",
+                    "fr": "Auto (H.264 / video)",
+                    "it": "Auto (H.264 / video)",
+                    "sv": "Auto (H.264 / video)",
+                    "es": "Auto (H.264 / video)",
+                    "da": "Auto (H.264 / video)",
+                    "ru": "Auto (H.264 / video)",
+                    "pl": "Auto (H.264 / video)",
+                    "ko": "Auto (H.264 / video)"
                   }
                 },
                 {

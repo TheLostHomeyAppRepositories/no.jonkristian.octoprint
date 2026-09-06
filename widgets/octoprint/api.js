@@ -2,6 +2,10 @@
 
 module.exports = {
 
+  async listDevices({ homey }) {
+    return homey.app.getAllOctoPrintDevices();
+  },
+
   async getDeviceData({ homey, query }) {
     try {
       // homey.app.log('🔍 getDeviceData endpoint was called with query:', query);

@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const { OctoprintAPI } = require('../../lib/octoprint.js');
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+const { pipeline } = require('stream/promises');
 
 class OctoprintDevice extends Homey.Device {
 	static CAMERA_ID = 'front';
@@ -20,6 +20,9 @@ class OctoprintDevice extends Homey.Device {
 	 * onInit is called when the device is initialized.
 	 */
 	async onInit() {
+		if (this._pollPromise) await this.onUninit();
+		this._stopped = false;
+		this._timers = new Set();
 		// Migrate to all new capabilities
 		this.log('OctoprintDriver initialization started');
 		await this.ensureCameraSettings();
@@ -174,13 +177,12 @@ class OctoprintDevice extends Homey.Device {
 			error_old: null
 		}
 
-		await this.setSnapshotImage().catch(this.error);
-		await this.setStreamVideo().catch(this.error);
+		this._cameraSettings = this.getSettings();
 
 		// Register capabilities
 		this.registerCapabilityListener('onoff', async (value) => {
 			if (value) {
-				this.octoprint.postData('/api/connection', {
+				return this.octoprint.postData('/api/connection', {
 					command: 'connect'
 				})
 					.catch(err => {
@@ -192,7 +194,7 @@ class OctoprintDevice extends Homey.Device {
 			}
 			else {
 				if (this.printer.state === 'Operational') {
-					this.octoprint.postData('/api/connection', {
+					return this.octoprint.postData('/api/connection', {
 						command: 'disconnect'
 					})
 						.catch(err => {
@@ -342,9 +344,9 @@ class OctoprintDevice extends Homey.Device {
 						throw new Error(err);
 					} finally {
 						// Reset job_resume to false after sending the command
-						setTimeout(() => {
-							this.setCapabilityValue('job_resume', false);
-							this.setCapabilityValue('job_pause', false);
+						this.scheduleTask(async () => {
+							await this.setCapabilityValue('job_resume', false);
+							await this.setCapabilityValue('job_pause', false);
 							this.log('Resetting job_resume capability to false');
 						}, 1500);
 					}
@@ -377,8 +379,8 @@ class OctoprintDevice extends Homey.Device {
 						throw new Error(err);
 					} finally {
 						// Reset job_cancel to false after sending the command
-						setTimeout(() => {
-							this.setCapabilityValue('job_cancel', false);
+						this.scheduleTask(async () => {
+							await this.setCapabilityValue('job_cancel', false);
 							this.log('Resetting job_cancel capability to false');
 						}, 1500);
 					}
@@ -406,8 +408,8 @@ class OctoprintDevice extends Homey.Device {
 						throw new Error(err);
 					} finally {
 						// Reset emergency_stop_m112 to false after sending the command
-						setTimeout(() => {
-							this.setCapabilityValue('emergency_stop_m112', false);
+						this.scheduleTask(async () => {
+							await this.setCapabilityValue('emergency_stop_m112', false);
 							this.log('Resetting emergency_stop_m112 capability to false');
 						}, 1500);
 					}
@@ -426,7 +428,7 @@ class OctoprintDevice extends Homey.Device {
 				this.printer.state === 'Closed'
 				|| this.printer.state === 'Operational'
 			) {
-				this.octoprint.postData('/api/system/commands/core/restart', {})
+				return this.octoprint.postData('/api/system/commands/core/restart', {})
 					.catch(err => {
 						throw new Error(err);
 					})
@@ -444,7 +446,7 @@ class OctoprintDevice extends Homey.Device {
 				this.printer.state === 'Closed'
 				|| this.printer.state === 'Operational'
 			) {
-				this.octoprint.postData('/api/system/commands/core/reboot', {})
+				return this.octoprint.postData('/api/system/commands/core/reboot', {})
 					.catch(err => {
 						throw new Error(err);
 					})
@@ -462,7 +464,7 @@ class OctoprintDevice extends Homey.Device {
 				this.printer.state === 'Closed'
 				|| this.printer.state === 'Operational'
 			) {
-				this.octoprint.postData('/api/system/commands/core/shutdown', {})
+				return this.octoprint.postData('/api/system/commands/core/shutdown', {})
 					.catch(err => {
 						throw new Error(err);
 					})
@@ -475,9 +477,7 @@ class OctoprintDevice extends Homey.Device {
 			}
 		});
 
-		this.addListener('poll', this.pollDevice);
-		this.polling = true;
-		this.emit('poll');
+		this.startPolling();
 
 		this.log('OctoprintDriver initialization completed');
 	}
@@ -489,7 +489,8 @@ class OctoprintDevice extends Homey.Device {
 	// Device's advanced settings
 	async onSettings({ oldSettings, newSettings, changedKeys }) {
 		if (changedKeys.length > 0) {
-			setTimeout(() => this.setPrinterJobState(), 500);
+			const connectionChanged = changedKeys.includes('address') || changedKeys.includes('apikey');
+			const client = connectionChanged ? new OctoprintAPI(newSettings) : this.octoprint;
 
 			if (changedKeys.includes('heated_bed')) {
 				if (newSettings.heated_bed) {
@@ -557,22 +558,18 @@ class OctoprintDevice extends Homey.Device {
 				}
 			}
 
-			if (changedKeys.includes('snapshot_active') || changedKeys.includes('snapshot_url')) {
-				await this.setSnapshotImage().catch(this.error);
-				this.printer.snapshot = this.getSetting('snapshot_active');
+			if (connectionChanged) {
+				await this.stopPolling();
+				this.octoprint = client;
+				this.printer.server = null;
+				this.printer.state = null;
+				this.printer.print_stopped = true;
+				this._snapshotConfig = null;
+				this._streamConfig = null;
+				this.log('OctoPrint connection settings updated');
 			}
-
-			if (
-				changedKeys.includes('stream_active')
-				|| changedKeys.includes('stream_url')
-				|| changedKeys.includes('stream_mode')
-				|| changedKeys.includes('disable_webrtc_proxy')
-				|| changedKeys.includes('webrtc_data_channel')
-			) {
-				await this.setStreamVideo().catch(this.error);
-				this.printer.stream = this.isStreamActive();
-				this.printer.stream_config = this.getStreamConfigSignature();
-			}
+			await this.configureCameras(newSettings);
+			if (connectionChanged) this.startPolling();
 
 			this.log('OctoPrint settings changed:\n', changedKeys);
 		}
@@ -585,268 +582,367 @@ class OctoprintDevice extends Homey.Device {
 		this.log('OctoPrint device renamed', name);
 	}
 
+	scheduleTask(callback, milliseconds) {
+		if (this._stopped) return;
+		const timer = setTimeout(() => {
+			this._timers.delete(timer);
+			if (!this._stopped) Promise.resolve().then(callback).catch(error => this.error('Delayed device update failed:', error));
+		}, milliseconds);
+		this._timers.add(timer);
+	}
+
+	startPolling() {
+		if (this._stopped || this._pollPromise) return;
+		this.polling = true;
+		this._pollPromise = this.pollDevice().catch(error => this.error('Polling failed:', error))
+			.finally(() => { this._pollPromise = null; });
+	}
+
+	async stopPolling() {
+		this.polling = false;
+		if (this._pollWake) this._pollWake();
+		if (this.octoprint) this.octoprint.dispose();
+		await this._pollPromise;
+	}
+
+	waitForPoll(milliseconds) {
+		if (!this.polling) return Promise.resolve();
+		return new Promise(resolve => {
+			const timer = setTimeout(() => {
+				this._pollWake = null;
+				resolve();
+			}, milliseconds);
+			this._pollWake = () => {
+				clearTimeout(timer);
+				this._pollWake = null;
+				resolve();
+			};
+		});
+	}
+
 	async onDeleted() {
 		this.log('OctoPrint device removed');
-		this.polling = false;
+		await this.onUninit();
+	}
 
-		if (this.streamVideo && typeof this.streamVideo.unregister === 'function') {
-			await this.streamVideo.unregister().catch(this.error);
+	async onUninit() {
+		this._stopped = true;
+		for (const timer of this._timers || []) clearTimeout(timer);
+		if (this._timers) this._timers.clear();
+		await this.stopPolling();
+		if (this._cameraQueue) await this._cameraQueue.catch(error => this.error('Camera configuration failed during cleanup:', error));
+		for (const key of ['snapshotImage', 'streamVideo']) {
+			if (this[key]) {
+				await this[key].unregister().catch(error => this.error('Camera cleanup failed:', error));
+				this[key] = null;
+			}
 		}
+		this._snapshotConfig = null;
+		this._streamConfig = null;
 	}
 
 	async pollDevice() {
 		while (this.polling) {
-			this.printer.server = await this.octoprint.getServerState();
-
-			if (!this.printer.server) {
-				this.printer.bed_cooled_down = true;
-				this.printer.tool_cooled_down = true;
-
-				await this.setUnavailable(this.homey.__('error.server_unreachable')).catch(this.error);
-				this.error('Octoprint server unreachable');
+			try {
+				await this.configureCameras();
+				if (!this.polling) break;
+				await this.pollOnce();
+			} catch (error) {
+				if (!this.polling) break;
+				this.printer.server = null;
+				this.error('OctoPrint poll failed; retrying next interval:', error);
+				await this.setUnavailable(error.message).catch(error => this.error(error));
 			}
-			else {
-				await this.setAvailable().catch(this.error);
-
-				const snaptshotActive = await this.getSetting('snapshot_active');
-				if (this.printer.snapshot !== snaptshotActive) {
-					await this.setSnapshotImage();
-					this.printer.snapshot = snaptshotActive;
-				}
-
-				const streamActive = this.isStreamActive();
-				if (this.printer.stream !== streamActive) {
-					await this.setStreamVideo();
-					this.printer.stream = streamActive;
-					this.printer.stream_config = this.getStreamConfigSignature();
-				}
-
-				const streamConfig = this.getStreamConfigSignature();
-				if (this.printer.stream_config !== streamConfig) {
-					await this.setStreamVideo();
-					this.printer.stream_config = streamConfig;
-				}
-
-				// Set printer temps and job
-				await this.setPrinterTemps();
-				await this.setPrinterJobState();
-
-				// If there is an error
-				if (this.printer.job.error) {
-					if (this.printer.error_old !== this.printer.job.error) {
-						this.printer.error_old = this.printer.job.error;
-						this.driver.triggerError(this, { error: this.printer.job.error }, null);
-					}
-				}
-				else {
-					if (this.printer.error_old) {
-						this.printer.error_old = null;
-						this.driver.triggerError(this, { error: 'Error cleared' }, null);
-					}
-				}
-
-				const currentState = await this.octoprint.getPrinterState();
-
-				// Printer on off state
-				if (currentState === 'Closed') {
-					if (this.getCapabilityValue('onoff') === true) {
-						this.printer.bed_cooled_down = true;
-						this.printer.tool_cooled_down = true;
-
-						await this.setCapabilityValue('onoff', false).catch(this.error);
-					}
-				}
-				else {
-					if (this.getCapabilityValue('onoff') === false) {
-						await this.setCapabilityValue('onoff', true).catch(this.error);
-					}
-				}
-
-				if (this.printer.state !== currentState) {
-					// Trigger for the printer state
-					const tokens = {
-						state: (this.homey.__('states.' + currentState) || currentState)
-					}
-					await this.setCapabilityValue('printer_state', (this.homey.__('states.' + currentState) || currentState)).catch(this.error);
-					if (typeof currentState === 'string') await this.driver.triggerState(this, tokens, null);
-
-					// Started a print
-					if (
-						this.printer.state === 'Operational'
-						&& (currentState === 'Printing'
-							|| this.printer.state === 'Starting')
-					) {
-						const tokens = {
-							'print_started_estimate': String(this.printer.job.estimate),
-							'print_started_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_started_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
-							'print_started_estimate_end': String(this.print_started_estimate_end),
-							'print_started_estimate_end_short': String(this.printer.job.estimate_end_time_short),
-							'print_started_estimate_end_full': String(this.printer.job.estimate_end_time_full)
-						}
-
-						this.printer.print_stopped = false;
-						await this.driver.triggerPrintStarted(this, tokens, null);
-					}
-
-					// Paused a print
-					if (
-						this.printer.state === 'Printing'
-						&& (currentState === 'Pausing' || currentState === 'Paused')
-					) {
-						// Introduce a delay for one polling cycle
-						const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
-						await delay(pollInterval * 1000);
-
-						// Recheck the state after the delay
-						const updatedState = await this.octoprint.getPrinterState();
-						if (updatedState === 'Pausing' || updatedState === 'Paused') {
-							// Proceed with triggering the print paused flow
-							const tokens = {
-								'print_paused_estimate': String(this.printer.job.estimate || ''),
-								'print_paused_estimate_hms': String(this.printer.job.estimate_hms || ''),
-								'print_paused_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
-								'print_paused_time': String(this.printer.job.time || ''),
-								'print_paused_time_hms': String(this.printer.job.time_hms || ''),
-								'print_paused_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
-								'print_paused_left': String(this.printer.job.left || ''),
-								'print_paused_left_hms': String(this.printer.job.left_hms || 'N/A'),
-								'print_paused_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
-							};
-
-							await this.driver.triggerPrintPaused(this, tokens, null);
-						} else {
-							// Handle the case where the state has changed during the delay
-							this.log('State changed during delay, current state:', updatedState);
-						}
-					}
-
-					// Resumed a print
-					if (
-						(this.printer.state === 'Paused' || this.printer.state === 'Pausing')
-						&& currentState === 'Printing'
-					) {
-						// Introduce a delay for one polling cycle
-						const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
-						await delay(pollInterval * 1000);
-
-						// Recheck the state after the delay
-						const updatedState = await this.octoprint.getPrinterState();
-						if (updatedState === 'Printing') {
-							// Proceed with triggering the print resumed flow
-							const tokens = {
-								'print_resumed_estimate': String(this.printer.job.estimate || ''),
-								'print_resumed_estimate_hms': String(this.printer.job.estimate_hms || ''),
-								'print_resumed_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
-								'print_resumed_time': this.printer.job.time || '',
-								'print_resumed_time_hms': String(this.printer.job.time_hms || ''),
-								'print_resumed_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
-								'print_resumed_left': String(this.printer.job.left || ''),
-								'print_resumed_left_hms': String(this.printer.job.left_hms || 'N/A'),
-								'print_resumed_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
-							};
-
-							await this.driver.triggerPrintResumed(this, tokens, null);
-						} else {
-							// Handle the case where the state has changed during the delay
-							this.log('State changed during delay, current state:', updatedState);
-						}
-					}
-
-
-					// Finished a print
-					if (
-						this.printer.state === 'Printing'
-						&& currentState === 'Operational'
-						&& this.printer.job.completion === 100
-					) {
-						const tokens = {
-							'print_finished_estimate': String(this.printer.job.estimate),
-							'print_finished_estimate_hms': String(this.printer.job.estimate_hms),
-							'print_finished_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
-							'print_finished_time': String(this.printer.job.time),
-							'print_finished_time_hms': String(this.printer.job.time_hms),
-							'print_finished_time_seconds': parseInt(this.printer.job.time_seconds, 10),
-						}
-
-						await this.driver.triggerPrintFinished(this, tokens, null);
-					}
-
-					// Stopped a print
-					if (
-						(this.printer.state === 'Printing'
-							|| this.printer.state === 'Paused'
-							|| this.printer.state === 'Pausing')
-						&& (currentState === 'Operational'
-							|| currentState === 'Closed'
-							|| currentState === 'Offline'
-							|| currentState === 'Cancelling')
-						&& this.printer.print_stopped === false
-					) {
-						const completion = this.getSetting('calculated_completion') || 'completion';
-
-						// Validate completion value
-						if (typeof this.printer.job[completion] !== 'number' || isNaN(this.printer.job[completion])) {
-							this.error(`Invalid value for completion: ${this.printer.job[completion]}`);
-							const tokens = {
-								'completion': 0,
-								'completion_percent': 0
-							};
-							this.printer.print_stopped = true;
-							await this.driver.triggerPrintStopped(this, tokens, null);
-
-						} else {
-							const tokens = {
-								'completion': this.printer.job[completion],
-								'completion_percent': Math.round(this.printer.job[completion]) / 100
-							}
-
-							this.printer.print_stopped = true;
-							await this.driver.triggerPrintStopped(this, tokens, null);
-						}
-					}
-
-					// Update the state in memory
-					this.printer.state = currentState;
-				}
-			}
-
-			const pollInterval = (this.getSetting('pollInterval') > 10) ? this.getSetting('pollInterval') : 10;
-			await delay(pollInterval * 1000);
+			const interval = this.getSetting('pollInterval');
+			await this.waitForPoll((Number.isFinite(interval) ? Math.max(interval, 10) : 10) * 1000);
 		}
 	}
 
-	async setSnapshotImage() {
-		if (this.getSetting('snapshot_active')) {
-			this.snapshotImage = await this.homey.images.createImage();
+	async pollOnce() {
+		this.printer.server = await this.octoprint.getServerState();
 
-			this.snapshotImage.setStream(async (stream) => {
-				const res = await this.octoprint.getSnapshot(this.sanitizeUrlInput(this.getSetting('snapshot_url')));
+		if (!this.printer.server) {
+			this.printer.bed_cooled_down = true;
+			this.printer.tool_cooled_down = true;
 
-				if (!res.ok) {
-					throw new Error(this.homey.__('error.snapshot_failed'));
+			await this.setUnavailable(this.homey.__('error.server_unreachable')).catch(this.error);
+			this.error('Octoprint server unreachable');
+		}
+		else {
+			await this.setAvailable().catch(this.error);
+
+			// Set printer temps and job
+			await this.setPrinterTemps();
+			await this.setPrinterJobState();
+
+			// If there is an error
+			if (this.printer.job.error) {
+				if (this.printer.error_old !== this.printer.job.error) {
+					this.printer.error_old = this.printer.job.error;
+					this.driver.triggerError(this, { error: this.printer.job.error }, null);
+				}
+			}
+			else {
+				if (this.printer.error_old) {
+					this.printer.error_old = null;
+					this.driver.triggerError(this, { error: 'Error cleared' }, null);
+				}
+			}
+
+			const currentState = await this.octoprint.getPrinterState();
+
+			// Printer on off state
+			if (currentState === 'Closed') {
+				if (this.getCapabilityValue('onoff') === true) {
+					this.printer.bed_cooled_down = true;
+					this.printer.tool_cooled_down = true;
+
+					await this.setCapabilityValue('onoff', false).catch(this.error);
+				}
+			}
+			else {
+				if (this.getCapabilityValue('onoff') === false) {
+					await this.setCapabilityValue('onoff', true).catch(this.error);
+				}
+			}
+
+			if (this.printer.state !== currentState) {
+				// Trigger for the printer state
+				const tokens = {
+					state: (this.homey.__('states.' + currentState) || currentState)
+				}
+				await this.setCapabilityValue('printer_state', (this.homey.__('states.' + currentState) || currentState)).catch(this.error);
+				if (typeof currentState === 'string') await this.driver.triggerState(this, tokens, null);
+
+				// Started a print
+				if (
+					this.printer.state === 'Operational'
+					&& (currentState === 'Printing'
+						|| currentState === 'Starting')
+				) {
+					const tokens = {
+						'print_started_estimate': String(this.printer.job.estimate),
+						'print_started_estimate_hms': String(this.printer.job.estimate_hms),
+						'print_started_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
+						'print_started_estimate_end': String(this.printer.job.estimate_end_time),
+						'print_started_estimate_end_short': String(this.printer.job.estimate_end_time_short),
+						'print_started_estimate_end_full': String(this.printer.job.estimate_end_time_full)
+					}
+
+					this.printer.print_stopped = false;
+					await this.driver.triggerPrintStarted(this, tokens, null);
 				}
 
-				return res.body.pipe(stream);
-			});
+				// Paused a print
+				if (
+					this.printer.state === 'Printing'
+					&& (currentState === 'Pausing' || currentState === 'Paused')
+				) {
+					// Introduce a delay for one polling cycle
+					const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
+					await this.waitForPoll(pollInterval * 1000);
+					if (!this.polling) return;
 
-			await this.setCameraImage(OctoprintDevice.CAMERA_ID, this.homey.__('snapshot.title'), this.snapshotImage).catch(this.error);
+					// Recheck the state after the delay
+					const updatedState = await this.octoprint.getPrinterState();
+					if (updatedState === 'Pausing' || updatedState === 'Paused') {
+						// Proceed with triggering the print paused flow
+						const tokens = {
+							'print_paused_estimate': String(this.printer.job.estimate || ''),
+							'print_paused_estimate_hms': String(this.printer.job.estimate_hms || ''),
+							'print_paused_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
+							'print_paused_time': String(this.printer.job.time || ''),
+							'print_paused_time_hms': String(this.printer.job.time_hms || ''),
+							'print_paused_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
+							'print_paused_left': String(this.printer.job.left || ''),
+							'print_paused_left_hms': String(this.printer.job.left_hms || 'N/A'),
+							'print_paused_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
+						};
+
+						await this.driver.triggerPrintPaused(this, tokens, null);
+					} else {
+						// Handle the case where the state has changed during the delay
+						this.log('State changed during delay, current state:', updatedState);
+					}
+				}
+
+				// Resumed a print
+				if (
+					(this.printer.state === 'Paused' || this.printer.state === 'Pausing')
+					&& currentState === 'Printing'
+				) {
+					// Introduce a delay for one polling cycle
+					const pollInterval = Math.max(this.getSetting('pollInterval'), 10); // Ensure a minimum interval
+					await this.waitForPoll(pollInterval * 1000);
+					if (!this.polling) return;
+
+					// Recheck the state after the delay
+					const updatedState = await this.octoprint.getPrinterState();
+					if (updatedState === 'Printing') {
+						// Proceed with triggering the print resumed flow
+						const tokens = {
+							'print_resumed_estimate': String(this.printer.job.estimate || ''),
+							'print_resumed_estimate_hms': String(this.printer.job.estimate_hms || ''),
+							'print_resumed_estimate_seconds': parseInt(this.printer.job.estimate_seconds || 0, 10),
+							'print_resumed_time': this.printer.job.time || '',
+							'print_resumed_time_hms': String(this.printer.job.time_hms || ''),
+							'print_resumed_time_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
+							'print_resumed_left': String(this.printer.job.left || ''),
+							'print_resumed_left_hms': String(this.printer.job.left_hms || 'N/A'),
+							'print_resumed_seconds_left': parseInt(this.printer.job.seconds_left || 0, 10),
+						};
+
+						await this.driver.triggerPrintResumed(this, tokens, null);
+					} else {
+						// Handle the case where the state has changed during the delay
+						this.log('State changed during delay, current state:', updatedState);
+					}
+				}
+
+
+				// Finished a print
+				if (
+					this.printer.state === 'Printing'
+					&& currentState === 'Operational'
+					&& this.printer.job.completion === 100
+				) {
+					const tokens = {
+						'print_finished_estimate': String(this.printer.job.estimate),
+						'print_finished_estimate_hms': String(this.printer.job.estimate_hms),
+						'print_finished_estimate_seconds': parseInt(this.printer.job.estimate_seconds, 10),
+						'print_finished_time': String(this.printer.job.time),
+						'print_finished_time_hms': String(this.printer.job.time_hms),
+						'print_finished_time_seconds': parseInt(this.printer.job.time_seconds, 10),
+					}
+
+					await this.driver.triggerPrintFinished(this, tokens, null);
+				}
+
+				// Stopped a print
+				if (
+					(this.printer.state === 'Printing'
+						|| this.printer.state === 'Paused'
+						|| this.printer.state === 'Pausing')
+					&& (currentState === 'Operational'
+						|| currentState === 'Closed'
+						|| currentState === 'Offline'
+						|| currentState === 'Cancelling')
+					&& this.printer.print_stopped === false
+				) {
+					const completion = this.getSetting('calculated_completion') || 'completion';
+
+					// Validate completion value
+					if (typeof this.printer.job[completion] !== 'number' || isNaN(this.printer.job[completion])) {
+						this.error(`Invalid value for completion: ${this.printer.job[completion]}`);
+						const tokens = {
+							'completion': 0,
+							'completion_percent': 0
+						};
+						this.printer.print_stopped = true;
+						await this.driver.triggerPrintStopped(this, tokens, null);
+
+					} else {
+						const tokens = {
+							'completion': this.printer.job[completion],
+							'completion_percent': Math.round(this.printer.job[completion]) / 100
+						}
+
+						this.printer.print_stopped = true;
+						await this.driver.triggerPrintStopped(this, tokens, null);
+					}
+				}
+
+				// Update the state in memory
+				this.printer.state = currentState;
+			}
+		}
+
+	}
+
+	getCameraSetting(key) {
+		return this._cameraSettings && Object.prototype.hasOwnProperty.call(this._cameraSettings, key)
+			? this._cameraSettings[key] : this.getSetting(key);
+	}
+
+	configureCameras(settings) {
+		if (settings) this._cameraSettings = { ...settings };
+		const configure = async () => {
+			if (this._stopped) return;
+			const snapshotConfig = JSON.stringify([this.getCameraSetting('snapshot_active'),
+				this.getCameraSetting('snapshot_url'), this.octoprint.address]);
+			if (snapshotConfig !== this._snapshotConfig) {
+				try {
+					await this.setSnapshotImage();
+					this._snapshotConfig = snapshotConfig;
+				} catch (error) {
+					this.error('Snapshot configuration failed; will retry:', error);
+				}
+			}
+			if (this._stopped) return;
+			try {
+				const streamConfig = this.getStreamConfigSignature();
+				if (streamConfig !== this._streamConfig) {
+					await this.setStreamVideo();
+					this._streamConfig = streamConfig;
+				}
+			} catch (error) {
+				this.error('Video configuration failed; will retry:', error);
+			}
+		};
+		this._cameraQueue = (this._cameraQueue || Promise.resolve())
+			.catch(error => this.error('Previous camera configuration failed:', error))
+			.then(configure);
+		return this._cameraQueue;
+	}
+
+	async setSnapshotImage() {
+		if (!this.getCameraSetting('snapshot_active')) {
+			if (this.snapshotImage) {
+				await this.snapshotImage.unregister();
+				this.snapshotImage = null;
+				this.log('Snapshot disabled');
+			}
+			return;
+		}
+		if (this.snapshotImage) {
+			await this.snapshotImage.update();
+			return;
+		}
+		const image = await this.homey.images.createImage();
+		this.snapshotImage = image;
+		image.setStream(async stream => {
+			if (this._stopped || !this.getCameraSetting('snapshot_active') || this.snapshotImage !== image) {
+				throw new Error(this.homey.__('error.snapshot_failed'));
+			}
+			const res = await this.octoprint.getSnapshot(this.sanitizeUrlInput(this.getCameraSetting('snapshot_url')));
+			if (this._stopped || !this.getCameraSetting('snapshot_active') || this.snapshotImage !== image) {
+				res.body.destroy();
+				throw new Error(this.homey.__('error.snapshot_failed'));
+			}
+			await pipeline(res.body, stream);
+		});
+		try {
+			await this.setCameraImage(OctoprintDevice.CAMERA_ID, this.homey.__('snapshot.title'), image);
+		} catch (error) {
+			await image.unregister().catch(cleanupError => this.error('Snapshot cleanup failed:', cleanupError));
+			this.snapshotImage = null;
+			throw error;
 		}
 	}
 
 	isStreamActive() {
-		const streamActive = this.getSetting('stream_active');
+		const streamActive = this.getCameraSetting('stream_active');
 		return typeof streamActive === 'boolean' ? streamActive : true;
 	}
 
 	getStreamMode() {
-		const streamMode = this.getSetting('stream_mode');
+		const streamMode = this.getCameraSetting('stream_mode');
 
 		if (typeof streamMode === 'string' && Object.prototype.hasOwnProperty.call(OctoprintDevice.STREAM_MODES, streamMode)) {
 			return streamMode;
 		}
 
-		return this.inferStreamMode(this.getSetting('stream_url'));
+		return this.inferStreamMode(this.getCameraSetting('stream_url'));
 	}
 
 	inferStreamMode(streamUrl) {
@@ -867,38 +963,46 @@ class OctoprintDevice extends Homey.Device {
 		return 'custom';
 	}
 
-	getSelectedStreamUrl() {
+	getEffectiveStreamMode() {
 		const streamMode = this.getStreamMode();
+		// Use camera-streamer's raw H.264 input supported by Homey's proxy, avoiding Matroska.
+		return streamMode === 'video_auto' && !this.isWebRtcProxyDisabled() ? 'h264_proxy' : streamMode;
+	}
+
+	getSelectedStreamUrl() {
+		const streamMode = this.getEffectiveStreamMode();
+		if (streamMode === 'h264_proxy') return '/webcam/video.h264';
 
 		if (streamMode === 'custom') {
-			return this.sanitizeUrlInput(this.getSetting('stream_url'));
+			return this.sanitizeUrlInput(this.getCameraSetting('stream_url'));
 		}
 
 		return OctoprintDevice.STREAM_MODES[streamMode] || OctoprintDevice.STREAM_MODES.video_auto;
 	}
 
 	isWebRtcProxyDisabled() {
-		const disableProxy = this.getSetting('disable_webrtc_proxy');
+		const disableProxy = this.getCameraSetting('disable_webrtc_proxy');
 		return typeof disableProxy === 'boolean' ? disableProxy : false;
 	}
 
 	getStreamConfigSignature() {
 		const streamMode = this.getStreamMode();
 		return [
+			this.octoprint.address,
 			this.isStreamActive() ? '1' : '0',
 			streamMode,
 			this.getSelectedStreamUrl(),
 			this.isWebRtcProxyDisabled() ? '1' : '0',
-			this.getEffectiveWebRtcDataChannel(streamMode) ? '1' : '0',
+			this.getEffectiveWebRtcDataChannel() ? '1' : '0',
 		].join('|');
 	}
 
 	isWebRtcDataChannelEnabled() {
-		const dataChannel = this.getSetting('webrtc_data_channel');
+		const dataChannel = this.getCameraSetting('webrtc_data_channel');
 		return typeof dataChannel === 'boolean' ? dataChannel : false;
 	}
 
-	getEffectiveWebRtcDataChannel(streamMode = this.getStreamMode()) {
+	getEffectiveWebRtcDataChannel(streamMode = this.getEffectiveStreamMode()) {
 		return (streamMode === 'webrtc_native') ? false : this.isWebRtcDataChannelEnabled();
 	}
 
@@ -948,6 +1052,7 @@ class OctoprintDevice extends Homey.Device {
 			const url = this.octoprint.getStreamUrl(streamUrl).toLowerCase();
 
 			if (url.includes('/webrtc')) return 'createVideoWebRTC';
+			if (url.startsWith('rtsp://')) return 'createVideoRTSP';
 			if (url.startsWith('rtmp://')) return 'createVideoRTMP';
 			if (url.includes('.m3u8')) return 'createVideoHLS';
 			if (url.includes('.mpd')) return 'createVideoDASH';
@@ -966,7 +1071,7 @@ class OctoprintDevice extends Homey.Device {
 
 	async setStreamVideo() {
 		if (this.streamVideo && typeof this.streamVideo.unregister === 'function') {
-			await this.streamVideo.unregister().catch(this.error);
+			await this.streamVideo.unregister();
 			this.streamVideo = null;
 		}
 
@@ -980,15 +1085,15 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		const streamMode = this.getStreamMode();
-		let effectiveStreamMode = streamMode;
-		let selectedStreamUrl = this.getSelectedStreamUrl();
-		const cameraStreamerStatus = await this.getCameraStreamerStatusSafe();
+		const effectiveStreamMode = this.getEffectiveStreamMode();
+		const selectedStreamUrl = this.getSelectedStreamUrl();
 
 		const videoFactory = this.getVideoFactoryForStream(effectiveStreamMode, selectedStreamUrl);
-		const effectiveWebRtcDataChannel = this.getEffectiveWebRtcDataChannel(effectiveStreamMode);
-		const createVideoFn = (typeof this.homey.videos[videoFactory] === 'function')
-			? this.homey.videos[videoFactory].bind(this.homey.videos)
-			: this.homey.videos.createVideoOther.bind(this.homey.videos);
+		const effectiveWebRtcDataChannel = videoFactory === 'createVideoWebRTC' && this.getEffectiveWebRtcDataChannel(effectiveStreamMode);
+		if (typeof this.homey.videos[videoFactory] !== 'function') {
+			throw new Error(`Homey does not support ${videoFactory}`);
+		}
+		const createVideoFn = this.homey.videos[videoFactory].bind(this.homey.videos);
 		const streamUrlResolved = this.octoprint.getStreamUrl(selectedStreamUrl);
 		this.log('Configuring stream video', {
 			streamMode,
@@ -996,8 +1101,7 @@ class OctoprintDevice extends Homey.Device {
 			videoFactory,
 			disableWebRTCProxy: this.isWebRtcProxyDisabled(),
 			webrtcDataChannel: effectiveWebRtcDataChannel,
-			streamUrl: streamUrlResolved,
-			cameraStreamerEndpoints: this.getCameraStreamerStatusSummary(cameraStreamerStatus),
+			streamUrl: OctoprintAPI.redactUrl(streamUrlResolved),
 		});
 
 		if (videoFactory === 'createVideoWebRTC') {
@@ -1010,14 +1114,22 @@ class OctoprintDevice extends Homey.Device {
 				disableWebRTCProxy: this.isWebRtcProxyDisabled(),
 			});
 		}
+		const video = this.streamVideo;
+		const assertActive = () => {
+			if (this._stopped || !this.isStreamActive() || this.streamVideo !== video) {
+				throw new Error('Camera stream is no longer active');
+			}
+		};
 
 		if (videoFactory === 'createVideoWebRTC') {
 			this.streamVideo.registerOfferListener(async (offerSdp) => {
+				assertActive();
 				this.log('WebRTC offer received from Homey frontend', {
 					streamMode: effectiveStreamMode,
 					offerLength: typeof offerSdp === 'string' ? offerSdp.length : 0,
 				});
 				const result = await this.octoprint.getWebRtcAnswer(selectedStreamUrl, offerSdp);
+				assertActive();
 				this.log('WebRTC answer received from camera-streamer', {
 					streamMode: effectiveStreamMode,
 					answerLength: typeof result.answerSdp === 'string' ? result.answerSdp.length : 0,
@@ -1028,12 +1140,13 @@ class OctoprintDevice extends Homey.Device {
 		}
 		else {
 			this.streamVideo.registerVideoUrlListener(async () => {
+				assertActive();
 				const resolvedUrl = this.octoprint.getStreamUrl(selectedStreamUrl);
 				this.log('Video URL requested by Homey frontend', {
 					streamMode: effectiveStreamMode,
 					videoFactory,
 					disableWebRTCProxy: this.isWebRtcProxyDisabled(),
-					resolvedUrl,
+					resolvedUrl: OctoprintAPI.redactUrl(resolvedUrl),
 				});
 				return {
 					url: resolvedUrl,
@@ -1042,11 +1155,17 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		const streamTitle = this.homey.__('stream.title');
-		await this.setCameraVideo(
-			OctoprintDevice.CAMERA_ID,
-			(typeof streamTitle === 'string' && streamTitle !== 'stream.title') ? streamTitle : 'Stream',
-			this.streamVideo
-		).catch(this.error);
+		try {
+			await this.setCameraVideo(
+				OctoprintDevice.CAMERA_ID,
+				(typeof streamTitle === 'string' && streamTitle !== 'stream.title') ? streamTitle : 'Stream',
+				video
+			);
+		} catch (error) {
+			await video.unregister().catch(cleanupError => this.error('Video cleanup failed:', cleanupError));
+			this.streamVideo = null;
+			throw error;
+		}
 	}
 
 	async ensureCameraSettings() {
@@ -1122,7 +1241,7 @@ class OctoprintDevice extends Homey.Device {
 			}
 
 			await this.setCapabilityValue('target_temperature.bed', temperature).catch(this.error);
-			if (temperature) await this.driver.triggerBedTarget(this, tokens, null);
+			if (temperature !== null) await this.driver.triggerBedTarget(this, tokens, null);
 		}
 
 		// Tool target temperature
@@ -1133,7 +1252,7 @@ class OctoprintDevice extends Homey.Device {
 			}
 
 			await this.setCapabilityValue('target_temperature.tool', temperature).catch(this.error);
-			if (temperature) await this.driver.triggerToolTarget(this, tokens, null);
+			if (temperature !== null) await this.driver.triggerToolTarget(this, tokens, null);
 		}
 
 		// Chamber target temperature
@@ -1147,15 +1266,16 @@ class OctoprintDevice extends Homey.Device {
 			}
 
 			await this.setCapabilityValue('target_temperature.chamber', temperature).catch(this.error);
-			if (temperature) await this.driver.triggerChamberTarget(this, tokens, null);
+			if (temperature !== null) await this.driver.triggerChamberTarget(this, tokens, null);
 		}
 
 		// Bed measure temperature
+		const bedTemperature = (typeof this.printer.temp.bed.actual !== 'number') ? null : (!this.getSetting('measure_temperature_bed_decimal')) ? Math.round(this.printer.temp.bed.actual) : this.printer.temp.bed.actual;
 		if (
 			this.hasCapability('measure_temperature.bed')
-			&& this.printer.temp.bed.actual != this.getCapabilityValue('measure_temperature.bed')
+			&& bedTemperature != this.getCapabilityValue('measure_temperature.bed')
 		) {
-			const temperature = (typeof this.printer.temp.bed.actual !== 'number') ? null : (!this.getSetting('measure_temperature_bed_decimal')) ? Math.round(this.printer.temp.bed.actual) : this.printer.temp.bed.actual;
+			const temperature = bedTemperature;
 			const tokens = {
 				temperature: temperature
 			}
@@ -1164,10 +1284,10 @@ class OctoprintDevice extends Homey.Device {
 			if (this.hasCapability('printer_temp_bed')) await this.setCapabilityValue('printer_temp_bed', temperature).catch(this.error);
 
 			await this.setCapabilityValue('measure_temperature.bed', temperature).catch(this.error);
-			if (temperature) await this.driver.triggerBedMeasure(this, tokens, null);
+			if (temperature !== null) await this.driver.triggerBedMeasure(this, tokens, null);
 
 			if (
-				temperature < (this.getSetting('bed_cooldown_threshold') || 30)
+				temperature !== null && temperature < (this.getSetting('bed_cooldown_threshold') || 30)
 				&& this.printer.bed_cooled_down === false
 			) {
 				this.driver.triggerBedCooledDown(this, null, null);
@@ -1179,8 +1299,9 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		// Tool measure temperature
-		if (this.printer.temp.tool0.actual != this.getCapabilityValue('measure_temperature.tool')) {
-			const temperature = (typeof this.printer.temp.tool0.actual !== 'number') ? null : (!this.getSetting('measure_temperature_tool_decimal')) ? Math.round(this.printer.temp.tool0.actual) : this.printer.temp.tool0.actual;
+		const toolTemperature = (typeof this.printer.temp.tool0.actual !== 'number') ? null : (!this.getSetting('measure_temperature_tool_decimal')) ? Math.round(this.printer.temp.tool0.actual) : this.printer.temp.tool0.actual;
+		if (toolTemperature != this.getCapabilityValue('measure_temperature.tool')) {
+			const temperature = toolTemperature;
 			const tokens = {
 				temperature: temperature
 			}
@@ -1189,10 +1310,10 @@ class OctoprintDevice extends Homey.Device {
 			if (this.hasCapability('printer_temp_tool')) await this.setCapabilityValue('printer_temp_tool', temperature).catch(this.error);
 
 			await this.setCapabilityValue('measure_temperature.tool', temperature).catch(this.error);
-			if (temperature) await this.driver.triggerToolMeasure(this, tokens, null);
+			if (temperature !== null) await this.driver.triggerToolMeasure(this, tokens, null);
 
 			if (
-				temperature < (this.getSetting('tool_cooldown_threshold') || 50)
+				temperature !== null && temperature < (this.getSetting('tool_cooldown_threshold') || 50)
 				&& this.printer.tool_cooled_down === false
 			) {
 				this.driver.triggerToolCooledDown(this, null, null);
@@ -1204,23 +1325,24 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		// Chamber measure temperature
+		const chamberTemperature = (typeof this.printer.temp.chamber.actual !== 'number') ? null : Math.round(this.printer.temp.chamber.actual);
 		if (
 			this.hasCapability('measure_temperature.chamber')
-			&& this.printer.temp.chamber.actual != this.getCapabilityValue('measure_temperature.chamber')
+			&& chamberTemperature != this.getCapabilityValue('measure_temperature.chamber')
 		) {
-			const temperature = (typeof this.printer.temp.chamber.actual !== 'number') ? null : Math.round(this.printer.temp.chamber.actual);
+			const temperature = chamberTemperature;
 			const tokens = {
 				temperature: temperature
 			}
 
 			await this.setCapabilityValue('measure_temperature.chamber', temperature).catch(this.error);
-			if (temperature) await this.driver.triggerChamberMeasure(this, tokens, null);
+			if (temperature !== null) await this.driver.triggerChamberMeasure(this, tokens, null);
 		}
 	}
 
 
 	async setPrinterJobState() {
-		this.printer.job = await this.octoprint.getPrinterJob(this.homey.clock.getTimezone()).catch(this.error);
+		this.printer.job = await this.octoprint.getPrinterJob(this.homey.clock.getTimezone());
 
 		if (Object.keys(this.printer.job).length === 0) {
 			await this.setCapabilityValue('measure_completion', 0).catch(this.error);
@@ -1365,7 +1487,7 @@ class OctoprintDevice extends Homey.Device {
 			|| this.printer.state === 'Pausing'
 			|| this.printer.state === 'Paused'
 		) {
-			this.octoprint.postData('/api/job', {
+			return this.octoprint.postData('/api/job', {
 				command: 'cancel'
 			})
 				.catch(err => {
@@ -1386,7 +1508,7 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		if (this.printer.state !== 'Closed') {
-			this.octoprint.postData('/api/printer/command', {
+			return this.octoprint.postData('/api/printer/command', {
 				command: 'M117 ' + args.message
 			})
 				.catch(err => {
@@ -1406,26 +1528,13 @@ class OctoprintDevice extends Homey.Device {
 			return Promise.reject(this.homey.__('error.server_unreachable'));
 		}
 
-		let command;
-
-		if (args.gcode.includes(' ; ')) args.gcode = args.gcode.split(' ; ');
-		if (args.gcode.includes(' ;')) args.gcode = args.gcode.split(' ;');
-		if (args.gcode.includes('; ')) args.gcode = args.gcode.split('; ');
-		if (args.gcode.includes(';')) args.gcode = args.gcode.split(';');
-
-		if (Array.isArray(args.gcode)) {
-			command = {
-				commands: args.gcode
-			};
-		}
-		else {
-			command = {
-				command: args.gcode
-			};
-		}
+		if (typeof args.gcode !== 'string') throw new Error(this.homey.__('error.invalid_value'));
+		const commands = args.gcode.split(';').map(command => command.trim()).filter(Boolean);
+		if (!commands.length) throw new Error(this.homey.__('error.invalid_value'));
+		const command = commands.length === 1 ? { command: commands[0] } : { commands };
 
 		if (this.printer.state !== 'Closed') {
-			this.octoprint.postData('/api/printer/command', command)
+			return this.octoprint.postData('/api/printer/command', command)
 				.catch(err => {
 					return Promise.reject(err);
 				})
@@ -1444,7 +1553,7 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		if (this.printer.state === 'Operational') {
-			this.octoprint.postData('/api/printer/command', {
+			return this.octoprint.postData('/api/printer/command', {
 				command: 'G28 ' + args.axis
 			})
 				.catch(err => {
@@ -1465,7 +1574,7 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		if (this.printer.state === 'Operational') {
-			this.octoprint.postData('/api/printer/command', {
+			return this.octoprint.postData('/api/printer/command', {
 				command: 'G1 ' + args.axis + Math.round(args.position) + ((typeof args.speed == 'number') ? ' F' + Math.round(args.speed) : '')
 			})
 				.catch(err => {
@@ -1486,7 +1595,7 @@ class OctoprintDevice extends Homey.Device {
 		}
 
 		if (this.printer.state !== 'Closed') {
-			this.octoprint.postData('/api/printer/command', {
+			return this.octoprint.postData('/api/printer/command', {
 				command: 'M112'
 			})
 				.catch(err => {
@@ -1513,7 +1622,7 @@ class OctoprintDevice extends Homey.Device {
 				|| this.printer.state === 'Pausing'
 				|| this.printer.state === 'Paused'
 			) {
-				await this.octoprint.postData('/api/printer/bed', {
+				return this.octoprint.postData('/api/printer/bed', {
 					'command': 'target',
 					'target': args.target_temperature
 				})
@@ -1545,7 +1654,7 @@ class OctoprintDevice extends Homey.Device {
 				|| this.printer.state === 'Pausing'
 				|| this.printer.state === 'Paused'
 			) {
-				await this.octoprint.postData('/api/printer/tool', {
+				return this.octoprint.postData('/api/printer/tool', {
 					'command': 'target',
 					'targets': {
 						'tool0': args.target_temperature,
@@ -1565,6 +1674,17 @@ class OctoprintDevice extends Homey.Device {
 		else {
 			return Promise.reject(this.homey.__('error.invalid_value'));
 		}
+	}
+
+	async targetTemperatureChamberRunListener(args) {
+		if (!Number.isFinite(args.target_temperature) || args.target_temperature < 0 || args.target_temperature > 75) {
+			throw new Error(this.homey.__('error.invalid_value'));
+		}
+		if (!this.hasCapability('target_temperature.chamber')) {
+			throw new Error(this.homey.__('error.invalid_state'));
+		}
+		await this.triggerCapabilityListener('target_temperature.chamber', args.target_temperature);
+		return true;
 	}
 
 	// Listener for Reboot Raspberry Pi action
@@ -1591,7 +1711,7 @@ class OctoprintDevice extends Homey.Device {
 			this.printer.state === 'Operational' ||
 			this.printer.state === 'Closed' ||
 			this.printer.state === 'Connecting' ||
-			this.printer.state === 'Connecting'
+			this.printer.state === 'Offline'
 		) {
 			return this.octoprint.postData('/api/system/commands/core/shutdown', {})
 				.then(() => true)
