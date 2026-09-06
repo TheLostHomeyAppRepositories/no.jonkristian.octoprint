@@ -76,5 +76,8 @@
   },
   "1.2.3": {
     "en": "Added stream support for camera - works on mobile not on WebApp"
+  },
+  "1.2.4": {
+    "en": "Fixed web and mobile camera streaming, API compatibility, snapshot cleanup, polling recovery, printer commands, pairing validation, Flow triggers, time calculations, and widget support."
   }
 }
