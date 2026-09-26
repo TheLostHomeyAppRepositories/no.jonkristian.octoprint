@@ -85,5 +85,8 @@
   },
   "1.2.6": {
     "en": "Additional triggers - print crashed"
+  },
+  "1.2.7": {
+    "en": "Fixing triggers"
   }
 }
