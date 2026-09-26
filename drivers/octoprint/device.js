@@ -831,12 +831,20 @@ class OctoprintDevice extends Homey.Device {
 				) {
 					const completion = this.getSetting('calculated_completion') || 'completion';
 
-					// OctoPrint itself reports a crash/failure via the job "error" field
-					// (/api/job -> error) or an "Error"/"Offline after error" connection state,
-					// rather than any completion-percentage heuristic.
-					const crashReason = this.printer.job.error
-						|| (typeof currentState === 'string' && currentState.includes('Error') ? currentState : null);
-					const isCrash = Boolean(crashReason);
+					// OctoPrint reports a crash/failure via the job "error" field (/api/job -> error),
+					// which mirrors the printer's internal error state. GET /api/printer/error is then
+					// used to enrich that with a structured reason/consequence (see Athom docs).
+					const isCrash = Boolean(this.printer.job.error);
+					let crashReason = this.printer.job.error;
+
+					if (isCrash) {
+						const errorInfo = await this.octoprint.getPrinterErrorInfo().catch(() => null);
+						if (errorInfo?.error) {
+							crashReason = errorInfo.reason
+								? `${errorInfo.error} (${errorInfo.reason}${errorInfo.consequence ? ', ' + errorInfo.consequence : ''})`
+								: errorInfo.error;
+						}
+					}
 
 					// Validate completion value
 					if (typeof this.printer.job[completion] !== 'number' || isNaN(this.printer.job[completion])) {

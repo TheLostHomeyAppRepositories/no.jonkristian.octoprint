@@ -79,5 +79,11 @@
   },
   "1.2.4": {
     "en": "Fixed web and mobile camera streaming, API compatibility, snapshot cleanup, polling recovery, printer commands, pairing validation, Flow triggers, time calculations, and widget support."
+  },
+  "1.2.5": {
+    "en": "Added FlowCard `print_stopped` for type `triggers`"
+  },
+  "1.2.6": {
+    "en": "Additional triggers - print crashed"
   }
 }
