@@ -831,6 +831,13 @@ class OctoprintDevice extends Homey.Device {
 				) {
 					const completion = this.getSetting('calculated_completion') || 'completion';
 
+					// OctoPrint itself reports a crash/failure via the job "error" field
+					// (/api/job -> error) or an "Error"/"Offline after error" connection state,
+					// rather than any completion-percentage heuristic.
+					const crashReason = this.printer.job.error
+						|| (typeof currentState === 'string' && currentState.includes('Error') ? currentState : null);
+					const isCrash = Boolean(crashReason);
+
 					// Validate completion value
 					if (typeof this.printer.job[completion] !== 'number' || isNaN(this.printer.job[completion])) {
 						this.error(`Invalid value for completion: ${this.printer.job[completion]}`);
@@ -838,13 +845,35 @@ class OctoprintDevice extends Homey.Device {
 							'completion': 0,
 							'completion_percent': 0
 						};
+
+						if (isCrash) {
+							this.log(`Print crash detected (invalid completion): ${crashReason}`);
+							await this.driver.triggerPrintCrashed(this, {
+								'crash_reason': String(crashReason),
+								'crash_time_elapsed': '',
+								'crash_time_elapsed_seconds': 0,
+								'crash_filename': String(this.printer.job.file || '')
+							}, null);
+						}
+
 						this.printer.print_stopped = true;
 						await this.driver.triggerPrintStopped(this, tokens, null);
 
 					} else {
+						const currentCompletion = this.printer.job[completion];
 						const tokens = {
-							'completion': this.printer.job[completion],
-							'completion_percent': Math.round(this.printer.job[completion]) / 100
+							'completion': currentCompletion,
+							'completion_percent': Math.round(currentCompletion) / 100
+						}
+
+						if (isCrash) {
+							this.log(`Print crash detected: ${crashReason} (completion ${currentCompletion}%)`);
+							await this.driver.triggerPrintCrashed(this, {
+								'crash_reason': String(crashReason),
+								'crash_time_elapsed': String(this.printer.job.time || ''),
+								'crash_time_elapsed_seconds': parseInt(this.printer.job.time_seconds || 0, 10),
+								'crash_filename': String(this.printer.job.file || '')
+							}, null);
 						}
 
 						this.printer.print_stopped = true;

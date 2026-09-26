@@ -1,6 +1,295 @@
 {
     "triggers": [
         {
+            "id": "print_stopped",
+            "highlight": true,
+            "title": {
+                "en": "Print stopped",
+                "no": "Print stoppet",
+                "nl": "Print gestopt",
+                "de": "Druck gestoppt",
+                "fr": "Impression arrêtée",
+                "it": "Stampa interrotta",
+                "sv": "Utskrift stoppad",
+                "es": "Impresión detenida",
+                "da": "Udskrivning stoppet",
+                "ru": "Печать остановлена",
+                "pl": "Drukowanie zatrzymane",
+                "ko": "프린트 중지됨"
+            },
+            "hint": {
+                "en": "When a print is stopped",
+                "no": "Når en utskrift stoppes",
+                "nl": "Wanneer een print is gestopt",
+                "de": "Wenn ein Druck gestoppt wird",
+                "fr": "Quand une impression est arrêtée",
+                "it": "Quando una stampa viene interrotta",
+                "sv": "När en utskrift stoppas",
+                "es": "Cuando se detiene una impresión",
+                "da": "Når en udskrivning stoppes",
+                "ru": "Когда печать остановлена",
+                "pl": "Gdy drukowanie zostanie zatrzymane",
+                "ko": "프린트가 중지될 때"
+            },
+            "tokens": [
+                {
+                    "name": "print_stopped_estimate",
+                    "type": "string",
+                    "title": {
+                        "en": "Estimate",
+                        "no": "Estimat",
+                        "nl": "Geschat",
+                        "de": "Geschätzt",
+                        "fr": "Estimation",
+                        "it": "Stima",
+                        "sv": "Uppskattning",
+                        "es": "Estimación",
+                        "da": "Estimat",
+                        "ru": "Оценка",
+                        "pl": "Szacowany",
+                        "ko": "예상치"
+                    },
+                    "example": {
+                        "en": "5h 5m 5s"
+                    }
+                },
+                {
+                    "name": "print_stopped_estimate_hms",
+                    "type": "string",
+                    "title": {
+                        "en": "Estimate H:M:S",
+                        "no": "Estimat H:M:S",
+                        "nl": "Geschat H:M:S",
+                        "de": "Geschätzt S:M:S",
+                        "fr": "Estimation H:M:S",
+                        "it": "Stima O:M:S",
+                        "sv": "Uppskattad T:M:S",
+                        "es": "Estimado H:M:S",
+                        "da": "Estimat T:M:S",
+                        "ru": "Оценка Ч:М:С",
+                        "pl": "Szacowany G:M:S",
+                        "ko": "예상 시:분:초"
+                    },
+                    "example": {
+                        "en": "05:05:05"
+                    }
+                },
+                {
+                    "name": "print_stopped_estimate_seconds",
+                    "type": "number",
+                    "title": {
+                        "en": "Estimate seconds",
+                        "nl": "Geschat seconden",
+                        "de": "Geschätzte Sekunden",
+                        "fr": "Secondes estimées",
+                        "it": "Secondi stimati",
+                        "sv": "Uppskattade sekunder",
+                        "es": "Segundos estimados",
+                        "da": "Anslåede sekunder",
+                        "ru": "Предполагаемые секунды",
+                        "pl": "Szacowane sekundy",
+                        "ko": "예상 초"
+                    },
+                    "example": 18305
+                },
+                {
+                    "name": "print_stopped_time",
+                    "type": "string",
+                    "title": {
+                        "en": "Print time",
+                        "no": "Print tid",
+                        "nl": "Print tijd",
+                        "de": "Druckzeit",
+                        "fr": "Temps d'impression",
+                        "it": "Tempo di stampa",
+                        "sv": "Utskriftstid",
+                        "es": "Tiempo de impresión",
+                        "da": "Udskrivningstid",
+                        "ru": "Время печати",
+                        "pl": "Czas druku",
+                        "ko": "프린트 시간"
+                    },
+                    "example": {
+                        "en": "5h 5m 5s"
+                    }
+                },
+                {
+                    "name": "print_stopped_time_hms",
+                    "type": "string",
+                    "title": {
+                        "en": "Print time H:M:S",
+                        "no": "Print tid H:M:S",
+                        "nl": "Print tijd H:M:S",
+                        "de": "Druckzeit S:M:S",
+                        "fr": "Temps d'impression H:M:S",
+                        "it": "Tempo di stampa O:M:S",
+                        "sv": "Utskriftstid T:M:S",
+                        "es": "Tiempo de impresión H:M:S",
+                        "da": "Udskrivningstid T:M:S",
+                        "ru": "Время печати Ч:М:С",
+                        "pl": "Czas druku G:M:S",
+                        "ko": "프린트 시간 시:분:초"
+                    },
+                    "example": {
+                        "en": "5h 5m 5s"
+                    }
+                },
+                {
+                    "name": "print_stopped_time_seconds",
+                    "type": "number",
+                    "title": {
+                        "en": "Print time seconds",
+                        "nl": "Print tijd seconden",
+                        "de": "Druckzeit Sekunden",
+                        "fr": "Secondes du temps d'impression",
+                        "it": "Secondi del tempo di stampa",
+                        "sv": "Utskriftstid sekunder",
+                        "es": "Segundos de tiempo de impresión",
+                        "da": "Udskrivningstid sekunder",
+                        "ru": "Секунды времени печати",
+                        "pl": "Sekundy czasu druku",
+                        "ko": "프린트 시간 초"
+                    },
+                    "example": 18305
+                },
+                {
+                    "name": "print_stopped_completion",
+                    "type": "number",
+                    "title": {
+                        "en": "Completion",
+                        "no": "Fullføring",
+                        "nl": "Voltooiing",
+                        "de": "Fertigstellung",
+                        "fr": "Achèvement",
+                        "it": "Completamento",
+                        "sv": "Slutförande",
+                        "es": "Finalización",
+                        "da": "Afslutning",
+                        "ru": "Завершение",
+                        "pl": "Ukończenie",
+                        "ko": "완료"
+                    },
+                    "example": 50
+                }
+            ]
+        },
+        {
+            "id": "print_crashed",
+            "highlight": true,
+            "title": {
+                "en": "Print crashed",
+                "no": "Utskrift krasjet",
+                "nl": "Print gecrasht",
+                "de": "Druck abgestürzt",
+                "fr": "Impression échouée",
+                "it": "Stampa interrotta",
+                "sv": "Utskrift kraschade",
+                "es": "Impresión fallida",
+                "da": "Udskrivning gik ned",
+                "ru": "Печать сбилась",
+                "pl": "Drukowanie uległo awarii",
+                "ko": "프린트 충돌"
+            },
+            "hint": {
+                "en": "When OctoPrint reports the print failed with an error (e.g. a crash, thermal runaway or firmware error), rather than a normal stop or user cancel",
+                "no": "Når OctoPrint rapporterer at utskriften feilet med en feil (f.eks. krasj eller fastvarefeil), fremfor et normalt stopp eller brukeravbrudd",
+                "nl": "Wanneer OctoPrint meldt dat de print is mislukt met een fout (bijv. een crash of firmwarefout), in plaats van een normale stop of gebruikersannulering",
+                "de": "Wenn OctoPrint meldet, dass der Druck mit einem Fehler fehlgeschlagen ist (z. B. Absturz oder Firmwarefehler), statt eines normalen Stopps oder Benutzerabbruchs",
+                "fr": "Quand OctoPrint signale que l'impression a échoué avec une erreur (crash, erreur firmware, etc.), plutôt qu'un arrêt normal ou une annulation utilisateur",
+                "it": "Quando OctoPrint segnala che la stampa è fallita con un errore (es. arresto anomalo o errore del firmware), anziché un normale arresto o annullamento utente",
+                "sv": "När OctoPrint rapporterar att utskriften misslyckades med ett fel (t.ex. krasch eller firmwarefel), snarare än ett normalt stopp eller användarannullering",
+                "es": "Cuando OctoPrint informa que la impresión falló con un error (por ejemplo, un fallo o error de firmware), en lugar de una parada normal o cancelación del usuario",
+                "da": "Når OctoPrint rapporterer, at udskrivningen mislykkedes med en fejl (f.eks. nedbrud eller firmwarefejl), i stedet for et normalt stop eller brugerafbrydelse",
+                "ru": "Когда OctoPrint сообщает, что печать завершилась с ошибкой (например, сбой или ошибка прошивки), а не обычной остановкой или отменой пользователем",
+                "pl": "Gdy OctoPrint zgłasza, że drukowanie zakończyło się błędem (np. awaria lub błąd oprogramowania układowego), a nie normalnym zatrzymaniem lub anulowaniem przez użytkownika",
+                "ko": "OctoPrint가 정상 중지나 사용자 취소가 아닌 오류(예: 충돌 또는 펌웨어 오류)로 인쇄 실패를 보고할 때"
+            },
+            "tokens": [
+                {
+                    "name": "crash_reason",
+                    "type": "string",
+                    "title": {
+                        "en": "Crash reason",
+                        "no": "Krasjårsak",
+                        "nl": "Crashreden",
+                        "de": "Absturzursache",
+                        "fr": "Cause de l'échec",
+                        "it": "Motivo dell'interruzione",
+                        "sv": "Kraschorsak",
+                        "es": "Motivo del fallo",
+                        "da": "Nedbrudsårsag",
+                        "ru": "Причина сбоя",
+                        "pl": "Przyczyna awarii",
+                        "ko": "충돌 원인"
+                    },
+                    "example": {
+                        "en": "Printer reported error: MINTEMP triggered"
+                    }
+                },
+                {
+                    "name": "crash_time_elapsed",
+                    "type": "string",
+                    "title": {
+                        "en": "Time elapsed",
+                        "no": "Tid som har gått",
+                        "nl": "Verstreken tijd",
+                        "de": "Verstrichene Zeit",
+                        "fr": "Temps écoulé",
+                        "it": "Tempo trascorso",
+                        "sv": "Förfluten tid",
+                        "es": "Tiempo transcurrido",
+                        "da": "Forløbet tid",
+                        "ru": "Прошедшее время",
+                        "pl": "Czas, który upłynął",
+                        "ko": "경과 시간"
+                    },
+                    "example": {
+                        "en": "2h 30m 15s"
+                    }
+                },
+                {
+                    "name": "crash_time_elapsed_seconds",
+                    "type": "number",
+                    "title": {
+                        "en": "Time elapsed (seconds)",
+                        "no": "Tid som har gått (sekunder)",
+                        "nl": "Verstreken tijd (seconden)",
+                        "de": "Verstrichene Zeit (Sekunden)",
+                        "fr": "Temps écoulé (secondes)",
+                        "it": "Tempo trascorso (secondi)",
+                        "sv": "Förfluten tid (sekunder)",
+                        "es": "Tiempo transcurrido (segundos)",
+                        "da": "Forløbet tid (sekunder)",
+                        "ru": "Прошедшее время (секунды)",
+                        "pl": "Czas, który upłynął (sekundy)",
+                        "ko": "경과 시간 (초)"
+                    },
+                    "example": 9015
+                },
+                {
+                    "name": "crash_filename",
+                    "type": "string",
+                    "title": {
+                        "en": "File name",
+                        "no": "Filnavn",
+                        "nl": "Bestandsnaam",
+                        "de": "Dateiname",
+                        "fr": "Nom du fichier",
+                        "it": "Nome del file",
+                        "sv": "Filnamn",
+                        "es": "Nombre del archivo",
+                        "da": "Filnavn",
+                        "ru": "Имя файла",
+                        "pl": "Nazwa pliku",
+                        "ko": "파일 이름"
+                    },
+                    "example": {
+                        "en": "model.gcode"
+                    }
+                }
+            ]
+        },
+        {
             "id": "print_started",
             "highlight": true,
             "title": {

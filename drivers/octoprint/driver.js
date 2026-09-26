@@ -16,6 +16,7 @@ class OctoprintDriver extends Homey.Driver {
         this._printResumedTrigger = this.homey.flow.getDeviceTriggerCard('print_resumed');
         this._printFinishedTrigger = this.homey.flow.getDeviceTriggerCard('print_finished');
         this._printStoppedTrigger = this.homey.flow.getDeviceTriggerCard('print_stopped');
+        this._printCrashedTrigger = this.homey.flow.getDeviceTriggerCard('print_crashed');
         this._targetTemperatureBedTrigger = this.homey.flow.getDeviceTriggerCard('target_temperature_changed_bed');
         this._targetTemperatureToolTrigger = this.homey.flow.getDeviceTriggerCard('target_temperature_changed_tool');
         this._targetTemperatureChamberTrigger = this.homey.flow.getDeviceTriggerCard('target_temperature_changed_chamber');
@@ -146,6 +147,10 @@ class OctoprintDriver extends Homey.Driver {
 
     triggerPrintStopped(device, tokens, state) {
         return this.triggerEvent('printStopped', device, tokens, state);
+    }
+
+    triggerPrintCrashed(device, tokens, state) {
+        return this.triggerEvent('printCrashed', device, tokens, state);
     }
 
     triggerBedTarget(device, tokens, state) {

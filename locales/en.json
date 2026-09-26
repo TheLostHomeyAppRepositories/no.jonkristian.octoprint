@@ -56,6 +56,11 @@
 	  "time_left": "Time Left",
 	  "no_device": "No OctoPrint device found.",
 	  "error_loading": "Error loading widget data."
+	},
+	"crash_detection": {
+	  "title": "Crash Detection",
+	  "crash_detected": "Print crash detected",
+	  "crash_message": "Print crashed after {{time}} elapsed: {{reason}}"
 	}
   }
   
