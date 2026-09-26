@@ -159,6 +159,129 @@
   "flow": {
     "triggers": [
       {
+        "id": "print_crashed",
+        "highlight": true,
+        "title": {
+          "en": "Print crashed",
+          "no": "Utskrift krasjet",
+          "nl": "Print gecrasht",
+          "de": "Druck abgestürzt",
+          "fr": "Impression échouée",
+          "it": "Stampa interrotta",
+          "sv": "Utskrift kraschade",
+          "es": "Impresión fallida",
+          "da": "Udskrivning gik ned",
+          "ru": "Печать сбилась",
+          "pl": "Drukowanie uległo awarii",
+          "ko": "프린트 충돌"
+        },
+        "hint": {
+          "en": "When OctoPrint reports the print failed with an error (e.g. a crash, thermal runaway or firmware error), rather than a normal stop or user cancel",
+          "no": "Når OctoPrint rapporterer at utskriften feilet med en feil (f.eks. krasj eller fastvarefeil), fremfor et normalt stopp eller brukeravbrudd",
+          "nl": "Wanneer OctoPrint meldt dat de print is mislukt met een fout (bijv. een crash of firmwarefout), in plaats van een normale stop of gebruikersannulering",
+          "de": "Wenn OctoPrint meldet, dass der Druck mit einem Fehler fehlgeschlagen ist (z. B. Absturz oder Firmwarefehler), statt eines normalen Stopps oder Benutzerabbruchs",
+          "fr": "Quand OctoPrint signale que l'impression a échoué avec une erreur (crash, erreur firmware, etc.), plutôt qu'un arrêt normal ou une annulation utilisateur",
+          "it": "Quando OctoPrint segnala che la stampa è fallita con un errore (es. arresto anomalo o errore del firmware), anziché un normale arresto o annullamento utente",
+          "sv": "När OctoPrint rapporterar att utskriften misslyckades med ett fel (t.ex. krasch eller firmwarefel), snarare än ett normalt stopp eller användarannullering",
+          "es": "Cuando OctoPrint informa que la impresión falló con un error (por ejemplo, un fallo o error de firmware), en lugar de una parada normal o cancelación del usuario",
+          "da": "Når OctoPrint rapporterer, at udskrivningen mislykkedes med en fejl (f.eks. nedbrud eller firmwarefejl), i stedet for et normalt stop eller brugerafbrydelse",
+          "ru": "Когда OctoPrint сообщает, что печать завершилась с ошибкой (например, сбой или ошибка прошивки), а не обычной остановкой или отменой пользователем",
+          "pl": "Gdy OctoPrint zgłasza, że drukowanie zakończyło się błędem (np. awaria lub błąd oprogramowania układowego), a nie normalnym zatrzymaniem lub anulowaniem przez użytkownika",
+          "ko": "OctoPrint가 정상 중지나 사용자 취소가 아닌 오류(예: 충돌 또는 펌웨어 오류)로 인쇄 실패를 보고할 때"
+        },
+        "tokens": [
+          {
+            "name": "crash_reason",
+            "type": "string",
+            "title": {
+              "en": "Crash reason",
+              "no": "Krasjårsak",
+              "nl": "Crashreden",
+              "de": "Absturzursache",
+              "fr": "Cause de l'échec",
+              "it": "Motivo dell'interruzione",
+              "sv": "Kraschorsak",
+              "es": "Motivo del fallo",
+              "da": "Nedbrudsårsag",
+              "ru": "Причина сбоя",
+              "pl": "Przyczyna awarii",
+              "ko": "충돌 원인"
+            },
+            "example": {
+              "en": "Printer reported error: MINTEMP triggered"
+            }
+          },
+          {
+            "name": "crash_time_elapsed",
+            "type": "string",
+            "title": {
+              "en": "Time elapsed",
+              "no": "Tid som har gått",
+              "nl": "Verstreken tijd",
+              "de": "Verstrichene Zeit",
+              "fr": "Temps écoulé",
+              "it": "Tempo trascorso",
+              "sv": "Förfluten tid",
+              "es": "Tiempo transcurrido",
+              "da": "Forløbet tid",
+              "ru": "Прошедшее время",
+              "pl": "Czas, który upłynął",
+              "ko": "경과 시간"
+            },
+            "example": {
+              "en": "2h 30m 15s"
+            }
+          },
+          {
+            "name": "crash_time_elapsed_seconds",
+            "type": "number",
+            "title": {
+              "en": "Time elapsed (seconds)",
+              "no": "Tid som har gått (sekunder)",
+              "nl": "Verstreken tijd (seconden)",
+              "de": "Verstrichene Zeit (Sekunden)",
+              "fr": "Temps écoulé (secondes)",
+              "it": "Tempo trascorso (secondi)",
+              "sv": "Förfluten tid (sekunder)",
+              "es": "Tiempo transcurrido (segundos)",
+              "da": "Forløbet tid (sekunder)",
+              "ru": "Прошедшее время (секунды)",
+              "pl": "Czas, który upłynął (sekundy)",
+              "ko": "경과 시간 (초)"
+            },
+            "example": 9015
+          },
+          {
+            "name": "crash_filename",
+            "type": "string",
+            "title": {
+              "en": "File name",
+              "no": "Filnavn",
+              "nl": "Bestandsnaam",
+              "de": "Dateiname",
+              "fr": "Nom du fichier",
+              "it": "Nome del file",
+              "sv": "Filnamn",
+              "es": "Nombre del archivo",
+              "da": "Filnavn",
+              "ru": "Имя файла",
+              "pl": "Nazwa pliku",
+              "ko": "파일 이름"
+            },
+            "example": {
+              "en": "model.gcode"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=octoprint"
+          }
+        ]
+      },
+      {
         "id": "print_started",
         "highlight": true,
         "title": {
